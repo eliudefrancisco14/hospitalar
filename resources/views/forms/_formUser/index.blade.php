@@ -86,7 +86,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
                                 <label class="form-check-label" for="terms-conditions">
-                                    I agree to
+                                    Eu concordo
                                     <a href="javascript:void(0);">Politicas & Termos de privacidades</a>
                                 </label>
                             </div>
@@ -96,7 +96,7 @@
 
                     <p class="text-center">
                         <span>Já Tens uma conta?</span>
-                        <a href="auth-login-basic.html">
+                        <a href="{{ url('dashboard/html/auth-login-basic.html') }}">
                             <span>Entrar</span>
                         </a>
                     </p>

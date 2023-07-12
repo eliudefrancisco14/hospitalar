@@ -1,6 +1,7 @@
 @include('layouts._includes.dashboard.Header')
+@include('layouts._includes.dashboard.Aside')
 @include('layouts._includes.dashboard.Menu')
-@include('layouts._includes.dashboard.Navbar')
+
 <main role="main" class="main-content">
     <div class="container-fluid">
         <div class="row justify-content-center">
