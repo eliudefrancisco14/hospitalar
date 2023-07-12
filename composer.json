@@ -35,8 +35,7 @@
             "Database\\Seeders\\": "database/seeders/"
         }, "files": [
             "app/Classes/Logger.php",
-            "app/Classes/Random.php",
-            "app/Apis/Press.php"
+            "app/Classes/Random.php"
         ]
     },
     "autoload-dev": {
