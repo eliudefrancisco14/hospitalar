@@ -4,5 +4,4 @@
 @yield('content')
 
 
-
 @include('layouts._includes.site.Footer')
