@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', 'Portal da 43ª Cimeira de Chefes de Estado e de Governo da SADC')
+@section('titulo', '')
 @section('content')
 
 

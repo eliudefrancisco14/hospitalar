@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
-use App\Http\Controllers\Controller;
-use App\Models\Log;
-use App\Models\User;
+use App\Models\{Log, User};
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\{Auth, Hash};
 
 class UserController extends Controller
 {
@@ -32,6 +29,15 @@ class UserController extends Controller
         return view('admin.user.list.index', $response);
     }
 
+    public function create()
+    {
+        //$response['roles'] = Role::get();
+        return view('admin.user.create.index');
+    }
+    
+    public function store(Request $request)
+    {
+    }
 
     /**
      * Display the specified resource.

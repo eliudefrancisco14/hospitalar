@@ -29,8 +29,9 @@ class DashboardController extends Controller
     {
         
 
+        //dd("Estou por Dentro");
         //Logger
-        $this->Logger->log('info', 'Entrou no Painel Administrativo');
+        //$this->Logger->log('info', 'Entrou no Painel Administrativo');
 
         return view('admin.home.index');
     }
