@@ -1,8 +1,23 @@
-@include('layouts._includes.site.Header')
-@include('layouts._includes.site.Menu')
+<!DOCTYPE html>
+<html lang="pt">
 
-@yield('content')
+<head>
+    @include('layouts._includes.site.Header')
+</head>
 
+<body>
+    <!-- ======= Header ======= -->
+    @include('layouts._includes.site.Menu')
+    <!-- End Header -->
 
+    <!-- main -->
 
-@include('layouts._includes.site.Footer')
+    @yield('content')
+
+    <!-- End #main -->
+
+    @include('layouts._includes.site.Footer')
+
+</body>
+
+</html>
