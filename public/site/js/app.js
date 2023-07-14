@@ -16,7 +16,7 @@ particlesJS('hero',
   {
     "particles": {
       "number": {
-        "value": 30,
+        "value": 100,
         "density": {
           "enable": true,
           "value_area": 800
@@ -26,10 +26,10 @@ particlesJS('hero',
         "value": "#ffffff"
       },
       "shape": {
-        "type": "image",
+        "type": "stroke",
         "stroke": {
           "width": 0,
-          "color": "#000000"
+          "color": "#fff"
         },
         "polygon": {
           "nb_sides": 5
@@ -69,7 +69,7 @@ particlesJS('hero',
       },
       "move": {
         "enable": true,
-        "speed": 6,
+        "speed": 4,
         "direction": "none",
         "random": false,
         "straight": false,
@@ -86,7 +86,7 @@ particlesJS('hero',
       "events": {
         "onhover": {
           "enable": true,
-          "mode": "grab"
+          "mode": "repulse"
         },
         "onclick": {
           "enable": false,
@@ -109,7 +109,7 @@ particlesJS('hero',
           "speed": 3
         },
         "repulse": {
-          "distance": 200
+          "distance": 100
         },
         "push": {
           "particles_nb": 4

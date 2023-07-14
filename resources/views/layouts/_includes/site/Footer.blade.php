@@ -1,51 +1,52 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" style="background-image: url('{{ asset('site/img/circulo.png') }}'); background-position: center; 
+background-size: cover;
+background-repeat: no-repeat; ">
 
     <div class="container">
         <div class="row gy-4">
             <div class="col-lg-5 col-md-12 footer-info">
-                <a href="index.html" class="logo d-flex align-items-center">
-                    <span>Impact</span>
+                <a href="/" class="logo d-flex align-items-center">
+                    <img src="/site/img/mono-logo.svg" alt="logo" class="" height="45">
                 </a>
-                <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies
-                    darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                <p>O Instituto Nacional de Fomento da Sociedade de Informação- INFOSI, é um Instituto público de
+                    prestação de serviço com carácter científico e desenvolvimento tecnológico, tutelado pelo Ministério
+                    das Telecomunicações, Tecnologia da Informação e Comunicação Social.</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.facebook.com/infosi.nacional" class="facebook"><i
+                            class="bi bi-facebook"></i></a>
+                    <a href="https://www.linkedin.com/company/infosinacional/" class="linkedin"><i
+                            class="bi bi-linkedin"></i></a>
                 </div>
             </div>
 
-            <div class="col-lg-2 col-6 footer-links">
-                <h4>Useful Links</h4>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Terms of service</a></li>
-                    <li><a href="#">Privacy policy</a></li>
-                </ul>
-            </div>
+            <div class="col-lg-4 col-6 footer-links">
+                <h4>Links Úteis</h4>
 
-            <div class="col-lg-2 col-6 footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="#">Web Design</a></li>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Product Management</a></li>
-                    <li><a href="#">Marketing</a></li>
-                    <li><a href="#">Graphic Design</a></li>
-                </ul>
-            </div>
+                <h3 class="text-white  mb-3">Links Úteis</h3>
 
+                <a href="https://governo.gov.ao/" target="_blank" class="text-white-50">Portal do Governo de
+                    Angola</a><br>
+                <a href="https://minttics.gov.ao/ao/" target="_blank" class="text-white-50">Ministério das
+                    Telecomunicações, Tecnologia de Informação e Comunicação Social</a><br>
+                <a href="https://digital.ao/ao/" target="_blank" class="text-white-50">Digital.AO</a><br>
+                <a href="https://igae.gov.ao/" target="_blank" class="text-white-50">Inspeção Geral da
+                    Administração do
+                    Estado</a><br>
+                <a href="https://www.ciam.gov.ao/" target="_blank" class="text-white-50">Centro de Imprensa
+                    Aníbal de Melo</a>
+
+
+            </div>
+            
             <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-                <h4>Contact Us</h4>
+                <h4>Contacte-nos</h4>
+
                 <p>
-                    A108 Adam Street <br>
-                    New York, NY 535022<br>
+                    Rua 17 de Setembro, <br>
+                    59 - Cidade Alta<br>
                     United States <br><br>
-                    <strong>Phone:</strong> +1 5589 55488 55<br>
-                    <strong>Email:</strong> info@example.com<br>
+                    <strong>Phone:</strong> (+244) 222 692 979<br>
+                    <strong>Email:</strong> geral@infosi.gov.ao<br>
                 </p>
 
             </div>
@@ -55,10 +56,7 @@
 
     <div class="container mt-4">
         <div class="copyright">
-            &copy; Copyright <strong><span>Impact</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados
         </div>
     </div>
 
@@ -68,11 +66,11 @@
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
-        <div class="preloader-wrapper">
-          <div class="preloader-wrapper">
-            <div class="spinner-grow circle-infosi"></div>
-          </div>
-        </div>
+<div class="preloader-wrapper">
+    <div class="preloader-wrapper">
+        <div class="spinner-grow circle-infosi"></div>
+    </div>
+</div>
 
 <!-- Vendor JS Files -->
 <script src="/site/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -90,3 +88,5 @@
 <!-- Other JS File -->
 <script src="/site/js/particles.js"></script>
 <script src="/site/js/app.js"></script>
+
+@yield('JS')

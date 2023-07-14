@@ -1510,6 +1510,7 @@ window.particlesJS = function(tag_id, params){
   canvas_el.style.height = "100vh";
   canvas_el.style.position = "absolute";
   canvas_el.style.top = "0";
+  canvas_el.style.pointerEvents = "none";
 
   /* append canvas */
   var canvas = document.getElementById(tag_id).appendChild(canvas_el);

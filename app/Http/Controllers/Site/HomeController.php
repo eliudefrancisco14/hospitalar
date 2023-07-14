@@ -19,4 +19,10 @@ class HomeController extends Controller
         
         return view('site.home.index');
     }
+
+    public function contact()
+    {
+        return view('site.contact.index');
+    }
+    
 }
