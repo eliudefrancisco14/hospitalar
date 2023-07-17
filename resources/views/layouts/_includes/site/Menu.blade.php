@@ -28,21 +28,20 @@
                 <li class="dropdown"><a href="#"><span>Quem somos</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Sobre o INFOSI</a></li>
-                        <li><a href="#">Organograma</a></li>
-                        <li><a href="#">Portfólio</a></li>
+                        <li><a href="{{ route('site.about') }}">Sobre o INFOSI</a></li>
+                        <li><a href="{{ route('site.organization') }}">Organograma</a></li>
+                        <li><a href="{{ route('site.portfolio') }}">Portfólio</a></li>
                     </ul>
                 </li>
-                <li><a href="#services">Junta-se a Nós</a></li>
                 <li class="dropdown"><a href="#"><span>Galeria</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#team">Imagens</a></li>
-                        <li><a href="#pricing">Videos</a></li>
-                        <li><a href="#faq">Áudios</a></li>
+                        <li><a href="{{ route('site.image') }}">Imagens</a></li>
+                        <li><a href="{{ route('site.video') }}">Videos</a></li>
+                        <li><a href="{{ route('site.audio') }}">Áudios</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('site.contact') }}">Contactos</a></li>
+                <li><a href="{{ route('site.join') }}">Junta-se a Nós</a></li>
             </ul>
         </nav><!-- .navbar -->
 
