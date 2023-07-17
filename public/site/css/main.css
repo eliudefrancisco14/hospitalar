@@ -1550,12 +1550,12 @@ section {
   text-decoration: line-through;
 }
 
-.pricing .buy-btn {
+.buy-btn {
   display: inline-block;
   padding: 10px 40px;
   border-radius: 50px;
   color: var(--color-primary);
-  border: 1px solid rgba(0, 131, 116, 0.2);
+  border: 1px solid rgba(0, 52, 131, 0.2);
   transition: none;
   font-size: 16px;
   font-weight: 600;
@@ -1563,8 +1563,9 @@ section {
   transition: 0.3s;
 }
 
-.pricing .buy-btn:hover {
+.buy-btn:hover {
   background: var(--color-primary);
+  box-shadow: 0 3px 20px -2px rgba(0, 52, 131, 0.5);
   color: #fff;
 }
 
@@ -2692,4 +2693,11 @@ section .particles {
   width: 100%;
   height: 100vh;
   background: #111;
+}
+
+.my:hover {
+  transform: scale(1.1);
+}
+.my {
+  transition: transform 0.5s;
 }

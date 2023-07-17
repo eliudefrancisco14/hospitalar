@@ -19,19 +19,6 @@
             </div>
         </div>
 
-        {{--  <div class="page-header d-flex align-items-center" id="hero"
-            style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
-            <div class="container position-relative">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h2 class="py-5">Contactos</h2>
-                        <p class="py-3">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>  --}}
-
 
         <div class="breadcrumbs">
             <nav>
@@ -46,29 +33,7 @@
 
     </section>
     <!-- End Hero Section -->
-    {{--  
-    <div class="breadcrumbs">
-        <div class="page-header d-flex align-items-center" id="hero"
-            style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
-            <div class="container position-relative">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <h2 class="py-5">Contactos</h2>
-                        <p class="py-3">
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <nav>
-            <div class="container">
-                <ol>
-                    <li><a href="{{ route('site.home') }}">Home</a></li>
-                    <li>Contacte-nos</li>
-                </ol>
-            </div>
-        </nav>
-    </div><!-- End Breadcrumbs -->  --}}
+    
 
     <main id="main">
 
