@@ -4,21 +4,43 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
-        style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
+        style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-        <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
-                <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start">
-                    <h2>Seja Bem-Vindo ao <span>Infosi</span></h2>
-                    <p>Instituto Público de Prestação de Serviço com Carácter
-                        Científico e Desenvolvimento Tecnológico</p>
-                    <div class="d-flex justify-content-center justify-content-lg-start">
-                        {{--  <a href="#about" class="btn-get-started">Inciar</a>  --}}
+        <div id="carouselExample" class="carousel slide">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="{{ url('site/img/banner-infosi-copia.jpg') }}" class="d-block w-100" alt="..."
+                        height="850px">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Seja Bem-Vindo ao <span>INFOSI</span></h2>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="{{ url('site/img/banner-front.jpg') }}" class="d-block w-100" alt="..."height="850px">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Seja Bem-Vindo ao <span>INFOSI</span></h2>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ url('site/img/banner-infosi.jpg') }}" class="d-block w-100" alt="..."height="850px">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Seja Bem-Vindo ao <span>INFOSI</span></h2>
+                        <p>Some representative placeholder content for the first slide.</p>
                     </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
         <div class="icon-boxes position-relative">
             <div class="container position-relative">
                 <div class="row gy-4 mt-5">
@@ -59,7 +81,7 @@
             </div>
         </div>
 
-        </div>
+
     </section>
     <!-- End Hero Section -->
 
@@ -301,7 +323,8 @@
                             <div class="accordion-item">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $loop->index + 1 }}">
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-{{ $loop->index + 1 }}">
                                         <span class="num">{{ $loop->index + 1 }}.</span>
                                         {{ $item->title }}
                                     </button>

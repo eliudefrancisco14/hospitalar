@@ -1888,7 +1888,7 @@ section {
 .hero {
   width: 100%;
   position: relative;
-  padding: 275px 0 0 0; 
+  padding: 0; 
 }
 
 section .particles {
