@@ -64,6 +64,7 @@
                 <div data-i18n="Analytics">Painel Principal</div>
             </a>
         </li>
+
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Segurança</span>
         </li>

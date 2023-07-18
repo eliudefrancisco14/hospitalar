@@ -85,8 +85,8 @@ background-repeat: no-repeat; ">
 <script src="/site/js/main.js"></script>
 
 
-<!-- Other JS File -->
+{{--  <!-- Other JS File -->
 <script src="/site/js/particles.js"></script>
-<script src="/site/js/app.js"></script>
+<script src="/site/js/app.js"></script>  --}}
 
 @yield('JS')
