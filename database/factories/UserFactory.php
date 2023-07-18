@@ -23,10 +23,10 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => "admin", //$this->faker->name(),
-            'email' => "infosigov@admin.com", //$this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
+            'name' => "admin",
+            'email' => "infosigov@admin.com",
             'level' => 'Administrador',
+            'email_verified_at' => now(),
             'password' => bcrypt("t;jfN=2z7DIh"), //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
