@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Editar titulo de galeria')
+@section('title', 'Editar galeria de vídeo')
 
 @section('content')
 
@@ -11,8 +11,8 @@
                 @include('layouts._includes.dashboard.Navbar')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Editar titulo/</span>
-                        {{ $img->name }}</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Editar informações /</span>
+                        {{ $video->title }}</h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -26,11 +26,10 @@
                     <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
                     <div class="row align-items-center">
                         <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                            action="{{ route('admin.gallery.updateImage', $img->id) }}" enctype="multipart/form-data" class="row">
-
-                            {{ csrf_field() }}
-
-                            @include('forms._formGallery.indexImage')
+                            action="{{ route('admin.video.update', $video->id) }}">
+                            @csrf
+                            @method('PUT')
+                            @include('forms._formVideo.index')
                             <div class="container">
                                 <div class="row">
                                     <div class="mt-2">

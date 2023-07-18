@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', ' Detalhes da capa de imagem')
+@section('title', ' Detalhes da imagem')
 
 @section('content')
 
@@ -20,19 +20,19 @@
                         </li>
                     </ul>
                     <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Informação:
-                        {{ $img->name }}</h2>
+                        {{ $data->name }}</h2>
                     <hr>
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-12">
                                 <div class="d-flex align-items-start align-items-sm-center gap-4">
 
-                                    <img src="{{ asset('storage') }}/main_galleryPage/{{ $img['image'] }}" alt="user-avatar" class="d-block rounded"
+                                    <img src="{{ asset('storage') }}/main_galleryPage/{{ $data['image'] }}" alt="user-avatar" class="d-block rounded"
                                         height="250" width="250" id="uploadedAvatar" />
                                 </div>
                             </div>
                             </div>
-                            <p>{{ $img->description }}</p>
+                            <p>{{ $data->description }}</p>
                         </div>
                     </div>                
                 </div>
