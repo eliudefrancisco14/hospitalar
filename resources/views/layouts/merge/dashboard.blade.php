@@ -1,15 +1,17 @@
-@include('layouts._includes.dashboard.Header')
-@include('layouts._includes.dashboard.Aside')
-@include('layouts._includes.dashboard.Menu')
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+    data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
-<main role="main" class="main-content">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                @yield('content')
-            </div>
-        </div>
-    </div>
-</main>
+<head>
+    <title>@yield('title', 'Portal do INFOSI')</title>
+    @include('layouts._includes.dashboard.Header')
+</head>
 
-@include('layouts._includes.dashboard.Footer')
+<body>
+    @include('layouts._includes.dashboard.Aside')
+    
+    @yield('content')
+    @include('layouts._includes.dashboard.Footer')
+</body>
+
+</html>
