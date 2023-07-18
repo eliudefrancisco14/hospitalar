@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
-    data-assets-path="../assets/" data-template="vertical-menu-template-free">
-
-<head>
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-
-    <title>Portal do INFOSI</title>
 
     <meta name="description" content="" />
 
@@ -35,11 +27,10 @@
 
     <link rel="stylesheet" href="{{ asset('dashboard/css/apex-charts.css') }}" />
 
+    <!-- Toastr And SweetAlert -->
+    <link rel="stylesheet" href="{{ asset('dashboard/assets/toastr/css/Toastify.min.css') }}">
+
     <script src="{{ asset('dashboard/js/helpers.js') }}"></script>
     <script src="{{ asset('dashboard/js/config.js') }}"></script>
-</head>
 
-<body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-        <div class="layout-container">
+    <title></title>
