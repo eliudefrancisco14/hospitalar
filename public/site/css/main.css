@@ -744,6 +744,7 @@ section {
 --------------------------------------------------------------*/
 .clients {
   padding: 40px 0;
+  background-color: #eeeeee;
 }
 
 .clients .swiper {
@@ -766,7 +767,7 @@ section {
 .clients .swiper-pagination .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
-  background-color: #fff;
+  background-color: #eeeeee;
   opacity: 1;
   background-color: #ddd;
 }
@@ -1714,6 +1715,9 @@ section {
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
+.contact {
+  background: #eeeeee;
+}
 .contact .info-container {
   background-color: var(--color-primary);
   height: 100%;
@@ -1884,7 +1888,7 @@ section {
 .hero {
   width: 100%;
   position: relative;
-  padding: 275px 0 0 0; 
+  padding: 0; 
 }
 
 section .particles {

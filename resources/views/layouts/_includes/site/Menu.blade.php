@@ -25,23 +25,24 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a href="{{ route('site.home') }}">Home</a></li>
-                <li class="dropdown"><a href="#"><span>Quem somos</span> <i
+                <li class="dropdown"><a href="#"><span>INFOSI</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="{{ route('site.about') }}">Sobre o INFOSI</a></li>
-                        <li><a href="{{ route('site.organization') }}">Organograma</a></li>
-                        <li><a href="{{ route('site.portfolio') }}">Portfólio</a></li>
+                        <li><a href="{{ route('site.about') }}">Definição</a></li>
+                        <li><a href="{{ route('site.organization') }}">Estrutura Orgânica</a></li>
+                        <li><a href="{{ route('site.portfolio') }}">Regulamentos</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="#"><span>Galeria</span> <i
+                <li><a href="#">Inclusão Digital</a></li>
+                <li><a href="#">Notícias</a></li>
+                <li class="dropdown"><a href="#"><span>Media</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="{{ route('site.image') }}">Imagens</a></li>
-                        <li><a href="{{ route('site.video') }}">Videos</a></li>
-                        <li><a href="{{ route('site.audio') }}">Áudios</a></li>
+                        <li><a href="{{ route('site.image') }}">Galeria de Imagens</a></li>
+                        <li><a href="{{ route('site.video') }}">Galeria de Videos</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('site.join') }}">Junta-se a Nós</a></li>
+                <li><a href="{{ route('site.join') }}">Contactos</a></li>
             </ul>
         </nav><!-- .navbar -->
 

@@ -22,13 +22,65 @@
 </footer>
 <!-- / Footer -->
 
+@if (session('create'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Cadastrado com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif(session('destroy'))
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Eliminado com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif(session('update'))
+    <script>
+        Swal.fire({
+            icon: 'info',
+            title: 'Atulização realizada com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif(session('edit'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Alterações foram salvas com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif(session('create_image'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Imagens foram salvas com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif(session('NoAuth'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Não tem autorização para visualizar esta página!',
+            showConfirmButton: false,
+            timer: 2500
+        })
+    </script>
+@endif
+
+
 <script src="{{ asset('dashboard/assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/js/menu.js') }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+<script src="/js/sweetalert2.all.min.js"></script>
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

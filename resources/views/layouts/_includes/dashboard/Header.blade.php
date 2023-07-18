@@ -15,6 +15,7 @@
     <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
     <link rel="stylesheet" href="{{ asset('dashboard/fonts/css/boxicons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('dashboard/fonts/css/fonts.css') }}" />
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/core.css') }}" />
@@ -29,6 +30,10 @@
 
     <!-- Toastr And SweetAlert -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/toastr/css/Toastify.min.css') }}">
+    
+    {{-- sweetalert --}}
+    <link rel="stylesheet" href="/css/sweetalert2.css">
+    <script src="/js/sweetalert2.all.min.js"></script>
 
     <script src="{{ asset('dashboard/js/helpers.js') }}"></script>
     <script src="{{ asset('dashboard/js/config.js') }}"></script>
