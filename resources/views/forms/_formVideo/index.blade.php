@@ -2,10 +2,6 @@
     <div class="col-md-12">
         <ul class="nav nav-pills flex-column flex-md-row mb-3">
             <li class="nav-item">
-                <a class="nav-link active" href="{{ route('admin.video.create') }}"><i
-                        class="bx bx-user me-1"></i> Criar vídeo</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.video.index') }}"><i class="bx bx-link-alt me-1"></i>
                     Lista</a>
             </li>
@@ -17,14 +13,14 @@
 
                     <div class="form-group col-md-8">
                         <label for="title">Titulo</label>
-                        <input type="text" name="title" id="title" value="{{ isset($data->title) ? $data->title : '' }}"
+                        <input type="text" name="title" id="title" value="{{ isset($data->title) ? $data->title : old('title') }}"
                             class="form-control" placeholder="Titulo do vídeo" required>
                     </div>
 
                     <div class="mb-1 col-md-4">
                         <div class="form-group">
                             <label for="date">Data de gravação do vídeo</label>
-                            <input type="date" name="date" id="date" value="{{ isset($data->date) ? $data->date : '' }}"
+                            <input type="date" name="date" id="date" value="{{ isset($data->date) ? $data->date : old('date') }}"
                                 class="form-control" required>
                         </div>
                     </div>

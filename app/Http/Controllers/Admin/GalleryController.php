@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\{gallery, ImageGallery, Log};
-use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
 {
@@ -21,7 +20,7 @@ class GalleryController extends Controller
 
     public function index()
     {
-        $response['data'] = gallery::get();
+        $response['data'] = gallery::OrderBy('id', 'asc')->paginate(5);
         $response['count'] = gallery::count();
         $this->Logger->log('info', 'Listou a galeria');
         return view('admin.gallery.list.index', $response);
@@ -128,5 +127,14 @@ class GalleryController extends Controller
         $this->Logger->log('info', 'Eliminou uma imagem da galeria com o identificador ' . $id);
         gallery::find($id)->delete();
         return redirect()->route('admin.gallery.index')->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = gallery::count();
+        $data = gallery::where('name', "Like", "%" . $searchText . "%")->Orwhere('description', $searchText)->OrderBy('id', 'asc')->paginate(5);
+        return view('admin.gallery.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em galeria');
     }
 }

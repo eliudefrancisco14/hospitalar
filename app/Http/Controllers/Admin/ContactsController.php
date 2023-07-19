@@ -17,7 +17,7 @@ class ContactsController extends Controller
     }
     public function index()
     {
-        $response['data'] = Contact::get();
+        $response['data'] = Contact::OrderBy('id', 'desc')->paginate(5);
         $response['count'] = Contact::count();
         $this->Logger->log('info', 'Listou contacto');
         return view('admin.contact.list.index', $response);
@@ -32,16 +32,18 @@ class ContactsController extends Controller
     public function store(Request $request)
     {
 
-        $validation = $request->validate([
-            'address' => 'required|min:5|max:255',
-            'telephone' => 'required|min:9',
-            'email' => 'required|min:5|max:255',
-        ],
-        [
-            'address.required' => 'Informar o endereço',
-            'telephone.required' => 'Informar o número de telefone',
-            'email.required' => 'Informar o e-mail',
-        ]);
+        $validation = $request->validate(
+            [
+                'address' => 'required|min:5|max:255',
+                'telephone' => 'required|min:9',
+                'email' => 'required|min:5|max:255',
+            ],
+            [
+                'address.required' => 'Informar o endereço',
+                'telephone.required' => 'Informar o número de telefone',
+                'email.required' => 'Informar o e-mail',
+            ]
+        );
         $data = Contact::create([
             'address' => $request->address,
             'telephone' => $request->telephone,
@@ -57,7 +59,7 @@ class ContactsController extends Controller
     {
         $response['data'] = Contact::find($id);
         $response['count'] = Contact::count();
-        
+
         $this->Logger->log('info', 'Visualizou um contacto com o identificador ' . $id);
         return view('admin.contact.details.index', $response);
     }
@@ -71,16 +73,18 @@ class ContactsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validation = $request->validate([
-            'address' => 'required|min:5|max:255',
-            'telephone' => 'required|min:9',
-            'email' => 'required|min:5|max:255',
-        ],
-        [
-            'address.required' => 'Informar o endereço',
-            'telephone.required' => 'Informar o número de telefone',
-            'email.required' => 'Informar o e-mail',
-        ]);
+        $validation = $request->validate(
+            [
+                'address' => 'required|min:5|max:255',
+                'telephone' => 'required|min:9',
+                'email' => 'required|min:5|max:255',
+            ],
+            [
+                'address.required' => 'Informar o endereço',
+                'telephone.required' => 'Informar o número de telefone',
+                'email.required' => 'Informar o e-mail',
+            ]
+        );
         Contact::find($id)->update([
             'address' => $request->address,
             'telephone' => $request->telephone,
@@ -95,5 +99,17 @@ class ContactsController extends Controller
         $this->Logger->log('info', 'Eliminou um contacto com o identificador ' . $id);
         Contact::find($id)->delete();
         return redirect()->route('admin.contact.index')->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = Contact::count();
+        $data = Contact::where('email', "Like", "%" . $searchText . "%")
+        ->Orwhere('address', "Like", "%" . $searchText . "%")
+        ->Orwhere('telephone', "Like", "%" . $searchText . "%")
+        ->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.contact.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em contacto');
     }
 }

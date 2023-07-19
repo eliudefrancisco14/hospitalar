@@ -19,7 +19,7 @@ class PartnerController extends Controller
 
     public function index()
     {
-        $response['data'] = Partner::get();
+        $response['data'] = Partner::OrderBy('id', 'desc')->paginate(5);
         $response['count'] = Partner::count();
         $this->Logger->log('info', 'Listou a parceiro');
         return view('admin.partner.list.index', $response);
@@ -104,5 +104,14 @@ class PartnerController extends Controller
         $this->Logger->log('info', 'Eliminou um parceiro com o identificador ' . $id);
         Partner::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = Partner::count();
+        $data = Partner::where('title', "Like", "%" . $searchText . "%")->Orwhere('link', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.partner.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em parceiro');
     }
 }

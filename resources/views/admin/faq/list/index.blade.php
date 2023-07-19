@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Listar Utilizador')
+@section('title', 'Listar pergunta')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="layout-container">
             <!-- Layout container -->
             <div class="layout-page">
-
+                
                 <!-- Navbar -->
                 <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
                     id="layout-navbar">
@@ -24,7 +24,7 @@
                         <div class="navbar-nav align-items-center">
                             <div class="nav-item d-flex align-items-center">
                                 <i class="bx bx-search fs-4 lh-0"></i>
-                                <form action="{{ route('admin.user.userSearch') }}" method="GET">
+                                <form action="{{ route('admin.faq.faqSearch') }}" method="GET">
                                     @csrf
                                     <input type="text" class="form-control border-0 shadow-none" name="searchText"
                                         placeholder="Pesquisar..." aria-label="Pesquisar..." />
@@ -114,33 +114,28 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <ul class="nav nav-pills flex-column flex-md-row mb-3">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.user.create') }}"><i
-                                        class="bx bx-user me-1"></i>
-                                    Criar Conta</a>
+                                <a class="nav-link active" href="{{ route('admin.faq.create') }}"><i
+                                        class="bx bx-user me-1"></i> Criar pergunta</a>
                             </li>
                         </ul>
+
                         <!-- Bootstrap Table with Header - Dark -->
                         <div class="card">
-                            <h5 class="card-header"> Lista de Utilizadores: {{ $count }}</h5>
+                            <h5 class="card-header"> Perquenta: {{ $count }}</h5>
                             <div class="table-responsive text-nowrap">
                                 <table class="table">
                                     <thead class="table-dark">
                                         <tr>
-                                            <th>NOME</th>
-                                            <th>EMAIL</th>
-                                            <th>DATA CRIAÇÃO</th>
-                                            <th>NÍVEL DE ACESSO</th>
+                                            <th style="width: 100%">Pergunta</th>
+                                            <th style="width: 10%">DATA CRIAÇÃO</th>
                                             <th>ACÇÕES</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-border-bottom-0">
-                                        @foreach ($data as $item)
+                                        @foreach ($data as $datas)
                                             <tr>
-                                                <td>{{ $item->name }} </td>
-                                                <td>{{ $item->email }} </td>
-                                                <td>{{ $item->created_at }} </td>
-                                                <td><span class="badge bg-label-primary me-1">{{ $item->level }}</span>
-                                                </td>
+                                                <td>{{ $datas->title }} </td>
+                                                <td>{{ $datas->created_at }} </td>
                                                 @csrf
                                                 <td>
                                                     <div class="dropdown">
@@ -150,16 +145,13 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                                href="{{ url("admin/user/show/{$item->id}") }}"><i
+                                                                href="{{ url("admin/faq/show/{$datas->id}") }}"><i
                                                                     class="bx bx-detail"></i> Detalhe</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ url("admin/user/edit/{$item->id}") }}"><i
+                                                                href="{{ url("admin/faq/edit/{$datas->id}") }}"><i
                                                                     class="bx bx-edit-alt me-1"></i> Editar</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ url("admin/user/edits/{$item->id}") }}"><i
-                                                                    class="bx bxs-key"></i> Senha</a>
-                                                            <a class="dropdown-item"
-                                                                href="{{ url("admin/user/delete/{$item->id}") }}"><i
+                                                                href="{{ url("admin/faq/delete/{$datas->id}") }}"><i
                                                                     class="bx bx-trash me-1"></i> Excluir</a>
                                                         </div>
                                                     </div>
@@ -170,9 +162,9 @@
                                 </table>
                             </div>
                         </div>
-                        <!--/ Bootstrap Table with Header Dark -->
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
