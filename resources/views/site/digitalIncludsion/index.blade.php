@@ -1,46 +1,32 @@
 @extends('layouts.merge.site')
-@section('title', 'Galeria de Áudios')
+@section('title', 'Contacte-nos')
 @section('content')
 
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero"
-        style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
-
-        <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Galeria de Áudios</h2>
-                        <p class="py-3">
-                        </p>
+                        <h2>Inclusão Digital</h2>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="breadcrumbs">
-            <nav>
-                <div class="container">
-                    <ol>
-                        <li><a href="{{ route('site.home') }}">Home</a></li>
-                        <li>Galeria</li>
-                        <li>Áudios</li>
-                    </ol>
-                </div>
-            </nav>
-        </div>
-
-    </section>
-    <!-- End Hero Section -->
+    </div><!-- End Breadcrumbs -->
 
 
     <main id="main">
 
+
         <!-- ======= Blog Section ======= -->
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <p>Galeria de imagens da Inclusão Digital </p>
+                </div>
 
                 <div class="row gy-4 posts-list">
 
@@ -54,7 +40,7 @@
                             <p class="post-category">Politics</p>
 
                             <h2 class="title">
-                                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
+                                <a href="{{ route('site.image') }}">Dolorum optio tempore voluptas dignissimos</a>
                             </h2>
 
 
@@ -71,7 +57,7 @@
                             <p class="post-category">Sports</p>
 
                             <h2 class="title">
-                                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
+                                <a href="{{ route('site.image') }}">Nisi magni odit consequatur autem nulla dolorem</a>
                             </h2>
 
 
@@ -88,7 +74,7 @@
                             <p class="post-category">Entertainment</p>
 
                             <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
+                                <a href="{{ route('site.image') }}">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
                             </h2>
 
                         </article>
@@ -99,5 +85,6 @@
 
             </div>
         </section><!-- End Blog Section -->
+
     </main>
 @endsection

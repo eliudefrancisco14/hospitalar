@@ -1,38 +1,20 @@
 @extends('layouts.merge.site')
-@section('title', 'Sobre o INFOSI')
+@section('title', 'Definição do INFOSI')
 @section('content')
 
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero"
-        style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
-
-        <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Sobre o INFOSI</h2>
-                        <p class="py-3">
-                        </p>
+                        <h2>Definição do INFOSI</h2>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="breadcrumbs">
-            <nav>
-                <div class="container">
-                    <ol>
-                        <li><a href="{{ route('site.home') }}">Home</a></li>
-                        <li>Sobre o INFOSI</li>
-                    </ol>
-                </div>
-            </nav>
-        </div>
-
-    </section>
-    <!-- End Hero Section -->
+    </div><!-- End Breadcrumbs -->
 
 
     <main id="main">
@@ -40,9 +22,7 @@
 
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
-
-                <div class="section-header">
-                    <h2>Sobre Nós</h2>
+                <div class="row gy-4 py-4">
                     <p>O Instituto Nacional de Fomento da Sociedade de Informação- INFOSI, é um Instituto público de
                         prestação de serviço com carácter científico e desenvolvimento tecnológico, tutelado pelo Ministério
                         das Telecomunicações, Tecnologia da Informação e Comunicação Social.</p>

@@ -173,7 +173,7 @@
     </section><!-- End Stats Counter Section -->
 
     <!-- ======= Our Services Section ======= -->
-    <section id="blog" class="blog">
+    <section id="blog" class="blog blog-home">
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
@@ -181,7 +181,7 @@
                 <p>Aqui apresentamos os nossos serviço mais destacados</p>
             </div>
 
-            <div class="row gy-4 posts-list" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4 posts-list " data-aos="fade-up" data-aos-delay="100">
 
                 <div class="col-xl-4 col-md-6">
                     <article class="my">

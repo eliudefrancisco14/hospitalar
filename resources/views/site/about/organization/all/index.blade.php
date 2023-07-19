@@ -1,43 +1,25 @@
 @extends('layouts.merge.site')
-@section('title', 'Organograma')
+@section('title', 'Estrutura Orgânica')
 @section('content')
 
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero"
-        style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
-
-        <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Organograma</h2>
-                        <p class="py-3">
-                        </p>
+                        <h2>Estrutura Orgânica</h2>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="breadcrumbs">
-            <nav>
-                <div class="container">
-                    <ol>
-                        <li><a href="{{ route('site.home') }}">Home</a></li>
-                        <li>Organograma</li>
-                    </ol>
-                </div>
-            </nav>
-        </div>
-
-    </section>
-    <!-- End Hero Section -->
+    </div><!-- End Breadcrumbs -->
 
 
     <main id="main">
-        <!-- ======= Our Team Section ======= -->
-        <section id="team" class="team">
+        <!-- ======= Portfolio Section ======= -->
+        <section id="portfolio" class="portfolio sections-bg">
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
@@ -45,61 +27,59 @@
                     <p>A direcção está constituída pelos seguintes orgãos:</p>
                 </div>
 
-                <div class="row gy-4">
-                    <div class="col-xl-4 col-md-7 d-flex" data-aos="fade-up" data-aos-delay="200"></div>
+                <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry"
+                    data-portfolio-sort="original-order" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="col-xl-4 col-md-7 d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <img src="/site/img/direccao/DGAP.png" class="img-fluid" alt="">
-                            <h4>André Mpumba Pedro</h4>
-                            <span>Director Geral</span>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-file-earmark-pdf-fill"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
 
-                    <div class="col-xl-4 col-md-7 d-flex" data-aos="fade-up" data-aos-delay="200"></div>
-                </div>
-                <div class="row gy-4">
-                    <div class="col-xl-4 col-md-7 d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member">
-                            <img src="/site/img/direccao/DT.jpeg" class="img-fluid" alt="">
-                            <h4>Marcos Cary</h4>
-                            <span>Director Geral Adjunto para Área Técnica</span>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                    <div class="row gy-4 portfolio-container">
+
+                        <div class="col-xl-4 col-md-6 portfolio-item filter-product">
+                            <div class="portfolio-wrap">
+                                <a href="/site/img/direccao/DT.png" data-gallery="portfolio-gallery-app"
+                                    class="glightbox"><img src="/site/img/direccao/DT.png" class="img-fluid"
+                                        alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="#" title="More Details">Marcos Cary</a></h4>
+                                    <p>Director Geral Adjunto para Área Técnica</p>
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- End Team Member -->
-                    <div class="col-xl-4 col-md-7 d-flex" data-aos="fade-up" data-aos-delay="200"></div>
-                    <div class="col-xl-4 col-md-7 d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member">
-                            <img src="/site/img/direccao/DRD.png" class="img-fluid" alt="">
-                            <h4>Rita Diogo</h4>
-                            <span>Directora Geral Adjunta Para Área Admnistrativa</span>
-                            <div class="social">
-                                <a href=""><i class="bi bi-twitter"></i></a>
-                                <a href=""><i class="bi bi-facebook"></i></a>
-                                <a href=""><i class="bi bi-instagram"></i></a>
-                                <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div><!-- End Portfolio Item -->
+
+                        <div class="col-xl-4 col-md-6 portfolio-item filter-product">
+                            <div class="portfolio-wrap">
+                                <a href="/site/img/direccao/DGAP.png" data-gallery="portfolio-gallery-app"
+                                    class="glightbox"><img src="/site/img/direccao/DGAP.png" class="img-fluid"
+                                        alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="#" title="More Details">André Mpumba Pedro</a></h4>
+                                    <p>Director Geral</p>
+                                </div>
                             </div>
-                        </div>
-                    </div><!-- End Team Member -->
+                        </div><!-- End Portfolio Item -->
+
+
+                        <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
+                            <div class="portfolio-wrap">
+                                <a href="/site/img/direccao/DRD.png" data-gallery="portfolio-gallery-app"
+                                    class="glightbox"><img src="/site/img/direccao/DRD.png" class="img-fluid"
+                                        alt=""></a>
+                                <div class="portfolio-info">
+                                    <h4><a href="#" title="More Details">Rita Diogo</a></h4>
+                                    <p>Directora Geral Adjunta Para Área Admnistrativa</p>
+                                </div>
+                            </div>
+                        </div><!-- End Portfolio Item -->
+
+
+
+                    </div><!-- End Portfolio Container -->
+
                 </div>
 
             </div>
-        </section><!-- End Our Team Section -->
-        <div class="container">
-            <hr>
-        </div>
-        <!-- ======= Frequently Asked Questions Section ======= -->
+        </section><!-- End Portfolio Section -->
+
+        <!-- ======= Department Section ======= -->
         <section id="faq" class="faq">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
@@ -212,7 +192,7 @@
                 </div>
 
             </div>
-        </section><!-- End Frequently Asked Questions Section -->
+        </section><!-- End Department Section -->
 
     </main>
 

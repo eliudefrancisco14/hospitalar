@@ -9,10 +9,13 @@ route::get('/', ['as' => 'site.home', 'uses' => 'Site\HomeController@index']);
 route::get('/sobre-o-infosi', ['as' => 'site.about', 'uses' => 'Site\AboutController@about']);
 
 /* Organization */
-route::get('/organograma', ['as' => 'site.organization', 'uses' => 'Site\AboutController@organization']);
+route::get('/estrutura-organica', ['as' => 'site.organization.all', 'uses' => 'Site\DirectionController@index']);
 
-/* portfolio */
-route::get('/portfolio', ['as' => 'site.portfolio', 'uses' => 'Site\AboutController@portfolio']);
+/* Organization Sinlge*/
+route::get('/estrutura-organica/{name}', ['as' => 'site.organization.single', 'uses' => 'Site\DirectionController@show']);
+
+/* regulation */
+route::get('/regulation', ['as' => 'site.regulation', 'uses' => 'Site\RegulationController@index']);
 
 /* CONTACT */
 route::get('/Contactos', ['as' => 'site.contact', 'uses' => 'Site\ContactController@index']);
@@ -36,6 +39,12 @@ Route::get('/galeria-de-audios/{name}', ['as' => 'site.audio.show', 'uses' => 'S
 /* Homologation */
 route::get('/homologacao', ['as' => 'site.homologation', 'uses' => 'Site\HomologationController@index']);
 
+/* Digital Inclusion */
+route::get('/inclusao-digital', ['as' => 'site.digitalInclusion', 'uses' => 'Site\DigitalInclusionController@index']);
+
+/* News */
+route::get('/noticias', ['as' => 'site.news', 'uses' => 'Site\NewsController@index']);
+Route::get('/noticia/{title}', ['as' => 'site.news.show', 'uses' => 'Site\NewsController@show']);
 
 
 

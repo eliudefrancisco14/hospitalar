@@ -2029,6 +2029,14 @@ section .particles {
 /*--------------------------------------------------------------
 # Blog
 --------------------------------------------------------------*/
+
+.cardd {
+  background-color: #fff;
+}
+.blog-home{
+  background-color: #eeeeee;
+}
+
 .blog .blog-pagination {
   margin-top: 30px;
   color: #555555;
@@ -2704,4 +2712,5 @@ section .particles {
 }
 .my {
   transition: transform 0.5s;
+  background-color: #fff;
 }
