@@ -36,8 +36,7 @@ Route::get('/galeria-de-audios/{name}', ['as' => 'site.audio.show', 'uses' => 'S
 /* Homologation */
 route::get('/homologacao', ['as' => 'site.homologation', 'uses' => 'Site\HomologationController@index']);
 
-/* Join */
-route::get('/junte-se-a-nos', ['as' => 'site.join', 'uses' => 'Site\JoinController@index']);
+
 
 
 /* inclui as rotas de autenticação do ficheiro auth.php */

@@ -5,7 +5,7 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
-        style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
+        style=" background-color: #004883; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
         <div class="container position-relative">
             <div class="row gy-5" data-aos="fade-in">
@@ -33,9 +33,10 @@
 
     </section>
     <!-- End Hero Section -->
-    
+
 
     <main id="main">
+
 
         <section id="contact" class="contact">
             <div class="container" data-aos="fade-up">
@@ -74,13 +75,6 @@
                                 </div>
                             </div><!-- End Info Item -->
 
-                            <div class="info-item d-flex">
-                                <i class="bi bi-clock flex-shrink-0"></i>
-                                <div>
-                                    <h4>Open Hours:</h4>
-                                    <p>Mon-Sat: 11AM - 23PM</p>
-                                </div>
-                            </div><!-- End Info Item -->
                         </div>
 
                     </div>
@@ -117,5 +111,51 @@
 
             </div>
         </section><!-- End Contact Section -->
+
+        <!-- ======= Frequently Asked Questions Section ======= -->
+        <section id="faq" class="faq">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4">
+                        <div class="content px-xl-5">
+                            <h3><strong>Perguntas</strong> Frequentes</h3>
+                            <p>
+                                As perguntas mais frequentes são respondidas aqui
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-8">
+
+                        <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+                            @foreach ($faqs as $item)
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#faq-content-{{ $loop->index + 1 }}">
+                                            <span class="num">{{ $loop->index + 1 }}.</span>
+                                            {{ $item->title }}
+                                        </button>
+                                    </h3>
+                                    <div id="faq-content-{{ $loop->index + 1 }}" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqlist">
+                                        <div class="accordion-body">
+                                            {{ $item->description }}
+                                        </div>
+                                    </div>
+                                </div><!-- # Faq item-->
+                            @endforeach
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Frequently Asked Questions Section -->
+
     </main>
 @endsection

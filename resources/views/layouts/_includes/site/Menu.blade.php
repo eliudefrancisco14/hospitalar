@@ -42,7 +42,7 @@
                         <li><a href="{{ route('site.video') }}">Galeria de Videos</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('site.join') }}">Contactos</a></li>
+                <li><a href="{{ route('site.contact') }}">Contactos</a></li>
             </ul>
         </nav><!-- .navbar -->
 
