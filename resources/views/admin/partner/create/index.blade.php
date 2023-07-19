@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Editar titulo de galeria')
+@section('title', 'Cadastrar logotipo do parceiro')
 
 @section('content')
 
@@ -11,8 +11,7 @@
                 @include('layouts._includes.dashboard.Navbar')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Editar informações /</span>
-                        {{ $data->name }}</h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar parceiro</span></h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -25,11 +24,9 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
                     <div class="row align-items-center">
-                        <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                            action="{{ route('admin.gallery.update', $data->id) }}" enctype="multipart/form-data">
+                        <form action="{{ route('admin.partner.store') }}" method="POST" enctype="multipart/form-data" class="row">
                             @csrf
-                            @method('PUT')
-                            @include('forms._formGallery.index')
+                            @include('forms._formPartner.index')
                             <div class="container">
                                 <div class="row">
                                     <div class="mt-2">
