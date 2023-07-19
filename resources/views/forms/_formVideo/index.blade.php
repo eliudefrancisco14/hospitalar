@@ -17,14 +17,14 @@
 
                     <div class="form-group col-md-8">
                         <label for="title">Titulo</label>
-                        <input type="text" name="title" id="title" value="{{ isset($video->title) ? $video->title : '' }}"
+                        <input type="text" name="title" id="title" value="{{ isset($data->title) ? $data->title : '' }}"
                             class="form-control" placeholder="Titulo do vídeo" required>
                     </div>
 
                     <div class="mb-1 col-md-4">
                         <div class="form-group">
                             <label for="date">Data de gravação do vídeo</label>
-                            <input type="date" name="date" id="date" value="{{ isset($video->date) ? $video->date : '' }}"
+                            <input type="date" name="date" id="date" value="{{ isset($data->date) ? $data->date : '' }}"
                                 class="form-control" required>
                         </div>
                     </div>
@@ -32,14 +32,14 @@
                     <div class="mb-1 col-md-12">
                         <div class="form-group">
                             <label for="link">Link do Vídeo <small>link do canal do Youtube</small></label>
-                            <input type="text" name="link" id="link" value="{{ isset($video->link) ? $video->link : "https://www.youtube.com/embed/" }}"
+                            <input type="text" name="link" id="link" value="{{ isset($data->link) ? $data->link : "https://www.youtube.com/embed/" }}"
                                 class="form-control" placeholder="Ex: https://www.youtube.com/watch?v=RQGlYwMDq_0" required>
                         </div>
                     </div>
                     
                     <div class="mb-3">
                         <label for="name" class="form-label">Detalhe de informação do vídeo</label>
-                        <textarea class="form-control" type="text" id="description" name="description">{{ isset($video->description) ? $video->description : old('description') }}</textarea>
+                        <textarea class="form-control" type="text" id="description" name="description">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                     </div>
 
                 </div>

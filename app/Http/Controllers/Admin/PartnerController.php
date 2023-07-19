@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\{Log, Partner};
 use App\Classes\Logger;
 use Illuminate\Http\Request;
+use App\Models\{Log, Partner};
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,7 +34,7 @@ class PartnerController extends Controller
     {
         $validation = $request->validate(
             [
-                'title' => 'required|min:5|max:50',
+                'title' => 'required|min:5|max:255',
                 'link' => 'required|min:5|max:255',
                 'logo' => 'mimes:jpg,png,jpeg',
             ]
@@ -77,7 +77,7 @@ class PartnerController extends Controller
         $data = $this->validate(
             $request,
             [
-                'title' => 'required|min:5|max:50',
+                'title' => 'required|min:5|max:255',
                 'link' => 'required|min:5|max:255',
                 'logo' => 'mimes:jpg,png,jpeg',
             ]
