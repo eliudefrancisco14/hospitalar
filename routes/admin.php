@@ -72,13 +72,13 @@ Route::middleware(['auth'])->group(function () {
     /* end video */
 
     /* Contact */
-    Route::get('admin/contact/index', ['as' => 'admin.contact.index', 'uses' => 'Admin\ContactController@index']);
-    Route::get('admin/contact/show/{id}', ['as' => 'admin.contact.show', 'uses' => 'Admin\ContactController@show']);
-    Route::get('admin/contact/create', ['as' => 'admin.contact.create', 'uses' => 'Admin\ContactController@create']);
-    Route::post('admin/contact/store', ['as' => 'admin.contact.store', 'uses' => 'Admin\ContactController@store']);
-    Route::get('admin/contact/edit/{id}', ['as' => 'admin.contact.edit', 'uses' => 'Admin\ContactController@edit']);
-    Route::put('admin/contact/update/{id}', ['as' => 'admin.contact.update', 'uses' => 'Admin\ContactController@update']);
-    Route::get('admin/contact/delete/{id}', ['as' => 'admin.contact.delete', 'uses' => 'Admin\ContactController@destroy']);
+    Route::get('admin/contact/index', ['as' => 'admin.contact.index', 'uses' => 'Admin\ContactsController@index']);
+    Route::get('admin/contact/show/{id}', ['as' => 'admin.contact.show', 'uses' => 'Admin\ContactsController@show']);
+    Route::get('admin/contact/create', ['as' => 'admin.contact.create', 'uses' => 'Admin\ContactsController@create']);
+    Route::post('admin/contact/store', ['as' => 'admin.contact.store', 'uses' => 'Admin\ContactsController@store']);
+    Route::get('admin/contact/edit/{id}', ['as' => 'admin.contact.edit', 'uses' => 'Admin\ContactsController@edit']);
+    Route::put('admin/contact/update/{id}', ['as' => 'admin.contact.update', 'uses' => 'Admin\ContactsController@update']);
+    Route::get('admin/contact/delete/{id}', ['as' => 'admin.contact.delete', 'uses' => 'Admin\ContactsController@destroy']);
     /* end Contact */
 
     /* Partner */

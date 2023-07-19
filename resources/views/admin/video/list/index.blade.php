@@ -13,7 +13,7 @@
                     <ul class="nav nav-pills flex-column flex-md-row mb-3">
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ route('admin.video.create') }}"><i
-                                    class="bx bx-user me-1"></i> Criar Vídeo</a>
+                                    class="bx bx-user me-1"></i> Criar vídeo</a>
                         </li>
                     </ul>
 
@@ -30,10 +30,10 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                    @foreach ($videos as $video)
+                                    @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $video->title }} </td>
-                                            <td>{{ $video->created_at }} </td>
+                                            <td>{{ $item->title }} </td>
+                                            <td>{{ $item->created_at }} </td>
                                             @csrf
                                             <td>
                                                 <div class="dropdown">
@@ -43,13 +43,13 @@
                                                     </button>
                                                     <div class="dropdown-menu">
                                                         <a class="dropdown-item"
-                                                            href="{{ url("admin/video/show/{$video->id}") }}"><i
+                                                            href="{{ url("admin/video/show/{$item->id}") }}"><i
                                                                 class="bx bx-detail"></i> Detalhe</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ url("admin/video/edit/{$video->id}") }}"><i
+                                                            href="{{ url("admin/video/edit/{$item->id}") }}"><i
                                                                 class="bx bx-edit-alt me-1"></i> Editar</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ url("admin/video/delete/{$video->id}") }}"><i
+                                                            href="{{ url("admin/video/delete/{$item->id}") }}"><i
                                                                 class="bx bx-trash me-1"></i> Excluir</a>
                                                     </div>
                                                 </div>

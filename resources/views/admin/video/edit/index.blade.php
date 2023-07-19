@@ -12,7 +12,7 @@
 
                 <div class="container justify-content-center mt-2 mb-5">
                     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Editar informações /</span>
-                        {{ $video->title }}</h4>
+                        {{ $data->title }}</h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -26,7 +26,7 @@
                     <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
                     <div class="row align-items-center">
                         <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                            action="{{ route('admin.video.update', $video->id) }}">
+                            action="{{ route('admin.video.update', $data->id) }}">
                             @csrf
                             @method('PUT')
                             @include('forms._formVideo.index')

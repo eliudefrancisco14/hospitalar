@@ -15,9 +15,9 @@ class VideoController extends Controller
     {
         $this->Logger = new Logger;
     }
-    public function list()
+    public function index()
     {
-        $response['videos'] = Video::orderBy('id', 'desc')->get();
+        $response['data'] = Video::orderBy('id', 'desc')->get();
         $response['count'] = Video::count();
         $this->Logger->log('info', 'Listou Videos');
         return view('admin.video.list.index', $response);
@@ -31,7 +31,6 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-
         $validation = $request->validate([
             'title' => 'required|min:5|max:50',
             'link' => 'required|min:2',
@@ -39,7 +38,7 @@ class VideoController extends Controller
             'date' => 'required',
 
         ]);
-        $video = Video::create([
+        $data = Video::create([
             'link' => $request->link,
             'title' => $request->title,
             'description' => $request->description,
@@ -47,14 +46,14 @@ class VideoController extends Controller
 
 
         ]);
-        $this->Logger->log('info', 'Cadastrou um Video com o titulo ' . $video->title);
+        $this->Logger->log('info', 'Cadastrou um Video com o titulo ' . $data->title);
 
-        return redirect("admin/video/show/$video->id")->with('create', '1');
+        return redirect("admin/video/show/$data->id")->with('create', '1');
     }
 
     public function show($id)
     {
-        $response['video'] = Video::find($id);
+        $response['data'] = Video::find($id);
         $response['count'] = Video::count();
         
         $this->Logger->log('info', 'Visualizou um Video com o identificador ' . $id);
@@ -63,7 +62,7 @@ class VideoController extends Controller
 
     public function edit($id)
     {
-        $response['video'] = Video::find($id);
+        $response['data'] = Video::find($id);
         $this->Logger->log('info', 'Entrou em editar um Video com o identificador ' . $id);
         return view('admin.video.edit.index', $response);
     }

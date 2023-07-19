@@ -101,7 +101,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.imageGallery.index') }}" class="menu-link">
+                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>

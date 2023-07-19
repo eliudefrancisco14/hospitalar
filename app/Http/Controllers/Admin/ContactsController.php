@@ -7,7 +7,7 @@ use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class ContactsController extends Controller
 {
     private $Logger;
 
@@ -15,7 +15,7 @@ class ContactController extends Controller
     {
         $this->Logger = new Logger;
     }
-    public function list()
+    public function index()
     {
         $response['data'] = Contact::get();
         $response['count'] = Contact::count();
