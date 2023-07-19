@@ -30,7 +30,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                    @foreach ($img as $item)
+                                    @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $item->name }} </td>
                                             <td>{{ $item->created_at }} </td>
