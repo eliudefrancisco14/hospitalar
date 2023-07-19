@@ -17,7 +17,7 @@ class ContactsController extends Controller
     }
     public function index()
     {
-        $response['data'] = Contact::OrderBy('id', 'desc')->paginate(5);
+        $response['data'] = Contact::OrderBy('id', 'desc')->get();
         $response['count'] = Contact::count();
         $this->Logger->log('info', 'Listou contacto');
         return view('admin.contact.list.index', $response);

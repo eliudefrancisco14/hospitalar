@@ -17,7 +17,7 @@ class FAQController extends Controller
     }
     public function index()
     {
-        $response['data'] = Faq::OrderBy('id', 'desc')->paginate(5);
+        $response['data'] = Faq::OrderBy('id', 'desc')->get();
         $response['count'] = Faq::count();
         $this->Logger->log('info', 'Listou FAQ');
         return view('admin.faq.list.index', $response);

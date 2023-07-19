@@ -65,6 +65,14 @@
             </a>
         </li>
 
+        <!-- Dashboard -->
+        <li class="menu-item active">
+            <a href="{{ route('site.home') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Site</div>
+            </a>
+        </li>
+
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Segurança</span>
         </li>

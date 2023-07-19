@@ -19,7 +19,7 @@ class PartnerController extends Controller
 
     public function index()
     {
-        $response['data'] = Partner::OrderBy('id', 'desc')->paginate(5);
+        $response['data'] = Partner::OrderBy('id', 'desc')->get();
         $response['count'] = Partner::count();
         $this->Logger->log('info', 'Listou a parceiro');
         return view('admin.partner.list.index', $response);
