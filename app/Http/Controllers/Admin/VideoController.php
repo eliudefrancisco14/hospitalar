@@ -17,7 +17,7 @@ class VideoController extends Controller
     }
     public function index()
     {
-        $response['data'] = Video::orderBy('id', 'desc')->get();
+        $response['data'] = Video::orderBy('id', 'desc')->paginate(5);
         $response['count'] = Video::count();
         $this->Logger->log('info', 'Listou Videos');
         return view('admin.video.list.index', $response);
@@ -32,9 +32,9 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'title' => 'required|min:5|max:50',
+            'title' => 'required',
             'link' => 'required|min:2',
-            'description' => 'required|min:5|max:255',
+            'description' => 'required',
             'date' => 'required',
 
         ]);
@@ -70,10 +70,11 @@ class VideoController extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'title' => 'required|min:5|max:50',
+            'title' => 'required',
             'link' => 'required|min:2',
-            'description' => 'required|min:5|max:255',
+            'description' => 'required',
             'date' => 'required',
+
         ]);
         Video::find($id)->update([
             'link' => $request->link,
@@ -90,5 +91,14 @@ class VideoController extends Controller
         $this->Logger->log('info', 'Eliminou um Video com o identificador ' . $id);
         Video::find($id)->delete();
         return redirect()->route('admin.video.index')->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = Video::count();
+        $data = Video::where('title', "Like", "%" . $searchText . "%")->Orwhere('link', $searchText)->Orwhere('description', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.video.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em galeria de video');
     }
 }

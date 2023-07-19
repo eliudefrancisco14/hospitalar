@@ -81,8 +81,6 @@
 <script src="{{ asset('dashboard/assets/vendor/js/menu.js') }}"></script>
 
 <script src="/js/sweetalert2.all.min.js"></script>
-    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <!-- Vendors JS -->
 <script src="{{ asset('dashboard/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
@@ -97,7 +95,7 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="{{ asset('dashboard/js/buttons.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('dashboard/assets/toastr/js/toastify.js') }}"></script>
+{{-- <script type="text/javascript" src="{{ asset('dashboard/assets/toastr/js/toastify.js') }}"></script> --}}
 
 @if (session('create'))
     <script>

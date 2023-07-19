@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use Illuminate\Http\Request;
+use App\Models\{Log, Service};
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\{Log, Service};
 
 class ServiceController extends Controller
 {
@@ -19,7 +19,7 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $response['data'] = Service::get();
+        $response['data'] = Service::OrderBy('id', 'desc')->paginate(5);
         $response['count'] = Service::count();
         $this->Logger->log('info', 'Listou a serviço');
         return view('admin.service.list.index', $response);
@@ -103,5 +103,14 @@ class ServiceController extends Controller
         $this->Logger->log('info', 'Eliminou um serviço com o identificador ' . $id);
         Service::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = Service::count();
+        $data = Service::where('title', "Like", "%" . $searchText . "%")->Orwhere('description', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.service.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em serviço');
     }
 }

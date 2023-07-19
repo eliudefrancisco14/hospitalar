@@ -6,7 +6,7 @@
         <div class="layout-container">
             <!-- Layout container -->
             <div class="layout-page">
-                @include('layouts._includes.dashboard.Navbar')
+                @include('layouts._includes.dashboard.NavbarSimple')
 
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
