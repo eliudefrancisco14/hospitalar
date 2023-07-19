@@ -29,17 +29,17 @@
                                 </div>
                             @endisset
 
-                            <div class="mb-3 col-md-6">
+                            <div class="mb-3">
                                 <label for="name" class="form-label">Selecionar a imagem principal</label>
                                 <input class="form-control" id="infile" name="image" type="file"
                                     required></input>
                             </div>
 
-                            <div class="mb-3 col-md-6">
+                            {{-- <div class="mb-3 col-md-6">
                                 <label for="name" class="form-label">Selecionar todas a imagens</label>
                                 <input class="form-control" id="infile" name="images[]" multiple type="file"
                                     required></input>
-                            </div>
+                            </div> --}}
 
                             <div class="mb-3">
                                 <label for="name" class="form-label">Titulo da galeria</label>

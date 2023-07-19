@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
+use App\Models\{Gallery, Log};
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Models\{gallery, ImageGallery, Log};
 
 class GalleryController extends Controller
 {
@@ -20,8 +20,8 @@ class GalleryController extends Controller
 
     public function index()
     {
-        $response['data'] = gallery::OrderBy('id', 'asc')->paginate(5);
-        $response['count'] = gallery::count();
+        $response['data'] = Gallery::OrderBy('id', 'asc')->paginate(5);
+        $response['count'] = Gallery::count();
         $this->Logger->log('info', 'Listou a galeria');
         return view('admin.gallery.list.index', $response);
     }
@@ -37,38 +37,32 @@ class GalleryController extends Controller
             $request,
             [
                 'name' => 'required',
+                'description' => 'required',
                 'image' => 'image|mimes:jpg,png,jpeg|max:8000',
             ],
             [
                 'name.required' => 'Informar o titulo',
                 'image.required' => 'Selecionar a imagem de capa',
-                'description.required' => 'Inserir o detalhe da galeria',
+                'description.required' => 'Informar o detalhe da galeria',
             ]
         );
-        $exists_name = gallery::where('name', $request['name'])->exists();
+        $exists_name = Gallery::where('name', $request['name'])->exists();
         if ($exists_name) {
             return redirect()->back()->with('exists', '1');
         }
         $file = $request->file('image')->store('main_galleryPage');
         try {
-            $id = gallery::insertGetId(
+            Gallery::create(
                 [
                     'image' => $file,
                     'name' => $request->name,
                     'description' => $request->description,
                 ]
             );
-            for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
-                $file = $request->allFiles()['images'][$i];
-                ImageGallery::create([
-                    'path' => $file->store("image_Gallery/$id"),
-                    'fk_idGallery' => $id
-                ]);
-            }
         } catch (Exception $e) {
             return $e;
         }
-        $this->Logger->log('info', 'Capa de galeria - utilizador: ' . $request['name']);
+        $this->Logger->log('info', 'capa de galeria - utilizador: ' . $request['name']);
         return redirect()->route('admin.gallery.index')->with('create', '1');
     }
 
@@ -78,9 +72,8 @@ class GalleryController extends Controller
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
             $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
-            $response['data'] = gallery::find($id);
-            $response['datas'] = ImageGallery::where('fk_idGallery', $id)->get();
-            $this->Logger->log('info', 'Visualizou uma capa de imagem com o identificador ' . $id);
+            $response['data'] = Gallery::find($id);
+            $this->Logger->log('info', 'Visualizou capa de galeria com o identificador ' . $id);
             return view('admin.gallery.details.index', $response);
         }
     }
@@ -90,7 +83,7 @@ class GalleryController extends Controller
         if (Auth::user()->level != 'Administrador' && Auth::user()->id != $id) {
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
-            $response['data'] = gallery::find($id);
+            $response['data'] = Gallery::find($id);
             $this->Logger->log('info', 'Entrou em editar a capa de imagem com o identificador ' . $id);
             return view('admin.gallery.edit.index', $response);
         }
@@ -109,9 +102,9 @@ class GalleryController extends Controller
         if ($file = $request->file('image')) {
             $file = $file->store('main_galleryPage');
         } else {
-            $file = gallery::find($id)->image;
+            $file = Gallery::find($id)->image;
         }
-        gallery::find($id)->update(
+        Gallery::find($id)->update(
             [
                 'image' => $file,
                 'name' => $request->name,
