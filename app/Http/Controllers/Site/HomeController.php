@@ -11,8 +11,7 @@ class HomeController extends Controller
 
     public function index()
     {        
-        $response['faqs'] = Faq::get();
-        return view('site.home.index',$response);
+        return view('site.home.index');
     }
 
     
