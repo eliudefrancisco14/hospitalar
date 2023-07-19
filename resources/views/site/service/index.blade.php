@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-@section('title', 'Inclusão Digital')
+@section('title', 'Serviços')
 @section('content')
 
 
@@ -9,7 +9,7 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Inclusão Digital</h2>
+                        <h2>Serviços</h2>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <p>Galeria de imagens da Inclusão Digital </p>
+                    <p>Serviços </p>
                 </div>
 
                 <div class="row gy-4 posts-list">
@@ -40,7 +40,8 @@
                             <p class="post-category">Politics</p>
 
                             <h2 class="title">
-                                <a href="{{ route('site.image') }}">Dolorum optio tempore voluptas dignissimos</a>
+
+                                <a href="#">Dolorum optio tempore voluptas dignissimos</a>
                             </h2>
 
 
@@ -57,7 +58,7 @@
                             <p class="post-category">Sports</p>
 
                             <h2 class="title">
-                                <a href="{{ route('site.image') }}">Nisi magni odit consequatur autem nulla dolorem</a>
+                                <a href="#">Nisi magni odit consequatur autem nulla dolorem</a>
                             </h2>
 
 
@@ -74,7 +75,7 @@
                             <p class="post-category">Entertainment</p>
 
                             <h2 class="title">
-                                <a href="{{ route('site.image') }}">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
+                                <a href="#">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
                             </h2>
 
                         </article>
