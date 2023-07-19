@@ -18,10 +18,10 @@ class UserController extends Controller
     {
         $this->Logger = new Logger;
     }
-    
+
     public function index()
     {
-        $response['users'] = User::get();
+        $response['data'] = User::get();
         $response['count'] = User::count();
         $this->Logger->log('info', 'Listou os Utilizadores');
         return view('admin.user.list.index', $response);
@@ -159,5 +159,14 @@ class UserController extends Controller
         } else {
             return redirect()->back();
         }
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = User::count();
+        $data = User::where('name', "Like", "%" . $searchText . "%")->Orwhere('email', $searchText)->OrderBy('name', 'asc')->paginate(5);
+        return view('admin.user.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em utilizador');
     }
 }

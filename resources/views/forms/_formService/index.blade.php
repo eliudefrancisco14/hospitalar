@@ -2,10 +2,6 @@
     <div class="col-md-12">
         <ul class="nav nav-pills flex-column flex-md-row mb-3">
             <li class="nav-item">
-                <a class="nav-link active" href="{{ route('admin.service.create') }}"><i class="bx bx-user me-1"></i> Criar
-                    serviço</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.service.index') }}"><i class="bx bx-link-alt me-1"></i>
                     Lista</a>
             </li>
@@ -29,11 +25,8 @@
                                     <div class="card-img-top img-fluid rounded"
                                         style='background-image:url("/storage/{{ $data->logo }}");background-position:center;background-size:cover;height:400px;width:500px;'>
                                     </div>
-
-                                </div> <!-- .card -->
-
-
-                            </div> <!-- .card-deck -->
+                                </div>
+                            </div>
                         </div>
                     @endisset
 
@@ -46,7 +39,9 @@
 
                     <div class="mb-1 col-md-4">
                         <label for="name" class="form-label">Selecionar imagem de capa</label>
-                        <input class="form-control" id="infile" value="{{ isset($data->logo) ? $data->logo : old('image') }}" name="logo" type="file" required></input>
+                        <input class="form-control" id="infile"
+                            value="{{ isset($data->logo) ? $data->logo : old('image') }}" name="logo" type="file"
+                            required></input>
                     </div>
 
                     <div class="mb-1 col-md-12">

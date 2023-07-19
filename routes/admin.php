@@ -27,7 +27,7 @@ Route::middleware(['auth'])->group(function () {
   Route::middleware(['Administrador'])->group(function () {
 
     /* User */
-    Route::get('admin/user/index', ['as' => 'admin.user.index', 'uses' => 'Admin\UserController@index']);
+    Route::get('admin/user/index', ['as' => 'admin.user.index', 'uses' => 'Admin\UserController@index'])->withoutMiddleware(['Administrador']);
     Route::get('admin/user/create', ['as' => 'admin.user.create', 'uses' => 'Admin\UserController@create'])->withoutMiddleware(['Administrador']);
     Route::post('admin/user/store', ['as' => 'admin.user.store', 'uses' => 'Admin\UserController@store'])->withoutMiddleware(['Administrador']);
     Route::get('admin/user/show/{id}', ['as' => 'admin.user.show', 'uses' => 'Admin\UserController@show'])->withoutMiddleware(['Administrador']);
@@ -35,7 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/user/update/{id}', ['as' => 'admin.user.update', 'uses' => 'Admin\UserController@update'])->withoutMiddleware(['Administrador']);
     Route::get('admin/user/edits/{id}', ['as' => 'admin.user.edits', 'uses' => 'Admin\UserController@edits'])->withoutMiddleware(['Administrador']);
     Route::put('admin/user/updates/{id}', ['as' => 'admin.user.updates', 'uses' => 'Admin\UserController@updates'])->withoutMiddleware(['Administrador']);
-    Route::get('admin/user/delete/{id}', ['as' => 'admin.user.delete', 'uses' => 'Admin\UserController@destroy']);
+    Route::get('admin/user/delete/{id}', ['as' => 'admin.user.delete', 'uses' => 'Admin\UserController@destroy'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/user/userSearch', ['as' => 'admin.user.userSearch', 'uses' => 'Admin\UserController@search']);
     Route::get('admin/signup/logs', ['as' => 'admin.signup.log', 'uses' => 'Admin\CredencialController@log']);
     /* end user */
 
@@ -47,6 +48,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/gallery/edit/{id}', ['as' => 'admin.gallery.edit', 'uses' => 'Admin\GalleryController@edit']);
     Route::put('admin/gallery/updates/{id}', ['as' => 'admin.gallery.update', 'uses' => 'Admin\GalleryController@update']);
     Route::get('admin/gallery/delete/{id}', ['as' => 'admin.gallery.delete', 'uses' => 'Admin\GalleryController@destroy']);
+    Route::get('admin/gallery/gallerySearch', ['as' => 'admin.gallery.gallerySearch', 'uses' => 'Admin\GalleryController@search']);
     /* end Gallery */
 
     /* Main Image Gallery */
@@ -69,6 +71,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/video/edit/{id}', ['as' => 'admin.video.edit', 'uses' => 'Admin\VideoController@edit']);
     Route::put('admin/video/update/{id}', ['as' => 'admin.video.update', 'uses' => 'Admin\VideoController@update']);
     Route::get('admin/video/delete/{id}', ['as' => 'admin.video.delete', 'uses' => 'Admin\VideoController@destroy']);
+    Route::get('admin/video/videoSearch', ['as' => 'admin.video.videoSearch', 'uses' => 'Admin\VideoController@search']);
     /* end video */
 
     /* Contact */
@@ -79,6 +82,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/contact/edit/{id}', ['as' => 'admin.contact.edit', 'uses' => 'Admin\ContactsController@edit']);
     Route::put('admin/contact/update/{id}', ['as' => 'admin.contact.update', 'uses' => 'Admin\ContactsController@update']);
     Route::get('admin/contact/delete/{id}', ['as' => 'admin.contact.delete', 'uses' => 'Admin\ContactsController@destroy']);
+    Route::get('admin/contact/contactsSearch', ['as' => 'admin.contact.contactsSearch', 'uses' => 'Admin\ContactsController@search']);
     /* end Contact */
 
     /* Partner */
@@ -89,16 +93,18 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/partner/edit/{id}', ['as' => 'admin.partner.edit', 'uses' => 'Admin\PartnerController@edit']);
     Route::put('admin/partner/update/{id}', ['as' => 'admin.partner.update', 'uses' => 'Admin\PartnerController@update']);
     Route::get('admin/partner/delete/{id}', ['as' => 'admin.partner.delete', 'uses' => 'Admin\PartnerController@destroy']);
+    Route::get('admin/partner/partnerSearch', ['as' => 'admin.partner.partnerSearch', 'uses' => 'Admin\PartnerController@search']);
     /* end Partner */
 
     /* Frequently Asked Question */
-    Route::get('admin/asks/index', ['as' => 'admin.asks.index', 'uses' => 'Admin\AsksController@index']);
-    Route::get('admin/asks/show/{id}', ['as' => 'admin.asks.show', 'uses' => 'Admin\AsksController@show']);
-    Route::get('admin/asks/create', ['as' => 'admin.asks.create', 'uses' => 'Admin\AsksController@create']);
-    Route::post('admin/asks/store', ['as' => 'admin.asks.store', 'uses' => 'Admin\AsksController@store']);
-    Route::get('admin/asks/edit/{id}', ['as' => 'admin.asks.edit', 'uses' => 'Admin\AsksController@edit']);
-    Route::put('admin/asks/update/{id}', ['as' => 'admin.asks.update', 'uses' => 'Admin\AsksController@update']);
-    Route::get('admin/asks/delete/{id}', ['as' => 'admin.asks.delete', 'uses' => 'Admin\AsksController@destroy']);
+    Route::get('admin/faq/index', ['as' => 'admin.faq.index', 'uses' => 'Admin\FAQController@index']);
+    Route::get('admin/faq/show/{id}', ['as' => 'admin.faq.show', 'uses' => 'Admin\FAQController@show']);
+    Route::get('admin/faq/create', ['as' => 'admin.faq.create', 'uses' => 'Admin\FAQController@create']);
+    Route::post('admin/faq/store', ['as' => 'admin.faq.store', 'uses' => 'Admin\FAQController@store']);
+    Route::get('admin/faq/edit/{id}', ['as' => 'admin.faq.edit', 'uses' => 'Admin\FAQController@edit']);
+    Route::put('admin/faq/update/{id}', ['as' => 'admin.faq.update', 'uses' => 'Admin\FAQController@update']);
+    Route::get('admin/faq/delete/{id}', ['as' => 'admin.faq.delete', 'uses' => 'Admin\FAQController@destroy']);
+    Route::get('admin/faq/faqSearch', ['as' => 'admin.faq.faqSearch', 'uses' => 'Admin\FAQController@search']);
     /* end Frequently Asked Question */
 
     /* Service */
@@ -109,6 +115,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/service/edit/{id}', ['as' => 'admin.service.edit', 'uses' => 'Admin\ServiceController@edit']);
     Route::put('admin/service/update/{id}', ['as' => 'admin.service.update', 'uses' => 'Admin\ServiceController@update']);
     Route::get('admin/service/delete/{id}', ['as' => 'admin.service.delete', 'uses' => 'Admin\ServiceController@destroy']);
+    Route::get('admin/service/serviceSearch', ['as' => 'admin.service.serviceSearch', 'uses' => 'Admin\ServiceController@search']);
     /* end Service */
 
      /* Slide Show */
@@ -119,6 +126,7 @@ Route::middleware(['auth'])->group(function () {
      Route::get('admin/slide/edit/{id}', ['as' => 'admin.slide.edit', 'uses' => 'Admin\SlideController@edit']);
      Route::put('admin/slide/update/{id}', ['as' => 'admin.slide.update', 'uses' => 'Admin\SlideController@update']);
      Route::get('admin/slide/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'Admin\SlideController@destroy']);
+     Route::get('admin/slide/slideSearch', ['as' => 'admin.slide.slideSearch', 'uses' => 'Admin\SlideController@search']);
      /* end Service */
   });
 });

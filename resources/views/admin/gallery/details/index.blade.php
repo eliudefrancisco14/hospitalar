@@ -36,33 +36,14 @@
 
                             <div class="card border-0 bg-transparent">
                                 <div class="card-img-top img-fluid rounded"
-                                    style='background-image:url("/storage/{{ $data->logo }}");background-position:center;background-size:cover;height:400px;width:500px;'>
+                                    style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:400px;width:500px;'>
                                 </div>
-
-                            </div> <!-- .card -->
-
-
-                        </div> <!-- .card-deck -->
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-12">
-                                <div class="d-flex align-items-start align-items-sm-center gap-4">
-
-                                    <img src="{{ asset('storage') }}/main_galleryPage/{{ $data['image'] }}"
-                                        alt="user-avatar" class="d-block rounded" height="250" width="250"
-                                        id="uploadedAvatar" />
-                                </div>
-                                <p class="mt-1">{{ $data->description }}</p>
                             </div>
+                            <p class="mt-1">{{ $data->description }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-
     </div>
 @endsection

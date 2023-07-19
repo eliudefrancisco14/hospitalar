@@ -8,7 +8,7 @@
         <div class="layout-container">
             <!-- Layout container -->
             <div class="layout-page">
-                @include('layouts._includes.dashboard.Navbar')
+                @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
                     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar serviço</span></h4>

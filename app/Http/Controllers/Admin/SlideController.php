@@ -17,7 +17,7 @@ class SlideController extends Controller
     }
     public function index()
     {
-        $response['data'] = Slide::get();
+        $response['data'] = Slide::OrderBy('id', 'desc')->paginate(5);
         $response['count'] = Slide::count();
         $this->Logger->log('info', 'Listou o slide show');
         return view('admin.slide.list.index', $response);
@@ -86,5 +86,14 @@ class SlideController extends Controller
         $this->Logger->log('info', 'Eliminou um slide show com o identificador ' . $id);
         Slide::find($id)->delete();
         return redirect()->route('admin.slide.index')->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = Slide::count();
+        $data = Slide::where('title', "Like", "%" . $searchText . "%")->Orwhere('description', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.slide.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em slide show');
     }
 }
