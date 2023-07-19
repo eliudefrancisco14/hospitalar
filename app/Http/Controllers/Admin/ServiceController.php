@@ -19,7 +19,7 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $response['data'] = Service::OrderBy('id', 'desc')->paginate(5);
+        $response['data'] = Service::OrderBy('id', 'desc')->get();
         $response['count'] = Service::count();
         $this->Logger->log('info', 'Listou a serviço');
         return view('admin.service.list.index', $response);

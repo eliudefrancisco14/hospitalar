@@ -17,7 +17,7 @@ class SlideController extends Controller
     }
     public function index()
     {
-        $response['data'] = Slide::OrderBy('id', 'desc')->paginate(5);
+        $response['data'] = Slide::OrderBy('id', 'desc')->get();
         $response['count'] = Slide::count();
         $this->Logger->log('info', 'Listou o slide show');
         return view('admin.slide.list.index', $response);

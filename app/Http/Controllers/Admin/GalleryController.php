@@ -20,7 +20,7 @@ class GalleryController extends Controller
 
     public function index()
     {
-        $response['data'] = gallery::OrderBy('id', 'asc')->paginate(5);
+        $response['data'] = gallery::OrderBy('id', 'desc')->get();
         $response['count'] = gallery::count();
         $this->Logger->log('info', 'Listou a galeria');
         return view('admin.gallery.list.index', $response);

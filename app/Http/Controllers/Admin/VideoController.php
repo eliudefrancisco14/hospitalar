@@ -17,7 +17,7 @@ class VideoController extends Controller
     }
     public function index()
     {
-        $response['data'] = Video::orderBy('id', 'desc')->paginate(5);
+        $response['data'] = Video::orderBy('id', 'desc')->get();
         $response['count'] = Video::count();
         $this->Logger->log('info', 'Listou Videos');
         return view('admin.video.list.index', $response);
