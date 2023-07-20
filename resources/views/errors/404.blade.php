@@ -9,7 +9,7 @@
 
         <section id="about" class="about">
             <div class="container text-center" data-aos="fade-up">
-                <a href="">
+                <a href="{{ url('/') }}">
                     <img src="{{ url('site/img/error404.jpg') }}" height="500px" alt="">
                 </a>
                 <div class="text-center">

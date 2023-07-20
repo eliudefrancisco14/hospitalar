@@ -21,65 +21,41 @@
         <!-- ======= Blog Section ======= -->
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
-
                 <div class="section-header">
-                    <p>Galeria de vídeos do INFOSI </p>
+                    <p>Galeria de Vídeos</p>
                 </div>
-
                 <div class="row gy-4 posts-list">
 
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
+                    @foreach ($videos as $item)
+                        <div class="col-xl-4 col-md-6">
+                            <article>
 
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                            </div>
+                                <div class="post-img">
+                                    <iframe class="img-center glightbox" width="500" height="300" style="max-width: 100%;"
+                                        src="{{ $item->link }}" data-gallery="portfolio-gallery-app" frameborder="0 "
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture "
+                                        allowfullscreen></iframe>
+                                </div>
 
-                            <p class="post-category">Politics</p>
+                                <p class="post-category">{{ $item->title }}</p>
 
-                            <h2 class="title">
-                                <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
-                            </h2>
-
-
-                        </article>
-                    </div><!-- End post list item -->
-
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
-
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Sports</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-                            </h2>
+                                <h2 class="title">
+                                    {{ $item->description }}
+                                </h2>
 
 
-                        </article>
-                    </div><!-- End post list item -->
+                            </article>
+                        </div><!-- End post list item -->
+                    @endforeach
 
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
 
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
 
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                        </article>
-                    </div><!-- End post list item -->
 
                 </div><!-- End blog posts list -->
 
+                <nav class="justify-content-center d-flex mt-0">
+                    <b> {{ $videos->links() }}</b>
+                </nav>
 
             </div>
         </section><!-- End Blog Section -->

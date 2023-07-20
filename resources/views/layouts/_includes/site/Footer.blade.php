@@ -10,9 +10,7 @@ background-repeat: no-repeat; ">
                     <img src="/site/img/mono-logo.svg" alt="logo" class="" height="45">
                 </a>
 
-                <p>O Instituto Nacional de Fomento da Sociedade de Informação- INFOSI, é um Instituto público de
-                    prestação de serviço com carácter científico e desenvolvimento tecnológico, tutelado pelo Ministério
-                    das Telecomunicações, Tecnologia da Informação e Comunicação Social.</p>
+                <p>Instituto Nacional de Fomento da Sociedade da Informação</p>
                 <div class="social-links d-flex mt-4">
                     <a href="https://www.facebook.com/infosi.nacional" class="facebook"><i
                             class="bi bi-facebook"></i></a>
@@ -26,7 +24,7 @@ background-repeat: no-repeat; ">
 
                 <h4>INFOSI</h4>
                 <a href="{{ route('site.about') }}" class="text-white-50">Definição</a><br>
-                <a href="{{ route('site.organization.all') }}" class="text-white-50">Estrutura Orgânica</a><br>
+                <a href="{{ route('site.organization') }}" class="text-white-50">Estrutura Orgânica</a><br>
                 <a href="{{ route('site.regulation') }}" class="text-white-50">Regulamentos</a><br>
                 <a href="{{ route('site.contact') }}" class="text-white-50">contactos</a><br>
             </div>
@@ -51,12 +49,6 @@ background-repeat: no-repeat; ">
                 <a href="https://digital.ao/ao/" target="_blank" class="text-white-50">Digital.AO</a><br>
                 <a href="https://igae.gov.ao/" target="_blank" class="text-white-50">DNS.AO</a><br>
 
-                <div class="social-links d-flex mt-4">
-                    <a href="https://www.facebook.com/infosi.nacional" class="facebook"><i
-                            class="bi bi-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/infosinacional/" class="linkedin"><i
-                            class="bi bi-linkedin"></i></a>
-                </div>
 
             </div>
 
@@ -93,9 +85,5 @@ background-repeat: no-repeat; ">
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
 
-
-{{--  <!-- Other JS File -->
-<script src="/site/js/particles.js"></script>
-<script src="/site/js/app.js"></script>  --}}
 
 @yield('JS')

@@ -3,16 +3,18 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Video;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
     public function index()
     {
-        return view('site.gallery.video.all.index');
+        $response['videos'] = Video::orderBy('id', 'desc')->paginate(21);
+        return view('site.gallery.video.all.index',$response);
     }
     public function show()
     {
-        return view('site.gallery.video.single.index');
+        return view('errors.404');
     }
 }

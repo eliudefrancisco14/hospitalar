@@ -5,7 +5,7 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+        <div class="page-header d-flex align-items-center">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
@@ -29,55 +29,27 @@
 
                 <div class="row gy-4 posts-list">
 
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
+                    @foreach ($galleries as $item)
+                        <div class="col-xl-4 col-md-6">
+                            <article class="my">
 
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                            </div>
+                                <div class="post-img">
+                                    <img src="{{ url("/storage/$item->image") }}" alt="" class="img-fluid">
+                                </div>
 
-                            <p class="post-category">Politics</p>
+                                <p class="post-category">{{ $item->name }}</p>
 
-                            <h2 class="title">
-                                <a href="{{ route('site.image') }}">Dolorum optio tempore voluptas dignissimos</a>
-                            </h2>
+                                <h2 class="title">
+                                    <a href="{!! url('/galeria-de-imagens/' . urlencode($item->name)) !!}">{!! html_entity_decode(mb_substr($item->description, 0, 80, 'UTF-8')) !!}</a>
+                                </h2>
 
+                            </article>
+                        </div><!-- End post list item -->
+                    @endforeach
 
-                        </article>
-                    </div><!-- End post list item -->
-
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
-
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Sports</p>
-
-                            <h2 class="title">
-                                <a href="{{ route('site.image') }}">Nisi magni odit consequatur autem nulla dolorem</a>
-                            </h2>
-
-
-                        </article>
-                    </div><!-- End post list item -->
-
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
-
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="{{ route('site.image') }}">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                        </article>
-                    </div><!-- End post list item -->
+                    <nav class="justify-content-center d-flex mt-0">
+                        <b> {{ $galleries->links() }}</b>
+                    </nav>
 
                 </div><!-- End blog posts list -->
 
