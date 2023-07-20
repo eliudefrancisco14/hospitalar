@@ -67,7 +67,7 @@
 
         <!-- Dashboard -->
         <li class="menu-item active">
-            <a href="{{ route('site.home') }}" class="menu-link">
+            <a href="{{ route('site.home') }}" class="menu-link" target="_blank">
                 <i class='menu-icon tf-icons bx bx-globe'></i>
                 <div data-i18n="Analytics">Site</div>
             </a>
