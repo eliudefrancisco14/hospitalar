@@ -32,7 +32,7 @@ class PartnerController extends Controller
 
     public function store(Request $request)
     {
-        $validation = $request->validate(
+        $request->validate(
             [
                 'title' => 'required|min:5|max:255',
                 'link' => 'required|min:5|max:255',
@@ -74,7 +74,7 @@ class PartnerController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $this->validate(
+        $this->validate(
             $request,
             [
                 'title' => 'required|min:5|max:255',
@@ -110,7 +110,9 @@ class PartnerController extends Controller
     {
         $searchText = $request->get('searchText');
         $count = Partner::count();
-        $data = Partner::where('title', "Like", "%" . $searchText . "%")->Orwhere('link', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        $data = Partner::where('title', "Like", "%" . $searchText . "%")
+            ->where('link', "Like", "%" . $searchText . "%")
+            ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.partner.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em parceiro');
     }

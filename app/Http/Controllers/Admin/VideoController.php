@@ -31,7 +31,7 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-        $validation = $request->validate([
+        $request->validate([
             'title' => 'required',
             'link' => 'required|min:2',
             'description' => 'required',
@@ -55,7 +55,7 @@ class VideoController extends Controller
     {
         $response['data'] = Video::find($id);
         $response['count'] = Video::count();
-        
+
         $this->Logger->log('info', 'Visualizou um Video com o identificador ' . $id);
         return view('admin.video.details.index', $response);
     }
@@ -69,7 +69,7 @@ class VideoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validation = $request->validate([
+        $request->validate([
             'title' => 'required',
             'link' => 'required|min:2',
             'description' => 'required',
@@ -97,7 +97,10 @@ class VideoController extends Controller
     {
         $searchText = $request->get('searchText');
         $count = Video::count();
-        $data = Video::where('title', "Like", "%" . $searchText . "%")->Orwhere('link', $searchText)->Orwhere('description', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        $data = Video::where('title', "Like", "%" . $searchText . "%")
+            ->where('link', "Like", "%" . $searchText . "%")
+            ->where('description', "Like", "%" . $searchText . "%")
+            ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.video.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em galeria de video');
     }

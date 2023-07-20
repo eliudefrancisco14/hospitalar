@@ -11,4 +11,9 @@ class Gallery extends Model
     protected $table = 'galleries';
     protected $guarded = ['id'];
     protected $dates = ['delected_at'];
+
+    public function images(){
+
+        return $this->hasMany(ImageGallery::class, 'fk_idGallery');
+    }
 }
