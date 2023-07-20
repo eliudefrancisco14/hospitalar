@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\{Gallery, ImageGallery};
-use Illuminate\Http\Request;
 
 class ImageGalleryController extends Controller
 {
@@ -16,18 +16,32 @@ class ImageGalleryController extends Controller
         $this->Logger = new Logger;
     }
 
-    public function index()
+    public function create($id)
     {
-        $response['img'] = Gallery::get();
-        $response['count'] = ImageGallery::count();
-        $this->Logger->log('info', 'Listou imagem de galeria');
-        return view('admin.gallery.list.index', $response);
+        $response['gallery'] = Gallery::with(['images'])->find($id);
+        return view('admin.imageGallery.create.index', $response);
     }
 
-    public function create()
+    public function store(Request $request, $id)
     {
-        $response['img'] = ImageGallery::get();
-        return view('admin.ImageGallery.create.index', $response);
+       $request->validate([
+            'images' => 'required|min:1',
+        ]);
+        for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
+            $file = $request->allFiles()['images'][$i];
+            ImageGallery::create([
+                'path' => $file->store("gallery_cover_image/$id"),
+                'fk_idGallery' => $id
+            ]);
+        }
+        $this->Logger->log('info', 'Cadastrou Imagens da Galeria com o Identificador ' . $id);
+        return redirect("admin/gallery/show/$id")->with('create_image', '1');
     }
 
+    public function destroy($id)
+    {
+        $this->Logger->log('info', 'Eliminou uma imagem da galeria com o identificador ' . $id);
+        ImageGallery::find($id)->delete();
+        return redirect()->route('admin.gallery.index')->with('destroy', '1');
+    }
 }

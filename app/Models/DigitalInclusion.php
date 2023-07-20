@@ -2,21 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DigitalInclusion extends Model
 {
-    
-    use HasFactory,SoftDeletes;
 
+    use HasFactory, SoftDeletes;
     protected $table = 'digital_inclusions';
     protected $guarded = ['id'];
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
     protected $dates = ['deleted_at'];
+
+    public function images()
+    {
+        return $this->hasMany(ImageDigitalInclusion::class, 'fk_idDigital_inclusion');
+    }
 }

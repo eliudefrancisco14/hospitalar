@@ -32,7 +32,7 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
-        $validation = $request->validate(
+        $request->validate(
             [
                 'title' => 'required|min:5|max:255',
                 'logo' => 'mimes:jpg,png,jpeg',
@@ -74,7 +74,7 @@ class ServiceController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validation = $request->validate(
+        $request->validate(
             [
                 'title' => 'required|min:5|max:255',
                 'logo' => 'mimes:jpg,png,jpeg',
@@ -109,7 +109,9 @@ class ServiceController extends Controller
     {
         $searchText = $request->get('searchText');
         $count = Service::count();
-        $data = Service::where('title', "Like", "%" . $searchText . "%")->Orwhere('description', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        $data = Service::where('title', "Like", "%" . $searchText . "%")
+            ->where('description', "Like", "%" . $searchText . "%")
+            ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.service.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em serviço');
     }

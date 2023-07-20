@@ -95,6 +95,14 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="{{ asset('dashboard/js/buttons.js') }}"></script>
 
+<script>
+    // Replace the <textarea id="editor1"> with a CKEditor 4
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1');
+    CKEDITOR.replace('editor2');
+    CKEDITOR.replace('editor3');
+</script>
+
 {{-- <script type="text/javascript" src="{{ asset('dashboard/assets/toastr/js/toastify.js') }}"></script> --}}
 
 @if (session('create'))

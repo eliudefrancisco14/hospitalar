@@ -20,7 +20,7 @@
                     <div class="mb-1 col-md-4">
                         <div class="form-group">
                             <label for="name">Telefone</label>
-                            <input type="number" name="telephone" id="telephone" value="{{ isset($data->telephone) ? $data->telephone : '' }}"
+                            <input type="number" name="telephone" id="telephone" value="{{ isset($data->telephone) ? $data->telephone : old('telephone') }}"
                                 class="form-control" placeholder="Número do telefone" required>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="mb-1 col-md-12">
                         <div class="form-group">
                             <label for="link">E-mail</label>
-                            <input type="email" name="email" id="email" value="{{ isset($data->email) ? $data->email : old('') }}"
+                            <input type="email" name="email" id="email" value="{{ isset($data->email) ? $data->email : old('email') }}"
                                 class="form-control" placeholder="Ex:infosi.gov.co.ao" required>
                         </div>
                     </div>

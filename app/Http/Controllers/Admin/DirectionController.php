@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
-use App\Http\Controllers\Controller;
 use App\Models\Direction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DirectionController extends Controller
 {
@@ -16,67 +16,61 @@ class DirectionController extends Controller
         $this->Logger = new Logger;
     }
 
-    public function list()
+    public function index()
     {
-
-        $response['directions'] = Direction::get();
-        //Logger
+        $response['data'] = Direction::get();
+        $response['count'] = Direction::count();
         $this->Logger->log('info', 'Listou os Directores');
         return view('admin.direction.list.index', $response);
     }
 
     public function create()
     {
-        //Logger
-        $this->Logger->log('info', 'Entrou em Adicionar um Director');
+        $this->Logger->log('info', 'Entrou em adicionar um direcção');
         return view('admin.direction.create.index');
     }
 
     public function store(Request $request)
     {
-        $validation = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'image' => 'required|mimes:jpg,png,jpeg|max:8000',
-            'description' => 'required',
+            'office' => 'required|string|max:25',
+            'body' => 'required',
+            'path' => 'required|mimes:jpg,png,jpeg|max:8000',
         ]);
-        $file = $request->file('image')->store('Directions');
+        $file = $request->file('path')->store('direction_image');
         $direction = Direction::create([
             'name' => $request->name,
+            'office' => $request->office,
+            'body' => $request->body,
             'path' => $file,
-            'description' => $request->description,
         ]);
-        //Logger
-        $this->Logger->log('info', 'Cadastrou um Director com o nome ' . $direction->name);
+        $this->Logger->log('info', 'Cadastrou direcção com o nome ' . $direction->name);
 
         return redirect("admin/direction/show/$direction->id")->with('create', '1');
     }
     public function show($id)
     {
-
-        $response['direction'] = Direction::find($id);
-
-        //Logger
-        $this->Logger->log('info', 'Visualizar um Director com o identificador ' . $id);
+        $response['data'] = Direction::find($id);
+        $this->Logger->log('info', 'Visualizar direcção com o identificador ' . $id);
         return view('admin.direction.details.index', $response);
     }
 
     public function edit($id)
     {
-
-        $response['direction'] = Direction::find($id);
-        //Logger
-        $this->Logger->log('info', 'Entrou em editar um Director com o identificador ' . $id);
+        $response['data'] = Direction::find($id);
+        $this->Logger->log('info', 'Entrou em editar direcção com o identificador ' . $id);
         return view('admin.direction.edit.index', $response);
     }
 
     public function update(Request $request, $id)
     {
-        $validation = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'image' => 'mimes:jpg,png,jpeg|max:8000',
-            'description' => 'required',
+            'office' => 'required|string|max:25',
+            'body' => 'required',
+            'path' => 'required|mimes:jpg,png,jpeg|max:8000',
         ]);
-
         if ($file = $request->file('image')) {
             $file = $file->store('Directions');
         } else {
@@ -84,19 +78,29 @@ class DirectionController extends Controller
         }
         Direction::find($id)->update([
             'name' => $request->name,
+            'office' => $request->office,
+            'body' => $request->body,
             'path' => $file,
-            'description' => $request->description,
         ]);
-        //Logger
-        $this->Logger->log('info', 'Editou um Director com o identificador ' . $id);
+        $this->Logger->log('info', 'Editou em direcção com o identificador ' . $id);
         return redirect("admin/direction/show/$id")->with('edit', '1');
     }
 
     public function destroy($id)
     {
-        //Logger
-        $this->Logger->log('info', 'Eliminou um Director com o identificador ' . $id);
+        $this->Logger->log('info', 'Eliminou um director com o identificador ' . $id);
         Direction::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = Direction::count();
+        $data = Direction::where('name', "Like", "%" . $searchText . "%")
+            ->where('description', "Like", "%" . $searchText . "%")
+            ->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.direction.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em direcção');
     }
 }

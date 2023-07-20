@@ -92,7 +92,9 @@ class SlideController extends Controller
     {
         $searchText = $request->get('searchText');
         $count = Slide::count();
-        $data = Slide::where('title', "Like", "%" . $searchText . "%")->Orwhere('description', $searchText)->OrderBy('id', 'desc')->paginate(5);
+        $data = Slide::where('title', "Like", "%" . $searchText . "%")
+        ->where('description', "Like", "%" . $searchText . "%")
+        ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.slide.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em slide show');
     }

@@ -29,15 +29,9 @@
                                 </div>
                             @endisset
 
-                            <div class="mb-3 col-md-6">
+                            <div class="mb-3">
                                 <label for="name" class="form-label">Selecionar a imagem principal</label>
                                 <input class="form-control" id="infile" name="image" type="file"
-                                    required></input>
-                            </div>
-
-                            <div class="mb-3 col-md-6">
-                                <label for="name" class="form-label">Selecionar todas a imagens</label>
-                                <input class="form-control" id="infile" name="images[]" multiple type="file"
                                     required></input>
                             </div>
 
@@ -45,10 +39,10 @@
                                 <label for="name" class="form-label">Titulo da galeria</label>
                                 <input class="form-control" type="text" id="name" name="name"
                                     value="{{ isset($data->name) ? $data->name : old('name') }}"
-                                    placeholder="Informar o titulo de imagem da galeria" autofocus />
+                                    placeholder="Informar o titulo da galeria" autofocus />
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Detalhe de informação da imagem</label>
+                                <label for="name" class="form-label">Detalhe de informação da galeria</label>
                                 <textarea class="form-control" type="text" id="description" name="description">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                             </div>
                         </div>

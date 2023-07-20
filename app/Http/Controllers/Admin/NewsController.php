@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Classes\Logger;
-use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Classes\Logger;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class NewsController extends Controller
 {
@@ -16,44 +16,31 @@ class NewsController extends Controller
         $this->Logger = new Logger;
     }
 
-    public function list()
+    public function index()
     {
-
-        $response['news'] = News::get();
-        //Logger
+        $response['data'] = News::get();
+        $response['count'] = News::count();
         $this->Logger->log('info', 'Listou as Noticias');
         return view('admin.news.list.index', $response);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //Logger
         $this->Logger->log('info', 'Entrou em Criar noticia');
         return view('admin.news.create.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        $validation = $request->validate([
+        $request->validate([
             'title' => 'required|min:5|max:255',
             'typewriter' => 'required|min:2|max:255',
             'body' => 'required|min:5',
-            'image' => 'required|mimes:jpg,png,jpeg',
+            'path' => 'required|mimes:jpg,png,jpeg',
             'date' => 'required',
 
         ]);
-        $file = $request->file('image')->store('news');
+        $file = $request->file('path')->store('news_image');
         $news = News::create([
             'path' => $file,
             'title' => $request->title,
@@ -62,62 +49,36 @@ class NewsController extends Controller
             'date' => $request->date,
             'state' => 'Autorizada'
         ]);
-        //Logger
         $this->Logger->log('info', 'Cadastrou uma noticia com o titulo ' . $news->title);
-
         return redirect("admin/news/show/$news->id")->with('create', '1');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-
-        $response['news'] = News::find($id);
-
-        //Logger
+        $response['data'] = News::find($id);
         $this->Logger->log('info', 'Visualizar uma noticia com o identificador ' . $id);
         return view('admin.news.details.index', $response);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-
-        $response['news'] = News::find($id);
-        //Logger
+        $response['data'] = News::find($id);
         $this->Logger->log('info', 'Entrou em editar uma noticia com o identificador ' . $id);
         return view('admin.news.edit.index', $response);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $validation = $request->validate([
+        $request->validate([
             'title' => 'required|min:5|max:255',
             'typewriter' => 'required|min:2|max:255',
             'body' => 'required|min:5',
             'date' => 'required',
-            'image' => 'mimes:jpg,png,jpeg',
+            'path' => 'mimes:jpg,png,jpeg',
         ]);
 
-        if ($file = $request->file('image')) {
-            $file = $file->store('news');
+        if ($file = $request->file('path')) {
+            $file = $file->store('news_image');
         } else {
             $file = News::find($id)->path;
         }
@@ -129,22 +90,25 @@ class NewsController extends Controller
             'date' => $request->date,
             'state' => 'Autorizada'
         ]);
-        //Logger
         $this->Logger->log('info', 'Editou uma noticia com o identificador ' . $id);
         return redirect("admin/news/show/$id")->with('edit', '1');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //Logger
         $this->Logger->log('info', 'Eliminou uma noticia com o identificador ' . $id);
         News::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
+    }
+
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $count = News::count();
+        $data = News::where('email', "Like", "%" . $searchText . "%")
+            ->where('title', "Like", "%" . $searchText . "%")
+            ->OrderBy('id', 'desc')->paginate(5);
+        return view('admin.news.list.index', compact('data', 'count'));
+        $this->Logger->log('info', 'Efectuou uma pesquisa em noticias');
     }
 }

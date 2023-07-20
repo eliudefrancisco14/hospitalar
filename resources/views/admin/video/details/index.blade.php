@@ -12,10 +12,6 @@
                     <div class="nav nav-pills flex-column flex-md-row mb-3">
                         <ul class="nav nav-pills flex-column flex-md-row mb-3">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.video.create') }}"><i
-                                        class="bx bx-user me-1"></i> Criar vídeo</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.video.index') }}"><i
                                         class="bx bx-link-alt me-1"></i>
                                     Lista</a>

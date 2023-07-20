@@ -8,12 +8,17 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('dashboard/assets/img/favicon.ico') }}" />
 
     <!-- Fonts -->
+
+    <link rel="stylesheet" href="{{asset('logint/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="{{ asset('dashboard/fonts/css/fonts.css') }}" rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+
+    <link rel="stylesheet" href="{{asset('../assets/vendor/fonts/boxicons.css')}}" />
+
     <link rel="stylesheet" href="{{ asset('dashboard/fonts/css/boxicons.css') }}" />
     <link rel="stylesheet" href="{{ asset('dashboard/fonts/css/fonts.css') }}" />
 
@@ -38,4 +43,6 @@
     <script src="{{ asset('dashboard/js/helpers.js') }}"></script>
     <script src="{{ asset('dashboard/js/config.js') }}"></script>
 
+    <script src="/ckeditor/ckeditor.js"></script>
+    
     <title></title>
