@@ -2,7 +2,8 @@
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.digitalInclusion.index') }}"><i class="bx bx-link-alt me-1"></i>
+                        <a class="nav-link" href="{{ route('admin.digitalInclusion.index') }}"><i
+                                class="bx bx-link-alt me-1"></i>
                             Lista</a>
                     </li>
                 </ul>
@@ -19,7 +20,6 @@
                                         </div>
                                     </div>
                                     <div class="card-deck mb-4">
-
                                         <div class="card border-0 bg-transparent">
                                             <div class="card-img-top img-fluid rounded"
                                                 style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:200px;width:250px;'>
@@ -28,13 +28,11 @@
                                     </div>
                                 </div>
                             @endisset
-
                             <div class="mb-3">
                                 <label for="name" class="form-label">Selecionar a imagem</label>
                                 <input class="form-control" id="infile" name="image" type="file"
                                     required></input>
                             </div>
-
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nome</label>
                                 <input class="form-control" type="text" id="name" name="name"
@@ -42,11 +40,12 @@
                                     placeholder="Informar o nome" autofocus />
                             </div>
                             <div class="mb-3">
-                                <label for="name" class="form-label">Informação detalhada</label>
+                                <label for="name" class="form-label">Detalhe da informação da inclusão</label>
                                 <textarea class="form-control" type="text" id="description" name="description">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>

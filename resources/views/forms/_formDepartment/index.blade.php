@@ -12,22 +12,22 @@
                 <div class="row">
 
                     <div class="form-group col-md-8">
-                        <label for="name">Nome</label>
+                        <label for="name" form-group>Nome</label>
                         <input type="text" name="name" id="name" value="{{ isset($data->name) ? $data->name : old('name') }}"
                             class="form-control" placeholder="Informar o nome" required>
                     </div>
 
-                    <div class="mb-1 col-md-4">
+                    <div class="mb-3 col-md-4">
                         <div class="form-group">
-                            <label for="name">Responsável</label>
+                            <label for="name" class="form-label">Responsável</label>
                             <input type="text" name="boss" id="boss" value="{{ isset($data->boss) ? $data->boss : old('boss') }}"
                                 class="form-control" placeholder="Informar o responsável" required>
                         </div>
                     </div>
 
-                    <div class="mb-1 col-md-12">
+                    <div class="mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name">Descrição detalhada</label>
+                            <label for="name" class="form-label">Detalhe da informação do departamento</label>
                             <textarea type="text" name="description" id="description" class="form-control" required>{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>

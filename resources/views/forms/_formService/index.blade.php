@@ -30,23 +30,23 @@
                         </div>
                     @endisset
 
-                    <div class="form-group col-md-8">
-                        <label for="name">Titulo</label>
+                    <div class="form-group mb-3 col-md-8">
+                        <label for="name" class="form-label">Titulo</label>
                         <input type="text" name="title" id="title"
                             value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
                             placeholder="Titulo" required>
                     </div>
 
-                    <div class="mb-1 col-md-4">
-                        <label for="name" class="form-label">Selecionar imagem de capa</label>
+                    <div class="form-group mb-3 col-md-4">
+                        <label for="name" class="form-label">Selecionar imagem</label>
                         <input class="form-control" id="infile"
                             value="{{ isset($data->logo) ? $data->logo : old('image') }}" name="logo" type="file"
                             required></input>
                     </div>
 
-                    <div class="mb-1 col-md-12">
+                    <div class="form-group mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name">Descrição</label>
+                            <label for="name" class="form-label">Detalhe da informação do serviço</label>
                             <textarea type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>
