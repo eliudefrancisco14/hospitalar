@@ -148,19 +148,19 @@
                 <div class="col-lg-5 py-4">
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="157" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalPoint }}" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p><strong>Total de Pontos de Acesso</strong> </p>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="145" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalGoodPoint }}" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p><strong>Total em optimo estado</strong></p>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalBadPoint }}" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p><strong>Total de Pontos Indisponível</strong></p>
                     </div><!-- End Stats Item -->
@@ -187,7 +187,8 @@
                         <article class="my">
 
                             <div class="post-img">
-                                <img src="{{ url("/storage/$item->logo") }}" alt="{{  $item->title  }}" class="img-fluid">
+                                <img src="{{ url("/storage/$item->logo") }}" alt="{{ $item->title }}"
+                                    class="img-fluid">
                             </div>
 
                             <p class="post-category">{{ $item->title }}</p>
@@ -224,21 +225,21 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <p>
+                    <p style="text-align: justify">
                         Faça uma avaliação da arquitetura projectada para o seu sistema, verifique se é capaz de atender
                         às
                         funcionalidades, Mede a facilidade com a qual a unidade de software pode ser transferida de um
                         sistema computacional ou ambiente para outro e verifique a implementação de uma série de
                         controlos
                         (políticas, práticas, procedimentos, estruturas organizacionais e funções de software).</p>
-                    <p>
+                    <p style="text-align: justify">
                         De modos
                         a
                         Obter a Certificação de que o seu software está autorizado para ser utilizado nas Instituições
                         Publicas e Privadas, a luz do Decreto Presidencial nº 135/21 de 31 de Maio, no seu artigo 6º.
-                    </p>
+                    </p style="text-align: justify">
 
-                    <div class="text-center"><a href="#" class="btn buy-btn">Aceder o Portal de Homologação</a>
+                    <div class="text-center"><a href="https://www.infosi.gov.ao/painel" class="btn buy-btn">Aceder o Portal de Homologação</a>
                     </div>
 
                 </div>
@@ -257,22 +258,11 @@
             </div>
             <div class="clients-slider swiper">
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="/site/img/clients/client-1.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-2.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-3.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-4.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-5.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-6.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-7.png" class="img-fluid"
-                            alt=""></div>
-                    <div class="swiper-slide"><img src="/site/img/clients/client-8.png" class="img-fluid"
-                            alt=""></div>
+                    @foreach ($partners as $item)
+                        <div class="swiper-slide"> <a href="{{ $item->link }}" target="_blank"> <img
+                                    src="{{ url("/storage/$item->logo") }}" class="img-fluid"
+                                    alt="{{ $item->title }}"></a></div>
+                    @endforeach
                 </div>
             </div>
 

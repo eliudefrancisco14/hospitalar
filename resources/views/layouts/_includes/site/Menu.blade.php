@@ -29,7 +29,7 @@
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         <li><a href="{{ route('site.about') }}">Definição</a></li>
-                        <li><a href="{{ route('site.organization.all') }}">Estrutura Orgânica</a></li>
+                        <li><a href="{{ route('site.organization') }}">Estrutura Orgânica</a></li>
                         <li><a href="{{ route('site.regulation') }}">Regulamentos</a></li>
                     </ul>
                 </li>

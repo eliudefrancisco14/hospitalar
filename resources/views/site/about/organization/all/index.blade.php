@@ -33,44 +33,20 @@
 
                     <div class="row gy-4 portfolio-container">
 
-                        <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-                            <div class="portfolio-wrap">
-                                <a href="/site/img/direccao/DT.png" data-gallery="portfolio-gallery-app"
-                                    class="glightbox"><img src="/site/img/direccao/DT.png" class="img-fluid"
-                                        alt=""></a>
-                                <div class="portfolio-info">
-                                    <h4><a href="#" title="More Details">Marcos Cary</a></h4>
-                                    <p>Director Geral Adjunto para Área Técnica</p>
+
+                        @foreach ($directions as $item)
+                            <div class="col-xl-4 col-md-6 portfolio-item filter-product">
+                                <div class="portfolio-wrap">
+                                    <a href="{{ url("/storage/$item->path") }}" data-gallery="portfolio-gallery-app"
+                                        class="glightbox"><img src="{{ url("/storage/$item->path") }}" class="img-fluid"
+                                            alt=""></a>
+                                    <div class="portfolio-info">
+                                        <h4><a href="{!! url('/estrutura-organica/' . urlencode($item->name)) !!}" title="More Details">{{ $item->name }}</a></h4>
+                                        <p>{{ $item->office }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-xl-4 col-md-6 portfolio-item filter-product">
-                            <div class="portfolio-wrap">
-                                <a href="/site/img/direccao/DGAP.png" data-gallery="portfolio-gallery-app"
-                                    class="glightbox"><img src="/site/img/direccao/DGAP.png" class="img-fluid"
-                                        alt=""></a>
-                                <div class="portfolio-info">
-                                    <h4><a href="#" title="More Details">André Mpumba Pedro</a></h4>
-                                    <p>Director Geral</p>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-
-                        <div class="col-xl-4 col-md-6 portfolio-item filter-branding">
-                            <div class="portfolio-wrap">
-                                <a href="/site/img/direccao/DRD.png" data-gallery="portfolio-gallery-app"
-                                    class="glightbox"><img src="/site/img/direccao/DRD.png" class="img-fluid"
-                                        alt=""></a>
-                                <div class="portfolio-info">
-                                    <h4><a href="#" title="More Details">Rita Diogo</a></h4>
-                                    <p>Directora Geral Adjunta Para Área Admnistrativa</p>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-
+                            </div><!-- End Portfolio Item -->
+                        @endforeach
 
                     </div><!-- End Portfolio Container -->
 
@@ -93,98 +69,23 @@
 
                         <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
 
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-1">
-                                        <span class="num">1.</span>
-                                        Departamento de Administração de Sistemas, Redes e Comunicações
-                                    </button>
-                                </h3>
-                                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        <p><b>Chefe de Departamento:</b> Nome Completo </p>
-                                        Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
-                                        non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor
-                                        purus non.
+                            @foreach ($departments as $item)
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#faq-content-1">
+                                            <span class="num">{{ $loop->index + 1 }}.</span>
+                                            {{ $item->name }}
+                                        </button>
+                                    </h3>
+                                    <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                        <div class="accordion-body">
+                                            <p><b>Chefe de Departamento:</b> {{ $item->boss }} </p>
+                                            {{ $item->description }}
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-2">
-                                        <span class="num">2.</span>
-                                        Departamento de Gestão de Infra-Estrutura Tecnológica e Serviços Partilhados
-                                    </button>
-                                </h3>
-                                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        <p><b>Chefe de Departamento:</b> Nome Completo </p>
-                                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                        velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
-                                        donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                                        cursus turpis massa tincidunt dui.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-3">
-                                        <span class="num">3.</span>
-                                        Departamento de Massificação, Inclusão e Conteúdo Digital
-                                    </button>
-                                </h3>
-                                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        <p><b>Chefe de Departamento:</b> Nome Completo </p>
-                                        Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                        pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit.
-                                        Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis
-                                        tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-4">
-                                        <span class="num">4.</span>
-                                        Departamento de Cibersegurança, Chaves Públicas e Carimbo do Tempo
-                                    </button>
-                                </h3>
-                                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        <p><b>Chefe de Departamento:</b> Nome Completo </p>
-                                        Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                        velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend
-                                        donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-                                        cursus turpis massa tincidunt dui.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-5">
-                                        <span class="num">5.</span>
-                                        Departamento de Apoio ao Director Geral
-                                    </button>
-                                </h3>
-                                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        <p><b>Chefe de Departamento:</b> Nome Completo </p>
-                                        Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in
-                                        est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl
-                                        suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
+                                </div><!-- # Faq item-->
+                            @endforeach
 
                         </div>
 

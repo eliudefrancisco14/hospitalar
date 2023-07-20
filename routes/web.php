@@ -6,13 +6,11 @@ use Illuminate\Support\Facades\Route;
 route::get('/', ['as' => 'site.home', 'uses' => 'Site\HomeController@index']);
 
 /* ABOUT */
-route::get('/sobre-o-infosi', ['as' => 'site.about', 'uses' => 'Site\AboutController@about']);
+route::get('/sobre-o-infosi', ['as' => 'site.about', 'uses' => 'Site\AboutController@index']);
 
 /* Organization */
-route::get('/estrutura-organica', ['as' => 'site.organization.all', 'uses' => 'Site\DirectionController@index']);
-
-/* Organization Sinlge*/
-route::get('/estrutura-organica/{name}', ['as' => 'site.organization.single', 'uses' => 'Site\DirectionController@show']);
+route::get('/estrutura-organica', ['as' => 'site.organization', 'uses' => 'Site\DirectionController@index']);
+route::get('/estrutura-organica/{name}', ['as' => 'site.organization.show', 'uses' => 'Site\DirectionController@show']);
 
 /* regulation */
 route::get('/regulation', ['as' => 'site.regulation', 'uses' => 'Site\RegulationController@index']);
@@ -43,6 +41,7 @@ route::get('/homologacao', ['as' => 'site.homologation', 'uses' => 'Site\Homolog
 
 /* Digital Inclusion */
 route::get('/inclusao-digital', ['as' => 'site.digitalInclusion', 'uses' => 'Site\DigitalInclusionController@index']);
+Route::get('/inclusao-digital/{name}', ['as' => 'site.digitalInclusion.show', 'uses' => 'Site\DigitalInclusionController@show']);
 
 /* News */
 route::get('/noticias', ['as' => 'site.news', 'uses' => 'Site\NewsController@index']);

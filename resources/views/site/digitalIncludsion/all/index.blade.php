@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-@section('title', 'Notícias')
+@section('title', 'Inclusão Digital')
 @section('content')
 
 
@@ -9,7 +9,7 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Notícias</h2>
+                        <h2>Inclusão Digital</h2>
                     </div>
                 </div>
             </div>
@@ -24,41 +24,31 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <p>Notícias do INFOSI </p>
+                    <p>Inclusão Digital </p>
                 </div>
 
                 <div class="row gy-4 posts-list">
 
-                    @foreach ($news as $item)
+                    @foreach ($digitalInclusions as $item)
                         <div class="col-xl-4 col-md-6">
                             <article class="my">
 
                                 <div class="post-img">
-                                    <img src="{{ url("/storage/$item->path") }}" alt="" class="img-fluid">
+                                    <img src="{{ url("/storage/$item->image") }}" alt="" class="img-fluid">
                                 </div>
 
-                                <p class="post-category">{{ $item->title }}</p>
+                                <p class="post-category">{{ $item->name }}</p>
 
                                 <h2 class="title">
-                                    <a href="{!! url('/noticia/' . urlencode($item->title)) !!}">{!! html_entity_decode(mb_substr($item->body, 0, 80, 'UTF-8')) !!}</a>
+                                    <a href="{!! url('/inclusao-digital/' . urlencode($item->name)) !!}">{!! html_entity_decode(mb_substr($item->description, 0, 80, 'UTF-8')) !!}</a>
                                 </h2>
-
-                                <div class="d-flex align-items-center">
-                                    <div class="post-meta">
-                                        <p class="post-author-list">{{ $item->typewriter }}</p>
-                                        <p class="post-date">
-                                            <time datetime="01-01-2023">{{ date('d/m/Y', strtotime($item->date)) }}</time>
-                                        </p>
-                                    </div>
-                                </div>
-
 
                             </article>
                         </div><!-- End post list item -->
                     @endforeach
 
                     <nav class="justify-content-center d-flex mt-0">
-                        <b> {{ $news->links() }}</b>
+                        <b> {{ $digitalInclusions->links() }}</b>
                     </nav>
 
                 </div><!-- End blog posts list -->

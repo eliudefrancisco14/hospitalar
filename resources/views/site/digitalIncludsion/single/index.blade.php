@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-@section('title', 'Galeria de Imagens')
+@section('title', 'Inclusão Digital')
 @section('content')
 
 
@@ -9,7 +9,7 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Galeria de Imagens "{{ $gallery->name }}"</h2>
+                        <h2>Inclusão Digital "{{ $digitalInclusion->name }}"</h2>
                     </div>
                 </div>
             </div>
@@ -24,28 +24,27 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-header">
-                    <p>{{ $gallery->description }} </p>
+                    <p>{{ $digitalInclusion->description }} </p>
                 </div>
                 <div class="row gy-4 posts-list">
 
 
-                    @foreach ($images as $item)
+                    @foreach ($imageDigitalInclusions as $item)
                         <div class="col-xl-4 col-md-6">
 
                             <div class="text-white my">
                                 <img src="{{ url("/storage/$item->path") }}" class="card-img img-fluid rounded-4 mb-4"
-                                    alt="{{ $gallery->name }}">
+                                    alt="{{ $digitalInclusion->name }}">
                             </div>
                         </div><!-- End post list item -->
                     @endforeach
 
 
 
-
                 </div><!-- End blog posts list -->
 
                 <nav class="justify-content-center d-flex mt-0">
-                    <b> {{ $images->links() }}</b>
+                    <b> {{ $imageDigitalInclusions->links() }}</b>
                 </nav>
 
             </div>
