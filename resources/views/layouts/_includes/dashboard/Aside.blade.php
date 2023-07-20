@@ -65,12 +65,20 @@
             </a>
         </li>
 
+        <!-- Dashboard -->
+        <li class="menu-item active">
+            <a href="{{ route('site.home') }}" class="menu-link">
+                <i class='menu-icon tf-icons bx bx-globe'></i>
+                <div data-i18n="Analytics">Site</div>
+            </a>
+        </li>
+
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Segurança</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <i class="menu-icon tf-icons bx bx-user"></i>
                 <div data-i18n="Account Settings">configurar contas</div>
             </a>
             <ul class="menu-sub">
@@ -91,7 +99,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bx-image-alt"></i>
                 <div data-i18n="Authentications">Imagem</div>
             </a>
             <ul class="menu-sub">
@@ -112,7 +120,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bxs-video"></i>
                 <div data-i18n="Authentications">Vídeo</div>
             </a>
             <ul class="menu-sub">
@@ -134,7 +142,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bxs-contact"></i>
                 <div data-i18n="Authentications">Contactos</div>
             </a>
             <ul class="menu-sub">
@@ -156,7 +164,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bxs-user-badge"></i>
                 <div data-i18n="Authentications">Parceiros</div>
             </a>
             <ul class="menu-sub">
@@ -178,7 +186,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bx-question-mark"></i>
                 <div data-i18n="Authentications">Perg. Frequentes</div>
             </a>
             <ul class="menu-sub">
@@ -200,7 +208,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bx-phone-call"></i>
                 <div data-i18n="Authentications">Serviços</div>
             </a>
             <ul class="menu-sub">
@@ -222,7 +230,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <i class="menu-icon tf-icons bx bx-slideshow"></i>
                 <div data-i18n="Authentications">Apresentação</div>
             </a>
             <ul class="menu-sub">
@@ -233,6 +241,116 @@
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('admin.slide.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Definições</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Authentications">Definições</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.definition.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.definition.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Direcção</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-horizontal-center"></i>
+                <div data-i18n="Authentications">Direcção</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.direction.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.direction.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Regulamentação</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-book"></i>
+                <div data-i18n="Authentications">Relamento</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.regulation.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.regulation.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">GALERIA DE INCLUSÃO DIGITAL</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
+                <div data-i18n="Authentications">Inclusão Digital</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">GALERIA DE NOTICIAS</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-news"></i>
+                <div data-i18n="Authentications">NOTICIAS</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.news.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.news.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>

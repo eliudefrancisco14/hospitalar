@@ -24,7 +24,7 @@
                         <div class="navbar-nav align-items-center">
                             <div class="nav-item d-flex align-items-center">
                                 <i class="bx bx-search fs-4 lh-0"></i>
-                                <form action="{{ route('admin.faq.faqSearch') }}" method="GET">
+                                <form action="{{ route('admin.definition.Definições') }}" method="GET">
                                     @csrf
                                     <input type="text" class="form-control border-0 shadow-none" name="searchText"
                                         placeholder="Pesquisar..." aria-label="Pesquisar..." />

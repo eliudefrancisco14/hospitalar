@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
-use App\Models\{Gallery, Log};
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\{Gallery, ImageGallery, Log};
 
 class GalleryController extends Controller
 {
@@ -20,8 +20,8 @@ class GalleryController extends Controller
 
     public function index()
     {
-        $response['data'] = Gallery::OrderBy('id', 'asc')->paginate(5);
-        $response['count'] = Gallery::count();
+        $response['data'] = gallery::OrderBy('id', 'desc')->get();
+        $response['count'] = gallery::count();
         $this->Logger->log('info', 'Listou a galeria');
         return view('admin.gallery.list.index', $response);
     }
@@ -50,7 +50,7 @@ class GalleryController extends Controller
         if ($exists_name) {
             return redirect()->back()->with('exists', '1');
         }
-        $file = $request->file('image')->store('main_galleryPage');
+        $file = $request->file('image')->store('gallery_page_image');
         try {
             Gallery::create(
                 [
@@ -72,7 +72,8 @@ class GalleryController extends Controller
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
             $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
-            $response['data'] = Gallery::find($id);
+            $response['gallery'] = Gallery::find($id);
+            $response['count']  = ImageGallery::where("fk_idGallery", $id)->get()->count();
             $this->Logger->log('info', 'Visualizou capa de galeria com o identificador ' . $id);
             return view('admin.gallery.details.index', $response);
         }
@@ -100,7 +101,7 @@ class GalleryController extends Controller
             ]
         );
         if ($file = $request->file('image')) {
-            $file = $file->store('main_galleryPage');
+            $file = $file->store('gallery_page_image');
         } else {
             $file = Gallery::find($id)->image;
         }
@@ -118,15 +119,17 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $this->Logger->log('info', 'Eliminou uma imagem da galeria com o identificador ' . $id);
-        gallery::find($id)->delete();
+        Gallery::find($id)->delete();
         return redirect()->route('admin.gallery.index')->with('destroy', '1');
     }
 
     public function search(Request $request)
     {
         $searchText = $request->get('searchText');
-        $count = gallery::count();
-        $data = gallery::where('name', "Like", "%" . $searchText . "%")->Orwhere('description', $searchText)->OrderBy('id', 'asc')->paginate(5);
+        $count = Gallery::count();
+        $data = Gallery::where('name', "Like", "%" . $searchText . "%")
+            ->where('description', "Like", "%" . $searchText . "%")
+            ->OrderBy('id', 'asc')->paginate(5);
         return view('admin.gallery.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em galeria');
     }

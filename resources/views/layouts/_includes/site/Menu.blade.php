@@ -19,7 +19,7 @@
 <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="/" class="logo d-flex align-items-center">
+        <a href="{{ route('site.home') }}" class="logo d-flex align-items-center">
             <img src="/site/img/mono-logo.svg" alt="logo" class="" height="28">
         </a>
         <nav id="navbar" class="navbar">
@@ -29,12 +29,12 @@
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         <li><a href="{{ route('site.about') }}">Definição</a></li>
-                        <li><a href="{{ route('site.organization') }}">Estrutura Orgânica</a></li>
-                        <li><a href="{{ route('site.portfolio') }}">Regulamentos</a></li>
+                        <li><a href="{{ route('site.organization.all') }}">Estrutura Orgânica</a></li>
+                        <li><a href="{{ route('site.regulation') }}">Regulamentos</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Inclusão Digital</a></li>
-                <li><a href="#">Notícias</a></li>
+                <li><a href="{{ route('site.digitalInclusion') }}">Inclusão Digital</a></li>
+                <li><a href="{{ route('site.news') }}">Notícias</a></li>
                 <li class="dropdown"><a href="#"><span>Media</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
@@ -42,7 +42,7 @@
                         <li><a href="{{ route('site.video') }}">Galeria de Videos</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ route('site.join') }}">Contactos</a></li>
+                <li><a href="{{ route('site.contact') }}">Contactos</a></li>
             </ul>
         </nav><!-- .navbar -->
 

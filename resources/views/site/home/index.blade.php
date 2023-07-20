@@ -56,7 +56,7 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-gear"></i></div>
-                            <h4 class="title"><a href="#services" class="stretched-link">Serviços</a></h4>
+                            <h4 class="title"><a href="#blog" class="stretched-link">Serviços</a></h4>
                         </div>
                     </div>
                     <!--End Icon Box -->
@@ -173,7 +173,7 @@
     </section><!-- End Stats Counter Section -->
 
     <!-- ======= Our Services Section ======= -->
-    <section id="services" class="services sections-bg">
+    <section id="blog" class="blog blog-home">
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
@@ -181,53 +181,67 @@
                 <p>Aqui apresentamos os nossos serviço mais destacados</p>
             </div>
 
-            <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4 posts-list " data-aos="fade-up" data-aos-delay="100">
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item  position-relative">
-                        <div class="icon">
-                            <i class="bi bi-gear"></i>
-                        </div>
-                        <h3>Desenvolvimento de Sistemas</h3>
+                <div class="col-xl-4 col-md-6">
+                    <article class="my">
 
-                        <p>Desenvolvimento de aplicações Mobile, Web e Desktop.</p>
-                        <a href="#" class="readmore stretched-link">Leia mais <i
-                                class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div><!-- End Service Item -->
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-gear"></i>
+                        <div class="post-img">
+                            <img src="/site/img/blog/blog-1.jpg" alt="" class="img-fluid">
                         </div>
 
+                        <p class="post-category">Desenvolvimento de Sistemas</p>
 
-                        <h3>Registro de Empresa</h3>
-                        <p>Emissão de certificado sobre aptidão tecnológico das empresas.</p>
-                        <a href="#" class="readmore stretched-link">Leia mais <i
-                                class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div><!-- End Service Item -->
+                        <h2 class="title">
+                            <a href="{{ route('site.image') }}">Desenvolvimento de aplicações Mobile, Web e
+                                Desktop.</a>
+                        </h2>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item position-relative">
-                        <div class="icon">
-                            <i class="bi bi-gear"></i>
+
+                    </article>
+                </div><!-- End post list item -->
+
+                <div class="col-xl-4 col-md-6">
+                    <article class="my">
+
+                        <div class="post-img">
+                            <img src="/site/img/blog/blog-2.jpg" alt="" class="img-fluid">
                         </div>
-                        <h3>Registo de Domínio .ao</h3>
-                        <p>Gerir facilmente o servidor de nomes com um painel de controle fácil e rápido de utilizar.
-                        </p>
-                        <a href="#" class="readmore stretched-link">Leia mais <i
-                                class="bi bi-arrow-right"></i></a>
-                    </div>
-                </div><!-- End Service Item -->
+
+                        <p class="post-category">Registro de Empresa</p>
+
+                        <h2 class="title">
+                            <a href="{{ route('site.image') }}">Emissão de certificado sobre aptidão tecnológico das
+                                empresas.</a>
+                        </h2>
 
 
-            </div>
+                    </article>
+                </div><!-- End post list item -->
+
+                <div class="col-xl-4 col-md-6">
+                    <article class="my">
+
+                        <div class="post-img">
+                            <img src="/site/img/blog/blog-3.jpg" alt="" class="img-fluid">
+                        </div>
+
+                        <p class="post-category">Registo de Domínio .ao</p>
+
+                        <h2 class="title">
+                            <a href="{{ route('site.image') }}">Gerir facilmente o servidor de nomes com um painel de
+                                controle fácil e rápido de utilizar.</a>
+                        </h2>
+
+                    </article>
+                </div><!-- End post list item -->
+
+            </div><!-- End blog posts list -->
 
         </div>
     </section><!-- End Our Services Section -->
+
+
 
     <!-- ======= Stats Counter Section ======= -->
     <section id="homologation" class="homologation">
@@ -299,137 +313,6 @@
 
         </div>
     </section><!-- End Clients Section -->
-
-
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
-        <div class="container" data-aos="fade-up">
-
-            <div class="row gy-4">
-
-                <div class="col-lg-4">
-                    <div class="content px-xl-5">
-                        <h3><strong>Perguntas</strong> Frequentes</h3>
-                        <p>
-                            As perguntas mais frequentes são respondidas aqui
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-8">
-
-                    <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
-                        @foreach ($faqs as $item)
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-{{ $loop->index + 1 }}">
-                                        <span class="num">{{ $loop->index + 1 }}.</span>
-                                        {{ $item->title }}
-                                    </button>
-                                </h3>
-                                <div id="faq-content-{{ $loop->index + 1 }}" class="accordion-collapse collapse"
-                                    data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        {{ $item->description }}
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-                        @endforeach
-
-
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End Frequently Asked Questions Section -->
-
-
-    <section id="contact" class="contact">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-header">
-                <h2>Contactos</h2>
-                <p>Pode Entrar em Contacto Connosco apartir dos seguintes terminais </p>
-            </div>
-
-            <div class="row gx-lg-0 gy-4">
-
-                <div class="col-lg-4">
-
-                    <div class="info-container d-flex flex-column align-items-center justify-content-center">
-                        <div class="info-item d-flex">
-                            <i class="bi bi-geo-alt flex-shrink-0"></i>
-                            <div>
-                                <h4>Location:</h4>
-                                <p>A108 Adam Street, New York, NY 535022</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex">
-                            <i class="bi bi-envelope flex-shrink-0"></i>
-                            <div>
-                                <h4>Email:</h4>
-                                <p>info@example.com</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex">
-                            <i class="bi bi-phone flex-shrink-0"></i>
-                            <div>
-                                <h4>Call:</h4>
-                                <p>+1 5589 55488 55</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="info-item d-flex">
-                            <i class="bi bi-clock flex-shrink-0"></i>
-                            <div>
-                                <h4>Open Hours:</h4>
-                                <p>Mon-Sat: 11AM - 23PM</p>
-                            </div>
-                        </div><!-- End Info Item -->
-                    </div>
-
-                </div>
-
-                <div class="col-lg-8">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                            <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" required>
-                            </div>
-                        </div>
-                        <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject"
-                                placeholder="Subject" required>
-                        </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="7" placeholder="Message" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                        <div class="text-center"><button type="submit">Send Message</button></div>
-                    </form>
-                </div><!-- End Contact Form -->
-
-            </div>
-
-        </div>
-    </section><!-- End Contact Section -->
-
-
 
 </main><!-- End #main -->
 @endsection

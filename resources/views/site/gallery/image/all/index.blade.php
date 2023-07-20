@@ -3,37 +3,18 @@
 @section('content')
 
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="hero"
-        style=" background-image: url({{ url('site/img/banner-infosi.jpg') }}); background-position: center;  background-size: cover; background-repeat: no-repeat;">
-
-        <div class="container position-relative">
-            <div class="row gy-5" data-aos="fade-in">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
                         <h2>Galeria de Imagens</h2>
-                        <p class="py-3">
-                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="breadcrumbs">
-            <nav>
-                <div class="container">
-                    <ol>
-                        <li><a href="{{ route('site.home') }}">Home</a></li>
-                        <li>Galeria</li>
-                        <li>Imagens</li>
-                    </ol>
-                </div>
-            </nav>
-        </div>
-
-    </section>
-    <!-- End Hero Section -->
+    </div><!-- End Breadcrumbs -->
 
 
     <main id="main">
@@ -41,6 +22,10 @@
         <!-- ======= Blog Section ======= -->
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
+
+                <div class="section-header">
+                    <p>Galeria de imagens do INFOSI </p>
+                </div>
 
                 <div class="row gy-4 posts-list">
 

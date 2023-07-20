@@ -40,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/signup/logs', ['as' => 'admin.signup.log', 'uses' => 'Admin\CredencialController@log']);
     /* end user */
 
-    /* Main Gallery */
+    /* Gallery Page */
     Route::get('admin/gallery/index', ['as' => 'admin.gallery.index', 'uses' => 'Admin\GalleryController@index']);
     Route::get('admin/gallery/create', ['as' => 'admin.gallery.create', 'uses' => 'Admin\GalleryController@create']);
     Route::post('admin/gallery/store', ['as' => 'admin.gallery.store', 'uses' => 'Admin\GalleryController@store']);
@@ -51,17 +51,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/gallery/gallerySearch', ['as' => 'admin.gallery.gallerySearch', 'uses' => 'Admin\GalleryController@search']);
     /* end Gallery */
 
-    /* Main Image Gallery */
-    Route::get('admin/imageGallery/index', ['as' => 'admin.imageGallery.index', 'uses' => 'Admin\ImageGalleryController@index']);
-    Route::get('admin/imageGallery/create', ['as' => 'admin.imageGallery.create', 'uses' => 'Admin\ImageGalleryController@create']);
-    Route::post('admin/imageGallery/store', ['as' => 'admin.imageGallery.store', 'uses' => 'Admin\ImageGalleryController@store']);
-    Route::get('admin/imageGallery/show/{id}', ['as' => 'admin.imageGallery.show', 'uses' => 'Admin\ImageGalleryController@show']);
-    Route::get('admin/imageGallery/edit/{id}', ['as' => 'admin.imageGallery.edit', 'uses' => 'Admin\ImageGalleryController@edit']);
-    Route::put('admin/imageGallery/updates/{id}', ['as' => 'admin.imageGallery.update', 'uses' => 'Admin\ImageGalleryController@update']);
-    Route::get('admin/imageGallery/editImage/{id}', ['as' => 'admin.imageGallery.editImage.index', 'uses' => 'Admin\ImageGalleryController@editImage']);
-    Route::post('admin/imageGallery/updateImage/{id}', ['as' => 'admin.imageGallery.updateImage', 'uses' => 'Admin\ImageGalleryController@updateImage']);
+    /* Image Gallery */
+    Route::get('admin/imageGallery/create/{id}', ['as' => 'admin.imageGallery.create', 'uses' => 'Admin\ImageGalleryController@create']);
+    Route::post('admin/imageGallery/store/{id}', ['as' => 'admin.imageGallery.store', 'uses' => 'Admin\ImageGalleryController@store']);
     Route::get('admin/imageGallery/delete/{id}', ['as' => 'admin.imageGallery.delete', 'uses' => 'Admin\ImageGalleryController@destroy']);
-    /* end Gallery */
+    /* Gallery */
 
     /* video */
     Route::get('admin/video/index', ['as' => 'admin.video.index', 'uses' => 'Admin\VideoController@index']);
@@ -118,15 +112,87 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/service/serviceSearch', ['as' => 'admin.service.serviceSearch', 'uses' => 'Admin\ServiceController@search']);
     /* end Service */
 
-     /* Slide Show */
-     Route::get('admin/slide/index', ['as' => 'admin.slide.index', 'uses' => 'Admin\SlideController@index']);
-     Route::get('admin/slide/show/{id}', ['as' => 'admin.slide.show', 'uses' => 'Admin\SlideController@show']);
-     Route::get('admin/slide/create', ['as' => 'admin.slide.create', 'uses' => 'Admin\SlideController@create']);
-     Route::post('admin/slide/store', ['as' => 'admin.slide.store', 'uses' => 'Admin\SlideController@store']);
-     Route::get('admin/slide/edit/{id}', ['as' => 'admin.slide.edit', 'uses' => 'Admin\SlideController@edit']);
-     Route::put('admin/slide/update/{id}', ['as' => 'admin.slide.update', 'uses' => 'Admin\SlideController@update']);
-     Route::get('admin/slide/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'Admin\SlideController@destroy']);
-     Route::get('admin/slide/slideSearch', ['as' => 'admin.slide.slideSearch', 'uses' => 'Admin\SlideController@search']);
-     /* end Service */
+    /* Slide Show */
+    Route::get('admin/slide/index', ['as' => 'admin.slide.index', 'uses' => 'Admin\SlideController@index']);
+    Route::get('admin/slide/show/{id}', ['as' => 'admin.slide.show', 'uses' => 'Admin\SlideController@show']);
+    Route::get('admin/slide/create', ['as' => 'admin.slide.create', 'uses' => 'Admin\SlideController@create']);
+    Route::post('admin/slide/store', ['as' => 'admin.slide.store', 'uses' => 'Admin\SlideController@store']);
+    Route::get('admin/slide/edit/{id}', ['as' => 'admin.slide.edit', 'uses' => 'Admin\SlideController@edit']);
+    Route::put('admin/slide/update/{id}', ['as' => 'admin.slide.update', 'uses' => 'Admin\SlideController@update']);
+    Route::get('admin/slide/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'Admin\SlideController@destroy']);
+    Route::get('admin/slide/slideSearch', ['as' => 'admin.slide.slideSearch', 'uses' => 'Admin\SlideController@search']);
+    /* end Service */
+
+    /* Definition Show */
+    Route::get('admin/definition/index', ['as' => 'admin.definition.index', 'uses' => 'Admin\DefinitionController@index']);
+    Route::get('admin/definition/show/{id}', ['as' => 'admin.definition.show', 'uses' => 'Admin\DefinitionController@show']);
+    Route::get('admin/definition/create', ['as' => 'admin.definition.create', 'uses' => 'Admin\DefinitionController@create']);
+    Route::post('admin/definition/store', ['as' => 'admin.definition.store', 'uses' => 'Admin\DefinitionController@store']);
+    Route::get('admin/definition/edit/{id}', ['as' => 'admin.definition.edit', 'uses' => 'Admin\DefinitionController@edit']);
+    Route::put('admin/definition/update/{id}', ['as' => 'admin.definition.update', 'uses' => 'Admin\DefinitionController@update']);
+    Route::get('admin/definition/delete/{id}', ['as' => 'admin.definition.delete', 'uses' => 'Admin\DefinitionController@destroy']);
+    Route::get('admin/definition/definitionSearch', ['as' => 'admin.definition.definitionSearch', 'uses' => 'Admin\DefinitionController@search']);
+    /* end Service */
+
+    /* Direction Show */
+    Route::get('admin/direction/index', ['as' => 'admin.direction.index', 'uses' => 'Admin\DirectionController@index']);
+    Route::get('admin/direction/show/{id}', ['as' => 'admin.direction.show', 'uses' => 'Admin\DirectionController@show']);
+    Route::get('admin/direction/create', ['as' => 'admin.direction.create', 'uses' => 'Admin\DirectionController@create']);
+    Route::post('admin/direction/store', ['as' => 'admin.direction.store', 'uses' => 'Admin\DirectionController@store']);
+    Route::get('admin/direction/edit/{id}', ['as' => 'admin.direction.edit', 'uses' => 'Admin\DirectionController@edit']);
+    Route::put('admin/direction/update/{id}', ['as' => 'admin.direction.update', 'uses' => 'Admin\DirectionController@update']);
+    Route::get('admin/direction/delete/{id}', ['as' => 'admin.direction.delete', 'uses' => 'Admin\DirectionController@destroy']);
+    Route::get('admin/direction/directionSearch', ['as' => 'admin.direction.directionSearch', 'uses' => 'Admin\DirectionController@search']);
+    /* end Service */
+
+    /* Direction Department */
+    Route::get('admin/department/index', ['as' => 'admin.department.index', 'uses' => 'Admin\DepartmentController@index']);
+    Route::get('admin/department/show/{id}', ['as' => 'admin.department.show', 'uses' => 'Admin\DepartmentController@show']);
+    Route::get('admin/department/create', ['as' => 'admin.department.create', 'uses' => 'Admin\DepartmentController@create']);
+    Route::post('admin/department/store', ['as' => 'admin.department.store', 'uses' => 'Admin\DepartmentController@store']);
+    Route::get('admin/department/edit/{id}', ['as' => 'admin.department.edit', 'uses' => 'Admin\DepartmentController@edit']);
+    Route::put('admin/department/update/{id}', ['as' => 'admin.department.update', 'uses' => 'Admin\DepartmentController@update']);
+    Route::get('admin/department/delete/{id}', ['as' => 'admin.department.delete', 'uses' => 'Admin\DepartmentController@destroy']);
+    Route::get('admin/department/departmentSearch', ['as' => 'admin.department.directionSearch', 'uses' => 'Admin\DepartmentController@search']);
+    /* end Department */
+
+    /* Direction Regulation */
+    Route::get('admin/regulation/index', ['as' => 'admin.regulation.index', 'uses' => 'Admin\RegulationController@index']);
+    Route::get('admin/regulation/show/{id}', ['as' => 'admin.regulation.show', 'uses' => 'Admin\RegulationController@show']);
+    Route::get('admin/regulation/create', ['as' => 'admin.regulation.create', 'uses' => 'Admin\RegulationController@create']);
+    Route::post('admin/regulation/store', ['as' => 'admin.regulation.store', 'uses' => 'Admin\RegulationController@store']);
+    Route::get('admin/regulation/edit/{id}', ['as' => 'admin.regulation.edit', 'uses' => 'Admin\RegulationController@edit']);
+    Route::put('admin/regulation/update/{id}', ['as' => 'admin.regulation.update', 'uses' => 'Admin\RegulationController@update']);
+    Route::get('admin/regulation/delete/{id}', ['as' => 'admin.regulation.delete', 'uses' => 'Admin\RegulationController@destroy']);
+    Route::get('admin/regulation/regulationSearch', ['as' => 'admin.regulation.regulationSearch', 'uses' => 'Admin\RegulationController@search']);
+    /* end Regulation */
+
+    /* Direction Digital Inclusion */
+    Route::get('admin/digitalInclusion/index', ['as' => 'admin.digitalInclusion.index', 'uses' => 'Admin\DigitalInclusionController@index']);
+    Route::get('admin/digitalInclusion/show/{id}', ['as' => 'admin.digitalInclusion.show', 'uses' => 'Admin\DigitalInclusionController@show']);
+    Route::get('admin/digitalInclusion/create', ['as' => 'admin.digitalInclusion.create', 'uses' => 'Admin\DigitalInclusionController@create']);
+    Route::post('admin/digitalInclusion/store', ['as' => 'admin.digitalInclusion.store', 'uses' => 'Admin\DigitalInclusionController@store']);
+    Route::get('admin/digitalInclusion/edit/{id}', ['as' => 'admin.digitalInclusion.edit', 'uses' => 'Admin\DigitalInclusionController@edit']);
+    Route::put('admin/digitalInclusion/update/{id}', ['as' => 'admin.digitalInclusion.update', 'uses' => 'Admin\DigitalInclusionController@update']);
+    Route::get('admin/digitalInclusion/delete/{id}', ['as' => 'admin.digitalInclusion.delete', 'uses' => 'Admin\DigitalInclusionController@destroy']);
+    Route::get('admin/digitalInclusion/digitalInclusionSearch', ['as' => 'admin.digitalInclusion.digitalInclusionSearch', 'uses' => 'Admin\DigitalInclusionController@search']);
+    /* end Digital Inclusion */
+
+    /* Main Image Gallery */
+    Route::get('admin/imagedigitalInclusion/create/{id}', ['as' => 'admin.imagedigitalInclusion.create', 'uses' => 'Admin\ImageDigitalInclusionController@create']);
+    Route::post('admin/imagedigitalInclusion/store/{id}', ['as' => 'admin.imagedigitalInclusion.store', 'uses' => 'Admin\ImageDigitalInclusionController@store']);
+    Route::get('admin/imagedigitalInclusion/delete/{id}', ['as' => 'admin.imagedigitalInclusion.delete', 'uses' => 'Admin\ImageDigitalInclusionController@destroy']);
+    /* end Gallery */
+
+    /* Direction News */
+    Route::get('admin/news/index', ['as' => 'admin.news.index', 'uses' => 'Admin\NewsController@index']);
+    Route::get('admin/news/show/{id}', ['as' => 'admin.news.show', 'uses' => 'Admin\NewsController@show']);
+    Route::get('admin/news/create', ['as' => 'admin.news.create', 'uses' => 'Admin\NewsController@create']);
+    Route::post('admin/news/store', ['as' => 'admin.news.store', 'uses' => 'Admin\NewsController@store']);
+    Route::get('admin/news/edit/{id}', ['as' => 'admin.news.edit', 'uses' => 'Admin\NewsController@edit']);
+    Route::put('admin/news/update/{id}', ['as' => 'admin.news.update', 'uses' => 'Admin\NewsController@update']);
+    Route::get('admin/news/delete/{id}', ['as' => 'admin.news.delete', 'uses' => 'Admin\NewsController@destroy']);
+    Route::get('admin/news/newsSearch', ['as' => 'admin.news.newsSearch', 'uses' => 'Admin\NewsController@search']);
+    /* end Digital News */
   });
 });

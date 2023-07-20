@@ -11,11 +11,4 @@ class AboutController extends Controller
         return view('site.about.about.index');
     }
 
-    public function organization(){
-        return view('site.about.organization.index');
-    }
-
-    public function portfolio(){
-        return view('site.about.portfolio.index');
-    }
 }
