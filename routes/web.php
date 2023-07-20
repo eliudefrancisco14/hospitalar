@@ -35,6 +35,8 @@ Route::get('/galeria-de-videos/{name}', ['as' => 'site.video.show', 'uses' => 'S
 route::get('/galeria-de-audios', ['as' => 'site.audio', 'uses' => 'Site\AudioController@index']);
 Route::get('/galeria-de-audios/{name}', ['as' => 'site.audio.show', 'uses' => 'Site\AudioController@show']);
 
+/* Service Image */
+route::get('/servicos', ['as' => 'site.services', 'uses' => 'Site\ServiceController@index']);
 
 /* Homologation */
 route::get('/homologacao', ['as' => 'site.homologation', 'uses' => 'Site\HomologationController@index']);

@@ -182,59 +182,24 @@
             </div>
 
             <div class="row gy-4 posts-list " data-aos="fade-up" data-aos-delay="100">
+                @foreach ($services as $item)
+                    <div class="col-xl-4 col-md-6">
+                        <article class="my">
 
-                <div class="col-xl-4 col-md-6">
-                    <article class="my">
+                            <div class="post-img">
+                                <img src="{{ url("/storage/$item->logo") }}" alt="{{  $item->title  }}" class="img-fluid">
+                            </div>
 
-                        <div class="post-img">
-                            <img src="/site/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                        </div>
+                            <p class="post-category">{{ $item->title }}</p>
 
-                        <p class="post-category">Desenvolvimento de Sistemas</p>
-
-                        <h2 class="title">
-                            <a href="{{ route('site.image') }}">Desenvolvimento de aplicações Mobile, Web e
-                                Desktop.</a>
-                        </h2>
-
-
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-xl-4 col-md-6">
-                    <article class="my">
-
-                        <div class="post-img">
-                            <img src="/site/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Registro de Empresa</p>
-
-                        <h2 class="title">
-                            <a href="{{ route('site.image') }}">Emissão de certificado sobre aptidão tecnológico das
-                                empresas.</a>
-                        </h2>
+                            <h2 class="title">
+                                <a href="{{ route('site.services') }}">{{ $item->description }}</a>
+                            </h2>
 
 
-                    </article>
-                </div><!-- End post list item -->
-
-                <div class="col-xl-4 col-md-6">
-                    <article class="my">
-
-                        <div class="post-img">
-                            <img src="/site/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                        </div>
-
-                        <p class="post-category">Registo de Domínio .ao</p>
-
-                        <h2 class="title">
-                            <a href="{{ route('site.image') }}">Gerir facilmente o servidor de nomes com um painel de
-                                controle fácil e rápido de utilizar.</a>
-                        </h2>
-
-                    </article>
-                </div><!-- End post list item -->
+                        </article>
+                    </div><!-- End post list item -->
+                @endforeach
 
             </div><!-- End blog posts list -->
 
