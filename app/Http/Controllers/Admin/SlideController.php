@@ -31,17 +31,21 @@ class SlideController extends Controller
 
     public function store(Request $request)
     {
-
         $validation = $request->validate([
             'title' => 'required',
+            'image' => 'image|mimes:jpg,png,jpeg|max:8000',
             'description' => 'required',
         ],
         [
             'title.required' => 'Informar o titulo',
             'description.required' => 'Informar a descrição do slide show',
         ]);
+        
+        $file = $request->file('image')->store('slideshow_image');
+
         $data = Slide::create([
             'title' => $request->title,
+            'path' => $file,
             'description' => $request->description,
         ]);
         $this->Logger->log('info', 'Cadastrou um slide show ' . $data->email);
@@ -67,14 +71,23 @@ class SlideController extends Controller
     {
         $validation = $request->validate([
             'title' => 'required',
+            'image' => 'mimes:jpg,png,jpeg',
             'description' => 'required',
         ],
         [
             'title.required' => 'Informar o titulo',
             'description.required' => 'Informar a descrição do slide show',
         ]);
+
+        if ($file = $request->file('image')) {
+            $file = $file->store('slideshow_image');
+        } else {
+            $file = Slide::find($id)->image;
+        }
+
         Slide::find($id)->update([
             'title' => $request->title,
+            'path' => $file,
             'description' => $request->description,
         ]);
         $this->Logger->log('info', 'Editou um slide show com o identificador ' . $id);
