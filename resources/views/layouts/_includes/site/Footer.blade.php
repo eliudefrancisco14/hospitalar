@@ -7,14 +7,14 @@ background-repeat: no-repeat; ">
         <div class="row gy-4">
             <div class="col-lg-6 col-md-12">
                 <a href="{{ route('site.home') }}" class="logo d-flex align-items-center">
-                    <img src="/site/img/mono-logo.svg" alt="logo" class="" height="45">
+                    <img src="/site/img/mono-logo.svg" alt="logo" class=" ank" height="45">
                 </a>
 
                 <p>Instituto Nacional de Fomento da Sociedade da Informação</p>
                 <div class="social-links d-flex mt-4">
                     <a href="https://www.facebook.com/infosi.nacional" class="facebook"><i
                             class="bi bi-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/infosinacional/" class="linkedin"><i
+                    <a href="https://www.linkedin.com/company/infosinacional/" class="linkedin "><i
                             class="bi bi-linkedin"></i></a>
                 </div>
 
@@ -23,18 +23,18 @@ background-repeat: no-repeat; ">
             <div class="col-lg-2 col-md-4">
 
                 <h4>INFOSI</h4>
-                <a href="{{ route('site.about') }}" class="text-white-50">Definição</a><br>
-                <a href="{{ route('site.organization') }}" class="text-white-50">Estrutura Orgânica</a><br>
-                <a href="{{ route('site.regulation') }}" class="text-white-50">Regulamentos</a><br>
-                <a href="{{ route('site.contact') }}" class="text-white-50">contactos</a><br>
+                <a href="{{ route('site.about') }}" class="text-white-50 ank">Definição</a><br>
+                <a href="{{ route('site.organization') }}" class="text-white-50 ank">Estrutura Orgânica</a><br>
+                <a href="{{ route('site.regulation') }}" class="text-white-50 ank">Regulamentos</a><br>
+                <a href="{{ route('site.contact') }}" class="text-white-50 ank">contactos</a><br>
             </div>
 
             <div class="col-lg-2 col-md-4 col-6 footer-links">
                 <h4>Informações</h4>
 
-                <a href="{{ route('site.news') }}" class="text-white-50">Notícias</a><br>
-                <a href="{{ route('site.image') }}" class="text-white-50">Galeria de Imagens</a><br>
-                <a href="{{ route('site.video') }}" class="text-white-50">Galeria de Vídeos</a><br>
+                <a href="{{ route('site.news') }}" class="text-white-50 ank">Notícias</a><br>
+                <a href="{{ route('site.image') }}" class="text-white-50 ank">Galeria de Imagens</a><br>
+                <a href="{{ route('site.video') }}" class="text-white-50 ank">Galeria de Vídeos</a><br>
 
 
             </div>
@@ -42,12 +42,12 @@ background-repeat: no-repeat; ">
             <div class="col-lg-2 col-md-4 footer-contact text-center text-md-start">
                 <h4>Links Úteis</h4>
 
-                <a href="https://governo.gov.ao/" target="_blank" class="text-white-50">Portal do Governo de
+                <a href="https://governo.gov.ao/" target="_blank" class="text-white-50 ank">Portal do Governo de
                     Angola</a><br>
-                <a href="https://minttics.gov.ao/ao/" target="_blank" class="text-white-50">Ministério das
+                <a href="https://minttics.gov.ao/ao/" target="_blank" class="text-white-50 ank">Ministério das
                     Telecomunicações, Tecnologia de Informação e Comunicação Social</a><br>
-                <a href="https://digital.ao/ao/" target="_blank" class="text-white-50">Digital.AO</a><br>
-                <a href="https://igae.gov.ao/" target="_blank" class="text-white-50">DNS.AO</a><br>
+                <a href="https://digital.ao/ao/" target="_blank" class="text-white-50 ank">Digital.AO</a><br>
+                <a href="https://igae.gov.ao/" target="_blank" class="text-white-50 ank">DNS.AO</a><br>
 
 
             </div>
@@ -57,7 +57,8 @@ background-repeat: no-repeat; ">
 
     <div class="container mt-4">
         <div class="copyright">
-            <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados
+            <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados <br>
+            <a href="#" target="_blank" class="text-white-50 ank">Politícas de Privacidade & Termos de Uso</a>
         </div>
     </div>
 
