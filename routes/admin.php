@@ -194,5 +194,22 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/news/delete/{id}', ['as' => 'admin.news.delete', 'uses' => 'Admin\NewsController@destroy']);
     Route::get('admin/news/newsSearch', ['as' => 'admin.news.newsSearch', 'uses' => 'Admin\NewsController@search']);
     /* end Digital News */
+
+    /* Province */
+    Route::get('admin/province/index', ['as' => 'admin.province.index', 'uses' => 'Admin\ProvinceController@index']);
+    Route::get('admin/province/show/{id}', ['as' => 'admin.province.show', 'uses' => 'Admin\ProvinceController@show']);
+    Route::get('admin/province/create', ['as' => 'admin.province.create', 'uses' => 'Admin\ProvinceController@create']);
+    Route::post('admin/province/store', ['as' => 'admin.province.store', 'uses' => 'Admin\ProvinceController@store']);
+    Route::get('admin/province/edit/{id}', ['as' => 'admin.province.edit', 'uses' => 'Admin\ProvinceController@edit']);
+    Route::put('admin/province/update/{id}', ['as' => 'admin.province.update', 'uses' => 'Admin\ProvinceController@update']);
+    Route::get('admin/province/delete/{id}', ['as' => 'admin.province.delete', 'uses' => 'Admin\ProvinceController@destroy']);
+    Route::get('admin/province/provinceSearch', ['as' => 'admin.province.provinceSearch', 'uses' => 'Admin\ProvinceController@search']);
+    /* end Province */
+
+    /* province Pint */
+    Route::get('admin/point/create/{id}', ['as' => 'admin.point.create', 'uses' => 'Admin\AngolaOnlineController@create']);
+    Route::post('admin/point/store/{id}', ['as' => 'admin.point.store', 'uses' => 'Admin\AngolaOnlineController@store']);
+    Route::get('admin/point/delete/{id}', ['as' => 'admin.point.delete', 'uses' => 'Admin\AngolaOnlineController@destroy']);
+    /* end province Pint  */
   });
 });

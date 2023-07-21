@@ -18,7 +18,7 @@ class ImageGalleryController extends Controller
 
     public function create($id)
     {
-        $response['gallery'] = Gallery::with(['images'])->find($id);
+        $response['data'] = Gallery::with(['images'])->find($id);
         return view('admin.imageGallery.create.index', $response);
     }
 
