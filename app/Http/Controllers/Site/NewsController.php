@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Gallery;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class NewsController extends Controller
         try {
             $response['news'] = News::where([['state', 'Autorizada'], ['title', urldecode($title)]])->first();
             $response['lasted'] = News::where([['state', 'Autorizada'], ['title', '!=', urldecode($title)]])->orderBy('id', 'desc')->limit(5)->get();
+            $response['lastedGallery'] = Gallery::OrderBy('id', 'desc')->limit(5)->get();
             return view('site.news.single.index', $response);
         } catch (\Throwable $th) {
             return redirect()->route('site.news');

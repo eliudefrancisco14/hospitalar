@@ -2714,6 +2714,10 @@ section .particles {
   transition: transform 0.5s;
   background-color: #fff;
 }
+
+.ank {
+  transition: 0.5s;
+}
 .ank:hover {
   color: var(--color-secondary) !important;
   transition: 0.5s;

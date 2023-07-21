@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-@section('title', 'Definição do INFOSI')
+@section('title', 'Politícas de Privacidade & Termos de Uso')
 @section('content')
 
 
@@ -9,7 +9,7 @@
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
-                        <h2>Definição do INFOSI</h2>
+                        <h2>Politícas de Privacidade & Termos de Uso</h2>
                     </div>
                 </div>
             </div>
