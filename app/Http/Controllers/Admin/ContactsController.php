@@ -105,8 +105,8 @@ class ContactsController extends Controller
         $searchText = $request->get('searchText');
         $count = Contact::count();
         $data = Contact::where('email', "Like", "%" . $searchText . "%")
-            ->where('address', "Like", "%" . $searchText . "%")
-            ->where('telephone', "Like", "%" . $searchText . "%")
+            ->orwhere('address', "Like", "%" . $searchText . "%")
+            ->orwhere('telephone', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.contact.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em contacto');

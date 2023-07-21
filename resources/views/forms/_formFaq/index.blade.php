@@ -13,14 +13,15 @@
 
                     <div class="mb-1 col-md-12">
                         <div class="form-group">
-                            <label for="name">Pergunta</label>
-                            <input type="text" name="title" id="title" class="form-control">{{ isset($data->title) ? $data->title : old('title') }}</input>
+                            <label for="name" class="form-label">Pergunta</label>
+                            <input type="text" name="title" id="title" class="form-control"
+                                value="{{ isset($data->title) ? $data->title : old('title') }}"></input>
                         </div>
                     </div>
 
                     <div class="mb-1 col-md-12">
                         <div class="form-group">
-                            <label for="name">Resposta</label>
+                            <label for="name" class="form-label">Resposta</label>
                             <textarea type="text" name="description" id="response" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>

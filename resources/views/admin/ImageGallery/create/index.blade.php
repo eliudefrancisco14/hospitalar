@@ -11,7 +11,7 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar galeria de image</span></h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar galeria de imagem</span></h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -24,7 +24,7 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
                     <div class="row align-items-center">
-                        <form action='{{ url("admin/imageGallery/store/$gallery->id") }}' method="POST"
+                        <form action='{{ url("admin/imageGallery/store/$data->id") }}' method="POST"
                             enctype="multipart/form-data" class="row">
                             @csrf
                             @include('forms._formimageGallery.index')

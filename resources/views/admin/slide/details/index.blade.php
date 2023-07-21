@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Detalhes da apresentação em slide')
+@section('title', 'Detalhes do slide show')
 
 @section('content')
 
@@ -23,11 +23,12 @@
                                 <div class="row">                                  
                                     <div class="mb-1 col-md-12">
                                         <div class="form-group">
-                                            <h2 class="h3 m-4 page-title">Titulo:</h2>
+                                            <h2 class="h3 m-4 page-title">Titulo: {{ $data->title }}</h2>
                                             <hr>
                                             <p class="h3 m-4 page-title">{{ $data->title }}</p>
                                             <hr>
-                                            <textarea disabled type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
+                                            <label for="name" class="form-label">Informação detalhada do slide show</label>
+                                            <textarea readonly type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                                         </div>
                                     </div>
                                 </div>

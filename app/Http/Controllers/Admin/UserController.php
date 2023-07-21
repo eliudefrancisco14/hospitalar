@@ -78,8 +78,8 @@ class UserController extends Controller
         if (Auth::user()->level != 'Administrador' && Auth::user()->id != $id) {
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
-            $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
-            $response['user'] = User::find($id);
+            $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->paginate(30);
+            $response['data'] = User::find($id);
             $this->Logger->log('info', 'Visualizou um Utilizador com o identificador ' . $id);
             return view('admin.user.details.index', $response);
         }
@@ -90,7 +90,7 @@ class UserController extends Controller
         if (Auth::user()->level != 'Administrador' && Auth::user()->id != $id) {
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
-            $response['users'] = User::find($id);
+            $response['data'] = User::find($id);
             $this->Logger->log('info', 'Entrou em editar um Utilizador com o identificador ' . $id);
             return view('admin.user.edit.index', $response);
         }
@@ -101,7 +101,7 @@ class UserController extends Controller
         if (Auth::user()->level != 'Administrador' && Auth::user()->id != $id) {
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
-            $response['users'] = User::find($id);
+            $response['data'] = User::find($id);
             $this->Logger->log('info', 'Entrou em editar senha um Utilizador com o identificador ' . $id);
             return view('admin.user.edit.indexs', $response);
         }
@@ -151,7 +151,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $count = User::count();
-
         if ($count > 1) {
             $this->Logger->log('info', 'Eliminou um Utilizador com o identificador ' . $id);
             User::find($id)->delete();

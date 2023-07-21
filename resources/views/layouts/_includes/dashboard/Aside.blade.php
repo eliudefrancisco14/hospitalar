@@ -74,7 +74,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Segurança</span>
+            <span class="menu-header-text">Utilizadores</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -95,7 +95,7 @@
             </ul>
         </li>
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Galeria de Imagem</span>
+            <span class="menu-header-text">Galeria 1</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -116,7 +116,7 @@
             </ul>
         </li>
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Galeria de vídeo</span>
+            <span class="menu-header-text">Galeria 2</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -138,7 +138,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Contactos Interno</span>
+            <span class="menu-header-text">Informação</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -160,7 +160,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Parceiros</span>
+            <span class="menu-header-text">Pessoa</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -182,7 +182,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Perguntas Frequentes</span>
+            <span class="menu-header-text">FAQ</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -204,7 +204,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Serviço</span>
+            <span class="menu-header-text">Operações</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -248,7 +248,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Definições</span>
+            <span class="menu-header-text">Ferramentas</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -297,7 +297,7 @@
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-book"></i>
-                <div data-i18n="Authentications">Relamento</div>
+                <div data-i18n="Authentications">Regulamento</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -314,7 +314,7 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">GALERIA DE INCLUSÃO DIGITAL</span>
+            <span class="menu-header-text">GALERIA 3</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -336,12 +336,12 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">GALERIA DE NOTICIAS</span>
+            <span class="menu-header-text">GALERIA 3</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-news"></i>
-                <div data-i18n="Authentications">NOTICIAS</div>
+                <div data-i18n="Authentications">NOTÍCIAS</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -351,6 +351,28 @@
                 </li>
                 <li class="menu-item">
                     <a href="{{ route('admin.news.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">ANGOLA ONLINE</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-map-pin"></i>
+                <div data-i18n="Authentications">PROVÍNCIAS</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.province.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.province.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>

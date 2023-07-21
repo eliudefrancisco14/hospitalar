@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Listar departamento')
+@section('title', 'Listar província')
 
 @section('content')
 
@@ -24,7 +24,7 @@
                         <div class="navbar-nav align-items-center">
                             <div class="nav-item d-flex align-items-center">
                                 <i class="bx bx-search fs-4 lh-0"></i>
-                                <form action="{{ route('admin.department.departmentSearch') }}" method="GET">
+                                <form action="{{ route('admin.province.provinceSearch') }}" method="GET">
                                     @csrf
                                     <input type="text" class="form-control border-0 shadow-none" name="searchText"
                                         placeholder="Pesquisar..." aria-label="Pesquisar..." />
@@ -88,20 +88,19 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <ul class="nav nav-pills flex-column flex-md-row mb-3">
                             <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.department.create') }}"><i
-                                        class="bx bx-user me-1"></i> Criar departamento</a>
+                                <a class="nav-link active" href="{{ route('admin.province.create') }}"><i
+                                        class="bx bx-user me-1"></i> Criar provínca</a>
                             </li>
                         </ul>
 
                         <!-- Bootstrap Table with Header - Dark -->
                         <div class="card">
-                            <h5 class="card-header"> Contacto: {{ $count }}</h5>
+                            <h5 class="card-header"> Província: {{ $count }}</h5>
                             <div class="table-responsive text-nowrap">
                                 <table class="table">
                                     <thead class="table-dark">
                                         <tr>
-                                            <th style="width: 20%">Nome</th>
-                                            <th style="width: 100%">Responsável</th>
+                                            <th style="width: 100%">Nome</th>
                                             <th style="width: 10%">DATA CRIAÇÃO</th>
                                             <th>ACÇÕES</th>
                                         </tr>
@@ -110,7 +109,6 @@
                                         @foreach ($data as $item)
                                             <tr>
                                                 <td>{{ $item->name }} </td>
-                                                <td>{{ $item->boss }} </td>
                                                 <td>{{ $item->created_at }} </td>
                                                 @csrf
                                                 <td>
@@ -121,13 +119,13 @@
                                                         </button>
                                                         <div class="dropdown-menu">
                                                             <a class="dropdown-item"
-                                                                href="{{ url("admin/department/show/{$item->id}") }}"><i
+                                                                href="{{ url("admin/province/show/{$item->id}") }}"><i
                                                                     class="bx bx-detail"></i> Detalhe</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ url("admin/department/edit/{$item->id}") }}"><i
+                                                                href="{{ url("admin/province/edit/{$item->id}") }}"><i
                                                                     class="bx bx-edit-alt me-1"></i> Editar</a>
                                                             <a class="dropdown-item"
-                                                                href="{{ url("admin/department/delete/{$item->id}") }}"><i
+                                                                href="{{ url("admin/province/delete/{$item->id}") }}"><i
                                                                     class="bx bx-trash me-1"></i> Excluir</a>
                                                         </div>
                                                     </div>

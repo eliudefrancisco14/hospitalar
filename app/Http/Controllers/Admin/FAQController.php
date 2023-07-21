@@ -43,7 +43,7 @@ class FAQController extends Controller
         );
         $data = Faq::create([
             'title' => $request->title,
-            'description' => $request->title,
+            'description' => $request->description,
         ]);
         $this->Logger->log('info', 'Cadastrou uma FAQ ' . $data->email);
         return redirect()->route('admin.faq.index')->with('create', '1');
@@ -76,10 +76,6 @@ class FAQController extends Controller
                 'description.required' => 'Informar a resposta',
             ]
         );
-        $data = Faq::create([
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
         Faq::find($id)->update([
             'title' => $request->title,
             'description' => $request->description,
@@ -100,7 +96,7 @@ class FAQController extends Controller
         $searchText = $request->get('searchText');
         $count = Faq::count();
         $data = Faq::where('title', "Like", "%" . $searchText . "%")
-            ->where('description', "Like", "%" . $searchText . "%")
+            ->orwhere('description', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.faq.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em FAQ');

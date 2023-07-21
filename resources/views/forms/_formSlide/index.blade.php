@@ -11,17 +11,17 @@
             <div class="card-body">
                 <div class="row">
 
-                    <div class="mb-1 col-md-12">
+                    <div class="mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name">Titulo</label>
+                            <label for="name" class="form-label">Titulo</label>
                             <input type="text" name="title" id="title"
                                 class="form-control" value="{{ isset($data->title) ? $data->title : old('title') }}"/>
                         </div>
                     </div>
 
-                    <div class="mb-1 col-md-12">
+                    <div class="mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name">Descrição</label>
+                            <label for="name" class="form-label">Informação detalhada do slide show</label>
                             <textarea type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>

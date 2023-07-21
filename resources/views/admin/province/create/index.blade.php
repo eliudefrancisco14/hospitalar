@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('title', 'Cadastrar pergunta')
+@section('title', 'Cadastrar província')
 
 @section('content')
 
@@ -10,7 +10,7 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar pergunta</span></h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar província</span></h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -20,9 +20,9 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('admin.faq.store') }}" method="POST" class="row">
+                    <form action="{{ route('admin.province.store') }}" method="POST" class="row">
                         @csrf
-                        @include('forms._formFaq.index')
+                        @include('forms._formProvince.index')
                         <div class="container">
                             <div class="row">
                                 <div class="mt-2">
@@ -37,4 +37,7 @@
             </div>
         </div>
     </div>
+
+
+
 @endsection
