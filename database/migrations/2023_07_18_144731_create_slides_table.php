@@ -10,7 +10,8 @@ class CreateSlidesTable extends Migration
     {
         Schema::create('slides', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title');            
+            $table->longText('path');
             $table->longText('description');
             $table->softDeletes();
             $table->timestamps();

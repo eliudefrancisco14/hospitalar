@@ -8,29 +8,20 @@
 
         <div id="carouselExample" class="carousel slide">
 
+
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="{{ url('site/img/banner-infosi-copia.jpg') }}" class="d-block w-100" alt="..."
-                        height="850px">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Seja Bem-Vindo ao <span>INFOSI</span></h2>
-                        <p>Some representative placeholder content for the first slide.</p>
+
+
+
+                @foreach ($slideshows as $item)
+                    <div class="carousel-item active" data-bs-interval="100">
+                        <img src="{{ url("/storage/$item->path") }}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>{{ $item->name }}</h2>
+                            <p>{{ $item->description }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                    <img src="{{ url('site/img/banner-front.jpg') }}" class="d-block w-100" alt="..."height="850px">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Seja Bem-Vindo ao <span>INFOSI</span></h2>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ url('site/img/banner-infosi.jpg') }}" class="d-block w-100" alt="..."height="850px">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Seja Bem-Vindo ao <span>INFOSI</span></h2>
-                        <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -148,20 +139,20 @@
                 <div class="col-lg-5 py-4">
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalPoint }}" data-purecounter-duration="1"
-                            class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalPoint }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
                         <p><strong>Total de Pontos de Acesso</strong> </p>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalGoodPoint }}" data-purecounter-duration="1"
-                            class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalGoodPoint }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
                         <p><strong>Total em optimo estado</strong></p>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
-                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalBadPoint }}" data-purecounter-duration="1"
-                            class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $totalBadPoint }}"
+                            data-purecounter-duration="1" class="purecounter"></span>
                         <p><strong>Total de Pontos Indisponível</strong></p>
                     </div><!-- End Stats Item -->
 
@@ -239,7 +230,8 @@
                         Publicas e Privadas, a luz do Decreto Presidencial nº 135/21 de 31 de Maio, no seu artigo 6º.
                     </p style="text-align: justify">
 
-                    <div class="text-center"><a href="https://www.infosi.gov.ao/painel" class="btn buy-btn">Aceder o Portal de Homologação</a>
+                    <div class="text-center"><a href="https://www.infosi.gov.ao/painel" class="btn buy-btn">Aceder o
+                            Portal de Homologação</a>
                     </div>
 
                 </div>

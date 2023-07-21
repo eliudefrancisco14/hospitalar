@@ -47,7 +47,8 @@ Route::get('/inclusao-digital/{name}', ['as' => 'site.digitalInclusion.show', 'u
 route::get('/noticias', ['as' => 'site.news', 'uses' => 'Site\NewsController@index']);
 Route::get('/noticia/{title}', ['as' => 'site.news.show', 'uses' => 'Site\NewsController@show']);
 
-
+/* Terms */
+route::get('/termos', ['as' => 'site.terms', 'uses' => 'Site\TermsController@index']);
 
 /* inclui as rotas de autenticação do ficheiro auth.php */
 require __DIR__ . '/auth.php';
