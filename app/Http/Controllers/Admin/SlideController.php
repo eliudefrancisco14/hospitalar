@@ -33,7 +33,7 @@ class SlideController extends Controller
     {
        $request->validate([
             'title' => 'required',
-            'image' => 'image|mimes:jpg,png,jpeg|max:8000',
+            'image' => 'image|mimes:jpg,png,jpeg|max:50000',
             'description' => 'required',
         ],
         [

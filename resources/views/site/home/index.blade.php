@@ -15,7 +15,7 @@
                     <div class="carousel-item active" data-bs-interval="10000">
                         <img src="{{ url("/storage/$item->path") }}" class="d-block w-100 img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h2>{{ $item->name }}</h2>
+                            <h2>{{ $item->title }}</h2>
                             <p>{{ $item->description }}</p>
                         </div>
                     </div>
