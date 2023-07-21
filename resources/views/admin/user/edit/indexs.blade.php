@@ -11,7 +11,7 @@
                 <div class="container justify-content-center mt-2 mb-5">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Editar informações /</span>
-                            {{ $users->name }}</h4>
+                            {{ $data->name }}</h4>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -27,7 +27,7 @@
                         <div class="row align-items-center">
 
                             <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                                action="{{ route('admin.user.updates', $users->id) }}">
+                                action="{{ route('admin.user.updates', $data->id) }}">
                                 @csrf
                                 @method('PUT')
                                 @include('forms._formUser.indexs')
