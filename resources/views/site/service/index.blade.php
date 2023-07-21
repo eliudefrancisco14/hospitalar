@@ -30,56 +30,25 @@
 
                 <div class="row gy-4 posts-list">
 
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
+                    @foreach ($services as $item)
+                        <div class="col-xl-4 col-md-6">
+                            <article class="my">
 
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                            </div>
+                                <div class="post-img">
+                                    <img src="{{ url("/storage/$item->logo") }}" alt="{{ $item->title }}"
+                                        class="img-fluid">
+                                </div>
 
-                            <p class="post-category">Politics</p>
+                                <p class="post-category">{{ $item->title }}</p>
 
-                            <h2 class="title">
-
-                                <a href="#">Dolorum optio tempore voluptas dignissimos</a>
-                            </h2>
-
-
-                        </article>
-                    </div><!-- End post list item -->
-
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
-
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Sports</p>
-
-                            <h2 class="title">
-                                <a href="#">Nisi magni odit consequatur autem nulla dolorem</a>
-                            </h2>
+                                <h2 class="title">
+                                    <a href="#">{{ $item->description }}</a>
+                                </h2>
 
 
-                        </article>
-                    </div><!-- End post list item -->
-
-                    <div class="col-xl-4 col-md-6">
-                        <article class="my">
-
-                            <div class="post-img">
-                                <img src="/site/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                            </div>
-
-                            <p class="post-category">Entertainment</p>
-
-                            <h2 class="title">
-                                <a href="#">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-                            </h2>
-
-                        </article>
-                    </div><!-- End post list item -->
+                            </article>
+                        </div><!-- End post list item -->
+                    @endforeach
 
                 </div><!-- End blog posts list -->
 

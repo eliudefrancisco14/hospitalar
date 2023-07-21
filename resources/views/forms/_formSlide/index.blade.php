@@ -24,6 +24,7 @@
                             <label for="image" class="form-label">Imagem do slide</label>
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
+                        <p class="text-danger">As dimensões de um slide devem ter no mínimo (850 de altura x 1080 de largura) px</p>
                     </div>
 
                     <div class="mb-3 col-md-12">

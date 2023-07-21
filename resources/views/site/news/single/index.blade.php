@@ -88,6 +88,32 @@
                             </div><!-- End sidebar recent posts-->
 
 
+
+
+
+                            <div class="sidebar-item categories">
+                                <h3 class="sidebar-title">Galeria de Imagens</h3>
+                                <div class="mt-3">
+
+                                    @foreach ($lastedGallery as $item)
+                                        <div class="post-item mt-3">
+                                            <a href="{!! url('/galeria-de-imagens/' . urlencode($item->name)) !!}">
+                                                <img src="{{ url("/storage/$item->image") }}" alt=""
+                                                    class="img-fluid rounded">
+                                                <div>
+                                                    <h4><a href="{!! url('/galeria-de-imagens/' . urlencode($item->name)) !!}">{{ $item->name }}</a></h4>
+                                                    <time
+                                                        datetime="2020-01-01">{{ date('d/m/Y', strtotime($item->created_at)) }}</time>
+                                                </div>
+                                            </a>
+                                        </div><!-- End recent post item-->
+                                    @endforeach
+
+
+                                </div>
+
+                            </div><!-- End sidebar recent posts-->
+
                         </div><!-- End Blog Sidebar -->
 
                     </div>
