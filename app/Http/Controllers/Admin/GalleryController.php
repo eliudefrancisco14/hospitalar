@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\Models\{Gallery, ImageGallery, Log};
 
 class GalleryController extends Controller
@@ -72,7 +72,7 @@ class GalleryController extends Controller
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
             $response['logs'] = Log::where('USER_ID', $id)->orderBy('id', 'desc')->get();
-            $response['gallery'] = Gallery::find($id);
+            $response['data'] = Gallery::find($id);
             $response['count']  = ImageGallery::where("fk_idGallery", $id)->get()->count();
             $this->Logger->log('info', 'Visualizou capa de galeria com o identificador ' . $id);
             return view('admin.gallery.details.index', $response);
@@ -128,7 +128,7 @@ class GalleryController extends Controller
         $searchText = $request->get('searchText');
         $count = Gallery::count();
         $data = Gallery::where('name', "Like", "%" . $searchText . "%")
-            ->where('description', "Like", "%" . $searchText . "%")
+            ->orwhere('description', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'asc')->paginate(5);
         return view('admin.gallery.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em galeria');

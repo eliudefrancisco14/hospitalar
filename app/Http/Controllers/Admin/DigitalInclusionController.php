@@ -96,7 +96,7 @@ class DigitalInclusionController extends Controller
         $searchText = $request->get('searchText');
         $count = DigitalInclusion::count();
         $data = DigitalInclusion::where('name', "Like", "%" . $searchText . "%")
-            ->where('description', "Like", "%" . $searchText . "%")
+            ->orwhere('description', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'asc')->paginate(5);
         return view('admin.digitalInclusion.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em galeria de inclusão digital');

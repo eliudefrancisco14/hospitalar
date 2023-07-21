@@ -88,7 +88,7 @@ class DefinitionController extends Controller
         $searchText = $request->get('searchText');
         $count = Definition::count();
         $data = Definition::where('title', "Like", "%" . $searchText . "%")
-            ->where('description', "Like", "%" . $searchText . "%")
+            ->orwhere('description', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'asc')->paginate(5);
         return view('admin.definition.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em definição');

@@ -1,5 +1,5 @@
 @extends('layouts.merge.dashboard')
-@section('titulo', ' Detalhes da noticia')
+@section('titulo', ' Detalhes da notícia')
 
 @section('content')
 
@@ -28,23 +28,37 @@
                             </div>
 
                         </div>
-                        <div class="card-deck mb-4">
+                        <div class="card-deck mb-3">
 
-                            <div class="card border-0 bg-transparent">
+                            <div class="card border-0 bg-transparent mb-3">
                                 <div class="card-img-top img-fluid rounded"
                                     style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:400px;width:500px;'>
                                 </div>
                             </div>
 
-                            <div class="mb-4 col-md-12 mt-2">
-                                <h5 class="card-title">Corpo da Matéria editada</h5>
-                                <!-- Create the editor container -->
-                                <textarea name="body" id="editor1" style="min-height:300px; min-width:100%">
-                                            {{ isset($data->body) ? $data->body : old('body') }}
-                                        </textarea>
+                            <div class="col-md-12 mb-3">
+                                <h5 class="mb-3">
+                                    <b>Autor da matéria:</b><br>
+                                    {{ $data->typewriter }}
+                                </h5>
                             </div>
-                            <p>Data da emissão: {{ $data->created_at }}</p>
-                            <p>Data da noticia: {{ $data->date }}</p>
+
+                            <div class="col-md-12 mb-3">
+                                <h5 class="mb-1">
+                                    <b>Matéria:</b>
+                                </h5>
+                                <p class="text-dark text-justify">{!! html_entity_decode($data->body) !!}</p>
+
+                            </div>
+
+                            <div class="col-md-12 mb-2">
+                                <h5 class="mb-3">
+                                    <p><b>&nbsp;&nbsp;&nbsp;Data de criação:
+                                            &nbsp;{{ date('d-m-Y H:m', strtotime($data->created_at)) }}</b></p>
+                                    <p><b>Data da inserção: &nbsp;{{ date('d-m-Y', strtotime($data->date)) }}</b></p>
+                                </h5>
+                            </div>
+
                         </div>
                     </div>
 

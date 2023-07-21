@@ -98,8 +98,8 @@ class VideoController extends Controller
         $searchText = $request->get('searchText');
         $count = Video::count();
         $data = Video::where('title', "Like", "%" . $searchText . "%")
-            ->where('link', "Like", "%" . $searchText . "%")
-            ->where('description', "Like", "%" . $searchText . "%")
+            ->orwhere('link', "Like", "%" . $searchText . "%")
+            ->orwhere('description', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.video.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em galeria de video');

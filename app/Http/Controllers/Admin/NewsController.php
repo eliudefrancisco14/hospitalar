@@ -106,7 +106,7 @@ class NewsController extends Controller
         $searchText = $request->get('searchText');
         $count = News::count();
         $data = News::where('email', "Like", "%" . $searchText . "%")
-            ->where('title', "Like", "%" . $searchText . "%")
+            ->orwhere('title', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.news.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em noticias');

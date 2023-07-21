@@ -10,7 +10,7 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar perguntas frquentes</span></h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar pergunta</span></h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

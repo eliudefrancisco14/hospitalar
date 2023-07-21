@@ -110,7 +110,7 @@ class ServiceController extends Controller
         $searchText = $request->get('searchText');
         $count = Service::count();
         $data = Service::where('title', "Like", "%" . $searchText . "%")
-            ->where('description', "Like", "%" . $searchText . "%")
+            ->orwhere('description', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.service.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em serviço');

@@ -29,21 +29,21 @@
                         </div>
                     @endisset
 
-                    <div class="form-group col-md-8">
-                        <label for="name">Titulo</label>
+                    <div class="form-group mb-3 col-md-8">
+                        <label for="name" class="form-label">Titulo</label>
                         <input type="text" name="title" id="title"
                             value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
                             placeholder="Titulo" required>
                     </div>
 
-                    <div class="mb-1 col-md-4">
+                    <div class="form-group mb- col-md-4">
                         <label for="name" class="form-label">Selecionar logotipo</label>
                         <input class="form-control" id="infile" value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo" type="file" required></input>
                     </div>
 
-                    <div class="mb-1 col-md-12">
+                    <div class="form-group mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name">Link</label>
+                            <label for="name" class="form-label">Link</label>
                             <input type="text" name="link" id="link"
                                 value="{{ isset($data->link) ? $data->link : old('link') }}" class="form-control"
                                 placeholder="Ex:www.infosi.gov.co.ao/infosi" required>

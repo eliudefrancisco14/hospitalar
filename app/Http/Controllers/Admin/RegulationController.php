@@ -93,14 +93,9 @@ class RegulationController extends Controller
         $searchText = $request->get('searchText');
         $count = Regulation::count();
         $data = Regulation::where('title', "Like", "%" . $searchText . "%")
-            ->where('title', "Like", "%" . $searchText . "%")
+            ->orwhere('title', "Like", "%" . $searchText . "%")
             ->OrderBy('id', 'desc')->paginate(5);
         return view('admin.regulation.list.index', compact('data', 'count'));
         $this->Logger->log('info', 'Efectuou uma pesquisa em regulamento');
-    }
-
-    public function showPdf(Request $request)
-    {
-        
     }
 }

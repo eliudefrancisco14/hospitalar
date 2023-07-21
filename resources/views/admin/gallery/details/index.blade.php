@@ -17,7 +17,7 @@
                         </li>
                     </ul>
                     <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Titulo:
-                        {{ $gallery->name }}</h2>
+                        {{ $data->name }}</h2>
                     <hr>
 
                     <div class="col-12 col-lg-12">
@@ -31,10 +31,10 @@
 
                             <div class="card border-0 bg-transparent">
                                 <div class="card-img-top img-fluid rounded"
-                                    style='background-image:url("/storage/{{ $gallery->image }}");background-position:center;background-size:cover;height:400px;width:500px;'>
+                                    style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:400px;width:500px;'>
                                 </div>
                             </div>
-                            <p class="mt-1">{{ $gallery->description }}</p>
+                            <p class="mt-1">{{ $data->description }}</p>
                         </div>
                     </div>
                 </div>
@@ -44,11 +44,11 @@
                     <div class="col-12 col-lg-12">
                         <div class="row align-items-center my-4">
                             <div class="col">
-                                <h2 class="page-title">Imagens:{{ $count }}</h2>
+                                <h2 class="page-title">Imagens: {{ $count }}</h2>
                             </div>
                             <div class="col-auto">
                                 <a type="button" class="btn btn-lg btn-primary text-white"
-                                    href="{{ url("admin/imageGallery/create/{$gallery->id}") }}">
+                                    href="{{ url("admin/imageGallery/create/{$data->id}") }}">
                                     <span class="fe fe-plus fe-16 mr-3"></span>Nova Imagem
                                 </a>
                             </div>
@@ -61,7 +61,7 @@
 
                                         <?php $count = 1; ?>
 
-                                        @foreach ($gallery->images as $item)
+                                        @foreach ($data->images as $item)
                                             <div class="col-md-4">
 
                                                 <div class="card-deck mb-4">
