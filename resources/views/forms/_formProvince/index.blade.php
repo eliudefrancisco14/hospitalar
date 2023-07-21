@@ -12,26 +12,19 @@
                 <div class="row">
 
                     <div class="form-group mb-3 col-md-8">
-                        <label for="name" class="form-label">Endereço</label>
-                        <input type="text" name="address" id="address" value="{{ isset($data->address) ? $data->address : old('address') }}"
-                            class="form-control" placeholder="Endereço" required>
+                        <label for="name" class="form-label">Nome</label>
+                        <input type="text" name="name" id="name"
+                            value="{{ isset($data->name) ? $data->name : old('name') }}" class="form-control"
+                            placeholder="Informar o nome da provínca" required>
                     </div>
 
-                    <div class="form-group mb-3 col-md-4">
+                    <div class="mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name" class="form-label">Telefone</label>
-                            <input type="number" name="telephone" id="telephone" value="{{ isset($data->telephone) ? $data->telephone : old('telephone') }}"
-                                class="form-control" placeholder="Número do telefone" required>
+                            <label for="name" class="form-label">Detalhe da informação da província</label>
+                            <textarea type="text" name="description" id="description" class="form-control" required>{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>
-
-                    <div class="form-group mb-3 col-md-12">
-                        <div class="form-group">
-                            <label for="name" class="form-label">E-mail</label>
-                            <input type="email" name="email" id="email" value="{{ isset($data->email) ? $data->email : old('email') }}"
-                                class="form-control" placeholder="Ex:infosi.gov.co.ao" required>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

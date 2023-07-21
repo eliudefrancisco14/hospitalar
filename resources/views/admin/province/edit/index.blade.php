@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Cadastrar imagem de galeria')
+@section('title', 'Editar província')
 
 @section('content')
 
@@ -11,7 +11,8 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar galeria de imagem</span></h4>
+                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Editar informação /</span>
+                        {{ $data->email }}</h4>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -24,10 +25,11 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
                     <div class="row align-items-center">
-                        <form action='{{ url("admin/imageGallery/store/$data->id") }}' method="POST"
-                            enctype="multipart/form-data" class="row">
+                        <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
+                            action="{{ route('admin.province.update', $data->id) }}">
                             @csrf
-                            @include('forms._formimageGallery.index')
+                            @method('PUT')
+                            @include('forms._formProvince.index')
                             <div class="container">
                                 <div class="row">
                                     <div class="mt-2">
