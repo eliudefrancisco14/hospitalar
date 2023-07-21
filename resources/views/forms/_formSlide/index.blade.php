@@ -11,7 +11,7 @@
             <div class="card-body">
                 <div class="row">
 
-                    <div class="mb-3 col-md-12">
+                    <div class="mb-3 col-md-6">
                         <div class="form-group">
                             <label for="name" class="form-label">Titulo</label>
                             <input type="text" name="title" id="title"
@@ -19,9 +19,16 @@
                         </div>
                     </div>
 
+                    <div class="mb-3 col-md-6">
+                        <div class="form-group">
+                            <label for="image" class="form-label">Imagem do slide</label>
+                            <input type="file" name="image" id="image" class="form-control">
+                        </div>
+                    </div>
+
                     <div class="mb-3 col-md-12">
                         <div class="form-group">
-                            <label for="name" class="form-label">Informação detalhada do slide show</label>
+                            <label for="description" class="form-label">Informação detalhada do slide show</label>
                             <textarea type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>

@@ -58,7 +58,7 @@ background-repeat: no-repeat; ">
     <div class="container mt-4">
         <div class="copyright">
             <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados <br>
-            <a href="#" target="_blank" class="text-white-50 ank">Politícas de Privacidade & Termos de Uso</a>
+            <a href="{{ route('site.terms') }}" target="_blank" class="text-white-50 ank">Politícas de Privacidade & Termos de Uso</a>
         </div>
     </div>
 
