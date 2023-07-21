@@ -31,7 +31,7 @@ class SlideController extends Controller
 
     public function store(Request $request)
     {
-        $validation = $request->validate([
+       $request->validate([
             'title' => 'required',
             'image' => 'image|mimes:jpg,png,jpeg|max:8000',
             'description' => 'required',
