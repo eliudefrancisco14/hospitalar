@@ -10,9 +10,16 @@
 
 
             <div class="carousel-inner">
-
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="/site/img/cta-bg.jpg" class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Seja Bem-Vindo ao Portal Oficial do INFOSI</h2>
+                        <p>Instituto Público de Prestação de Serviço com Carácter
+                            Científico e Desenvolvimento Tecnológico</p>
+                    </div>
+                </div>
                 @foreach ($slideshows as $item)
-                    <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="carousel-item" data-bs-interval="10000">
                         <img src="{{ url("/storage/$item->path") }}" class="d-block w-100 img-fluid" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h2>{{ $item->title }}</h2>
@@ -260,4 +267,14 @@
     </section><!-- End Clients Section -->
 
 </main><!-- End #main -->
+@endsection
+
+
+@section('JS')
+<script>
+    $('.carousel').carousel({
+        interval: 2000
+    })
+</script>
+
 @endsection

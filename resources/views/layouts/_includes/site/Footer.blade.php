@@ -5,7 +5,7 @@ background-repeat: no-repeat; ">
 
     <div class="container">
         <div class="row gy-4">
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 <a href="{{ route('site.home') }}" class="logo d-flex align-items-center">
                     <img src="/site/img/mono-logo.svg" alt="logo" class=" ank" height="45">
                 </a>
@@ -20,7 +20,7 @@ background-repeat: no-repeat; ">
 
 
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-lg-3 col-md-4">
 
                 <h4>INFOSI</h4>
                 <a href="{{ route('site.about') }}" class="text-white-50 ank">Definição</a><br>
@@ -29,7 +29,7 @@ background-repeat: no-repeat; ">
                 <a href="{{ route('site.contact') }}" class="text-white-50 ank">contactos</a><br>
             </div>
 
-            <div class="col-lg-2 col-md-4 col-6 footer-links">
+            <div class="col-lg-3 col-md-4 col-6 footer-links">
                 <h4>Informações</h4>
 
                 <a href="{{ route('site.news') }}" class="text-white-50 ank">Notícias</a><br>
@@ -39,7 +39,7 @@ background-repeat: no-repeat; ">
 
             </div>
 
-            <div class="col-lg-2 col-md-4 footer-contact text-center text-md-start">
+            <div class="col-lg-3 col-md-4 footer-contact text-center text-md-start">
                 <h4>Links Úteis</h4>
 
                 <a href="https://governo.gov.ao/" target="_blank" class="text-white-50 ank">Portal do Governo de
