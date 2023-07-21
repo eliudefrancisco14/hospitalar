@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('admin.slide.store') }}" method="POST" class="row">
+                    <form action="{{ route('admin.slide.store') }}" method="POST" enctype="multipart/form-data" class="row">
                         @csrf
                         @include('forms._formSlide.index')
                         <div class="container">

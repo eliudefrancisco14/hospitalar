@@ -14,6 +14,7 @@ class CreateAngolaOnlinesTable extends Migration
             $table->foreign('fk_idProvince')->references('id')->on('provinces')->onDelete('CASCADE')->onUpgrade('CASCADE');
             $table->string('name', 255);
             $table->longText('description');
+            $table->string('state', 10);
             $table->softDeletes();
             $table->timestamps();
         });
