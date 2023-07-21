@@ -43,6 +43,7 @@
                                     <div class="row">
 
                                         <?php $count = 1; ?>
+                                        <?php $counts = 1; ?>
 
                                         @foreach ($data->provinces as $item)
                                             <div class="col-md-4">
@@ -64,6 +65,10 @@
                                                                     href="{{ url("admin/point/delete/{$item->id}") }}"><i
                                                                         class="bx bx-trash me-1"></i> {{ $count++ }} -
                                                                     Excluir</a>
+                                                                    <a class="dropdown-item"
+                                                                    href="{{ url("admin/point/update/{$item->id}") }}"><i
+                                                                        class="bx bx-edit-alt me-1"></i> {{ $counts++ }} -
+                                                                    Editar - {{ $item->state }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
