@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Listar apresentação em slide')
+@section('title', 'Listar slide show')
 
 @section('content')
 

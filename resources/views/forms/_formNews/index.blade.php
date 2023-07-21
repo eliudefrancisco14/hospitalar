@@ -18,7 +18,7 @@
                                             <h2 class="page-title">Capa Principal</h2>
                                         </div>
                                     </div>
-                                    <div class="card-deck mb-4">
+                                    <div class="card-deck mb-3">
 
                                         <div class="card border-0 bg-transparent">
                                             <div class="card-img-top img-fluid rounded"
@@ -29,7 +29,7 @@
                                 </div>
                             @endisset
 
-                            <div class="mb-1 col-md-8">
+                            <div class="mb-3 col-md-8">
                                 <div class="form-group">
                                     <label for="name" class="form-label">Titulo</label>
                                     <input class="form-control" type="text" id="title" name="title"
@@ -47,14 +47,14 @@
                                 </div>
                             </div>
 
-                            <div class="mb-1 col-md-6">
+                            <div class="mb-3 col-md-6">
                                 <label for="name" class="form-label">Autor da Matéria</label>
                                 <input class="form-control" type="text" id="typewriter" name="typewriter"
                                     value="{{ isset($data->typewriter) ? $data->typewriter : old('typewriter') }}"
                                     placeholder="Informar o editor" />
                             </div>
 
-                            <div class="mb-1 col-md-6">
+                            <div class="mb-3 col-md-6">
                                 <label for="name" class="form-label">Selecionar a capa</label>
                                 <input class="form-control" id="infile" name="path" type="file"
                                     required></input>
