@@ -14,13 +14,7 @@
                 <!-- / Navbar -->
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin.partner.create') }}"><i
-                                        class="bx bx-user me-1"></i> Criar parceiro</a>
-                            </li>
-                        </ul>
+                    <div class="flex-grow-1 container-p-y">
                         <!-- Bootstrap Table with Header - Dark -->
                         <div class="card">
                             <div class="table-responsive text-nowrap">

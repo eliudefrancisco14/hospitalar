@@ -25,7 +25,7 @@
                     <div class="row align-items-center">
                         <form action="{{ route('admin.direction.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @include('forms._formDirection.index')                        
+                            @include('forms._formDirection.index')                       
                         </form>
                     </div>
                 </div>
