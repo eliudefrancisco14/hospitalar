@@ -58,7 +58,8 @@ background-repeat: no-repeat; ">
     <div class="container mt-4">
         <div class="copyright">
             <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados <br>
-            <a href="{{ route('site.terms') }}" target="_blank" class="text-white-50 ank">Politícas de Privacidade & Termos de Uso</a>
+            <a href="{{ route('site.terms') }}" target="_blank" class="text-white-50 ank">Politícas de Privacidade &
+                Termos de Uso</a>
         </div>
     </div>
 
@@ -86,5 +87,15 @@ background-repeat: no-repeat; ">
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
 
+@if (session('message'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sua Inscrição foi feita com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@endif
+<script src="/js/sweetalert2.all.min.js"></script>
 
 @yield('JS')

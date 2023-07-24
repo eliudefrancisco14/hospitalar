@@ -266,6 +266,40 @@
         </div>
     </section><!-- End Clients Section -->
 
+    <!-- ======= Stats Counter Section ======= -->
+    <section id="team" class="team">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Programa de Estágio</h2>
+                <p></p>
+            </div>
+
+            <div class="row gy-4 align-items-center">
+                <div class="col-lg-6">
+                    <p style="text-align: justify">
+
+                        Programa de Estágios
+                        É uma oportunidade de pré-emprego ou orientação profissional que dará valência e vocação ao
+                        estagiário em uma das área das TI.
+                        clique em "Inscrever" para se inscrever.
+                    </p style="text-align: justify">
+
+                    <div class="text-center"><a href="{{ route('site.internship') }}"
+                            class="btn buy-btn">Inscrever</a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <img src="/site/img/internship.jpg" alt="" class="img-fluid">
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Stats Counter Section -->
+
 </main><!-- End #main -->
 @endsection
 

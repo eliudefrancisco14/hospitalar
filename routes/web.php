@@ -50,6 +50,10 @@ Route::get('/noticia/{title}', ['as' => 'site.news.show', 'uses' => 'Site\NewsCo
 /* Terms */
 route::get('/termos', ['as' => 'site.terms', 'uses' => 'Site\TermsController@index']);
 
+/* internship */
+route::get('/programa-de-estagio', ['as' => 'site.internship', 'uses' => 'Site\InternshipController@index']);
+route::post('/inscricao', ['as' => 'site.internship.store', 'uses' => 'Site\InternshipController@store']);
+
 /* inclui as rotas de autenticação do ficheiro auth.php */
 require __DIR__ . '/auth.php';
 
