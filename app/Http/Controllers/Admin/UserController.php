@@ -39,7 +39,13 @@ class UserController extends Controller
             [
                 'name' => 'required',
                 'email' => 'required',
-                'password' => 'required',
+                'password' => [
+                    'required',
+                    'confirmed',
+                    'min:8',
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                    Rules\Password::defaults()
+                ],
                 'level' => 'required',
             ],
             [
@@ -115,13 +121,19 @@ class UserController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255',
-                'password' => ['required', Rules\Password::defaults()],
+                'password' => [
+                    'required',
+                    'confirmed',
+                    'min:8',
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                    Rules\Password::defaults()
+                ],
             ]);
             $exists_email = User::where('email', $request['email'])->exists();
             if ($exists_email) {
                 return redirect()->back()->with('exist_email', '1');
             }
-            $user = User::find($id)->update([
+           User::find($id)->update([
                 'name' => $request->name,
                 'email' => $request->email,
                 'level' => $request->level,
@@ -138,9 +150,15 @@ class UserController extends Controller
             return redirect()->route('admin.home')->with('NoAuth', '1');
         } else {
             $request->validate([
-                'password' => ['required', Rules\Password::defaults()],
+                'password' => [
+                    'required',
+                    'confirmed',
+                    'min:8',
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                    Rules\Password::defaults()
+                ],
             ]);
-            $user = User::find($id)->update([
+            User::find($id)->update([
                 'password' => Hash::make($request->password),
             ]);
             $this->Logger->log('info', 'Editou senha um Utilizador com o identificador ' . $id);

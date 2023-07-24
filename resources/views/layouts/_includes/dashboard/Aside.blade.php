@@ -74,12 +74,12 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Utilizadores</span>
+            <span class="menu-header-text">configurar contas</span>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-user"></i>
-                <div data-i18n="Account Settings">configurar contas</div>
+                <div data-i18n="Account Settings">Utilizadores</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">

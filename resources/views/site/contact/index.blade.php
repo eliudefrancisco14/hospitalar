@@ -43,13 +43,13 @@
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#faq-content-{{ $loop->index + 1 }}">
                                             <span class="num">{{ $loop->index + 1 }}.</span>
-                                            {{ $item->asks }}
+                                            {{ $item->title }}
                                         </button>
                                     </h3>
                                     <div id="faq-content-{{ $loop->index + 1 }}" class="accordion-collapse collapse"
                                         data-bs-parent="#faqlist">
                                         <div class="accordion-body">
-                                            {{ $item->response }}
+                                            {{ $item->description }}
                                         </div>
                                     </div>
                                 </div><!-- # Faq item-->
