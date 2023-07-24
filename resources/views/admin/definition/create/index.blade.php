@@ -9,8 +9,8 @@
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
 
-                <div class="container justify-content-center mt-2 mb-5">
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Configurar definição</span></h4>
+                <div class="container justify-content-center mt-4 mb-5">
+                    
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -23,15 +23,7 @@
                     <form action="{{ route('admin.definition.store') }}" method="POST" class="row">
                         @csrf
                         @include('forms._formDefinition.index')
-                        <div class="container">
-                            <div class="row">
-                                <div class="mt-2">
-                                    <button type="submit" class="btn btn-primary me-2">Salvar
-                                        alterações</button>
-                                    <button type="reset" class="btn btn-outline-secondary">Cancelar</button>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

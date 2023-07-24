@@ -14,25 +14,18 @@
 
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
-                            <div class="card-deck mb-4">
-
-                                <div class="card border-0 bg-transparent">
-                                    <div class="card-img-top img-fluid rounded"
-                                        style='background-image:url("/dashboard/img/logo.svg");background-position:center;background-size:cover;height:800px;'>
-                                    </div>
-                                </div>
-                            </div>
+                            
+                        </div>
+                        <!-- / Content -->
                     </div>
-                    <!-- / Content -->
+                    <div class="content-backdrop fade"></div>
                 </div>
-                <div class="content-backdrop fade"></div>
-            </div>
 
-            <!-- Content wrapper -->
+                <!-- Content wrapper -->
+            </div>
+            <!-- / Layout page -->
         </div>
-        <!-- / Layout page -->
-    </div>
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
     </div>
 @endsection

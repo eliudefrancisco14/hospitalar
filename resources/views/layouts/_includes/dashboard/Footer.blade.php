@@ -103,6 +103,21 @@
     CKEDITOR.replace('editor3');
 </script>
 
+<script src='/dashboard/js/jquery.dataTables.min.js'></script>
+<script src='/dashboard/js/dataTables.bootstrap4.min.js'></script>
+<script>
+    $('#dataTable-1').DataTable({
+        autoWidth: true,
+        "lengthMenu": [
+            [8, 16, 32, -1],
+            [8, 16, 32, "All"]
+        ],
+        "order": [
+            [0, 'desc']
+        ]
+    });
+</script>
+
 {{-- <script type="text/javascript" src="{{ asset('dashboard/assets/toastr/js/toastify.js') }}"></script> --}}
 
 @if (session('create'))
