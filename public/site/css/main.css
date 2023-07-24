@@ -21,7 +21,7 @@
 :root {
   --color-default: #222222;
   --color-primary: #004883;
-  --color-secondary: #f85a40;
+  --color-secondary: #0f63a8;
 }
 
 /* Smooth scroll behavior */
@@ -166,7 +166,7 @@ section {
   right: 15px;
   bottom: -15px;
   z-index: 99999;
-  background: var(--color-secondary);
+  background: var(--color-primary);
   width: 44px;
   height: 44px;
   border-radius: 50px;
@@ -180,7 +180,7 @@ section {
 }
 
 .scroll-top:hover {
-  background: rgba(248, 90, 64, 0.8);
+  background: var(--color-secondary);
   color: #fff;
 }
 
@@ -2719,7 +2719,7 @@ section .particles {
   transition: 0.5s;
 }
 .ank:hover {
-  color: var(--color-secondary) !important;
+  color: #ffffff !important;
   transition: 0.5s;
   text-decoration: none;
 }

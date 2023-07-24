@@ -1,22 +1,10 @@
 <!-- Footer -->
-<footer class="content-footer footer bg-footer-theme">
+<footer class="content-footer footer bg-footer-theme  text-center">
     <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-        <div class="mb-2 mb-md-0">
-            ©
-            <script style="text-align: right">
-                document.write(new Date().getFullYear());
-            </script>
-            <a href="https://www.minttics.gov.ao" target="_blank" class="footer-link fw-bolder">INFOSI</a>
-        </div>
-        <div>
-            <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-            <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-            <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/" target="_blank"
-                class="footer-link me-4">Documentation</a>
-
-            <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank"
-                class="footer-link me-4">Support</a>
+        <div class="container mt-4">
+            <div class="copyright">
+                <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados | <a href="{{ route('site.terms') }}" target="_blank" class="text-dark-50 ank">Politícas de Privacidade & Termos de Uso</a>
+            </div>
         </div>
     </div>
 </footer>

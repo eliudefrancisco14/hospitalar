@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     public function index(){
-        $response['definitions'] = Definition::OrderBy('id', 'desc')->get();
+        $response['definitions'] = Definition::OrderBy('id', 'asc')->get();
         return view('site.about.about.index', $response);
     }
 
