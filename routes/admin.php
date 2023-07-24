@@ -212,5 +212,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/point/delete/{id}', ['as' => 'admin.point.delete', 'uses' => 'Admin\AngolaOnlineController@destroy']);
     Route::get('admin/point/update/{id}', ['as' => 'admin.point.update', 'uses' => 'Admin\AngolaOnlineController@update']);
     /* end province Pint  */
+
+    /* homologation */
+    Route::get('admin/homologation/index', ['as' => 'admin.homologation.index', 'uses' => 'Admin\HomologationController@index']);
+    Route::get('admin/homologation/show/{id}', ['as' => 'admin.homologation.show', 'uses' => 'Admin\HomologationController@show']);
+    Route::get('admin/homologation/create', ['as' => 'admin.homologation.create', 'uses' => 'Admin\HomologationController@create']);
+    Route::post('admin/homologation/store', ['as' => 'admin.homologation.store', 'uses' => 'Admin\HomologationController@store']);
+    Route::get('admin/homologation/edit/{id}', ['as' => 'admin.homologation.edit', 'uses' => 'Admin\HomologationController@edit']);
+    Route::put('admin/homologation/update/{id}', ['as' => 'admin.homologation.update', 'uses' => 'Admin\HomologationController@update']);
+    Route::get('admin/homologation/delete/{id}', ['as' => 'admin.homologation.delete', 'uses' => 'Admin\HomologationController@destroy']);
+    /* end homologation */
+
   });
 });
