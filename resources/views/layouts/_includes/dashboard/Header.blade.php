@@ -5,7 +5,8 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('dashboard/assets/img/favicon.ico') }}" />
+    <link href="/site/img/favicon.png" rel="icon">
+    <link href="/site/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Fonts -->
 
