@@ -9,21 +9,25 @@
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
 
-                <div class="container justify-content-center mt-2 mb-5">
-                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.regulation.index') }}"><i
-                                    class="bx bx-link-alt me-1"></i>
-                                Lista</a>
-                        </li>
-                    </ul>
-                    <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Titulo:
-                        {{ $data->title }}</h2>
-                    <hr>                   
-
-                    <a href="{{ url("storage/$data->path") }}" target="_blank"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
+                <div class="container justify-content-center mt-4 mb-5">
+                    <h3 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Titulo:
+                        {{ $data->title }}</h3>
                     <hr>
-                    <p>Clica na imagem</p>
+
+                    <a href="{{ url("storage/$data->path") }}" target="_blank"><i class="fa fa-file-pdf-o"
+                            style="font-size:48px;color:red"></i></a>
+                    <hr>
+                    <p>Clicar na imagem</p>
+                    <div class="row align-items-center">
+                        <div class="col-md-7 mb-2">
+                            <hr>
+                            <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                            </p>
+                            <p class="mb-1 text-dark"><b>Última Actualização:</b> {{ $data->updated_at }}
+                            </p>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

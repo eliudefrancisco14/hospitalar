@@ -10,7 +10,6 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-4 mb-5">
-                    
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -20,10 +19,9 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('admin.definition.store') }}" method="POST" class="row">
+                    <form action="{{ route('admin.definition.store') }}" method="POST">
                         @csrf
-                        @include('forms._formDefinition.index')
-                        
+                        @include('forms._formDefinition.index')                        
                     </form>
                 </div>
             </div>

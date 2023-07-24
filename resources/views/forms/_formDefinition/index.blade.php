@@ -4,33 +4,30 @@
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
-                <div class="row">
 
-                    <h3>{{ isset($data) ? 'Atualizar a Definição "' . $data->title.'"' : 'Cadastrar Definição' }}</h3>
-                    <hr>
+                <h3>{{ isset($data) ? 'Atualizar definição "' . $data->title . '"' : 'Cadastrar definição' }}</h3>
+                <hr>
 
-                    <div class="mb-3 col-md-12">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Titulo</label>
-                            <input type="text" name="title" id="title"
-                                value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
-                                placeholder="Titulo" required>
-                        </div>
+                <div class="mb-3 col-md-12">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Titulo</label>
+                        <input type="text" name="title" id="title"
+                            value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
+                            placeholder="Titulo" required>
                     </div>
+                </div>
 
-                    <div class="mb-3 col-md-12">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Detalhe da informação da definição</label>
-                            <textarea type="text" name="description" id="description" class="form-control" required>{{ isset($data->description) ? $data->description : old('description') }}</textarea>
-                        </div>
+                <div class="mb-3 col-md-12">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Detalhe da informação da definição</label>
+                        <textarea type="text" name="description" id="description" class="form-control" required>{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                     </div>
-                    <div class="mb-3 col-md-12">
-                        <button type="submit"
-                            class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
-                    </div>
+                </div>
+                <div class="mb-3 col-md-12">
+                    <button type="submit"
+                        class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
                 </div>
             </div>
         </div>
-
     </div>
 </div>

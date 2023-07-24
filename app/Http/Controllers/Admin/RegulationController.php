@@ -64,10 +64,9 @@ class RegulationController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'path' => 'mimes:pdf',
+            'path' => 'required|mimes:pdf',
 
         ]);
-
         if ($file = $request->file('path')) {
             $file = $file->store('regulation_image');
         } else {

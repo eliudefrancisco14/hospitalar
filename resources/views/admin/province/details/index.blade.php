@@ -10,12 +10,7 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.province.index') }}"><i class="bx bx-link-alt me-1"></i>
-                                Lista</a>
-                        </li>
-                    </ul>
+
                     <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Provínca:
                         {{ $data->name }}</h2>
                     <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Detalhe:
