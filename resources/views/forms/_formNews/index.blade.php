@@ -1,11 +1,5 @@
         <div class="row">
             <div class="col-md-12">
-                <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.news.index') }}"><i class="bx bx-link-alt me-1"></i>
-                            Lista</a>
-                    </li>
-                </ul>
                 <div class="card mb-4">
                     <hr class="my-0" />
                     <div class="card-body">
@@ -31,7 +25,7 @@
 
                             <div class="mb-3 col-md-8">
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Titulo</label>
+                                    <label for="name" class="form-label">Título</label>
                                     <input class="form-control" type="text" id="title" name="title"
                                         value="{{ isset($data->title) ? $data->title : old('title') }}"
                                         placeholder="Informar o titulo" autofocus />
@@ -40,7 +34,7 @@
 
                             <div class="mb-1 col-md-4">
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Data da noticia</label>
+                                    <label for="name" class="form-label">Data da notícia</label>
                                     <input type="date" name="date" id="date"
                                         value="{{ isset($data->date) ? $data->date : old('date') }}"
                                         class="form-control" required>
@@ -65,9 +59,14 @@
                                 <p>Digite o corpo da matéria</p>
                                 <!-- Create the editor container -->
                                 <textarea name="body" id="editor1" style="min-height:300px; min-width:100%">
-                                            {{ isset($news->body) ? $news->body : old('body') }}
+                                            {{ isset($data->body) ? $data->body : old('body') }}
                                         </textarea>
                             </div>
+
+                            <div class="mb-3 col-md-12">
+                                <button type="submit"
+                                    class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
+                            </div>  
                         </div>
                     </div>
                 </div>

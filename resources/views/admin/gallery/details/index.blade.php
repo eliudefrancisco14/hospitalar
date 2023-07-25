@@ -10,13 +10,7 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.gallery.index') }}"><i class="bx bx-link-alt me-1"></i>
-                                Lista</a>
-                        </li>
-                    </ul>
-                    <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Titulo:
+                    <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Título:
                         {{ $data->name }}</h2>
                     <hr>
 
@@ -34,7 +28,7 @@
                                     style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:400px;width:500px;'>
                                 </div>
                             </div>
-                            <p class="mt-1">{{ $data->description }}</p>
+                            <p class="mb-4 mt-1">{{ $data->description }}</p>
                         </div>
                     </div>
                 </div>

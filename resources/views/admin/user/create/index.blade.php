@@ -28,15 +28,6 @@
                         <form action="{{ route('admin.user.store') }}" method="POST">
                             @csrf
                             @include('forms._formUser.index')
-                            <div class="container">
-                                <div class="row">
-                                    <div class="mt-2">
-                                        <button type="submit" class="btn btn-primary me-2">Salvar
-                                            alterações</button>
-                                        <button type="reset" class="btn btn-outline-secondary">Cancelar</button>
-                                    </div>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

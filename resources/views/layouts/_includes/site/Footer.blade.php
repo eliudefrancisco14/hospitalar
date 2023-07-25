@@ -82,7 +82,7 @@ background-repeat: no-repeat; ">
 <script src="/site/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/site/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="/site/vendor/php-email-form/validate.js"></script>
-
+<script src="{{ asset('dashboard/cdn/dataTables.net 1.13.4/js/jquery.dataTables.min.js') }}"></script>
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
 

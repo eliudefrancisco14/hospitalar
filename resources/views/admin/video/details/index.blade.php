@@ -10,21 +10,13 @@
 
                 <div class="container justify-content-center mt-2 mb-5">
                     <div class="nav nav-pills flex-column flex-md-row mb-3">
-                        <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.video.index') }}"><i
-                                        class="bx bx-link-alt me-1"></i>
-                                    Lista</a>
-                            </li>
-                        </ul>
                         <div class="col-12">
                             <div class="container">
                                 <div class="row">
-                                    <h2 class="h3 m-4 page-title">Titulo: {{ $data->title }}</h2>
+                                    <h2 class="h3 m-4 page-title">Título: {{ $data->title }}</h2>
                                 </div>
                             </div>
                             <div class="row m-5 align-items-center">
-
                                 <div class="col">
                                     <div class="row align-items-center">
                                         <div class="col-12 col-lg-10">
@@ -42,7 +34,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <p>Descrição: {{ $data->description }}</p>
+                                                    <p class="mb-4 mt-1">Descrição: {{ $data->description }}</p>
                                                 </div>
                                             </div>
                                         </div>

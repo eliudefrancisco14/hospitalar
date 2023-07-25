@@ -44,17 +44,17 @@
                     <div class="col-12 col-lg-12">
                         <div class="row align-items-center my-4">
                             <div class="col">
-                                <h2 class="page-title">Imagens:{{ $count }}</h2>
+                                <h2 class="page-title">Imagem:{{ $count }}</h2>
                             </div>
                             <div class="col-auto">
                                 <a type="button" class="btn btn-lg btn-primary text-white"
                                     href="{{ url("admin/imagedigitalInclusion/create/{$data->id}") }}">
-                                    <span class="fe fe-plus fe-16 mr-3"></span>Nova Imagem
+                                    <span class="fe fe-plus fe-16 mr-3"></span><i class='bx bx-plus-circle'></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="card-deck mb-4">
-                            <div class="card border-0 bg-transparent">
+                        <div class="card mt-4">
+                            <div class="card-body">
                                 <div class="col-md-8">
 
                                     <div class="row">

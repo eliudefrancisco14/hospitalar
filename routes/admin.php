@@ -98,7 +98,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/faq/edit/{id}', ['as' => 'admin.faq.edit', 'uses' => 'Admin\FAQController@edit']);
     Route::put('admin/faq/update/{id}', ['as' => 'admin.faq.update', 'uses' => 'Admin\FAQController@update']);
     Route::get('admin/faq/delete/{id}', ['as' => 'admin.faq.delete', 'uses' => 'Admin\FAQController@destroy']);
-    Route::get('admin/faq/faqSearch', ['as' => 'admin.faq.faqSearch', 'uses' => 'Admin\FAQController@search']);
     /* end Frequently Asked Question */
 
     /* Service */
@@ -109,7 +108,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/service/edit/{id}', ['as' => 'admin.service.edit', 'uses' => 'Admin\ServiceController@edit']);
     Route::put('admin/service/update/{id}', ['as' => 'admin.service.update', 'uses' => 'Admin\ServiceController@update']);
     Route::get('admin/service/delete/{id}', ['as' => 'admin.service.delete', 'uses' => 'Admin\ServiceController@destroy']);
-    Route::get('admin/service/serviceSearch', ['as' => 'admin.service.serviceSearch', 'uses' => 'Admin\ServiceController@search']);
     /* end Service */
 
     /* Slide Show */
@@ -120,7 +118,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/slide/edit/{id}', ['as' => 'admin.slide.edit', 'uses' => 'Admin\SlideController@edit']);
     Route::put('admin/slide/update/{id}', ['as' => 'admin.slide.update', 'uses' => 'Admin\SlideController@update']);
     Route::get('admin/slide/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'Admin\SlideController@destroy']);
-    Route::get('admin/slide/slideSearch', ['as' => 'admin.slide.slideSearch', 'uses' => 'Admin\SlideController@search']);
     /* end Service */
 
     /* Definition Show */
@@ -131,7 +128,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/definition/edit/{id}', ['as' => 'admin.definition.edit', 'uses' => 'Admin\DefinitionController@edit']);
     Route::put('admin/definition/update/{id}', ['as' => 'admin.definition.update', 'uses' => 'Admin\DefinitionController@update']);
     Route::get('admin/definition/delete/{id}', ['as' => 'admin.definition.delete', 'uses' => 'Admin\DefinitionController@destroy']);
-    Route::get('admin/definition/definitionSearch', ['as' => 'admin.definition.definitionSearch', 'uses' => 'Admin\DefinitionController@search']);
     /* end Service */
 
     /* Direction Show */
@@ -142,10 +138,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/direction/edit/{id}', ['as' => 'admin.direction.edit', 'uses' => 'Admin\DirectionController@edit']);
     Route::put('admin/direction/update/{id}', ['as' => 'admin.direction.update', 'uses' => 'Admin\DirectionController@update']);
     Route::get('admin/direction/delete/{id}', ['as' => 'admin.direction.delete', 'uses' => 'Admin\DirectionController@destroy']);
-    Route::get('admin/direction/directionSearch', ['as' => 'admin.direction.directionSearch', 'uses' => 'Admin\DirectionController@search']);
     /* end Service */
 
-    /* Direction Department */
+    /* Department */
     Route::get('admin/department/index', ['as' => 'admin.department.index', 'uses' => 'Admin\DepartmentController@index']);
     Route::get('admin/department/show/{id}', ['as' => 'admin.department.show', 'uses' => 'Admin\DepartmentController@show']);
     Route::get('admin/department/create', ['as' => 'admin.department.create', 'uses' => 'Admin\DepartmentController@create']);
@@ -153,7 +148,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/department/edit/{id}', ['as' => 'admin.department.edit', 'uses' => 'Admin\DepartmentController@edit']);
     Route::put('admin/department/update/{id}', ['as' => 'admin.department.update', 'uses' => 'Admin\DepartmentController@update']);
     Route::get('admin/department/delete/{id}', ['as' => 'admin.department.delete', 'uses' => 'Admin\DepartmentController@destroy']);
-    Route::get('admin/department/departmentSearch', ['as' => 'admin.department.directionSearch', 'uses' => 'Admin\DepartmentController@search']);
     /* end Department */
 
     /* Direction Regulation */
@@ -164,7 +158,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/regulation/edit/{id}', ['as' => 'admin.regulation.edit', 'uses' => 'Admin\RegulationController@edit']);
     Route::put('admin/regulation/update/{id}', ['as' => 'admin.regulation.update', 'uses' => 'Admin\RegulationController@update']);
     Route::get('admin/regulation/delete/{id}', ['as' => 'admin.regulation.delete', 'uses' => 'Admin\RegulationController@destroy']);
-    Route::get('admin/regulation/regulationSearch', ['as' => 'admin.regulation.regulationSearch', 'uses' => 'Admin\RegulationController@search']);
     /* end Regulation */
 
     /* Direction Digital Inclusion */
@@ -175,7 +168,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/digitalInclusion/edit/{id}', ['as' => 'admin.digitalInclusion.edit', 'uses' => 'Admin\DigitalInclusionController@edit']);
     Route::put('admin/digitalInclusion/update/{id}', ['as' => 'admin.digitalInclusion.update', 'uses' => 'Admin\DigitalInclusionController@update']);
     Route::get('admin/digitalInclusion/delete/{id}', ['as' => 'admin.digitalInclusion.delete', 'uses' => 'Admin\DigitalInclusionController@destroy']);
-    Route::get('admin/digitalInclusion/digitalInclusionSearch', ['as' => 'admin.digitalInclusion.digitalInclusionSearch', 'uses' => 'Admin\DigitalInclusionController@search']);
     /* end Digital Inclusion */
 
     /* Main Image Gallery */
@@ -192,7 +184,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/news/edit/{id}', ['as' => 'admin.news.edit', 'uses' => 'Admin\NewsController@edit']);
     Route::put('admin/news/update/{id}', ['as' => 'admin.news.update', 'uses' => 'Admin\NewsController@update']);
     Route::get('admin/news/delete/{id}', ['as' => 'admin.news.delete', 'uses' => 'Admin\NewsController@destroy']);
-    Route::get('admin/news/newsSearch', ['as' => 'admin.news.newsSearch', 'uses' => 'Admin\NewsController@search']);
     /* end Digital News */
 
     /* Province */
@@ -203,7 +194,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/province/edit/{id}', ['as' => 'admin.province.edit', 'uses' => 'Admin\ProvinceController@edit']);
     Route::put('admin/province/update/{id}', ['as' => 'admin.province.update', 'uses' => 'Admin\ProvinceController@update']);
     Route::get('admin/province/delete/{id}', ['as' => 'admin.province.delete', 'uses' => 'Admin\ProvinceController@destroy']);
-    Route::get('admin/province/provinceSearch', ['as' => 'admin.province.provinceSearch', 'uses' => 'Admin\ProvinceController@search']);
     /* end Province */
 
     /* province Pint */
