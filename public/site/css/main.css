@@ -1781,6 +1781,10 @@ section {
   border-radius: 0 10px 10px 0;
 }
 
+.contact .internship {
+    border-radius: 10px !important;
+}
+
 .contact .php-email-form .form-group {
   padding-bottom: 8px;
 }
@@ -1862,6 +1866,8 @@ section {
   background: rgba(0, 68, 131, 0.8);
   
 }
+
+
 
 @keyframes animate-loading {
   0% {

@@ -17,6 +17,7 @@ route::get('/regulation', ['as' => 'site.regulation', 'uses' => 'Site\Regulation
 
 /* CONTACT */
 route::get('/Contactos', ['as' => 'site.contact', 'uses' => 'Site\ContactController@index']);
+route::post('site/help/email', ['as' => 'site.help.email', 'uses' => 'Site\Email\HelpController@send']);
 
 /* FAQ */
 route::get('/perguntas-frequentes', ['as' => 'site.faq', 'uses' => 'Site\FAQController@index']);

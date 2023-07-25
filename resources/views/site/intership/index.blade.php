@@ -28,9 +28,10 @@
                 </div>
 
                 <div class="row gx-lg-0 gy-4">
+
                     <div class="col-lg-12">
                         <form action="{{ route('site.internship.store') }}" method="post" role="form"
-                            class="php-email-form" enctype="multipart/form-data">
+                            class="php-email-form internship" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">

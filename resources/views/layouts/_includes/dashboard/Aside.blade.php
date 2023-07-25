@@ -21,7 +21,7 @@
             </a>
         </li>
 
-        <!-- Dashboard -->
+        <!-- Site -->
         <li class="menu-item">
             <a href="{{ route('site.home') }}" class="menu-link" target="_blank">
                 <i class='menu-icon tf-icons bx bx-globe'></i>
@@ -29,47 +29,69 @@
             </a>
         </li>
 
+        {{--  Slideshow  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">O INFOSI</span>
+            <span class="menu-header-text">Apresentação</span>
         </li>
 
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-cog"></i>
-                <div data-i18n="Authentications">Definição</div>
+                <i class="menu-icon tf-icons bx bx-slideshow"></i>
+                <div data-i18n="Authentications">Slideshow</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.definition.create') }}" class="menu-link">
+                    <a href="{{ route('admin.slide.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.definition.index') }}" class="menu-link">
+                    <a href="{{ route('admin.slide.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
             </ul>
         </li>
 
+        {{--  <li class="menu-item py-1">
+            <a href="#" class="menu-link">
+                <div data-i18n="Basic">Informações</div>
+            </a>
+        </li>  --}}
+
+        {{--  Angola Online  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Angola Online</span>
+        </li>
 
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-book"></i>
-                <div data-i18n="Authentications">Regulamentos</div>
+                <i class="menu-icon tf-icons bx bx-map-pin"></i>
+                <div data-i18n="Authentications">Província</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.regulation.create') }}" class="menu-link">
+                    <a href="{{ route('admin.province.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.regulation.index') }}" class="menu-link">
+                    <a href="{{ route('admin.province.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
             </ul>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="#" class="menu-link">
+                <div data-i18n="Basic">Informações</div>
+            </a>
+        </li>
+
+        {{--  Serviços  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Serviços</span>
         </li>
 
         <li class="menu-item py-1">
@@ -91,48 +113,69 @@
             </ul>
         </li>
 
+        <li class="menu-item py-1">
+            <a href="#" class="menu-link">
+                <div data-i18n="Basic">Informações</div>
+            </a>
+        </li>
+
+        {{--  Parceiros  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Galeria</span>
+            <span class="menu-header-text">Parceiros</span>
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-image-alt"></i>
-                <div data-i18n="Authentications">Imagem</div>
+                <i class="menu-icon tf-icons bx bxs-user-badge"></i>
+                <div data-i18n="Authentications">Parceiros</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.gallery.create') }}" class="menu-link">
+                    <a href="{{ route('admin.partner.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-video"></i>
-                <div data-i18n="Authentications">Vídeo</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.video.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.video.index') }}" class="menu-link">
+                    <a href="{{ route('admin.partner.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
             </ul>
         </li>
 
+        {{--  Definição  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Estrutura Orgânica</span>
+            <span class="menu-header-text">Definição</span>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cog"></i>
+                <div data-i18n="Authentications">Definição</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.definition.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.definition.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="#" class="menu-link">
+                <div data-i18n="Basic">Informações</div>
+            </a>
+        </li>
+
+
+        {{--  INFOSI  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">INFOSI</span>
         </li>
 
         <li class="menu-item py-1">
@@ -171,7 +214,86 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-book"></i>
+                <div data-i18n="Authentications">Regulamentos</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.regulation.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.regulation.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
+                <div data-i18n="Authentications">Inclusão Digital</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
+
+        {{--  Multimédia  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Multimédia</span>
+        </li>
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-image-alt"></i>
+                <div data-i18n="Authentications">Imagem</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.gallery.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-video"></i>
+                <div data-i18n="Authentications">Vídeo</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.video.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.video.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        {{--  Noticías  --}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Notiçias</span>
         </li>
@@ -194,72 +316,9 @@
             </ul>
         </li>
 
+        {{--  Perguntas Frequentes  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Angola Online</span>
-        </li>
-
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-map-pin"></i>
-                <div data-i18n="Authentications">Província</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.province.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.province.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Parceiros</span>
-        </li>
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-user-badge"></i>
-                <div data-i18n="Authentications">Parceiros</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.partner.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.partner.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Contactos</span>
-        </li>
-
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-contact"></i>
-                <div data-i18n="Authentications">Contactos</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.contact.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.contact.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
+            <span class="menu-header-text">Perguntas frequentes</span>
         </li>
 
         <li class="menu-item py-1">
@@ -281,50 +340,9 @@
             </ul>
         </li>
 
-
+        {{--  Usuários  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Configurações</span>
-        </li>
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-slideshow"></i>
-                <div data-i18n="Authentications">Slideshow</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.slide.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.slide.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
-                <div data-i18n="Authentications">Inclusão Digital</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Utilizadores</span>
+            <span class="menu-header-text">Usuários</span>
         </li>
 
         <li class="menu-item py-1">
@@ -345,6 +363,19 @@
                 </li>
             </ul>
         </li>
+
+        {{--  Configurações  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Configurações</span>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="#" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-cog"></i>
+                <div data-i18n="Authentications">Configurações</div>
+            </a>
+        </li>
+        <br>
 
     </ul>
 </aside>
