@@ -1,8 +1,8 @@
 <div class="card mt-4">
     <div class="card-body">
         <div class="row">
-            <h2>Cadastrar inclusão digital</h2>
-            <hr>
+            <h3>Cadastrar</h3>
+                <hr>
             <div class="col-md-12">
                 <div class="form-group">
                     <div class="custom-file">

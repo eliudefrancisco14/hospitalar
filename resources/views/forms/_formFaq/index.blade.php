@@ -3,6 +3,8 @@
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar Perguntas Frequentes "' . $data->title . '"' : 'Cadastrar' }}</h3>
+                <hr>
                 <div class="row">
 
                     <div class="mb-1 col-md-12">

@@ -5,7 +5,7 @@
             <hr class="my-0" />
             <div class="card-body">
 
-                <h3>{{ isset($data) ? 'Atualizar definição "' . $data->title . '"' : 'Cadastrar definição' }}</h3>
+                <h3>{{ isset($data) ? 'Atualizar definição "' . $data->title . '"' : 'Cadastrar' }}</h3>
                 <hr>
 
                 <div class="mb-3 col-md-12">

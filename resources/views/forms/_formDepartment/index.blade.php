@@ -3,6 +3,8 @@
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar Departamento "' . $data->name . '"' : 'Cadastrar' }}</h3>
+                <hr>
                 <div class="row">
 
                     <div class="form-group col-md-8">

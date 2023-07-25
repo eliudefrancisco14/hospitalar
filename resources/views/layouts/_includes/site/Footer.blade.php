@@ -58,7 +58,8 @@ background-repeat: no-repeat; ">
     <div class="container mt-4">
         <div class="copyright">
             <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados <br>
-            <a href="{{ route('site.terms') }}" target="_blank" class="text-white-50 ank">Politícas de Privacidade & Termos de Uso</a>
+            <a href="{{ route('site.terms') }}" target="_blank" class="text-white-50 ank">Politícas de Privacidade &
+                Termos de Uso</a>
         </div>
     </div>
 
@@ -73,8 +74,8 @@ background-repeat: no-repeat; ">
         <div class="spinner-grow circle-infosi"></div>
     </div>
 </div>
-
 <!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/site/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/site/vendor/aos/aos.js"></script>
 <script src="/site/vendor/glightbox/js/glightbox.min.js"></script>
@@ -82,9 +83,19 @@ background-repeat: no-repeat; ">
 <script src="/site/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/site/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="/site/vendor/php-email-form/validate.js"></script>
-<script src="{{ asset('dashboard/cdn/dataTables.net 1.13.4/js/jquery.dataTables.min.js') }}"></script>
+<script src="/js/sweetalert2.all.min.js"></script>
+
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
 
+@if (session('message'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sua Inscrição foi feita com sucesso!',
+            showConfirmButton: true
+        })
+    </script>
+@endif
 
 @yield('JS')

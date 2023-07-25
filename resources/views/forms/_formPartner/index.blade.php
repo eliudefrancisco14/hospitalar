@@ -3,6 +3,8 @@
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar Parceiro "' . $data->title . '"' : 'Cadastrar' }}</h3>
+                <hr>
                 <div class="row">
 
                     @isset($data)
@@ -32,7 +34,9 @@
 
                     <div class="form-group mb- col-md-4">
                         <label for="name" class="form-label">Selecionar logotipo</label>
-                        <input class="form-control" id="infile" value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo" type="file" required></input>
+                        <input class="form-control" id="infile"
+                            value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo" type="file"
+                            required></input>
                     </div>
 
                     <div class="form-group mb-3 col-md-12">

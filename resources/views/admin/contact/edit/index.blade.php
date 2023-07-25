@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Editar contacto interno')
+@section('title', 'Editar Configuração')
 
 @section('content')
 
@@ -10,7 +10,16 @@
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
 
-                <div class="container justify-content-center mt-2 mb-5">
+                <div class="container justify-content-center mt-4 mb-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="page-title">
+                                <a href="{{ route('admin.contact.show') }}">Ver Informações</a>
+                                > Editar Informações
+                            </h5>
+
+                        </div>
+                    </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -20,14 +29,14 @@
                             </ul>
                         </div>
                     @endif
-                    <!-- Validation Errors -->
-                    <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
                     <div class="row align-items-center">
                         <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                            action="{{ route('admin.contact.update', $data->id) }}">
+                            action="{{ route('admin.contact.update', $contact->id) }}"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             @include('forms._formContact.index')
+
                         </form>
                     </div>
                 </div>

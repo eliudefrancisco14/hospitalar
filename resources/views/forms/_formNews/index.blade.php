@@ -3,6 +3,8 @@
                 <div class="card mb-4">
                     <hr class="my-0" />
                     <div class="card-body">
+                        <h3>{{ isset($data) ? 'Atualizar Noticia "' . $data->title . '"' : 'Cadastrar' }}</h3>
+                        <hr>
                         <div class="row">
 
                             @isset($data)
@@ -66,7 +68,7 @@
                             <div class="mb-3 col-md-12">
                                 <button type="submit"
                                     class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                 </div>

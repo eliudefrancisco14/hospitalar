@@ -3,13 +3,15 @@
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar SlideShow "' . $data->title . '"' : 'Cadastrar' }}</h3>
+                <hr>
                 <div class="row">
 
                     <div class="mb-3 col-md-6">
                         <div class="form-group">
                             <label for="name" class="form-label">Titulo</label>
-                            <input type="text" name="title" id="title"
-                                class="form-control" value="{{ isset($data->title) ? $data->title : old('title') }}"/>
+                            <input type="text" name="title" id="title" class="form-control"
+                                value="{{ isset($data->title) ? $data->title : old('title') }}" />
                         </div>
                     </div>
 
@@ -18,7 +20,6 @@
                             <label for="image" class="form-label">Imagem do slide</label>
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
-                        <p class="text-danger">As dimensões de um slide devem ter no mínimo (850 de altura x 1080 de largura) px</p>
                     </div>
 
                     <div class="mb-3 col-md-12">

@@ -21,7 +21,7 @@
             </a>
         </li>
 
-        <!-- Dashboard -->
+        <!-- Site -->
         <li class="menu-item">
             <a href="{{ route('site.home') }}" class="menu-link" target="_blank">
                 <i class='menu-icon tf-icons bx bx-globe'></i>
@@ -29,6 +29,7 @@
             </a>
         </li>
 
+        {{--  Slideshow  --}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Apresentação</span>
         </li>
@@ -51,6 +52,7 @@
             </ul>
         </li>
 
+        {{--  Angola Online  --}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Angola Online</span>
         </li>
@@ -71,6 +73,13 @@
                     </a>
                 </li>
             </ul>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="{{ route('admin.provinceDocument.show') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Basic">Informações</div>
+            </a>
         </li>
 
         <li class="menu-header small text-uppercase">
@@ -95,6 +104,9 @@
             </ul>
         </li>
 
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Galeria</span>
+        </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bxs-user-badge"></i>
@@ -113,10 +125,6 @@
                 </li>
             </ul>
         </li>
-
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">O INFOSI</span>
-        </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
@@ -134,6 +142,10 @@
                     </a>
                 </li>
             </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Estrutura Orgânica</span>
         </li>
 
         <li class="menu-item py-1">
@@ -172,38 +184,23 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-book"></i>
-                <div data-i18n="Authentications">Regulamento</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.regulation.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.regulation.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Notiçias</span>
+        </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
-                <div data-i18n="Authentications">Inclusão Digital</div>
+                <i class="menu-icon tf-icons bx bx-news"></i>
+                <div data-i18n="Authentications">Notícia</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
+                    <a href="{{ route('admin.news.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
+                    <a href="{{ route('admin.news.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
@@ -211,30 +208,35 @@
         </li>
 
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Mídia</span>
+            <span class="menu-header-text">Angola Online</span>
         </li>
+
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-image-alt"></i>
-                <div data-i18n="Authentications">Galeria de Imagem</div>
+                <i class="menu-icon tf-icons bx bx-map-pin"></i>
+                <div data-i18n="Authentications">Província</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.gallery.create') }}" class="menu-link">
+                    <a href="{{ route('admin.province.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
+                    <a href="{{ route('admin.province.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
             </ul>
         </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Parceiros</span>
+        </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-video"></i>
-                <div data-i18n="Authentications">Galeria de Vídeo</div>
+                <i class="menu-icon tf-icons bx bxs-user-badge"></i>
+                <div data-i18n="Authentications">Parceiros</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -250,26 +252,32 @@
             </ul>
         </li>
 
+        {{--  Noticías  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Contactos</span>
+            <span class="menu-header-text">Notiçias</span>
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-contact"></i>
-                <div data-i18n="Authentications">Contactos</div>
+                <i class="menu-icon tf-icons bx bx-news"></i>
+                <div data-i18n="Authentications">Notícia</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.contact.create') }}" class="menu-link">
+                    <a href="{{ route('admin.news.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.contact.index') }}" class="menu-link">
+                    <a href="{{ route('admin.news.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
             </ul>
+        </li>
+
+        {{--  Perguntas Frequentes  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Perguntas frequentes</span>
         </li>
 
         <li class="menu-item py-1">
@@ -291,22 +299,42 @@
             </ul>
         </li>
 
+
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Notícias</span>
+            <span class="menu-header-text">Configurações</span>
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-news"></i>
-                <div data-i18n="Authentications">Notícia</div>
+                <i class="menu-icon tf-icons bx bx-slideshow"></i>
+                <div data-i18n="Authentications">Slideshow</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.news.create') }}" class="menu-link">
+                    <a href="{{ route('admin.slide.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.news.index') }}" class="menu-link">
+                    <a href="{{ route('admin.slide.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
+                <div data-i18n="Authentications">Inclusão Digital</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
@@ -335,6 +363,19 @@
                 </li>
             </ul>
         </li>
+
+        {{--  Configurações  --}}
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Configurações</span>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="{{ route('admin.contact.show') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-cog"></i>
+                <div data-i18n="Authentications">Configurações</div>
+            </a>
+        </li>
+        <br>
 
     </ul>
 </aside>

@@ -49,4 +49,3 @@
 
     <script src="/ckeditor/ckeditor.js"></script>
 
-    <title></title>

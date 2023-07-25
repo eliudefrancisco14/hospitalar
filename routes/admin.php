@@ -69,14 +69,9 @@ Route::middleware(['auth'])->group(function () {
     /* end video */
 
     /* Contact */
-    Route::get('admin/contact/index', ['as' => 'admin.contact.index', 'uses' => 'Admin\ContactsController@index']);
-    Route::get('admin/contact/show/{id}', ['as' => 'admin.contact.show', 'uses' => 'Admin\ContactsController@show']);
-    Route::get('admin/contact/create', ['as' => 'admin.contact.create', 'uses' => 'Admin\ContactsController@create']);
-    Route::post('admin/contact/store', ['as' => 'admin.contact.store', 'uses' => 'Admin\ContactsController@store']);
+    Route::get('admin/contact/show/', ['as' => 'admin.contact.show', 'uses' => 'Admin\ContactsController@show']);
     Route::get('admin/contact/edit/{id}', ['as' => 'admin.contact.edit', 'uses' => 'Admin\ContactsController@edit']);
     Route::put('admin/contact/update/{id}', ['as' => 'admin.contact.update', 'uses' => 'Admin\ContactsController@update']);
-    Route::get('admin/contact/delete/{id}', ['as' => 'admin.contact.delete', 'uses' => 'Admin\ContactsController@destroy']);
-    Route::get('admin/contact/contactsSearch', ['as' => 'admin.contact.contactsSearch', 'uses' => 'Admin\ContactsController@search']);
     /* end Contact */
 
     /* Partner */
@@ -195,6 +190,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/province/update/{id}', ['as' => 'admin.province.update', 'uses' => 'Admin\ProvinceController@update']);
     Route::get('admin/province/delete/{id}', ['as' => 'admin.province.delete', 'uses' => 'Admin\ProvinceController@destroy']);
     /* end Province */
+
+    /* ProvinceDocuments */
+    Route::get('admin/informacoes-province/show', ['as' => 'admin.provinceDocument.show', 'uses' => 'Admin\ProvinceDocumentController@show']);
+    Route::get('admin/informacoes-province/edit/{id}', ['as' => 'admin.provinceDocument.edit', 'uses' => 'Admin\ProvinceDocumentController@edit']);
+    Route::put('admin/informacoes-province/update/{id}', ['as' => 'admin.provinceDocument.update', 'uses' => 'Admin\ProvinceDocumentController@update']);
+    /* end ProvinceDocuments */
+
 
     /* province Pint */
     Route::get('admin/point/create/{id}', ['as' => 'admin.point.create', 'uses' => 'Admin\AngolaOnlineController@create']);

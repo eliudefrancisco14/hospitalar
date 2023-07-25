@@ -1,4 +1,6 @@
         <div class="row">
+            <h3>{{ isset($data) ? 'Atualizar Usuário "' . $data->name . '"' : 'Cadastrar' }}</h3>
+                <hr>
             <div class="col-md-12">
                 <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">

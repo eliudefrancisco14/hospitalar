@@ -3,9 +3,10 @@
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar serviço "' . $data->title . '"' : 'Cadastrar serviço' }}</h3>
+                <hr>
                 <div class="row">
-                    <h3>{{ isset($data) ? 'Atualizar serviço "' . $data->title . '"' : 'Cadastrar serviço' }}</h3>
-                    <hr>
+
                     @isset($data)
                         <div class="col-12 col-lg-12">
                             <div class="row align-items-center my-4">

@@ -106,7 +106,17 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('site.help.email') }}" method="post" role="form" class="php-email-form">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <input type="text" name="name" class="form-control" id="name"
@@ -116,14 +126,26 @@
                                     <input type="email" class="form-control" name="email" id="email"
                                         placeholder="Seu E-mail" required>
                                 </div>
+                                <div class="col-md-12 form-group mt-3 mt-md-0">
+                                    <input class="form-control" type="text" name="subject" placeholder="Assunto"
+                                        aria-label="Assunto">
+                                </div>
                             </div>
                             <div class="form-group mt-3">
-                                <textarea class="form-control" name="message" rows="7" placeholder="Mensagem" required></textarea>
+                                <textarea class="form-control" name="msg" rows="7" placeholder="Mensagem" required></textarea>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                                <div class="col-md-12">
+                                    {!! RecaptchaV3::field('register') !!}
+                                    @if ($errors->has('g-recaptcha-response'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class=col-md>
+                                <p class="small text-muted mb-4">Preencha com dados Verdadeiros!</p>
                             </div>
                             <div class="text-center"><button type="submit">Send Message</button></div>
                         </form>
@@ -133,6 +155,6 @@
 
             </div>
         </section><!-- End Contact Section -->
-        
+
     </main>
 @endsection
