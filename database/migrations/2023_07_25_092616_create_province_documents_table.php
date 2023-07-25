@@ -15,6 +15,8 @@ class CreateProvinceDocumentsTable extends Migration
     {
         Schema::create('province_documents', function (Blueprint $table) {
             $table->id();
+            $table->longText('body');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

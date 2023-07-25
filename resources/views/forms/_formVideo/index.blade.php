@@ -1,20 +1,14 @@
 <div class="row">
     <div class="col-md-12">
-        <ul class="nav nav-pills flex-column flex-md-row mb-3">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.video.index') }}"><i class="bx bx-link-alt me-1"></i>
-                    Lista</a>
-            </li>
-        </ul>
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
                 <div class="row">
 
                     <div class="form-group col-md-8">
-                        <label for="title" class="form-label">Titulo</label>
+                        <label for="title" class="form-label">Título</label>
                         <input type="text" name="title" id="title" value="{{ isset($data->title) ? $data->title : old('title') }}"
-                            class="form-control" placeholder="Titulo do vídeo" required>
+                            class="form-control" placeholder="Título do vídeo" required>
                     </div>
 
                     <div class="form-group mb-3 col-md-4">
@@ -38,6 +32,11 @@
                         <textarea class="form-control" type="text" id="description" name="description">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                     </div>
 
+                    <div class="mb-3 col-md-12">
+                        <button type="submit"
+                            class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

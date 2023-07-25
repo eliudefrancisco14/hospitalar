@@ -1,14 +1,10 @@
 <div class="row">
     <div class="col-md-12">
-        <ul class="nav nav-pills flex-column flex-md-row mb-3">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.service.index') }}"><i class="bx bx-link-alt me-1"></i>
-                    Lista</a>
-            </li>
-        </ul>
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar serviço "' . $data->title . '"' : 'Cadastrar serviço' }}</h3>
+                <hr>
                 <div class="row">
 
                     @isset($data)
@@ -49,6 +45,11 @@
                             <label for="name" class="form-label">Detalhe da informação do serviço</label>
                             <textarea type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
+                    </div>
+
+                    <div class="mb-3 col-md-12">
+                        <button type="submit"
+                            class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
                     </div>
                 </div>
             </div>

@@ -93,6 +93,7 @@
 
 <script src='/dashboard/js/jquery.dataTables.min.js'></script>
 <script src='/dashboard/js/dataTables.bootstrap4.min.js'></script>
+
 <script>
     $('#dataTable-1').DataTable({
         autoWidth: true,
@@ -103,6 +104,16 @@
         "order": [
             [0, 'desc']
         ]
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            language: {
+                url: "/dashboard/cdn/plug-ins/1.10.22/i18n/Portuguese-Brasil.json"
+            }
+        });
     });
 </script>
 

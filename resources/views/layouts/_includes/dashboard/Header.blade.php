@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
 
-    <link rel="stylesheet" href="{{asset('logint/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('logint/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
 
     <!-- Icons. Uncomment required icon fonts -->
 
-    <link rel="stylesheet" href="{{asset('../assets/vendor/fonts/boxicons.css')}}" />
+    <link rel="stylesheet" href="{{ asset('../assets/vendor/fonts/boxicons.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('dashboard/fonts/css/boxicons.css') }}" />
     <link rel="stylesheet" href="{{ asset('dashboard/fonts/css/fonts.css') }}" />
@@ -37,6 +37,9 @@
     <!-- Toastr And SweetAlert -->
     <link rel="stylesheet" href="{{ asset('dashboard/assets/toastr/css/Toastify.min.css') }}">
     
+    {{-- Data Table --}}
+    <link href="{{ asset('dashboard/cdn/dataTables.net 1.11.5/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+
     {{-- sweetalert --}}
     <link rel="stylesheet" href="/css/sweetalert2.css">
     <script src="/js/sweetalert2.all.min.js"></script>
@@ -45,5 +48,4 @@
     <script src="{{ asset('dashboard/js/config.js') }}"></script>
 
     <script src="/ckeditor/ckeditor.js"></script>
-    
-    <title></title>
+

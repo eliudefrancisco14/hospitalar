@@ -74,8 +74,8 @@ background-repeat: no-repeat; ">
         <div class="spinner-grow circle-infosi"></div>
     </div>
 </div>
-
 <!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="/site/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/site/vendor/aos/aos.js"></script>
 <script src="/site/vendor/glightbox/js/glightbox.min.js"></script>
@@ -83,6 +83,7 @@ background-repeat: no-repeat; ">
 <script src="/site/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/site/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="/site/vendor/php-email-form/validate.js"></script>
+<script src="/js/sweetalert2.all.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
@@ -96,6 +97,5 @@ background-repeat: no-repeat; ">
         })
     </script>
 @endif
-<script src="/js/sweetalert2.all.min.js"></script>
 
 @yield('JS')

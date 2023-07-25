@@ -1,14 +1,10 @@
 <div class="row">
     <div class="col-md-12">
-        <ul class="nav nav-pills flex-column flex-md-row mb-3">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.partner.index') }}"><i class="bx bx-link-alt me-1"></i>
-                    Lista</a>
-            </li>
-        </ul>
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
+                <h3>{{ isset($data) ? 'Atualizar Parceiro "' . $data->title . '"' : 'Cadastrar' }}</h3>
+                <hr>
                 <div class="row">
 
                     @isset($data)
@@ -30,15 +26,17 @@
                     @endisset
 
                     <div class="form-group mb-3 col-md-8">
-                        <label for="name" class="form-label">Titulo</label>
+                        <label for="name" class="form-label">Título</label>
                         <input type="text" name="title" id="title"
                             value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
-                            placeholder="Titulo" required>
+                            placeholder="Informar o título" required>
                     </div>
 
                     <div class="form-group mb- col-md-4">
                         <label for="name" class="form-label">Selecionar logotipo</label>
-                        <input class="form-control" id="infile" value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo" type="file" required></input>
+                        <input class="form-control" id="infile"
+                            value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo" type="file"
+                            required></input>
                     </div>
 
                     <div class="form-group mb-3 col-md-12">
@@ -48,6 +46,11 @@
                                 value="{{ isset($data->link) ? $data->link : old('link') }}" class="form-control"
                                 placeholder="Ex:www.infosi.gov.co.ao/infosi" required>
                         </div>
+                    </div>
+
+                    <div class="mb-3 col-md-12">
+                        <button type="submit"
+                            class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>
                     </div>
                 </div>
             </div>

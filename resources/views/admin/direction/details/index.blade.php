@@ -8,17 +8,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
-
                 <div class="container justify-content-center mt-2 mb-5">
-                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.direction.index') }}"><i class="bx bx-link-alt me-1"></i>
-                                Lista</a>
-                        </li>
-                    </ul>
-                    <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Nome:
-                        {{ $data->name }}</h2>
-                    <hr>
 
                     <div class="col-12 col-lg-12">
                         <div class="row align-items-center my-4">
@@ -39,6 +29,16 @@
                             <hr>
                             <p class="mt-1">{{ $data->body }}</p>
                             <hr>
+                            <div class="row align-items-center">
+                                <div class="col-md-7 mb-2">
+                                    <hr>
+                                    <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                                    </p>
+                                    <p class="mb-1 text-dark"><b>Última Actualização:</b> {{ $data->updated_at }}
+                                    </p>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

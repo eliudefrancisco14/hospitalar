@@ -1,42 +1,68 @@
 @extends('layouts.merge.site')
 @section('title', 'Portal Oficial do INFOSI')
 @section('content')
+  
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
         style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-        <div id="carouselExample" class="carousel slide">
-
-
+        <div id="carouselExampleIndicators" class="carousel slide mt-0" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="/site/img/cta-bg.jpg" class="d-block w-100 img-fluid" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Seja Bem-Vindo ao Portal Oficial do INFOSI</h2>
-                        <p>Instituto Público de Prestação de Serviço com Carácter
-                            Científico e Desenvolvimento Tecnológico</p>
-                    </div>
-                </div>
-                @foreach ($slideshows as $item)
-                    <div class="carousel-item" data-bs-interval="10000">
-                        <img src="{{ url("/storage/$item->path") }}" class="d-block w-100 img-fluid" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2>{{ $item->title }}</h2>
-                            <p>{{ $item->description }}</p>
+                @if ($slideFirst)
+                    <div class="carousel-item  active">
+
+                        <div class=""
+                            style='background-position:center; background-size:initial; height:800px; width:100%;background-image: url("/storage/{{ $slideFirst->path }}");no-repeat;
+                            
+                        background-size:cover;
+                        background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+                            '>
+                            <div class="carousel-caption ">
+                                <div class="col mt-sm-11 mt-md-11 mt-lg-0">
+                                    <h2>{{ $slideFirst->title }}</h2>
+                                    <p>{{ $slideFirst->description }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                @endforeach
+                @endif
+                @isset($slideshows)
+
+                    @foreach ($slideshows as $item)
+                        <div class="carousel-item ">
+
+                            <div class=""
+                                style='background-position:center;  height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat;
+                                
+                                
+                        background-size:cover;
+                        background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+                                
+                                '>
+                                <div class="carousel-caption ">
+                                    <div class="col mt-sm-11 mt-md-11 mt-lg-0">
+                                        <h2>{{ $item->title }}</h2>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                @endisset
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
+
         <div class="icon-boxes position-relative">
             <div class="container position-relative">
                 <div class="row gy-4 mt-5">
@@ -88,8 +114,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
                     <h2>Angola Online</h2>
-                    <p>É um projecto social, sem fins lucrativos com o objectivo de criar pontos de acesso público e
-                        gratuitos a Internet em diversos locais do país.</p>
+                    <p>{!! html_entity_decode($provinceDocument->body) !!}</p>
                 </div>
                 <div class="row gy-4 align-items-center">
 
@@ -100,32 +125,37 @@
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         const ctx = document.getElementById('myChart');
+                        var Bengo = JSON.parse('<?php echo $Bengo; ?>');
+                        var Benguela = JSON.parse('<?php echo $Benguela; ?>');
+                        var Bie = JSON.parse('<?php echo $Bie; ?>');
+                        var Cabinda = JSON.parse('<?php echo $Cabinda; ?>');
+                        var CuandoCubango = JSON.parse('<?php echo $CuandoCubango; ?>');
+                        var Cunene = JSON.parse('<?php echo $Cunene; ?>');
+                        var Huambo = JSON.parse('<?php echo $Huambo; ?>');
+                        var Huila = JSON.parse('<?php echo $Huila; ?>');
+                        var KwanzaSul = JSON.parse('<?php echo $KwanzaSul; ?>');
+                        var KwanzaNorte = JSON.parse('<?php echo $KwanzaNorte; ?>');
+                        var Luanda = JSON.parse('<?php echo $Luanda; ?>');
+                        var LundaNorte = JSON.parse('<?php echo $LundaNorte; ?>');
+                        var LundaSul = JSON.parse('<?php echo $LundaSul; ?>');
+                        var Malanje = JSON.parse('<?php echo $Malanje; ?>');
+                        var Moxico = JSON.parse('<?php echo $Moxico; ?>');
+                        var Namibe = JSON.parse('<?php echo $Namibe; ?>');
+                        var Uige = JSON.parse('<?php echo $Uige; ?>');
+                        var Zaire = JSON.parse('<?php echo $Zaire; ?>');
 
                         new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: ['Bengo',
-                                    'Benguela',
-                                    'Bié',
-                                    'Cabinda',
-                                    'Cuando - Cubango',
-                                    'Cuanza Norte',
-                                    'Cuanza Sul',
-                                    'Cunene',
-                                    'Huambo',
-                                    'Huíla',
-                                    'Luanda',
-                                    'Lunda Norte',
-                                    'Lunda Sul',
-                                    'Malange',
-                                    'Moxico',
-                                    'Namibe',
-                                    'Uíge',
-                                    'Zaire'
+                                labels: ['Bengo', 'Benguela', 'Bié', 'Cabinda', 'Cuando-Cubango', 'Cunene', 'Huambo', 'Huíla',
+                                    'Kwanza Sul', 'Kwanza Norte', 'Luanda', 'Lunda Norte', 'Lunda Sul', 'Malanje', 'Moxico',
+                                    'Namibe', 'Uíge', 'Zaire'
                                 ],
                                 datasets: [{
                                     label: 'Pontos Angola Online',
-                                    data: [12, 19, 3, 5, 2, 12, 19, 3, 5, 2, 12, 19, 3, 5, 2, 12, 19, 3],
+                                    data: [Bengo, Benguela, Bie, Cabinda, CuandoCubango, Cunene, Huambo, Huila, KwanzaSul,
+                                        KwanzaNorte, Luanda, LundaNorte, LundaSul, Malanje, Moxico, Namibe, Uige, Zaire
+                                    ],
                                     borderWidth: 1
                                 }]
                             },
@@ -308,6 +338,9 @@
 <script>
     $('.carousel').carousel({
         interval: 2000
+    })
+    $('#carouselExampleIndicators').on('slide.bs.carousel', function() {
+        direction: left
     })
 </script>
 

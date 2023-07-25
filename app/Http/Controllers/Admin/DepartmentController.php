@@ -15,24 +15,24 @@ class DepartmentController extends Controller
     {
         $this->Logger = new Logger;
     }
+
     public function index()
     {
-        $response['departments'] = Department::get();
+        $response['data'] = Department::get();
         $this->Logger->log('info', 'Listou departamento');
-        return view('admin.department.list.index', $response);
+        return view('admin.departament.list.index', $response);
     }
 
-   
     public function create()
     {
         $this->Logger->log('info', 'Entrou em cadastrar departamento');
-        return view('admin.department.create.index');
+        return view('admin.departament.create.index');
     }
 
-    
+
     public function store(Request $request)
     {
-        $validation = $request->validate([
+        $request->validate([
             'name' => 'required',
             'boss' => 'required',
             'description' => 'required',
@@ -44,28 +44,26 @@ class DepartmentController extends Controller
             'description' => $request->description,
         ]);
         $this->Logger->log('info', 'Cadastrou uma departamento de nome ' . $department->name);
-        return redirect("admin/department/show/$department->id")->with('create', '1');
-    
+        return redirect()->route('admin.department.index')->with('create', '1');
     }
 
     public function show($id)
     {
-        $response['department'] = Department::find($id);
-        $this->Logger->log('info', 'Visualizou departamento com o identificador'. $id);
+        $response['data'] = Department::find($id);
+        $this->Logger->log('info', 'Visualizou departamento com o identificador' . $id);
         return view('admin.department.details.index', $response);
     }
 
     public function edit($id)
     {
-        $response['department'] = Department::find($id);
-        $this->Logger->log('info', 'Entrou em editar departamento com o identificador'. $id);
-        return view('admin.department.edit.index', $response);
-    
+        $response['data'] = Department::find($id);
+        $this->Logger->log('info', 'Entrou em editar departamento com o identificador' . $id);
+        return view('admin.departament.edit.index', $response);
     }
 
     public function update(Request $request, $id)
     {
-        $validation = $request->validate([
+       $request->validate([
             'name' => 'required',
             'boss' => 'required',
             'description' => 'required',
@@ -76,9 +74,8 @@ class DepartmentController extends Controller
             'boss' => $request->boss,
             'description' => $request->description,
         ]);
-        $this->Logger->log('info', 'Cadastrou um departamento com o identificador'. $id);
-        return redirect("admin/department/show/$id")->with('create', '1');
-    
+        $this->Logger->log('info', 'Cadastrou um departamento com o identificador' . $id);
+        return redirect()->route('admin.department.index')->with('edit', '1');
     }
 
     public function destroy($id)

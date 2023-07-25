@@ -33,7 +33,6 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Apresentação</span>
         </li>
-
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-slideshow"></i>
@@ -53,17 +52,10 @@
             </ul>
         </li>
 
-        {{--  <li class="menu-item py-1">
-            <a href="#" class="menu-link">
-                <div data-i18n="Basic">Informações</div>
-            </a>
-        </li>  --}}
-
         {{--  Angola Online  --}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Angola Online</span>
         </li>
-
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-map-pin"></i>
@@ -84,16 +76,15 @@
         </li>
 
         <li class="menu-item py-1">
-            <a href="#" class="menu-link">
+            <a href="{{ route('admin.provinceDocument.show') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Basic">Informações</div>
             </a>
         </li>
 
-        {{--  Serviços  --}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Serviços</span>
         </li>
-
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-phone-call"></i>
@@ -113,15 +104,8 @@
             </ul>
         </li>
 
-        <li class="menu-item py-1">
-            <a href="#" class="menu-link">
-                <div data-i18n="Basic">Informações</div>
-            </a>
-        </li>
-
-        {{--  Parceiros  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Parceiros</span>
+            <span class="menu-header-text">Galeria</span>
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -141,12 +125,6 @@
                 </li>
             </ul>
         </li>
-
-        {{--  Definição  --}}
-        <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Definição</span>
-        </li>
-
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
@@ -166,22 +144,14 @@
             </ul>
         </li>
 
-        <li class="menu-item py-1">
-            <a href="#" class="menu-link">
-                <div data-i18n="Basic">Informações</div>
-            </a>
-        </li>
-
-
-        {{--  INFOSI  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">INFOSI</span>
+            <span class="menu-header-text">Estrutura Orgânica</span>
         </li>
 
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-horizontal-center"></i>
-                <div data-i18n="Authentications">Direcção</div>
+                <div data-i18n="Authentications">Estrutura Orgânica</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -214,70 +184,59 @@
                 </li>
             </ul>
         </li>
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-book"></i>
-                <div data-i18n="Authentications">Regulamentos</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.regulation.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.regulation.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item py-1">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
-                <div data-i18n="Authentications">Inclusão Digital</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
-                        <div data-i18n="Basic">Cadastrar</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
-                        <div data-i18n="Basic">Listar</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
 
-
-        {{--  Multimédia  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Multimédia</span>
+            <span class="menu-header-text">Notiçias</span>
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-image-alt"></i>
-                <div data-i18n="Authentications">Imagem</div>
+                <i class="menu-icon tf-icons bx bx-news"></i>
+                <div data-i18n="Authentications">Notícia</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.gallery.create') }}" class="menu-link">
+                    <a href="{{ route('admin.news.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.gallery.index') }}" class="menu-link">
+                    <a href="{{ route('admin.news.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>
             </ul>
         </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Angola Online</span>
+        </li>
+
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bxs-video"></i>
-                <div data-i18n="Authentications">Vídeo</div>
+                <i class="menu-icon tf-icons bx bx-map-pin"></i>
+                <div data-i18n="Authentications">Província</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.province.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.province.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Parceiros</span>
+        </li>
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-user-badge"></i>
+                <div data-i18n="Authentications">Parceiros</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -324,7 +283,7 @@
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-question-mark"></i>
-                <div data-i18n="Authentications">Perg. Frequentes</div>
+                <div data-i18n="Authentications">FAQ</div>
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
@@ -340,9 +299,50 @@
             </ul>
         </li>
 
-        {{--  Usuários  --}}
+
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Usuários</span>
+            <span class="menu-header-text">Configurações</span>
+        </li>
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-slideshow"></i>
+                <div data-i18n="Authentications">Slideshow</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.slide.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.slide.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item py-1">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxl-digitalocean"></i>
+                <div data-i18n="Authentications">Inclusão Digital</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.create') }}" class="menu-link">
+                        <div data-i18n="Basic">Cadastrar</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.digitalInclusion.index') }}" class="menu-link">
+                        <div data-i18n="Basic">Listar</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Utilizadores</span>
         </li>
 
         <li class="menu-item py-1">
@@ -370,7 +370,7 @@
         </li>
 
         <li class="menu-item py-1">
-            <a href="#" class="menu-link">
+            <a href="{{ route('admin.contact.show') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-cog"></i>
                 <div data-i18n="Authentications">Configurações</div>
             </a>
@@ -379,4 +379,3 @@
 
     </ul>
 </aside>
-<!-- / Menu -->

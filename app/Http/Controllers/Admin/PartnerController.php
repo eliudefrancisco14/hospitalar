@@ -34,8 +34,8 @@ class PartnerController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|min:5|max:255',
-                'link' => 'required|min:5|max:255',
+                'title' => 'required|max:255',
+                'link' => 'required|max:255',
                 'logo' => 'mimes:jpg,png,jpeg',
             ]
         );
@@ -77,8 +77,8 @@ class PartnerController extends Controller
         $this->validate(
             $request,
             [
-                'title' => 'required|min:5|max:255',
-                'link' => 'required|min:5|max:255',
+                'title' => 'required|max:255',
+                'link' => 'required|max:255',
                 'logo' => 'mimes:jpg,png,jpeg',
             ]
         );
