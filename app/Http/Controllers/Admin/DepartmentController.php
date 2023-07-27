@@ -51,7 +51,7 @@ class DepartmentController extends Controller
     {
         $response['data'] = Department::find($id);
         $this->Logger->log('info', 'Visualizou departamento com o identificador' . $id);
-        return view('admin.department.details.index', $response);
+        return view('admin.departament.details.index', $response);
     }
 
     public function edit($id)

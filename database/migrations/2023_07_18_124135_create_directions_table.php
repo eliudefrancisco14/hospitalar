@@ -11,7 +11,7 @@ class CreateDirectionsTable extends Migration
         Schema::create('directions', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-            $table->string('office', 25);
+            $table->string('office', 255);
             $table->longText('body');
             $table->string('path');
             $table->softDeletes();

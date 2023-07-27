@@ -89,63 +89,61 @@
                 <!-- / Navbar -->
 
 
-                <div class="container justify-content-center mt-2 mb-5">
-                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.user.index') }}"><i class="bx bx-link-alt me-1"></i>
-                                Lista</a>
-                        </li>
-                    </ul>
-                    <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Informação:
-                        {{ $data->name }}</h2>
-                    <hr>
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-12">
-                                <div class="row mt-5 align-items-center">
-                                    <div class="col-md-3 text-center mb-5">
-                                        <div class=" rounded-circle ml-5 bg-primary" style="height: 150px; width:150px;">
-                                            <h1 class="text-white p-5 " style="font-size: 65px">{{ $data->name[0] }}
-                                            </h1>
+                <div class="container justify-content-center mt-4 mb-5">
+
+
+                    <div class="row align-items-center mx-0">
+
+                        <div class="col-lg-12 my-2 col-md-12 col-12">
+
+                            <div class="card row align-items-center">
+                                <div class="card-body">
+                                    <h3>Nome: "{{ $data->name }}"</h3>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <h5 class="mb-1">
+                                                <b>Email</b>
+                                            </h5>
+                                            <p class="text-dark text-justify">{{ $data->email }}</p>
+
                                         </div>
-                                    </div>
-                                    <div class="col">
+
+                                        <div class="col-md-6 mb-2">
+                                            <h5 class="mb-1">
+                                                <b>Nível de Acesso</b>
+                                            </h5>
+                                            <p class="text-dark text-justify">{{ $data->level }}</p>
+
+                                        </div>
+
+
                                         <div class="row align-items-center">
-                                            <div class="col-md-7">
-                                                <h4 class="mb-1">{{ $data->email }}</h4>
-                                                <p class="small mb-3">
-                                                    <span class="badge badge-dark">Data de Criação:
-                                                        {{ $data->created_at }}
+                                            <div class="col-md-7 mb-2">
+                                                <hr>
+                                                <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
                                                 </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-4">
-                                            <div class="col-md-12">
-                                                <h4 class="mb-1">
-                                                    <b>Permissão:</b>
-                                                    {{ $data->level }}
+                                                <p class="mb-1 text-dark"><b>Última Actualização:</b>
+                                                    {{ $data->updated_at }}
+                                                </p>
 
-                                                </h4>
                                             </div>
                                         </div>
                                     </div>
-                                </div> <!-- /.col-12 -->
-                            </div> <!-- .row -->
-                        </div> <!-- .container-fluid -->
-                    </div>
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <div class="col-12">
-                                <div class="table-responsive text-nowrap">
-                                    <table class="table">
-                                        <thead class="table-dark">
-                                            <tr class="text-center">
-                                                <th>ID</th>
-                                                <th>NIVEL</th>
-                                                <th>IP</th>
 
-                                                <th>DATA</th>
-                                                <th>DESCRIÇÃO</th>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mt-2 col-md-12 col-12">
+                            <div class="card row align-items-center">
+                                <div class="card-body">
+                                    <table class="table datatables table-hover table-bordered" id="dataTable-1">
+                                        <thead class="bg-primary ">
+                                            <tr class="text-center text-ligth">
+                                                <th style="color: #fff;">ID</th>
+                                                <th style="color: #fff;">Nível</th>
+                                                <th style="color: #fff;">IP</th>
+                                                <th style="color: #fff;">Data de Criação</th>
+                                                <th style="color: #fff;">Mensagem</th>
                                             </tr>
                                         </thead>
                                         <tbody class="bg-white">
@@ -155,7 +153,6 @@
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->level }} </td>
                                                     <td>{{ $item->REMOTE_ADDR }} </td>
-
                                                     <td class="text-center">{{ $item->created_at }} </td>
                                                     <td class="text-left">{{ $item->message }} </td>
 
@@ -167,6 +164,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
