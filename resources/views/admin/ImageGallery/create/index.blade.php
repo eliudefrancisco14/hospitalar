@@ -10,18 +10,8 @@
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
 
-                <div class="container justify-content-center mt-2 mb-5">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <!-- Validation Errors -->
-                    <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
+                <div class="container justify-content-center mt-4 mb-5">
+                    @include('errors.form')
                     <div class="row align-items-center">
                         <form action='{{ url("admin/imageGallery/store/$data->id") }}' method="POST"
                             enctype="multipart/form-data">
