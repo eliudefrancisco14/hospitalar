@@ -13,6 +13,12 @@
                 <!-- / Navbar -->
 
                 <div class="container justify-content-center mt-2 mb-5">
+                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.user.index') }}"><i class="bx bx-link-alt me-1"></i>
+                                Lista</a>
+                        </li>
+                    </ul>
                     <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Informação:
                         {{ $data->name }}</h2>
                     <hr>
@@ -25,56 +31,61 @@
                                             <h1 class="text-white p-5 " style="font-size: 65px">{{ $data->name[0] }}
                                             </h1>
                                         </div>
-                                    </div>
-                                    <div class="col">
+
+                                        <div class="col-md-6 mb-2">
+                                            <h5 class="mb-1">
+                                                <b>Nível de Acesso</b>
+                                            </h5>
+                                            <p class="text-dark text-justify">{{ $data->level }}</p>
+
+                                        </div>
+
+
                                         <div class="row align-items-center">
                                             <div class="col-md-7">
                                                 <h4 class="mb-1">{{ $data->email }}</h4>
                                                 <p class="small mb-3">
-                                                    <span class="mb-4">Data de Criação:
+                                                    <span class="badge badge-dark">Data de Criação:
                                                         {{ $data->created_at }}
                                                 </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-4">
-                                            <div class="col-md-12">
-                                                <h4 class="mb-1">
-                                                    <b>Permissão:</b>
-                                                    {{ $data->level }}
 
-                                                </h4>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="table-responsive text-nowrap">
-                                        <div class="card-body">
-                                            <table class="table datatables table-hover table-bordered" id="dataTable-1">
-                                                <thead class="bg-primary ">
-                                                    <tr class="text-center text-ligth">
-                                                        <th>ID</th>
-                                                        <th>NIVEL</th>
-                                                        <th>IP</th>
+                                </div> <!-- /.col-12 -->
+                            </div> <!-- .row -->
+                        </div> <!-- .container-fluid -->
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table">
+                                        <thead class="table-dark">
+                                            <tr class="text-center">
+                                                <th>ID</th>
+                                                <th>NIVEL</th>
+                                                <th>IP</th>
 
-                                                        <th>DATA</th>
-                                                        <th>DESCRIÇÃO</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="table-border-bottom-0">
+                                                <th>DATA</th>
+                                                <th>DESCRIÇÃO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white">
 
-                                                    @foreach ($logs as $item)
-                                                        <tr class="text-center text-dark">
-                                                            <td>{{ $item->id }}</td>
-                                                            <td>{{ $item->level }} </td>
-                                                            <td>{{ $item->REMOTE_ADDR }} </td>
-                                                            <td class="text-center">{{ $item->created_at }}
-                                                            </td>
-                                                            <td class="text-left">{{ $item->message }} </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                                            @foreach ($logs as $item)
+                                                <tr class="text-center text-dark">
+                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $item->level }} </td>
+                                                    <td>{{ $item->REMOTE_ADDR }} </td>
+
+                                                    <td class="text-center">{{ $item->created_at }} </td>
+                                                    <td class="text-left">{{ $item->message }} </td>
+
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -83,6 +94,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

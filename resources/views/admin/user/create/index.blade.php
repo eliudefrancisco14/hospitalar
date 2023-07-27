@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Registar Conta')
+@section('title', 'Cadastrar Conta')
 
 @section('content')
 
@@ -10,6 +10,7 @@
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
 
+<<<<<<< HEAD
                 <div class="container justify-content-center mt-2 mb-5">
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -22,6 +23,10 @@
                     @endif
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
+=======
+                <div class="container justify-content-center mt-4 mb-5">
+                    @include('errors.form')
+>>>>>>> dc02d32803cc136b65488620d78959472cfa730a
                     <div class="row align-items-center">
                         <form action="{{ route('admin.user.store') }}" method="POST">
                             @csrf
@@ -34,3 +39,5 @@
         </div>
     </div>
 @endsection
+
+

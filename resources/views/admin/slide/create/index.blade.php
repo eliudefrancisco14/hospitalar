@@ -11,15 +11,7 @@
 
                 <div class="container justify-content-center mt-4 mb-5">
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+                    @include('errors.form')
                     <form action="{{ route('admin.slide.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @include('forms._formSlide.index')

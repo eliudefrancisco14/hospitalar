@@ -21,7 +21,7 @@
                                         <h5 class="mb-1">
                                             <b>Descrição</b>
                                         </h5>
-                                        <p class="text-dark text-justify">{{ $data->description }}</p>
+                                        <p class="text-dark text-justify"> {!! html_entity_decode($data->description ) !!}  </p>
 
                                     </div>
 

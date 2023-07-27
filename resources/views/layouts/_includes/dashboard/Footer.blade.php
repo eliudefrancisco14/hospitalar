@@ -126,6 +126,8 @@
     });
 </script>
 
+@yield('JS')
+
 {{-- <script type="text/javascript" src="{{ asset('dashboard/assets/toastr/js/toastify.js') }}"></script> --}}
 
 @if (session('create'))

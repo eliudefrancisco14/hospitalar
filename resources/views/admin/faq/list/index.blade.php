@@ -19,36 +19,39 @@
                         <div class="card">
                             <div class="table-responsive text-nowrap">
                                 <div class="card-body">
+
                                     <table class="table datatables table-hover table-bordered" id="dataTable-1">
                                         <thead class="bg-primary ">
-                                            <tr>
-                                                <th style="width: 100%">Pergunta</th>
-                                                <th style="width: 10%">DATA CRIAÇÃO</th>
-                                                <th>ACÇÕES</th>
+                                            <tr class="text-center text-ligth">
+                                                <th style="color: #fff;">#</th>
+                                                <th style="width: 70%; color: #fff;">Pergunta </th>
+                                                <th style="width: 30%; color: #fff;">Resposta</th>
+                                                <th style="color: #fff;">Acções</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="table-border-bottom-0">
-                                            @foreach ($data as $datas)
-                                                <tr>
-                                                    <td>{{ $datas->title }} </td>
-                                                    <td>{{ $datas->created_at }} </td>
-                                                    @csrf
+                                        <tbody class="bg-white">
+
+                                            @foreach ($data as $item)
+                                                <tr class="text-center text-dark">
+                                                    <td>{{ $item->id }}</td>
+                                                    <td>{{ $item->title }} </td>
+                                                    <td>{{ $item->description }} </td>
                                                     <td>
                                                         <div class="dropdown">
-                                                            <button type="button"
-                                                                class="btn p-0 dropdown-toggle hide-arrow"
-                                                                data-bs-toggle="dropdown">
-                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            <button class="btn btn-primary btn-sm dropdown-toggle"
+                                                                type="button" data-bs-toggle="dropdown">
+                                                                <i class="fa fa-clone fa-sm" aria-hidden="true"></i>
                                                             </button>
+
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/faq/show/{$datas->id}") }}"><i
+                                                                    href="{{ url("admin/faq/show/{$item->id}") }}"><i
                                                                         class="bx bx-detail"></i> Detalhe</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/faq/edit/{$datas->id}") }}"><i
+                                                                    href="{{ url("admin/faq/edit/{$item->id}") }}"><i
                                                                         class="bx bx-edit-alt me-1"></i> Editar</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/faq/delete/{$datas->id}") }}"><i
+                                                                    href="{{ url("admin/faq/delete/{$item->id}") }}"><i
                                                                         class="bx bx-trash me-1"></i> Excluir</a>
                                                             </div>
                                                         </div>
@@ -57,6 +60,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>
