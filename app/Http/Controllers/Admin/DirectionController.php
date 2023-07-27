@@ -34,7 +34,7 @@ class DirectionController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'office' => 'required|string|max:25',
+            'office' => 'required|string|max:255',
             'body' => 'required',
             'path' => 'required|mimes:jpg,png,jpeg|max:8000',
         ]);
@@ -67,7 +67,7 @@ class DirectionController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'office' => 'required|string|max:25',
+            'office' => 'required|string|max:255',
             'body' => 'required',
             'path' => 'required|mimes:jpg,png,jpeg|max:8000',
         ]);
