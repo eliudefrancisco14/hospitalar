@@ -23,27 +23,26 @@
                                     <table class="table datatables table-hover table-bordered" id="dataTable-1">
                                         <thead class="bg-primary ">
                                             <tr class="text-center text-ligth">
-                                            <tr>
-                                                <th style="width: 85%">TITULO</th>
-                                                <th style="width: 20%">ESTADO</th>
-                                                <th style="width: 10%">DATA CRIAÇÃO</th>
-                                                <th>AÇÕES</th>
+                                                <th style="color: #fff;">#</th>
+                                                <th style="width: 70%; color: #fff;">Nome</th>
+                                                <th style="width: 30%; color: #fff;">Estado</th>
+                                                <th style="color: #fff;">Acções</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="table-border-bottom-0">
+                                        <tbody class="bg-white">
+
                                             @foreach ($data as $item)
-                                                <tr>
+                                                <tr class="text-center text-dark">
+                                                    <td>{{ $item->id }}</td>
                                                     <td>{{ $item->title }} </td>
                                                     <td>{{ $item->state }} </td>
-                                                    <td>{{ $item->created_at }} </td>
-                                                    @csrf
                                                     <td>
                                                         <div class="dropdown">
-                                                            <button type="button"
-                                                                class="btn p-0 dropdown-toggle hide-arrow"
-                                                                data-bs-toggle="dropdown">
-                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            <button class="btn btn-primary btn-sm dropdown-toggle"
+                                                                type="button" data-bs-toggle="dropdown">
+                                                                <i class="fa fa-clone fa-sm" aria-hidden="true"></i>
                                                             </button>
+
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item"
                                                                     href="{{ url("admin/news/show/{$item->id}") }}"><i
@@ -61,6 +60,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>
