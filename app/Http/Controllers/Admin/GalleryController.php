@@ -100,6 +100,10 @@ class GalleryController extends Controller
                 'image' => 'mimes:jpg,png,jpeg',
             ]
         );
+        $exists_name = Gallery::where('name', $request['name'])->exists();
+        if ($exists_name) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('image')) {
             $file = $file->store('gallery_page_image');
         } else {

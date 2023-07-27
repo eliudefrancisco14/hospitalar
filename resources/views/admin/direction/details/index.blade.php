@@ -25,18 +25,18 @@
                                 </div>
                             </div>
                             <hr>
-                            <p class="mt-1">{{ $data->office }}</p>
+                            <p class="mt-1">Cargo: {{ $data->office }}</p>
                             <hr>
-                            <p class="mt-1">{{ $data->body }}</p>
+                            <p class="mt-1">Nome: {{ $data->name }}</p>
                             <hr>
                             <div class="row align-items-center">
                                 <div class="col-md-7 mb-2">
                                     <hr>
-                                    <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                                    <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de criação:
+                                            &nbsp;{{ date('d-m-Y H:m', strtotime($data->created_at)) }}</b></p>
+                                    <p><b>Última atualização:
+                                            &nbsp;{{ date('d-m-Y', strtotime($data->updated_at)) }}</b>
                                     </p>
-                                    <p class="mb-1 text-dark"><b>Última Actualização:</b> {{ $data->updated_at }}
-                                    </p>
-
                                 </div>
                             </div>
                         </div>

@@ -14,7 +14,7 @@
                 <!-- / Navbar -->
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <div class="container-xxl flex-grow-1 container-p-y">
+                    <div class="flex-grow-1 container-p-y">
 
                         <!-- Bootstrap Table with Header - Dark -->
                         <div class="card">

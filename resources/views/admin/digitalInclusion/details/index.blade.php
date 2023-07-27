@@ -10,12 +10,6 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-2 mb-5">
-                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.digitalInclusion.index') }}"><i class="bx bx-link-alt me-1"></i>
-                                Lista</a>
-                        </li>
-                    </ul>
                     <h2 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Nome:
                         {{ $data->name }}</h2>
                     <hr>
@@ -27,8 +21,7 @@
                             </div>
 
                         </div>
-                        <div class="card-deck mb-4">
-
+                        <div class="card-deck mb-4 mt-4">
                             <div class="card border-0 bg-transparent">
                                 <div class="card-img-top img-fluid rounded"
                                     style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:400px;width:500px;'>
@@ -67,7 +60,7 @@
                                                 <div class="card-deck mb-4">
                                                     <div class="card border-0 bg-transparent">
                                                         <div class="card-img-top img-fluid rounded"
-                                                            style='background-image:url("/storage/{{ $item->path }}");background-position:center;background-size:cover;height:200px'>
+                                                            style='background-image:url("/storage/{{ $item->image }}");background-position:center;background-size:cover;height:200px'>
                                                         </div>
                                                     </div> <!-- .card -->
                                                     <div class="col-auto pr-0">

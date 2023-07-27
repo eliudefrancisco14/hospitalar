@@ -3,7 +3,8 @@
     <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
         <div class="container mt-4">
             <div class="copyright">
-                <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados | <a href="{{ route('site.terms') }}" target="_blank" class="text-dark-50 ank">Politícas de Privacidade & Termos de Uso</a>
+                <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados | <a href="{{ route('site.terms') }}"
+                    target="_blank" class="text-dark-50 ank">Politícas de Privacidade & Termos de Uso</a>
             </div>
         </div>
     </div>
@@ -57,6 +58,14 @@
             title: 'Não tem autorização para visualizar esta página!',
             showConfirmButton: false,
             timer: 2500
+        })
+    </script>
+@elseif(session('exists'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Registo Já Existe!',
+            showConfirmButton: true
         })
     </script>
 @endif
@@ -159,7 +168,7 @@
             }
         }).showToast();
     </script>
-    @elseif (session('exists'))
+@elseif (session('exists'))
     <script>
         Toastify({
             text: 'Informação já existente!',

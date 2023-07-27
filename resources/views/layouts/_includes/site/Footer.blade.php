@@ -85,6 +85,7 @@ background-repeat: no-repeat; ">
 <script src="/site/vendor/php-email-form/validate.js"></script>
 <script src="/js/sweetalert2.all.min.js"></script>
 
+
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
 

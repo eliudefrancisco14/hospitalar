@@ -74,10 +74,9 @@ class DigitalInclusionController extends Controller
         } else {
             $file = DigitalInclusion::find($id)->image;
         }
-
         DigitalInclusion::find($id)->update([
             'name' => $request->name,
-            'image' => $request->image,
+            'image' => $file,
             'description' => $request->description,
         ]);
         $this->Logger->log('info', 'Cadastrou uma inclusão digital com o identificador' . $id);

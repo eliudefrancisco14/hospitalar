@@ -65,14 +65,17 @@ class DirectionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'office' => 'required|string|max:25',
-            'body' => 'required',
-            'path' => 'required|mimes:jpg,png,jpeg|max:8000',
-        ]);
-        if ($file = $request->file('image')) {
-            $file = $file->store('Directions');
+        $this->validate(
+            $request,
+            [
+                'name' => 'required|string|max:255',
+                'office' => 'required|string|max:25',
+                'body' => 'required',
+                'path' => 'required|mimes:jpg,png,jpeg|max:8000',
+            ]
+        );
+        if ($file = $request->file('path')) {
+            $file = $file->store('direction_image');
         } else {
             $file = Direction::find($id)->path;
         }
