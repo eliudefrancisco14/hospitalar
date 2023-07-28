@@ -26,8 +26,8 @@
                                                     <a href="{{ $data->link }}" target="_blank">{{ $data->link }}</a>
                                                     <div class="col-lg-4 col-md-6 ">
                                                         <div class="ud-single-blog ">
-                                                            <iframe class="img-fluid img-center " width="400 "
-                                                                height="250 " src="{{ $data->link }} " frameborder="0 "
+                                                            <iframe class="img-fluid img-center " width="400"
+                                                                height="400" src="{{ $data->link }} " frameborder="0 "
                                                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture "
                                                                 allowfullscreen>
                                                             </iframe>
@@ -43,12 +43,18 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-7 mb-2">
                                             <hr>
-                                            <p class="mb-1 text-dark"><b>Data de Cadastro:</b>
-                                                {{ $data->created_at }}
-                                            </p>
-                                            <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                {{ $data->updated_at }}
-                                            </p>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p class="mb-1 text-dark"><b>Data de Cadastro:</b>
+                                                        {{ date('d-m-Y H:m s', strtotime($data->created_at)) }}
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p class="mb-1 text-dark"><b>Última Actualização:</b>
+                                                        {{ date('d-m-Y H:m s', strtotime($data->updated_at)) }}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

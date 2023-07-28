@@ -54,7 +54,7 @@
                                                 <div class="card-deck mb-4">
                                                     <div class="card border-0 bg-transparent">
                                                         <div class="card-img-top img-fluid rounded"
-                                                            style='background-image:url("/storage/{{ $item->path }}");background-position:center;background-size:cover;height:200px'>
+                                                            style='background-image:url("/storage/{{ $item->path }}");background-position:center;background-size:cover;height:400px'>
                                                         </div>
                                                     </div> <!-- .card -->
                                                     <div class="col-auto pr-0">

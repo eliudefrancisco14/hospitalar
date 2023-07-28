@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -31,18 +32,33 @@ class DigitalInclusionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|min:5|max:255',
-            'image' => 'mimes:jpg,png,jpeg',
-            'description' => 'required',
-        ]);
-        $file = $request->file('image')->store('digitalInclusion_image');
-        $digitalInclusion = DigitalInclusion::create([
-            'name' => $request->name,
-            'image' => $file,
-            'description' => $request->description,
-        ]);
 
+        $request->validate(
+            [
+                'name' => 'required|min:5|max:255',
+                'image' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'description' => 'required',
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'image.required' => 'Informar a imagem',
+                'description.required' => 'Informar a descrição',
+            ]
+        );
+        $exists = DigitalInclusion::where('name', $request['name'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        $file = $request->file('image')->store('digitalInclusion_image');
+        try {
+            $digitalInclusion = DigitalInclusion::create([
+                'name' => $request->name,
+                'image' => $file,
+                'description' => $request->description,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma inclusão digital de nome ' . $digitalInclusion->name);
         return redirect("admin/digitalInclusion/show/$digitalInclusion->id")->with('create', '1');
     }
@@ -64,21 +80,36 @@ class DigitalInclusionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|min:5|max:255',
-            'image' => 'mimes:jpg,png,jpeg',
-            'description' => 'required',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|min:5|max:255',
+                'image' => 'image|mimes:jpg,png,jpeg|max:5000',
+                'description' => 'required',
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'image.required' => 'Informar a imagem',
+                'description.required' => 'Informar a descrição',
+            ]
+        );
+        $exists = DigitalInclusion::where('name', $request['name'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('image')) {
             $file = $file->store('digitalInclusion_image');
         } else {
             $file = DigitalInclusion::find($id)->image;
         }
-        DigitalInclusion::find($id)->update([
-            'name' => $request->name,
-            'image' => $file,
-            'description' => $request->description,
-        ]);
+        try {
+            DigitalInclusion::find($id)->update([
+                'name' => $request->name,
+                'image' => $file,
+                'description' => $request->description,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma inclusão digital com o identificador' . $id);
         return redirect("admin/digitalInclusion/show/$id")->with('create', '1');
     }
@@ -88,16 +119,5 @@ class DigitalInclusionController extends Controller
         $this->Logger->log('info', 'Eliminou uma inclusão digital com o identificador ' . $id);
         DigitalInclusion::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = DigitalInclusion::count();
-        $data = DigitalInclusion::where('name', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'asc')->paginate(5);
-        return view('admin.digitalInclusion.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em galeria de inclusão digital');
     }
 }

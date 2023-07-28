@@ -38,16 +38,16 @@ class GalleryController extends Controller
             [
                 'name' => 'required',
                 'description' => 'required',
-                'image' => 'image|mimes:jpg,png,jpeg|max:8000',
+                'image' => 'required|image|mimes:jpg,png,jpeg|max:5000',
             ],
             [
-                'name.required' => 'Informar o titulo',
+                'name.required' => 'Informar o título',
                 'image.required' => 'Selecionar a imagem de capa',
                 'description.required' => 'Informar o detalhe da galeria',
             ]
         );
-        $exists_name = Gallery::where('name', $request['name'])->exists();
-        if ($exists_name) {
+        $exists = Gallery::where('name', $request['name'])->exists();
+        if ($exists) {
             return redirect()->back()->with('exists', '1');
         }
         $file = $request->file('image')->store('gallery_page_image');
@@ -97,11 +97,16 @@ class GalleryController extends Controller
             [
                 'name' => 'required',
                 'description' => 'required',
-                'image' => 'mimes:jpg,png,jpeg',
+                'image' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'name.required' => 'Informar o título',
+                'image.required' => 'Selecionar a imagem de capa',
+                'description.required' => 'Informar o detalhe da galeria',
             ]
         );
-        $exists_name = Gallery::where('name', $request['name'])->exists();
-        if ($exists_name) {
+        $exists = Gallery::where('name', $request['name'])->exists();
+        if ($exists) {
             return redirect()->back()->with('exists', '1');
         }
         if ($file = $request->file('image')) {
@@ -109,13 +114,17 @@ class GalleryController extends Controller
         } else {
             $file = Gallery::find($id)->image;
         }
-        Gallery::find($id)->update(
-            [
-                'image' => $file,
-                'name' => $request->name,
-                'description' => $request->description,
-            ]
-        );
+        try {
+            Gallery::find($id)->update(
+                [
+                    'image' => $file,
+                    'name' => $request->name,
+                    'description' => $request->description,
+                ]
+            );
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou uma imagem da galeria com o identificador ' . $id);
         return redirect()->route('admin.gallery.index')->with('edit', '1');
     }
@@ -125,16 +134,5 @@ class GalleryController extends Controller
         $this->Logger->log('info', 'Eliminou uma imagem da galeria com o identificador ' . $id);
         Gallery::find($id)->delete();
         return redirect()->route('admin.gallery.index')->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Gallery::count();
-        $data = Gallery::where('name', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'asc')->paginate(5);
-        return view('admin.gallery.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em galeria');
     }
 }

@@ -36,8 +36,8 @@
                     <div class="form-group mb-3 col-md-4">
                         <label for="name" class="form-label">Selecionar imagem</label>
                         <input class="form-control" id="infile"
-                            value="{{ isset($data->logo) ? $data->logo : old('image') }}" name="logo" type="file"
-                            required></input>
+                            value="{{ isset($data->logo) ? $data->logo : old('image') }}" name="logo"
+                            type="file"></input>
                     </div>
 
                     <div class="form-group mb-3 col-md-12">

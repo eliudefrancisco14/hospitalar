@@ -39,7 +39,7 @@
                                     <label for="name" class="form-label">Data da notícia</label>
                                     <input type="date" name="date" id="date"
                                         value="{{ isset($data->date) ? $data->date : old('date') }}"
-                                        class="form-control" required>
+                                        class="form-control">
                                 </div>
                             </div>
 
@@ -52,8 +52,7 @@
 
                             <div class="mb-3 col-md-6">
                                 <label for="name" class="form-label">Selecionar a capa</label>
-                                <input class="form-control" id="infile" name="path" type="file"
-                                    required></input>
+                                <input class="form-control" id="infile" name="path" type="file"></input>
                             </div>
 
                             <div class="mb-4 col-md-12">

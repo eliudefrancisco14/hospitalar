@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Models\Faq;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class FAQController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(
+        $data =   $request->validate(
             [
                 'title' => 'required',
                 'description' => 'required',
@@ -41,10 +42,15 @@ class FAQController extends Controller
                 'description.required' => 'Informar a resposta',
             ]
         );
-        $data = Faq::create([
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
+        $exists = Faq::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            $data = Faq::create($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma FAQ ' . $data->email);
         return redirect()->route('admin.faq.index')->with('create', '1');
     }
@@ -66,7 +72,7 @@ class FAQController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate(
+        $data =   $request->validate(
             [
                 'title' => 'required',
                 'description' => 'required',
@@ -76,10 +82,15 @@ class FAQController extends Controller
                 'description.required' => 'Informar a resposta',
             ]
         );
-        Faq::find($id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
+        $exists = Faq::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            Faq::find($id)->update($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou uma FAQ com o identificador ' . $id);
         return redirect()->route('admin.faq.index')->with('edit', '1');
     }
@@ -89,16 +100,5 @@ class FAQController extends Controller
         $this->Logger->log('info', 'Eliminou uma FAQ com o identificador ' . $id);
         Faq::find($id)->delete();
         return redirect()->route('admin.faq.index')->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Faq::count();
-        $data = Faq::where('title', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.faq.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em FAQ');
     }
 }

@@ -2,17 +2,16 @@
 @section('title', 'Portal Oficial do INFOSI')
 @section('content')
 
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
         style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-        <div id="carouselExampleIndicators" class="carousel slide mt-0" data-ride="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                @if ($slideFirst)
-                    <div class="carousel-item  active">
 
-                        <div class=""
+                @if ($slideFirst)
+                    <div class="carousel-item">
+                        <div class="slider-image text-center"
                             style='background-position:center; background-size:initial; height:800px; width:100%;background-image: url("/storage/{{ $slideFirst->path }}");no-repeat;
                             
                         background-size:cover;
@@ -27,40 +26,40 @@
                         </div>
                     </div>
                 @endif
+
                 @isset($slideshows)
 
                     @foreach ($slideshows as $item)
-                        <div class="carousel-item ">
-
-                            <div class=""
-                                style='background-position:center;  height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat;
-                                
-                                
-                        background-size:cover;
-                        background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
-                                
-                                '>
-                                <div class="carousel-caption ">
-                                    <div class="col mt-sm-11 mt-md-11 mt-lg-0">
-                                        <h2>{{ $item->title }}</h2>
-                                        <p>{{ $item->description }}</p>
-                                    </div>
+                        <div class="carousel-item @if ($loop->first) active @endif">
+                            <div class="slider-image text-center">
+                                <img src="{{ asset('storage/' . $item->path) }}"
+                                    class="d-inline-block border text-center rounded"
+                                    style='background-position:center;  height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat; background-size:cover;
+                                    background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); '
+                                    alt="{{ $item->path }}">
+                            </div>
+                            <div class="carousel-caption ">
+                                <div class="col mt-sm-11 mt-md-11 mt-lg-0">
+                                    <h2>{{ $item->title }}</h2>
+                                    <p>{{ $item->description }}</p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                </div>
+                @endforeach
 
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
 
-                @endisset
-            </div>
+            @endisset
         </div>
 
         <div class="icon-boxes position-relative">

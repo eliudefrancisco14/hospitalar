@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use App\Models\Definition;
 use Illuminate\Http\Request;
@@ -31,16 +32,25 @@ class DefinitionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
-
-        $definition = Definition::create([
-            'title' => $request->title,
-            'description' => $request->description,
-
-        ]);
+        $data = $request->validate(
+            [
+                'title' => 'required',
+                'description' => 'required',
+            ],
+            [
+                'title.required' => 'Informar o título',
+                'description.required' => 'Informar a descrição',
+            ]
+        );
+        $exists = Definition::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            $definition = Definition::create($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma definição de título ' . $definition->title);
         return redirect()->route('admin.definition.index')->with('create', '1');
     }
@@ -62,16 +72,25 @@ class DefinitionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
-
-        Definition::find($id)->update([
-            'title' => $request->title,
-            'description' => $request->description,
-
-        ]);
+        $data = $request->validate(
+            [
+                'title' => 'required',
+                'description' => 'required',
+            ],
+            [
+                'title.required' => 'Informar o título',
+                'description.required' => 'Informar a descrição',
+            ]
+        );
+        $exists = Definition::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            Definition::find($id)->update($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou uma definição com o identificador' . $id);
         return redirect()->route('admin.definition.index')->with('edit', '1');
     }
@@ -81,16 +100,5 @@ class DefinitionController extends Controller
         $this->Logger->log('info', 'Eliminou uma definição com o identificador ' . $id);
         Definition::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Definition::count();
-        $data = Definition::where('title', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'asc')->paginate(5);
-        return view('admin.definition.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em definição');
     }
 }

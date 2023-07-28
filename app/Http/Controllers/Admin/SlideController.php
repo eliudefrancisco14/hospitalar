@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Models\Slide;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
@@ -31,23 +32,31 @@ class SlideController extends Controller
 
     public function store(Request $request)
     {
-       $request->validate([
-            'title' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg',
-            'description' => 'required',
-        ],
-        [
-            'title.required' => 'Informar o titulo',
-            'description.required' => 'Informar a descrição do slide show',
-        ]);
-        
+        $request->validate(
+            [
+                'title' => 'required',
+                'image' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'description' => 'required',
+            ],
+            [
+                'title.required' => 'Informar o título',
+                'description.required' => 'Informar a descrição do slide show',
+            ]
+        );
+        $exists = Slide::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         $file = $request->file('image')->store('slideshow_image');
-
-        $data = Slide::create([
-            'title' => $request->title,
-            'path' => $file,
-            'description' => $request->description,
-        ]);
+        try {
+            $data = Slide::create([
+                'title' => $request->title,
+                'path' => $file,
+                'description' => $request->description,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um slide show ' . $data->email);
         return redirect()->route('admin.slide.index')->with('create', '1');
     }
@@ -55,7 +64,7 @@ class SlideController extends Controller
     public function show($id)
     {
         $response['data'] = Slide::find($id);
-        $response['count'] = Slide::count();        
+        $response['count'] = Slide::count();
         $this->Logger->log('info', 'Visualizou um slide show com o identificador ' . $id);
         return view('admin.slide.details.index', $response);
     }
@@ -69,27 +78,35 @@ class SlideController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validation = $request->validate([
-            'title' => 'required',
-            'image' => 'mimes:jpg,png,jpeg',
-            'description' => 'required',
-        ],
-        [
-            'title.required' => 'Informar o titulo',
-            'description.required' => 'Informar a descrição do slide show',
-        ]);
-
+        $request->validate(
+            [
+                'title' => 'required',
+                'image' => 'image|mimes:jpg,png,jpeg|max:5000',
+                'description' => 'required',
+            ],
+            [
+                'title.required' => 'Informar o título',
+                'description.required' => 'Informar a descrição do slide show',
+            ]
+        );
+        $exists = Slide::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('image')) {
             $file = $file->store('slideshow_image');
         } else {
-            $file = Slide::find($id)->image;
+            $file = Slide::find($id)->path;
         }
-
-        Slide::find($id)->update([
-            'title' => $request->title,
-            'path' => $file,
-            'description' => $request->description,
-        ]);
+        try {
+            Slide::find($id)->update([
+                'title' => $request->title,
+                'path' => $file,
+                'description' => $request->description,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou um slide show com o identificador ' . $id);
         return redirect()->route('admin.slide.index')->with('edit', '1');
     }
@@ -99,16 +116,5 @@ class SlideController extends Controller
         $this->Logger->log('info', 'Eliminou um slide show com o identificador ' . $id);
         Slide::find($id)->delete();
         return redirect()->route('admin.slide.index')->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Slide::count();
-        $data = Slide::where('title', "Like", "%" . $searchText . "%")
-        ->orwhere('description', "Like", "%" . $searchText . "%")
-        ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.slide.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em slide show');
     }
 }

@@ -18,7 +18,7 @@
 
                                 <div class="card border-0 bg-transparent">
                                     <div class="card-img-top img-fluid rounded"
-                                        style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:400px; width:400px'>
+                                        style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:200px; width:200px'>
                                     </div>
                                 </div>
 
