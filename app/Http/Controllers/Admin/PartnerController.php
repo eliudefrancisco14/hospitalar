@@ -88,7 +88,7 @@ class PartnerController extends Controller
             [
                 'title' => 'required|max:255',
                 'link' => 'required|max:255',
-                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'logo' => 'image|mimes:jpg,png,jpeg|max:5000',
             ],
             [
                 'title' => 'Informar o título',

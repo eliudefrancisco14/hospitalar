@@ -27,7 +27,7 @@ class ImageGalleryController extends Controller
     {
         $request->validate(
             [
-                'images' => 'required|min:1',
+                'images' => 'required|image|mimes:jpg,png,jpeg|max:5000',
             ],
             [
                 'images' => 'Informar as imagens'

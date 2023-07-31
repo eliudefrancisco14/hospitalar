@@ -36,8 +36,8 @@ class ServiceController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:255',
-                'logo' => 'required|mimes:jpg,png,jpeg',
-                'description' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'description' => 'required',
             ],
             [
                 'title' => 'Informar o título',
@@ -87,8 +87,8 @@ class ServiceController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:255',
-                'logo' => 'required|mimes:jpg,png,jpeg',
-                'description' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'description' => 'required',
             ],
             [
                 'title' => 'Informar o título',

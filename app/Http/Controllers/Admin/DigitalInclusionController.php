@@ -45,7 +45,7 @@ class DigitalInclusionController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $file = $request->file('image')->store('digitalInclusion_image');
+        $file = $request->file('image')->store('digitalInclusion');
         try {
             $digitalInclusion = DigitalInclusion::create([
                 'name' => $request->name,
@@ -89,7 +89,7 @@ class DigitalInclusionController extends Controller
             ]
         );
         if ($file = $request->file('image')) {
-            $file = $file->store('digitalInclusion_image');
+            $file = $file->store('digitalInclusion');
         } else {
             $file = DigitalInclusion::find($id)->image;
         }
@@ -103,7 +103,7 @@ class DigitalInclusionController extends Controller
             return $e;
         }
         $this->Logger->log('info', 'Cadastrou uma inclusão digital com o identificador' . $id);
-        return redirect("admin/digitalInclusion/show/$id")->with('create', '1');
+        return redirect("admin/digitalInclusion/show/$id")->with('edit', '1');
     }
 
     public function destroy($id)
