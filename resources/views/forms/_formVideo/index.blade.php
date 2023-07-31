@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <label for="date" class="form-label">Data de gravação</label>
                             <input type="date" name="date" id="date" value="{{ isset($data->date) ? $data->date : old('date') }}"
-                                class="form-control" required>
+                                class="form-control">
                         </div>
                     </div>
 
@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label for="link" class="form-label">Link do vídeo <small>link do canal do <a href="https://www.youtube.com/@digitalao1552" target="_blank">Youtube</a></small></label>
                             <input type="text" name="link" id="link" value="{{ isset($data->link) ? $data->link : "https://www.youtube.com/embed/" }}"
-                                class="form-control" placeholder="Ex: https://www.youtube.com/watch?v=RQGlYwMDq_0" required>
+                                class="form-control" placeholder="Ex: https://www.youtube.com/watch?v=RQGlYwMDq_0">
                         </div>
                     </div>
                     

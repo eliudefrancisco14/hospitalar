@@ -13,7 +13,7 @@
                     @include('errors.form')
                     <div class="row align-items-center">
                         <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                            action="{{ route('admin.regulation.update', $data->id) }}">
+                            action="{{ route('admin.regulation.update', $data->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             @include('forms._formRegulation.index')                            

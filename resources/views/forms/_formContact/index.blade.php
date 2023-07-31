@@ -10,14 +10,14 @@
                     <div class="form-group mb-3 col-md-8">
                         <label for="name" class="form-label">Endereço</label>
                         <input type="text" name="address" id="address" value="{{ isset($contact->address) ? $contact->address : old('address') }}"
-                            class="form-control" placeholder="Endereço" required>
+                            class="form-control" placeholder="Endereço">
                     </div>
 
                     <div class="form-group mb-3 col-md-4">
                         <div class="form-group">
                             <label for="name" class="form-label">Telefone</label>
                             <input type="text" name="telephone" id="telephone" value="{{ isset($contact->telephone) ? $contact->telephone : old('telephone') }}"
-                                class="form-control" placeholder="Número do telefone" required>
+                                class="form-control" placeholder="Número do telefone">
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
                         <div class="form-group">
                             <label for="name" class="form-label">E-mail</label>
                             <input type="email" name="email" id="email" value="{{ isset($contact->email) ? $contact->email : old('email') }}"
-                                class="form-control" placeholder="Ex:infosi.gov.co.ao" required>
+                                class="form-control" placeholder="Ex:infosi.gov.co.ao">
                         </div>
                     </div>
 

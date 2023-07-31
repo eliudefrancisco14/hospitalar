@@ -2,133 +2,64 @@
 @section('title', 'Portal Oficial do INFOSI')
 @section('content')
 
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
         style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-
-{{--  
-        <div id="carouselExample" class="carousel slide">
-
-
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
 
-                @isset($slideFirst)
-                    <div class="carousel-item active" data-bs-interval="1000">
-                        <img style='background-position:center; height:800px; width:100%;no-repeat;background-size:cover;
-                        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'
-                            src="/storage/{{ $slideFirst->path }}" class="d-block w-100 img-fluid" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2>{{ $slideFirst->title }}</h2>
-                            <p>{{ $slideFirst->description }}</p>
-                        </div>
-                    </div>
-                @endisset
-
-                @foreach ($slideshows as $item)
-                    <div class="carousel-item" data-bs-interval="10000">
-                        <img style='background-position:center; height:800px; width:100%;no-repeat;background-size:cover;
-                        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'
-                            src="/storage/{{ $item->path }}" class="d-block w-100 img-fluid" alt="{{ $item->title }}">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2>{{ $item->title }}</h2>
-                            <p>{{ $item->description }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>  --}}
-
-
-
-
-        {{--  <div id="carouselExample" class="carousel slide">
-
-            <div class="carousel-inner">
-                <div class="carousel-item" data-bs-interval="1000">
-                    <img src="/site/img/cta-bg.jpg" class="d-block w-100 img-fluid" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>Seja Bem-Vindo ao Portal Oficial do INFOSI</h2>
-                        <p>Instituto Público de Prestação de Serviço com Carácter
-                            Científico e Desenvolvimento Tecnológico</p>
-                    </div>
-                </div>
-                @foreach ($slideshows as $item)
-                    <div class="carousel-item" data-bs-interval="10000">
-                        <img src="/storage/{{ $item->path }}" class="d-block w-100 img-fluid" alt="{{ $item->title }}">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2>{{ $item->title }}</h2>
-                            <p>{{ $item->description }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            
-        </div>  --}}
-
-
-
-        <div id="carouselExampleIndicators" class="carousel slide mt-0" data-ride="carousel">
-            <div class="carousel-inner">
-                @isset($slideFirst)
-                <div class="carousel-item active" data-bs-interval="1000">
-                    <img style='background-position:center; height:800px; width:100%;no-repeat;background-size:cover;
-                    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'
-                        src="/storage/{{ $slideFirst->path }}" class="d-block w-100 img-fluid" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2>{{ $slideFirst->title }}</h2>
-                        <p>{{ $slideFirst->description }}</p>
-                    </div>
-                </div>
-            @endisset
-                @isset($slideshows)
-
-                    @foreach ($slideshows as $item)
-                        <div class="carousel-item ">
-
-                            <div class=""
-                                style='background-position:center; height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat;background-size:cover;
-                        background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'>
-                                <div class="carousel-caption ">
-                                    <div class="col mt-sm-11 mt-md-11 mt-lg-0">
-                                        <h2>{{ $item->title }}</h2>
-                                        <p>{{ $item->description }}</p>
-                                    </div>
+                @if ($slideFirst)
+                    <div class="carousel-item">
+                        <div class="slider-image text-center"
+                            style='background-position:center; background-size:initial; height:800px; width:100%;background-image: url("/storage/{{ $slideFirst->path }}");no-repeat;
+                            
+                        background-size:cover;
+                        background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+                            '>
+                            <div class="carousel-caption ">
+                                <div class="col mt-sm-11 mt-md-11 mt-lg-0">
+                                    <h2>{{ $slideFirst->title }}</h2>
+                                    <p>{{ $slideFirst->description }}</p>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                @endif
 
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                @isset($slideshows)
 
-                @endisset
-            </div>
+                    @foreach ($slideshows as $item)
+                        <div class="carousel-item @if ($loop->first) active @endif">
+                            <div class="slider-image text-center">
+                                <img src="{{ asset('storage/' . $item->path) }}"
+                                    class="d-inline-block border text-center rounded"
+                                    style='background-position:center;  height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat; background-size:cover;
+                                    background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); '
+                                    alt="{{ $item->path }}">
+                            </div>
+                            <div class="carousel-caption ">
+                                <div class="col mt-sm-11 mt-md-11 mt-lg-0">
+                                    <h2>{{ $item->title }}</h2>
+                                    <p>{{ $item->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                @endforeach
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            @endisset
         </div>
 
         <div class="icon-boxes position-relative">
@@ -189,7 +120,89 @@
                     <div class="col-lg-6">
                         <canvas id="myChart"></canvas>
                     </div>
+
+                    {{-- <div id="container"></div> --}}
+
                 @section('JS')
+
+                    {{-- <script src="{{ url('assets/highCharts/maps/style.css') }}"></script>
+                    <script src="{{ asset('assets/highCharts/maps/highmaps.js') }}"></script>
+                    <script src="{{ asset('assets/highCharts/maps/exporting.js') }}"></script>
+
+                    <script>
+                        (async () => {
+
+                            const topology = await fetch(
+                                '{{ url('/assets/highCharts/maps/ao-all.topo.json') }}'
+                            ).then(response => response.json());
+
+                            // Prepare demo data. The data is joined to map using value of 'hc-key'
+                            // property by default. See API docs for 'joinBy' for more info on linking
+                            // data and map.
+                            const data = [
+                                ['ao-na', 10],
+                                ['ao-cb', 11],
+                                ['ao-ln', 12],
+                                ['ao-ls', 13],
+                                ['ao-ml', 14],
+                                ['ao-bo', 15],
+                                ['ao-cn', 16],
+                                ['ao-cs', 17],
+                                ['ao-lu', 18],
+                                ['ao-ui', 19],
+                                ['ao-za', 20],
+                                ['ao-bi', 21],
+                                ['ao-bg', 22],
+                                ['ao-cc', 23],
+                                ['ao-cu', 24],
+                                ['ao-hm', 25],
+                                ['ao-hl', 26],
+                                ['ao-mx', 27]
+                            ];
+
+                            // Create the chart
+                            Highcharts.mapChart('container', {
+                                chart: {
+                                    map: topology
+                                },
+
+                                title: {
+                                    text: ''
+                                },
+
+                                subtitle: {
+                                    text: ''
+                                },
+
+                                mapNavigation: {
+                                    enabled: true,
+                                    buttonOptions: {
+                                        verticalAlign: 'bottom'
+                                    }
+                                },
+
+                                colorAxis: {
+                                    min: 0
+                                },
+
+                                series: [{
+                                    data: data,
+                                    name: 'dados aleatórios',
+                                    states: {
+                                        hover: {
+                                            color: '#BADA55'
+                                        }
+                                    },
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.name}'
+                                    }
+                                }]
+                            });
+
+                        })();
+                    </script> --}}
+
                     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                     <script>
                         const ctx = document.getElementById('myChart');
@@ -285,11 +298,13 @@
                                     class="img-fluid">
                             </div>
 
-                            <p class="post-category">{{ $item->title }}</p>
-
                             <h2 class="title">
-                                <a href="{{ route('site.services') }}">{{ $item->description }}</a>
+                                <a href="{{ route('site.services') }}">{{ $item->title }}</a>
                             </h2>
+
+                            <p class="post-category">{!! html_entity_decode(mb_substr($item->description, 0, 100, 'UTF-8')) !!}</p>
+
+
 
 
                         </article>

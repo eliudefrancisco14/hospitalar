@@ -39,12 +39,11 @@
                                         class="img-fluid">
                                 </div>
 
-                                <p class="post-category">{{ $item->title }}</p>
-
                                 <h2 class="title">
-                                    <a href="#">{{ $item->description }}</a>
+                                    <a href="#">{{ $item->title }}</a>
                                 </h2>
 
+                                <p class="post-category">{{ $item->description }}</p>
 
                             </article>
                         </div><!-- End post list item -->

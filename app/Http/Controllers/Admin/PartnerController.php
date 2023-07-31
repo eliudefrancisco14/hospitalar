@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\{Log, Partner};
@@ -36,15 +37,28 @@ class PartnerController extends Controller
             [
                 'title' => 'required|max:255',
                 'link' => 'required|max:255',
-                'logo' => 'mimes:jpg,png,jpeg',
+                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'title' => 'Informar o título',
+                'link' => 'Informar link',
+                'logo' => 'Informar a imagem ',
             ]
         );
+        $exists = Partner::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         $file = $request->file('logo')->store('partner_image');
-        $data = Partner::create([
-            'logo' => $file,
-            'title' => $request->title,
-            'link' => $request->link,
-        ]);
+        try {
+            $data = Partner::create([
+                'logo' => $file,
+                'title' => $request->title,
+                'link' => $request->link,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um parceiro com o titulo ' . $data->title);
         return redirect()->route('admin.partner.index')->with('create', '1');
     }
@@ -74,26 +88,38 @@ class PartnerController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate(
-            $request,
+        $request->validate(
             [
                 'title' => 'required|max:255',
                 'link' => 'required|max:255',
-                'logo' => 'mimes:jpg,png,jpeg',
+                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'title' => 'Informar o título',
+                'link' => 'Informar link',
+                'logo' => 'Informar a imagem ',
             ]
         );
+        $exists = Partner::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('logo')) {
             $file = $file->store('partner_image');
         } else {
             $file = Partner::find($id)->logo;
         }
-        Partner::find($id)->update(
-            [
-                'logo' => $file,
-                'title' => $request->title,
-                'link' => $request->link,
-            ]
-        );
+        try {
+            Partner::find($id)->update(
+                [
+                    'logo' => $file,
+                    'title' => $request->title,
+                    'link' => $request->link,
+                ]
+            );
+        } catch (Exception $e) {
+            return $e;
+        }
         $response['data'] = Partner::get();
         $this->Logger->log('info', 'Editou o parceiro com o identificador ' . $id);
         return redirect()->route('admin.partner.index')->with('edit', '1');
@@ -104,16 +130,5 @@ class PartnerController extends Controller
         $this->Logger->log('info', 'Eliminou um parceiro com o identificador ' . $id);
         Partner::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Partner::count();
-        $data = Partner::where('title', "Like", "%" . $searchText . "%")
-            ->orwhere('link', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.partner.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em parceiro');
     }
 }

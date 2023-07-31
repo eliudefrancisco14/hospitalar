@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
-use App\Models\Province;
-use App\Models\AngolaOnline;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\{Province, AngolaOnline};
 
 class AngolaOnlineController extends Controller
 {
@@ -25,17 +25,28 @@ class AngolaOnlineController extends Controller
 
     public function store(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'state' => 'required',
-        ]);
-        AngolaOnline::create([
-            'fk_idProvince' => $id,
-            'name' => $request->name,
-            'description' => $request->description,
-            'state' => $request->state,
-        ]);
+        $request->validate(
+            [
+                'name' => 'required',
+                'description' => 'required',
+                'state' => 'required',
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'description.required' => 'Informar a descrição',
+                'state.required' => 'Informar o estado',
+            ]
+        );
+        try {
+            AngolaOnline::create([
+                'fk_idProvince' => $id,
+                'name' => $request->name,
+                'description' => $request->description,
+                'state' => $request->state,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um ponto com o Identificador ' . $id);
         return redirect("admin/province/show/$id")->with('create', '1');
     }
@@ -50,9 +61,13 @@ class AngolaOnlineController extends Controller
         } else {
             $st = "Activo";
         }
-        AngolaOnline::find($id)->update([
-            'state' => $st
-        ]);
+        try {
+            AngolaOnline::find($id)->update([
+                'state' => $st
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um ponto com o Identificador ' . $id);
         return redirect("admin/province/show/$fk")->with('edit', '1');
     }

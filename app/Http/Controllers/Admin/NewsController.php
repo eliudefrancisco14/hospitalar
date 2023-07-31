@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Models\News;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
@@ -32,23 +33,40 @@ class NewsController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|min:5|max:255',
-            'typewriter' => 'required|min:2|max:255',
-            'body' => 'required|min:5',
-            'path' => 'required|mimes:jpg,png,jpeg',
-            'date' => 'required',
+        $request->validate(
+            [
+                'title' => 'required|min:5|max:255',
+                'typewriter' => 'required|min:2|max:255',
+                'body' => 'required|min:5',
+                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'date' => 'required',
 
-        ]);
+            ],
+            [
+                'title' => 'Informar o título',
+                'typewriter' => 'Informar autor',
+                'body' => 'Informar o conteúdo',
+                'path' => 'Informar a imagem de capa',
+                'date' => 'Informar a data',
+            ]
+        );
+        $exists = News::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         $file = $request->file('path')->store('news_image');
-        $news = News::create([
-            'path' => $file,
-            'title' => $request->title,
-            'typewriter' => $request->typewriter,
-            'body' => $request->body,
-            'date' => $request->date,
-            'state' => 'Autorizada'
-        ]);
+        try {
+            $news = News::create([
+                'path' => $file,
+                'title' => $request->title,
+                'typewriter' => $request->typewriter,
+                'body' => $request->body,
+                'date' => $request->date,
+                'state' => 'Autorizada'
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma noticia com o titulo ' . $news->title);
         return redirect("admin/news/show/$news->id")->with('create', '1');
     }
@@ -69,27 +87,44 @@ class NewsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required|min:5|max:255',
-            'typewriter' => 'required|min:2|max:255',
-            'body' => 'required|min:5',
-            'date' => 'required',
-            'path' => 'mimes:jpg,png,jpeg',
-        ]);
+        $request->validate(
+            [
+                'title' => 'required|min:5|max:255',
+                'typewriter' => 'required|min:2|max:255',
+                'body' => 'required|min:5',
+                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'date' => 'required',
 
+            ],
+            [
+                'title' => 'Informar o título',
+                'typewriter' => 'Informar autor',
+                'body' => 'Informar o conteúdo',
+                'path' => 'Informar a imagem de capa',
+                'date' => 'Informar a data',
+            ]
+        );
+        $exists = News::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('path')) {
             $file = $file->store('news_image');
         } else {
             $file = News::find($id)->path;
         }
-        News::find($id)->update([
-            'path' => $file,
-            'title' => $request->title,
-            'typewriter' => $request->typewriter,
-            'body' => $request->body,
-            'date' => $request->date,
-            'state' => 'Autorizada'
-        ]);
+        try {
+            News::find($id)->update([
+                'path' => $file,
+                'title' => $request->title,
+                'typewriter' => $request->typewriter,
+                'body' => $request->body,
+                'date' => $request->date,
+                'state' => 'Autorizada'
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou uma noticia com o identificador ' . $id);
         return redirect("admin/news/show/$id")->with('edit', '1');
     }
@@ -99,16 +134,5 @@ class NewsController extends Controller
         $this->Logger->log('info', 'Eliminou uma noticia com o identificador ' . $id);
         News::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = News::count();
-        $data = News::where('email', "Like", "%" . $searchText . "%")
-            ->orwhere('title', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.news.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em noticias');
     }
 }

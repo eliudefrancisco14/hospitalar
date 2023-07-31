@@ -37,11 +37,12 @@
                                     <img src="{{ url("/storage/$item->image") }}" alt="" class="img-fluid">
                                 </div>
 
-                                <p class="post-category">{{ $item->name }}</p>
-
                                 <h2 class="title">
-                                    <a href="{!! url('/inclusao-digital/' . urlencode($item->name)) !!}">{!! html_entity_decode(mb_substr($item->description, 0, 80, 'UTF-8')) !!}</a>
+                                    <a href="{!! url('/inclusao-digital/' . urlencode($item->name)) !!}">{{ $item->name }}</a>
                                 </h2>
+    
+                                <p class="post-category">{!! html_entity_decode(mb_substr($item->description, 0, 100, 'UTF-8')) !!}</p>
+
 
                             </article>
                         </div><!-- End post list item -->

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
-use App\Models\Province;
+use App\Models\{AngolaOnline, Province};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\AngolaOnline;
 
 class ProvinceController extends Controller
 {
@@ -24,21 +24,33 @@ class ProvinceController extends Controller
         return view('admin.province.list.index', $response);
     }
 
-
     public function create()
     {
         $this->Logger->log('info', 'Entrou em cadastrar província');
         return view('admin.province.create.index');
     }
 
-
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-        Province::create($data);
+        $data = $request->validate(
+            [
+                'name' => 'required',
+                'description' => 'required',
+            ],
+            [
+                'name' => 'Informar o nome',
+                'description' => 'Informar a descrição',
+            ]
+        );
+        $exists = Province::where('name', $request['name'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            Province::create($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma província de nome ' . $data['name']);
         return redirect()->route('admin.province.index')->with('create', '1');
     }
@@ -60,11 +72,25 @@ class ProvinceController extends Controller
 
     public function update(Request $request, $id)
     {
-        $data = $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-        Province::find($id)->update($data);
+        $data = $request->validate(
+            [
+                'name' => 'required',
+                'description' => 'required',
+            ],
+            [
+                'name' => 'Informar o nome',
+                'description' => 'Informar a descrição',
+            ]
+        );
+        $exists = Province::where('name', $request['name'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            Province::find($id)->update($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma província com o identificador' . $id);
         return redirect()->route('admin.province.index')->with('edit', '1');
     }

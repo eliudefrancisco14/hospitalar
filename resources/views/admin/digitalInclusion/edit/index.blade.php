@@ -14,7 +14,7 @@
                     @include('errors.form')
                     <div class="row align-items-center">
                         <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
-                            action="{{ route('admin.digitalInclusion_image.update', $data->id) }}" enctype="multipart/form-data">
+                            action="{{ route('admin.digitalInclusion.update', $data->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             @include('forms._formDigitalInclusion.index')

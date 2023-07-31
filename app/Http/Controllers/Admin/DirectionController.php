@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use App\Models\Direction;
 use Illuminate\Http\Request;
@@ -32,21 +33,36 @@ class DirectionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'office' => 'required|string|max:255',
-            'body' => 'required',
-            'path' => 'required|mimes:jpg,png,jpeg|max:8000',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'office' => 'required|string|max:255',
+                'body' => 'required',
+                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'office.required' => 'Informar o cargo',
+                'body.required' => 'Informar o conteúdo',
+                'path.required' => 'Informar a imagem',
+            ]
+        );
+        $exists = Direction::where('name', $request['name'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         $file = $request->file('path')->store('direction_image');
-        $direction = Direction::create([
-            'name' => $request->name,
-            'office' => $request->office,
-            'body' => $request->body,
-            'path' => $file,
-        ]);
+        try {
+            $direction = Direction::create([
+                'name' => $request->name,
+                'office' => $request->office,
+                'body' => $request->body,
+                'path' => $file,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou direcção com o nome ' . $direction->name);
-
         return redirect("admin/direction/show/$direction->id")->with('create', '1');
     }
     public function show($id)
@@ -65,23 +81,39 @@ class DirectionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'office' => 'required|string|max:255',
-            'body' => 'required',
-            'path' => 'required|mimes:jpg,png,jpeg|max:8000',
-        ]);
+        $request->validate(
+            [
+                'name' => 'required|string|max:255',
+                'office' => 'required|string|max:255',
+                'body' => 'required',
+                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'office.required' => 'Informar o cargo',
+                'body.required' => 'Informar o conteúdo',
+                'path.required' => 'Informar a imagem',
+            ]
+        );
+        $exists = Direction::where('name', $request['name'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('image')) {
             $file = $file->store('Directions');
         } else {
             $file = Direction::find($id)->path;
         }
-        Direction::find($id)->update([
-            'name' => $request->name,
-            'office' => $request->office,
-            'body' => $request->body,
-            'path' => $file,
-        ]);
+        try {
+            Direction::find($id)->update([
+                'name' => $request->name,
+                'office' => $request->office,
+                'body' => $request->body,
+                'path' => $file,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou em direcção com o identificador ' . $id);
         return redirect("admin/direction/show/$id")->with('edit', '1');
     }
@@ -91,16 +123,5 @@ class DirectionController extends Controller
         $this->Logger->log('info', 'Eliminou um director com o identificador ' . $id);
         Direction::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Direction::count();
-        $data = Direction::where('name', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.direction.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em direcção');
     }
 }

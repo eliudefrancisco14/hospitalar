@@ -31,18 +31,17 @@
                             <article>
 
                                 <div class="post-img">
-                                    <iframe class="img-center glightbox" width="500" height="300" style="max-width: 100%;"
-                                        src="{{ $item->link }}" data-gallery="portfolio-gallery-app" frameborder="0 "
+                                    <iframe class="img-center glightbox" width="500" height="300"
+                                        style="max-width: 100%;" src="{{ $item->link }}"
+                                        data-gallery="portfolio-gallery-app" frameborder="0 "
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture "
                                         allowfullscreen></iframe>
                                 </div>
-
-                                <p class="post-category">{{ $item->title }}</p>
-
                                 <h2 class="title">
-                                    {{ $item->description }}
+                                    {{ $item->title }}
                                 </h2>
 
+                                <p class="post-category">{{ $item->description }}</p>
 
                             </article>
                         </div><!-- End post list item -->
