@@ -10,10 +10,9 @@
             <div class="carousel-inner">
 
                 @if ($slideFirst)
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                         <div class="slider-image text-center"
-                            style='background-position:center; background-size:initial; height:800px; width:100%;background-image: url("/storage/{{ $slideFirst->path }}");no-repeat;
-                            
+                            style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
                         background-size:cover;
                         background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
                             '>
@@ -26,17 +25,14 @@
                         </div>
                     </div>
                 @endif
-
                 @isset($slideshows)
-
                     @foreach ($slideshows as $item)
-                        <div class="carousel-item @if ($loop->first) active @endif">
-                            <div class="slider-image text-center">
-                                <img src="{{ asset('storage/' . $item->path) }}"
-                                    class="d-inline-block border text-center rounded"
-                                    style='background-position:center;  height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat; background-size:cover;
-                                    background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); '
-                                    alt="{{ $item->path }}">
+                        <div class="carousel-item">
+                            <div class="slider-image text-center"
+                                style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
+                        background-size:cover;
+                        background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+                            '>
                             </div>
                             <div class="carousel-caption ">
                                 <div class="col mt-sm-11 mt-md-11 mt-lg-0">
@@ -45,62 +41,61 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-                @endforeach
+                    @endforeach
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
 
-            @endisset
-        </div>
+                @endisset
+            </div>
 
-        <div class="icon-boxes position-relative">
-            <div class="container position-relative">
-                <div class="row gy-4 mt-5">
+            <div class="icon-boxes position-relative">
+                <div class="container position-relative">
+                    <div class="row gy-4 mt-5">
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi-wifi"></i></div>
-                            <h4 class="title"><a href="#stats-counter" class="stretched-link">Angola Online</a></h4>
+                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="icon-box">
+                                <div class="icon"><i class="bi-wifi"></i></div>
+                                <h4 class="title"><a href="#stats-counter" class="stretched-link">Angola Online</a></h4>
+                            </div>
                         </div>
-                    </div>
-                    <!--End Icon Box -->
+                        <!--End Icon Box -->
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi bi-gear"></i></div>
-                            <h4 class="title"><a href="#blog" class="stretched-link">Serviços</a></h4>
+                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="icon-box">
+                                <div class="icon"><i class="bi bi-gear"></i></div>
+                                <h4 class="title"><a href="#blog" class="stretched-link">Serviços</a></h4>
+                            </div>
                         </div>
-                    </div>
-                    <!--End Icon Box -->
+                        <!--End Icon Box -->
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi-clipboard-check"></i></div>
-                            <h4 class="title"><a href="#homologation" class="stretched-link">Homologação</a></h4>
+                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box">
+                                <div class="icon"><i class="bi-clipboard-check"></i></div>
+                                <h4 class="title"><a href="#homologation" class="stretched-link">Homologação</a></h4>
+                            </div>
                         </div>
-                    </div>
-                    <!--End Icon Box -->
+                        <!--End Icon Box -->
 
-                    <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="icon-box">
-                            <div class="icon"><i class="bi-person-circle"></i></div>
-                            <h4 class="title"><a href="#clients" class="stretched-link">Parceiros</a></h4>
+                        <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="icon-box">
+                                <div class="icon"><i class="bi-person-circle"></i></div>
+                                <h4 class="title"><a href="#clients" class="stretched-link">Parceiros</a></h4>
+                            </div>
                         </div>
-                    </div>
-                    <!--End Icon Box -->
+                        <!--End Icon Box -->
 
+                    </div>
                 </div>
             </div>
-        </div>
 
 
     </section>
@@ -123,78 +118,78 @@
 
                 @section('JS')
 
-                <script src="{{ url('assets/highCharts/maps/style.css') }}"></script>
-                <script src="{{ asset('assets/highCharts/maps/highmaps.js') }}"></script>
+                    <script src="{{ url('assets/highCharts/maps/style.css') }}"></script>
+                    <script src="{{ asset('assets/highCharts/maps/highmaps.js') }}"></script>
 
-                <script>
-                    (async () => {
+                    <script>
+                        (async () => {
 
-                        const topology = await fetch(
-                            '{{ url('/assets/highCharts/maps/ao-all.topo.json') }}'
-                        ).then(response => response.json());
+                            const topology = await fetch(
+                                '{{ url('/assets/highCharts/maps/ao-all.topo.json') }}'
+                            ).then(response => response.json());
 
-                        const data = [
-                            ['ao-na', {{ $Namibe }}],
-                            ['ao-cb', {{ $Cabinda }}],
-                            ['ao-ln', {{ $LundaNorte }}],
-                            ['ao-ls', {{ $LundaSul }}],
-                            ['ao-ml', {{ $Malanje }}],
-                            ['ao-bo', {{ $Bengo }}],
-                            ['ao-cn', {{ $KwanzaNorte }}],
-                            ['ao-cs', {{ $KwanzaSul }}],
-                            ['ao-lu', {{ $Luanda }}],
-                            ['ao-ui', {{ $Uige }}],
-                            ['ao-za', {{ $Zaire }}],
-                            ['ao-bi', {{ $Bie }}],
-                            ['ao-bg', {{ $Benguela }}],
-                            ['ao-cc', {{ $CuandoCubango }}],
-                            ['ao-cu', {{ $Cunene }}],
-                            ['ao-hm', {{ $Huambo }}],
-                            ['ao-hl', {{ $Huila }}],
-                            ['ao-mx', {{ $Moxico }}]
-                        ];
+                            const data = [
+                                ['ao-na', {{ $Namibe }}],
+                                ['ao-cb', {{ $Cabinda }}],
+                                ['ao-ln', {{ $LundaNorte }}],
+                                ['ao-ls', {{ $LundaSul }}],
+                                ['ao-ml', {{ $Malanje }}],
+                                ['ao-bo', {{ $Bengo }}],
+                                ['ao-cn', {{ $KwanzaNorte }}],
+                                ['ao-cs', {{ $KwanzaSul }}],
+                                ['ao-lu', {{ $Luanda }}],
+                                ['ao-ui', {{ $Uige }}],
+                                ['ao-za', {{ $Zaire }}],
+                                ['ao-bi', {{ $Bie }}],
+                                ['ao-bg', {{ $Benguela }}],
+                                ['ao-cc', {{ $CuandoCubango }}],
+                                ['ao-cu', {{ $Cunene }}],
+                                ['ao-hm', {{ $Huambo }}],
+                                ['ao-hl', {{ $Huila }}],
+                                ['ao-mx', {{ $Moxico }}]
+                            ];
 
-                        Highcharts.mapChart('container', {
-                            chart: {
-                                map: topology
-                            },
+                            Highcharts.mapChart('container', {
+                                chart: {
+                                    map: topology
+                                },
 
-                            title: {
-                                text: ''
-                            },
+                                title: {
+                                    text: ''
+                                },
 
-                            subtitle: {
-                                text: ''
-                            },
+                                subtitle: {
+                                    text: ''
+                                },
 
-                            mapNavigation: {
-                                enabled: true,
-                                buttonOptions: {
-                                    verticalAlign: 'bottom'
-                                }
-                            },
-
-                            colorAxis: {
-                                min: 0
-                            },
-
-                            series: [{
-                                data: data,
-                                name: 'dados aleatórios',
-                                states: {
-                                    hover: {
-                                        color: '#BADA55'
+                                mapNavigation: {
+                                    enabled: true,
+                                    buttonOptions: {
+                                        verticalAlign: 'bottom'
                                     }
                                 },
-                                dataLabels: {
-                                    enabled: true,
-                                    format: '{point.name}'
-                                }
-                            }]
-                        });
 
-                    })();
-                </script>
+                                colorAxis: {
+                                    min: 0
+                                },
+
+                                series: [{
+                                    data: data,
+                                    name: 'dados aleatórios',
+                                    states: {
+                                        hover: {
+                                            color: '#BADA55'
+                                        }
+                                    },
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.name}'
+                                    }
+                                }]
+                            });
+
+                        })();
+                    </script>
                 @endsection
 
                 <div class="col-lg-1"></div>

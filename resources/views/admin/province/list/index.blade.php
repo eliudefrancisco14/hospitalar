@@ -34,7 +34,7 @@
                                             @foreach ($data as $item)
                                                 <tr class="text-center text-dark">
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->name }} </td>
+                                                    <td>{{ $item->name }}</td>
                                                     <td>{{ $item->created_at }} </td>
                                                     <td>
                                                         <div class="dropdown">
@@ -50,9 +50,11 @@
                                                                 <a class="dropdown-item"
                                                                     href="{{ url("admin/province/edit/{$item->id}") }}"><i
                                                                         class="bx bx-edit-alt me-1"></i> Editar</a>
-                                                                <a class="dropdown-item"
-                                                                    href="{{ url("admin/province/delete/{$item->id}") }}"><i
-                                                                        class="bx bx-trash me-1"></i> Excluir</a>
+                                                                @if ($loop->index + 1 > 18)
+                                                                    <a class="dropdown-item"
+                                                                        href="{{ url("admin/province/delete/{$item->id}") }}"><i
+                                                                            class="bx bx-trash me-1"></i> Excluir</a>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </td>
