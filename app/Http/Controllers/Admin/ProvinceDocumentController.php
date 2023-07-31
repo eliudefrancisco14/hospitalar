@@ -38,10 +38,6 @@ class ProvinceDocumentController extends Controller
         ],[
             'body' => 'Informar o conteúdo'
         ]);
-        $exists = ProvinceDocument::where('body', $request['body'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             ProvinceDocument::find($id)->update($data);
         } catch (Exception $e) {

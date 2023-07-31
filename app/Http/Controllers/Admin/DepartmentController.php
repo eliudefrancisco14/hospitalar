@@ -44,10 +44,6 @@ class DepartmentController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $exists_name = Department::where('name', $request['name'])->exists();
-        if ($exists_name) {
-            return redirect()->back()->with('exists', '1');
-        }
         $exists_boss = Department::where('boss', $request['boss'])->exists();
         if ($exists_boss) {
             return redirect()->back()->with('exists', '1');
@@ -89,14 +85,6 @@ class DepartmentController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $exists_name = Department::where('name', $request['name'])->exists();
-        if ($exists_name) {
-            return redirect()->back()->with('exists', '1');
-        }
-        $exists_boss = Department::where('boss', $request['boss'])->exists();
-        if ($exists_boss) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             Department::find($id)->update($data);
         } catch (Exception $e) {

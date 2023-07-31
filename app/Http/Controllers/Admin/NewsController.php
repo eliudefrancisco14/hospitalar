@@ -50,10 +50,6 @@ class NewsController extends Controller
                 'date' => 'Informar a data',
             ]
         );
-        $exists = News::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('path')->store('news_image');
         try {
             $news = News::create([
@@ -92,7 +88,7 @@ class NewsController extends Controller
                 'title' => 'required|min:5|max:255',
                 'typewriter' => 'required|min:2|max:255',
                 'body' => 'required|min:5',
-                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'path' => 'image|mimes:jpg,png,jpeg|max:5000',
                 'date' => 'required',
 
             ],
@@ -104,10 +100,6 @@ class NewsController extends Controller
                 'date' => 'Informar a data',
             ]
         );
-        $exists = News::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('path')) {
             $file = $file->store('news_image');
         } else {

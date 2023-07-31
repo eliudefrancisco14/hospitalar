@@ -46,10 +46,6 @@ class VideoController extends Controller
                 'description' => 'Informar a descrição',
             ]
         );
-        $exists = Video::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             $data = Video::create($data);
         } catch (Exception $e) {
@@ -91,10 +87,6 @@ class VideoController extends Controller
                 'description' => 'Informar a descrição',
             ]
         );
-        $exists = Video::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             Video::find($id)->update($data);
         } catch (Exception $e) {
