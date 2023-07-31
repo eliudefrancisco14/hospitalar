@@ -10,7 +10,7 @@
         <div class="container position-relative">
             <div class="row gy-5" data-aos="fade-in">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2>Junte-se a nós</h2>
                         <p class="py-3">
                         </p>

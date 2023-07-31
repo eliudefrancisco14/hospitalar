@@ -1,13 +1,17 @@
         <div class="row">
-
             <div class="col-md-12">
                 <div class="card mb-4">
+                    <hr class="my-0" />
                     <div class="card-body">
                         <h3>{{ isset($data) ? 'Atualizar Usuário "' . $data->name . '"' : 'Cadastrar' }}</h3>
                         <hr>
                         <div class="row">
-                            <h3>{{ isset($data) ? 'Atualizar Usuário "' . $data->name . '"' : 'Cadastrar' }}</h3>
-                            <hr />
+                            <!-- Account -->
+                            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                                <img src="{{ url('dashboard/img/logo.svg') }}" alt="user-avatar" class="d-block rounded"
+                                    height="100" width="100" id="uploadedAvatar" />
+                            </div>
+
                             <div class="form-group col-md-4">
                                 <label for="name" class="form-label">Nome completo</label>
                                 <input class="form-control" type="text" id="name" name="name"

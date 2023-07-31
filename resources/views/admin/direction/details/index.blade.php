@@ -26,21 +26,18 @@
                                             <h5 class="mb-1">
                                                 <b>Descrição</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ $data->body }}</p>
+                                            <p class="text-dark text-justify">{!! html_entity_decode($data->body) !!}</p>
 
                                         </div>
                                         <div class="row align-items-center">
-                                            <hr>
-                                            <div class="col-md-6 mb-2">
-                                                <p class="mb-1 text-dark"><b>Data de
-                                                        Cadastro:</b>{{ date('d-m-Y H:m', strtotime($data->created_at)) }}
+                                            <div class="col-md-7 mb-2">
+                                                <hr>
+                                                <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
                                                 </p>
-                                            </div>
-                                            <div class="col-md-6 mb-2">
                                                 <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                    {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
+                                                    {{ $data->updated_at }}
                                                 </p>
-
+        
                                             </div>
                                         </div>
                                     </div>

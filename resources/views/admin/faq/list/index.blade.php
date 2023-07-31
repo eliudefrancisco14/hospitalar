@@ -25,7 +25,6 @@
                                             <tr class="text-center text-ligth">
                                                 <th style="color: #fff;">#</th>
                                                 <th style="width: 70%; color: #fff;">Pergunta </th>
-                                                <th style="width: 30%; color: #fff;">Resposta</th>
                                                 <th style="color: #fff;">Acções</th>
                                             </tr>
                                         </thead>
@@ -35,7 +34,6 @@
                                                 <tr class="text-center text-dark">
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->title }} </td>
-                                                    <td>{{ $item->description }} </td>
                                                     <td>
                                                         <div class="dropdown">
                                                             <button class="btn btn-primary btn-sm dropdown-toggle"

@@ -8,7 +8,7 @@
         <div class="page-header d-flex align-items-center" style="background-image: url('');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2>Contactos</h2>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                                     <div id="faq-content-{{ $loop->index + 1 }}" class="accordion-collapse collapse"
                                         data-bs-parent="#faqlist">
                                         <div class="accordion-body">
-                                            {{ $item->description }}
+                                            {!! html_entity_decode($item->description) !!}
                                         </div>
                                     </div>
                                 </div><!-- # Faq item-->
@@ -79,8 +79,8 @@
                             <div class="info-item d-flex">
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
-                                    <h4>Location:</h4>
-                                    <p> {{ isset($contact) ? $contact->address : 'Rua 17 de Setembro, 59 - Cidade Alta' }}
+                                    <h4>Localização:</h4>
+                                    <p> {{ isset($contact) ? $contact->address : 'Aqui vai a localização' }}
                                     </p>
                                 </div>
                             </div><!-- End Info Item -->
@@ -88,16 +88,16 @@
                             <div class="info-item d-flex">
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
-                                    <h4>Email:</h4>
-                                    <p> {{ isset($contact) ? $contact->email : 'geral@infosi.gov.ao' }} </p>
+                                    <h4>E-mail:</h4>
+                                    <p> {{ isset($contact) ? $contact->email : 'Aqui vai o email' }} </p>
                                 </div>
                             </div><!-- End Info Item -->
 
                             <div class="info-item d-flex">
                                 <i class="bi bi-phone flex-shrink-0"></i>
                                 <div>
-                                    <h4>Call:</h4>
-                                    <p> {{ isset($contact) ? $contact->telephone : '(+244) 222 692 979' }} </p>
+                                    <h4>Telefone:</h4>
+                                    <p> {{ isset($contact) ? $contact->telephone : 'Aqui vai o telefone' }} </p>
                                 </div>
                             </div><!-- End Info Item -->
 
