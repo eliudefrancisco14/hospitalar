@@ -72,7 +72,7 @@ class RegulationController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'path' => 'required|mimes:pdf|max:5000',
+            'path' => 'mimes:pdf|max:5000',
         ], [
             'title' => 'Informar o título',
             'path' => 'Informar a imagem',

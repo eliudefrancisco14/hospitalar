@@ -28,7 +28,6 @@
                                             </tr>
                                         </thead>
                                         <tbody class="bg-white">
-
                                             @foreach ($data as $item)
                                                 <tr class="text-center text-dark">
                                                     <td>{{ $item->id }}</td>

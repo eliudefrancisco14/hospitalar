@@ -37,14 +37,14 @@ class ImageDigitalInclusionController extends Controller
             for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
                 $file = $request->allFiles()['images'][$i];
                 ImageDigitalInclusion::create([
-                    'path' => $file->store("digitalinclusion_image/$id"),
+                    'path' => $file->store("digitalInclusion_image/$id"),
                     'fk_idDigital_inclusion' => $id
                 ]);
             }
         } catch (Exception $e) {
             return $e;
         }
-        $this->Logger->log('info', 'Cadastrou Imagens da Inclusão Digital com o Identificador ' . $id);
+        $this->Logger->log('info', 'Cadastrou Imagens da Galeria com o Identificador ' . $id);
         return redirect("admin/digitalInclusion/show/$id")->with('create_image', '1');
     }
 

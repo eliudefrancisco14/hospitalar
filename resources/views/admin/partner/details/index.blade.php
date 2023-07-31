@@ -29,12 +29,16 @@
                                     </div>
 
                                     <div class="row align-items-center">
-                                        <div class="col-md-7 mb-2">
-                                            <hr>
-                                            <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                                        <hr>
+                                        <div class="col-md-6 mb-2">
+                                            <p class="mb-1 text-dark"><b>Data de Cadastro:</b>
+                                                {{ date('d-m-Y H:m', strtotime($data->created_at)) }}
+
                                             </p>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
                                             <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                {{ $data->updated_at }}
+                                                {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
                                             </p>
 
                                         </div>
@@ -48,7 +52,6 @@
                     <div class="col-lg-12 mt-2 col-md-12 col-12">
                         <div class="card row align-items-center">
                             <div class="card-body">
-
                                 <div class="container-fluid">
                                     <div class="row justify-content-center">
                                         <div class="col-12 col-lg-10">
@@ -56,32 +59,22 @@
                                                 <div class="col">
                                                     <h2 class="page-title">Imagem</h2>
                                                 </div>
-
                                             </div>
                                             <div class="card-deck mb-4">
-
                                                 <div class="card border-0 bg-transparent text-center">
                                                     <div class="card-img-top img-fluid rounded"
                                                         style='background-image:url("/storage/{{ $data->logo }}");background-position:center;background-size:cover;height:600px;width:auto;'>
                                                     </div>
-
-                                                </div> <!-- .card -->
-
-
-                                            </div> <!-- .card-deck -->
-
-
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div> <!-- .row -->
-                                </div> <!-- .container-fluid -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 @endsection

@@ -93,7 +93,7 @@ class GalleryController extends Controller
             [
                 'name' => 'required',
                 'description' => 'required',
-                'image' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'image' => 'image|mimes:jpg,png,jpeg|max:5000',
             ],
             [
                 'name.required' => 'Informar o título',

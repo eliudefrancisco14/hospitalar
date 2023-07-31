@@ -38,12 +38,14 @@
 
 
                                     <div class="row align-items-center">
-                                        <div class="col-md-7 mb-2">
-                                            <hr>
+                                        <hr>
+                                        <div class="col-md-6 mb-2">
                                             <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de criação:
                                                     &nbsp;{{ date('d-m-Y H:m', strtotime($data->created_at)) }}</b></p>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
                                             <p><b>Última atualização:
-                                                    &nbsp;{{ date('d-m-Y', strtotime($data->updated_at)) }}</b>
+                                                    &nbsp;{{ date('d-m-Y H:m', strtotime($data->updated_at)) }}</b>
                                             </p>
                                         </div>
                                     </div>
@@ -51,7 +53,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>

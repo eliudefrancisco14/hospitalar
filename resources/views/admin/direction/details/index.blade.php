@@ -22,7 +22,6 @@
                                             <p class="text-dark text-justify">{{ $data->office }}</p>
 
                                         </div>
-
                                         <div class="col-md-12 mb-2">
                                             <h5 class="mb-1">
                                                 <b>Descrição</b>
@@ -30,21 +29,21 @@
                                             <p class="text-dark text-justify">{{ $data->body }}</p>
 
                                         </div>
-
-
                                         <div class="row align-items-center">
-                                            <div class="col-md-7 mb-2">
-                                                <hr>
-                                                <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                                            <hr>
+                                            <div class="col-md-6 mb-2">
+                                                <p class="mb-1 text-dark"><b>Data de
+                                                        Cadastro:</b>{{ date('d-m-Y H:m', strtotime($data->created_at)) }}
                                                 </p>
+                                            </div>
+                                            <div class="col-md-6 mb-2">
                                                 <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                    {{ $data->updated_at }}
+                                                    {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
                                                 </p>
 
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -63,7 +62,6 @@
 
                                                 </div>
                                                 <div class="card-deck mb-4">
-
                                                     <div class="card border-0 bg-transparent text-center">
                                                         <div class="card-img-top img-fluid rounded"
                                                             style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:400px;width:400px;'>

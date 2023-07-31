@@ -17,7 +17,8 @@
         "josiasmontag/laravel-recaptchav3": "^1.0",
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "square-bit/laravel-pt-localization": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
