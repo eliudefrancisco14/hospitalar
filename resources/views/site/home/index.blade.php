@@ -1,45 +1,113 @@
 @extends('layouts.merge.site')
 @section('title', 'Portal Oficial do INFOSI')
 @section('content')
-  
+
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
         style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-        <div id="carouselExampleIndicators" class="carousel slide mt-0" data-ride="carousel">
-            <div class="carousel-inner">
-                @if ($slideFirst)
-                    <div class="carousel-item  active">
 
-                        <div class=""
-                            style='background-position:center; background-size:initial; height:800px; width:100%;background-image: url("/storage/{{ $slideFirst->path }}");no-repeat;
-                            
-                        background-size:cover;
-                        background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
-                            '>
-                            <div class="carousel-caption ">
-                                <div class="col mt-sm-11 mt-md-11 mt-lg-0">
-                                    <h2>{{ $slideFirst->title }}</h2>
-                                    <p>{{ $slideFirst->description }}</p>
-                                </div>
-                            </div>
+{{--  
+        <div id="carouselExample" class="carousel slide">
+
+
+            <div class="carousel-inner">
+
+                @isset($slideFirst)
+                    <div class="carousel-item active" data-bs-interval="1000">
+                        <img style='background-position:center; height:800px; width:100%;no-repeat;background-size:cover;
+                        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'
+                            src="/storage/{{ $slideFirst->path }}" class="d-block w-100 img-fluid" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>{{ $slideFirst->title }}</h2>
+                            <p>{{ $slideFirst->description }}</p>
                         </div>
                     </div>
-                @endif
+                @endisset
+
+                @foreach ($slideshows as $item)
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img style='background-position:center; height:800px; width:100%;no-repeat;background-size:cover;
+                        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'
+                            src="/storage/{{ $item->path }}" class="d-block w-100 img-fluid" alt="{{ $item->title }}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>{{ $item->title }}</h2>
+                            <p>{{ $item->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>  --}}
+
+
+
+
+        {{--  <div id="carouselExample" class="carousel slide">
+
+            <div class="carousel-inner">
+                <div class="carousel-item" data-bs-interval="1000">
+                    <img src="/site/img/cta-bg.jpg" class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Seja Bem-Vindo ao Portal Oficial do INFOSI</h2>
+                        <p>Instituto Público de Prestação de Serviço com Carácter
+                            Científico e Desenvolvimento Tecnológico</p>
+                    </div>
+                </div>
+                @foreach ($slideshows as $item)
+                    <div class="carousel-item" data-bs-interval="10000">
+                        <img src="/storage/{{ $item->path }}" class="d-block w-100 img-fluid" alt="{{ $item->title }}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2>{{ $item->title }}</h2>
+                            <p>{{ $item->description }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+        </div>  --}}
+
+
+
+        <div id="carouselExampleIndicators" class="carousel slide mt-0" data-ride="carousel">
+            <div class="carousel-inner">
+                @isset($slideFirst)
+                <div class="carousel-item active" data-bs-interval="1000">
+                    <img style='background-position:center; height:800px; width:100%;no-repeat;background-size:cover;
+                    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'
+                        src="/storage/{{ $slideFirst->path }}" class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>{{ $slideFirst->title }}</h2>
+                        <p>{{ $slideFirst->description }}</p>
+                    </div>
+                </div>
+            @endisset
                 @isset($slideshows)
 
                     @foreach ($slideshows as $item)
                         <div class="carousel-item ">
 
                             <div class=""
-                                style='background-position:center;  height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat;
-                                
-                                
-                        background-size:cover;
-                        background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
-                                
-                                '>
+                                style='background-position:center; height:800px; width:100%;background-image: url("/storage/{{ $item->path }}");no-repeat;background-size:cover;
+                        background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);'>
                                 <div class="carousel-caption ">
                                     <div class="col mt-sm-11 mt-md-11 mt-lg-0">
                                         <h2>{{ $item->title }}</h2>
