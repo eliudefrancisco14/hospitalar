@@ -38,7 +38,7 @@
                             <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                                 <div class="portfolio-wrap">
                                     <a href="{{ url("/storage/$item->path") }}" data-gallery="portfolio-gallery-app"
-                                        class="glightbox"><img src="{{ url("/storage/$item->path") }}" class="img-fluid" alt=""></a>
+                                        class="glightbox"><img src="{{ url("/storage/$item->path") }}" class="img-fluid" alt="" style="height:400px; width:100%;"></a>
                                     <div class="portfolio-info">
                                         <h4><a href="{!! url('/estrutura-organica/' . urlencode($item->name)) !!}" title="More Details">{{ $item->name }}</a></h4>
                                         <p>{{ $item->office }}</p>
