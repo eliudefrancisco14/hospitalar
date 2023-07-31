@@ -9,19 +9,18 @@
             <!-- Layout container -->
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
-                
-                <div class="container justify-content-center mt-2 mb-5">
+
+                <div class="container justify-content-center mt-4 mb-5">
                     @include('errors.form')
                     <div class="row align-items-center">
-                        <form action='{{ url("admin/imagedigitalInclusion/store/$data->id") }}' method="POST"
-                            enctype="multipart/form-data">
+                        <form action="{{ url("admin/imagedigitalInclusion/store/$data->id") }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @include('forms._formImageDigitalinclusion.index')                            
+                            @include('forms._formImageDigitalinclusion.index')
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 @endsection
+
