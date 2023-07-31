@@ -8,7 +8,7 @@
         <div class="page-header d-flex align-items-center" style="background-image: url('');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2>{{ $news->title }}</h2>
                     </div>
                 </div>

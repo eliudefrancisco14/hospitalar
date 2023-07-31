@@ -8,7 +8,7 @@
         <div class="page-header d-flex align-items-center" style="background-image: url('');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2>Definição do INFOSI</h2>
                     </div>
                 </div>
@@ -26,7 +26,8 @@
                 @foreach ($definitions as $item)
                     <div class="row gy-4 mb-2">
                         <h3>{{ $item->title }}</h3>
-                        <p style="text-align: justify">{{ $item->description }}</p>
+                        
+                        <p style="text-align: justify">{!! html_entity_decode($item->description) !!}</p>
                     </div>
                 @endforeach
 

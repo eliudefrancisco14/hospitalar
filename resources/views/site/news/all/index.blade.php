@@ -8,7 +8,7 @@
         <div class="page-header d-flex align-items-center">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2>Notícias</h2>
                     </div>
                 </div>
@@ -37,11 +37,14 @@
                                     <img src="{{ url("/storage/$item->path") }}" alt="" class="img-fluid">
                                 </div>
 
-                                <p class="post-category">{{ $item->title }}</p>
+                                <div>
+                                    <h2 class="title">
+                                        <a href="{!! url('/noticia/' . urlencode($item->title)) !!}">{!! html_entity_decode(mb_substr($item->title, 0, 80, 'UTF-8')) !!}</a>
+                                    </h2>
+                                </div>
+                                
 
-                                <h2 class="title">
-                                    <a href="{!! url('/noticia/' . urlencode($item->title)) !!}">{!! html_entity_decode(mb_substr($item->body, 0, 80, 'UTF-8')) !!}</a>
-                                </h2>
+                                <p class="post-category">{!! html_entity_decode(mb_substr($item->body, 0, 80, 'UTF-8')) !!}</p>
 
                                 <div class="d-flex align-items-center">
                                     <div class="post-meta">

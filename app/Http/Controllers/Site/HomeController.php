@@ -18,7 +18,7 @@ class HomeController extends Controller
         $response['totalGoodPoint'] = AngolaOnline::where('state','Activo')->count(); 
         $response['totalBadPoint'] = AngolaOnline::where('state','Inactivo')->count();
         $response['partners'] = Partner::OrderBy('id', 'desc')->get();
-        $response['services'] = Service::OrderBy('id', 'desc')->limit(3)->get();
+        $response['services'] = Service::OrderBy('id', 'desc')->limit(6)->get();
 
         $response['provinceDocument'] = ProvinceDocument::first();
 

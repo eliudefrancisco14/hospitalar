@@ -8,7 +8,7 @@
         <div class="page-header d-flex align-items-center" style="background-image: url('');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center">
                         <h2>Serviços</h2>
                     </div>
                 </div>
@@ -39,12 +39,11 @@
                                         class="img-fluid">
                                 </div>
 
-                                <p class="post-category">{{ $item->title }}</p>
-
                                 <h2 class="title">
-                                    <a href="#">{{ $item->description }}</a>
+                                    <a href="#">{{ $item->title }}</a>
                                 </h2>
 
+                                <p class="post-category">{{ $item->description }}</p>
 
                             </article>
                         </div><!-- End post list item -->

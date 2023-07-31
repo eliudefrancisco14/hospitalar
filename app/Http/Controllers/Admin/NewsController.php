@@ -92,7 +92,7 @@ class NewsController extends Controller
                 'title' => 'required|min:5|max:255',
                 'typewriter' => 'required|min:2|max:255',
                 'body' => 'required|min:5',
-                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'path' => 'image|mimes:jpg,png,jpeg|max:5000',
                 'date' => 'required',
 
             ],

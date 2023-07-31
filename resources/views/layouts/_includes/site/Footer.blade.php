@@ -11,9 +11,9 @@ background-repeat: no-repeat; ">
                 </a>
                 <p>Instituto Nacional de Fomento da Sociedade da Informação</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="https://www.facebook.com/infosi.nacional" class="facebook"><i
+                    <a target="_blank" href="https://www.facebook.com/infosi.nacional" class="facebook"><i
                             class="bi bi-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/infosinacional/" class="linkedin "><i
+                    <a target="_blank" href="https://www.linkedin.com/company/infosinacional/" class="linkedin "><i
                             class="bi bi-linkedin"></i></a>
                 </div>
 
@@ -70,7 +70,7 @@ background-repeat: no-repeat; ">
 <!-- Vendor JS Files -->
 <script src="/site/js/googleapis.min.js"></script>
 <script src="/site/js/bootstrap.min.js"></script>
-<script src="/site/js/jquery-3.6.0.min"></script>
+<script src="/site/js/jquery-3.6.0.min.js"></script>
 <script src="/site/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/site/vendor/aos/aos.js"></script>
 <script src="/site/vendor/glightbox/js/glightbox.min.js"></script>
