@@ -37,8 +37,8 @@ class HomeController extends Controller
         $response['Bie'] = json_encode($ProvincePoint);
 
         $province = Province::where('name','Cabinda')->first();
-        $ProvincePoint = AngolaOnline::where('fk_idProvince',$province->id)->count();
-        $response['Cabinda'] = json_encode($ProvincePoint);
+        $ProvincePointCa = AngolaOnline::where('fk_idProvince',$province->id)->count();
+        $response['Cabinda'] = json_encode($ProvincePointCa);
 
         $province = Province::where('name','Cuando-Cubango')->first();
         $ProvincePoint = AngolaOnline::where('fk_idProvince',$province->id)->count();

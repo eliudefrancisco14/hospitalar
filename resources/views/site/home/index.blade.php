@@ -118,137 +118,83 @@
                 <div class="row gy-4 align-items-center">
 
                     <div class="col-lg-6">
-                        <canvas id="myChart"></canvas>
+                        <div id="container"></div>
                     </div>
-
-                    {{-- <div id="container"></div> --}}
 
                 @section('JS')
 
-                    {{-- <script src="{{ url('assets/highCharts/maps/style.css') }}"></script>
-                    <script src="{{ asset('assets/highCharts/maps/highmaps.js') }}"></script>
-                    <script src="{{ asset('assets/highCharts/maps/exporting.js') }}"></script>
+                <script src="{{ url('assets/highCharts/maps/style.css') }}"></script>
+                <script src="{{ asset('assets/highCharts/maps/highmaps.js') }}"></script>
 
-                    <script>
-                        (async () => {
+                <script>
+                    (async () => {
 
-                            const topology = await fetch(
-                                '{{ url('/assets/highCharts/maps/ao-all.topo.json') }}'
-                            ).then(response => response.json());
+                        const topology = await fetch(
+                            '{{ url('/assets/highCharts/maps/ao-all.topo.json') }}'
+                        ).then(response => response.json());
 
-                            // Prepare demo data. The data is joined to map using value of 'hc-key'
-                            // property by default. See API docs for 'joinBy' for more info on linking
-                            // data and map.
-                            const data = [
-                                ['ao-na', 10],
-                                ['ao-cb', 11],
-                                ['ao-ln', 12],
-                                ['ao-ls', 13],
-                                ['ao-ml', 14],
-                                ['ao-bo', 15],
-                                ['ao-cn', 16],
-                                ['ao-cs', 17],
-                                ['ao-lu', 18],
-                                ['ao-ui', 19],
-                                ['ao-za', 20],
-                                ['ao-bi', 21],
-                                ['ao-bg', 22],
-                                ['ao-cc', 23],
-                                ['ao-cu', 24],
-                                ['ao-hm', 25],
-                                ['ao-hl', 26],
-                                ['ao-mx', 27]
-                            ];
+                        const data = [
+                            ['ao-na', {{ $Namibe }}],
+                            ['ao-cb', {{ $Cabinda }}],
+                            ['ao-ln', {{ $LundaNorte }}],
+                            ['ao-ls', {{ $LundaSul }}],
+                            ['ao-ml', {{ $Malanje }}],
+                            ['ao-bo', {{ $Bengo }}],
+                            ['ao-cn', {{ $KwanzaNorte }}],
+                            ['ao-cs', {{ $KwanzaSul }}],
+                            ['ao-lu', {{ $Luanda }}],
+                            ['ao-ui', {{ $Uige }}],
+                            ['ao-za', {{ $Zaire }}],
+                            ['ao-bi', {{ $Bie }}],
+                            ['ao-bg', {{ $Benguela }}],
+                            ['ao-cc', {{ $CuandoCubango }}],
+                            ['ao-cu', {{ $Cunene }}],
+                            ['ao-hm', {{ $Huambo }}],
+                            ['ao-hl', {{ $Huila }}],
+                            ['ao-mx', {{ $Moxico }}]
+                        ];
 
-                            // Create the chart
-                            Highcharts.mapChart('container', {
-                                chart: {
-                                    map: topology
-                                },
-
-                                title: {
-                                    text: ''
-                                },
-
-                                subtitle: {
-                                    text: ''
-                                },
-
-                                mapNavigation: {
-                                    enabled: true,
-                                    buttonOptions: {
-                                        verticalAlign: 'bottom'
-                                    }
-                                },
-
-                                colorAxis: {
-                                    min: 0
-                                },
-
-                                series: [{
-                                    data: data,
-                                    name: 'dados aleatórios',
-                                    states: {
-                                        hover: {
-                                            color: '#BADA55'
-                                        }
-                                    },
-                                    dataLabels: {
-                                        enabled: true,
-                                        format: '{point.name}'
-                                    }
-                                }]
-                            });
-
-                        })();
-                    </script> --}}
-
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-                        const ctx = document.getElementById('myChart');
-                        var Bengo = JSON.parse('<?php echo $Bengo; ?>');
-                        var Benguela = JSON.parse('<?php echo $Benguela; ?>');
-                        var Bie = JSON.parse('<?php echo $Bie; ?>');
-                        var Cabinda = JSON.parse('<?php echo $Cabinda; ?>');
-                        var CuandoCubango = JSON.parse('<?php echo $CuandoCubango; ?>');
-                        var Cunene = JSON.parse('<?php echo $Cunene; ?>');
-                        var Huambo = JSON.parse('<?php echo $Huambo; ?>');
-                        var Huila = JSON.parse('<?php echo $Huila; ?>');
-                        var KwanzaSul = JSON.parse('<?php echo $KwanzaSul; ?>');
-                        var KwanzaNorte = JSON.parse('<?php echo $KwanzaNorte; ?>');
-                        var Luanda = JSON.parse('<?php echo $Luanda; ?>');
-                        var LundaNorte = JSON.parse('<?php echo $LundaNorte; ?>');
-                        var LundaSul = JSON.parse('<?php echo $LundaSul; ?>');
-                        var Malanje = JSON.parse('<?php echo $Malanje; ?>');
-                        var Moxico = JSON.parse('<?php echo $Moxico; ?>');
-                        var Namibe = JSON.parse('<?php echo $Namibe; ?>');
-                        var Uige = JSON.parse('<?php echo $Uige; ?>');
-                        var Zaire = JSON.parse('<?php echo $Zaire; ?>');
-
-                        new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ['Bengo', 'Benguela', 'Bié', 'Cabinda', 'Cuando-Cubango', 'Cunene', 'Huambo', 'Huíla',
-                                    'Kwanza Sul', 'Kwanza Norte', 'Luanda', 'Lunda Norte', 'Lunda Sul', 'Malanje', 'Moxico',
-                                    'Namibe', 'Uíge', 'Zaire'
-                                ],
-                                datasets: [{
-                                    label: 'Pontos Angola Online',
-                                    data: [Bengo, Benguela, Bie, Cabinda, CuandoCubango, Cunene, Huambo, Huila, KwanzaSul,
-                                        KwanzaNorte, Luanda, LundaNorte, LundaSul, Malanje, Moxico, Namibe, Uige, Zaire
-                                    ],
-                                    borderWidth: 1
-                                }]
+                        Highcharts.mapChart('container', {
+                            chart: {
+                                map: topology
                             },
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
+
+                            title: {
+                                text: ''
+                            },
+
+                            subtitle: {
+                                text: ''
+                            },
+
+                            mapNavigation: {
+                                enabled: true,
+                                buttonOptions: {
+                                    verticalAlign: 'bottom'
                                 }
-                            }
+                            },
+
+                            colorAxis: {
+                                min: 0
+                            },
+
+                            series: [{
+                                data: data,
+                                name: 'dados aleatórios',
+                                states: {
+                                    hover: {
+                                        color: '#BADA55'
+                                    }
+                                },
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}'
+                                }
+                            }]
                         });
-                    </script>
+
+                    })();
+                </script>
                 @endsection
 
                 <div class="col-lg-1"></div>
