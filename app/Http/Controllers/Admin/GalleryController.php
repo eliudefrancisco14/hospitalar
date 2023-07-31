@@ -46,10 +46,6 @@ class GalleryController extends Controller
                 'description.required' => 'Informar o detalhe da galeria',
             ]
         );
-        $exists = Gallery::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('image')->store('gallery_page_image');
         try {
             Gallery::create(
@@ -105,10 +101,6 @@ class GalleryController extends Controller
                 'description.required' => 'Informar o detalhe da galeria',
             ]
         );
-        $exists = Gallery::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('image')) {
             $file = $file->store('gallery_page_image');
         } else {

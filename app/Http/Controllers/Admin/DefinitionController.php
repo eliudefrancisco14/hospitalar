@@ -42,10 +42,6 @@ class DefinitionController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $exists = Definition::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             $definition = Definition::create($data);
         } catch (Exception $e) {
@@ -82,10 +78,6 @@ class DefinitionController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $exists = Definition::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             Definition::find($id)->update($data);
         } catch (Exception $e) {

@@ -42,10 +42,6 @@ class ProvinceController extends Controller
                 'description' => 'Informar a descrição',
             ]
         );
-        $exists = Province::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             Province::create($data);
         } catch (Exception $e) {
@@ -82,10 +78,6 @@ class ProvinceController extends Controller
                 'description' => 'Informar a descrição',
             ]
         );
-        $exists = Province::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             Province::find($id)->update($data);
         } catch (Exception $e) {

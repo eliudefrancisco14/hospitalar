@@ -45,10 +45,6 @@ class ServiceController extends Controller
                 'description' => 'Informar a descrição',
             ]
         );
-        $exists = Service::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('logo')->store('service_image');
         try {
             $data = Service::create([
@@ -100,10 +96,6 @@ class ServiceController extends Controller
                 'description' => 'Informar a descrição',
             ]
         );
-        $exists = Service::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('logo')) {
             $file = $file->store('service_image');
         } else {

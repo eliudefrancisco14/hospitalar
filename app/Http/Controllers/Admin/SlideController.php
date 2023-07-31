@@ -43,10 +43,6 @@ class SlideController extends Controller
                 'description.required' => 'Informar a descrição do slide show',
             ]
         );
-        $exists = Slide::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('image')->store('slideshow_image');
         try {
             $data = Slide::create([
@@ -89,10 +85,6 @@ class SlideController extends Controller
                 'description.required' => 'Informar a descrição do slide show',
             ]
         );
-        $exists = Slide::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('image')) {
             $file = $file->store('slideshow_image');
         } else {

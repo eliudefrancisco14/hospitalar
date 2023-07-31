@@ -47,10 +47,6 @@ class DirectionController extends Controller
                 'path.required' => 'Informar a imagem',
             ]
         );
-        $exists = Direction::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('path')->store('direction_image');
         try {
             $direction = Direction::create([
@@ -95,10 +91,6 @@ class DirectionController extends Controller
                 'path.required' => 'Informar a imagem',
             ]
         );
-        $exists = Direction::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('image')) {
             $file = $file->store('Directions');
         } else {

@@ -45,10 +45,6 @@ class DigitalInclusionController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $exists = DigitalInclusion::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('image')->store('digitalInclusion_image');
         try {
             $digitalInclusion = DigitalInclusion::create([
@@ -92,10 +88,6 @@ class DigitalInclusionController extends Controller
                 'description.required' => 'Informar a descrição',
             ]
         );
-        $exists = DigitalInclusion::where('name', $request['name'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('image')) {
             $file = $file->store('digitalInclusion_image');
         } else {

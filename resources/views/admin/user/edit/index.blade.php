@@ -20,8 +20,7 @@
                             action="{{ route('admin.user.update', $data->id) }}">
                             @csrf
                             @method('PUT')
-                            @include('forms._formUser.index')
-                            
+                            @include('forms._formUser.index')                            
                         </form>
                     </div>
                 </div>
