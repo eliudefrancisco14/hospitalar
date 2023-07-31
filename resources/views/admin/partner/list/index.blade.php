@@ -19,8 +19,6 @@
                         <div class="card">
                             <div class="table-responsive text-nowrap">
                                 <div class="card-body">
-
-
                                     <table class="table datatables table-hover table-bordered" id="dataTable-1">
                                         <thead class="bg-primary ">
                                             <tr class="text-center text-ligth">

@@ -40,10 +40,6 @@ class RegulationController extends Controller
             'title' => 'Informar o título',
             'path' => 'Informar a imagem',
         ]);
-        $exists = Regulation::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('path')->store('regulation_image');
         try {
             $regulation = Regulation::create([
@@ -81,10 +77,6 @@ class RegulationController extends Controller
             'title' => 'Informar o título',
             'path' => 'Informar a imagem',
         ]);
-        $exists = Regulation::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('path')) {
             $file = $file->store('regulation_image');
         } else {

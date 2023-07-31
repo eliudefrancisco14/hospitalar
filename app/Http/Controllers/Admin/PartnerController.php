@@ -45,10 +45,6 @@ class PartnerController extends Controller
                 'logo' => 'Informar a imagem ',
             ]
         );
-        $exists = Partner::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         $file = $request->file('logo')->store('partner_image');
         try {
             $data = Partner::create([
@@ -100,10 +96,6 @@ class PartnerController extends Controller
                 'logo' => 'Informar a imagem ',
             ]
         );
-        $exists = Partner::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         if ($file = $request->file('logo')) {
             $file = $file->store('partner_image');
         } else {

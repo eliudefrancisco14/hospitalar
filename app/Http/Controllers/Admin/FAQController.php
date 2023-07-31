@@ -42,10 +42,6 @@ class FAQController extends Controller
                 'description.required' => 'Informar a resposta',
             ]
         );
-        $exists = Faq::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             $data = Faq::create($data);
         } catch (Exception $e) {
@@ -82,10 +78,6 @@ class FAQController extends Controller
                 'description.required' => 'Informar a resposta',
             ]
         );
-        $exists = Faq::where('title', $request['title'])->exists();
-        if ($exists) {
-            return redirect()->back()->with('exists', '1');
-        }
         try {
             Faq::find($id)->update($data);
         } catch (Exception $e) {
