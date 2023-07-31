@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Models\Video;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
@@ -31,23 +32,30 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'link' => 'required|min:2',
-            'description' => 'required',
-            'date' => 'required',
+        $data =  $request->validate(
+            [
+                'title' => 'required',
+                'link' => 'required|min:2',
+                'description' => 'required',
+                'date' => 'required',
 
-        ]);
-        $data = Video::create([
-            'link' => $request->link,
-            'title' => $request->title,
-            'description' => $request->description,
-            'date' => $request->date
-
-
-        ]);
+            ],
+            [
+                'title' => 'Informar o título',
+                'link' => 'Informar o link',
+                'description' => 'Informar a descrição',
+            ]
+        );
+        $exists = Video::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            $data = Video::create($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um Video com o titulo ' . $data->title);
-
         return redirect("admin/video/show/$data->id")->with('create', '1');
     }
 
@@ -69,19 +77,29 @@ class VideoController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'link' => 'required|min:2',
-            'description' => 'required',
-            'date' => 'required',
+        $data =  $request->validate(
+            [
+                'title' => 'required',
+                'link' => 'required|min:2',
+                'description' => 'required',
+                'date' => 'required',
 
-        ]);
-        Video::find($id)->update([
-            'link' => $request->link,
-            'title' => $request->title,
-            'description' => $request->description,
-            'date' => $request->date,
-        ]);
+            ],
+            [
+                'title' => 'Informar o título',
+                'link' => 'Informar o link',
+                'description' => 'Informar a descrição',
+            ]
+        );
+        $exists = Video::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            Video::find($id)->update($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou um Video com o identificador ' . $id);
         return redirect()->route('admin.video.index')->with('edit', '1');
     }
@@ -91,17 +109,5 @@ class VideoController extends Controller
         $this->Logger->log('info', 'Eliminou um Video com o identificador ' . $id);
         Video::find($id)->delete();
         return redirect()->route('admin.video.index')->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Video::count();
-        $data = Video::where('title', "Like", "%" . $searchText . "%")
-            ->orwhere('link', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.video.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em galeria de video');
     }
 }

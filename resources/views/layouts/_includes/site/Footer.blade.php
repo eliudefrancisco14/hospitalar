@@ -9,7 +9,6 @@ background-repeat: no-repeat; ">
                 <a href="{{ route('site.home') }}" class="logo d-flex align-items-center">
                     <img src="/site/img/mono-logo.svg" alt="logo" class=" ank" height="45">
                 </a>
-
                 <p>Instituto Nacional de Fomento da Sociedade da Informação</p>
                 <div class="social-links d-flex mt-4">
                     <a href="https://www.facebook.com/infosi.nacional" class="facebook"><i
@@ -31,12 +30,9 @@ background-repeat: no-repeat; ">
 
             <div class="col-lg-3 col-md-4 col-6 footer-links">
                 <h4>Informações</h4>
-
                 <a href="{{ route('site.news') }}" class="text-white-50 ank">Notícias</a><br>
                 <a href="{{ route('site.image') }}" class="text-white-50 ank">Galeria de Imagens</a><br>
                 <a href="{{ route('site.video') }}" class="text-white-50 ank">Galeria de Vídeos</a><br>
-
-
             </div>
 
             <div class="col-lg-3 col-md-4 footer-contact text-center text-md-start">
@@ -48,10 +44,7 @@ background-repeat: no-repeat; ">
                     Telecomunicações, Tecnologia de Informação e Comunicação Social</a><br>
                 <a href="https://digital.ao/ao/" target="_blank" class="text-white-50 ank">Digital.AO</a><br>
                 <a href="https://igae.gov.ao/" target="_blank" class="text-white-50 ank">DNS.AO</a><br>
-
-
             </div>
-
         </div>
     </div>
 
@@ -75,10 +68,9 @@ background-repeat: no-repeat; ">
     </div>
 </div>
 <!-- Vendor JS Files -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/site/js/googleapis.min.js"></script>
+<script src="/site/js/bootstrap.min.js"></script>
+<script src="/site/js/jquery-3.6.0.min"></script>
 <script src="/site/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/site/vendor/aos/aos.js"></script>
 <script src="/site/vendor/glightbox/js/glightbox.min.js"></script>
@@ -87,10 +79,8 @@ background-repeat: no-repeat; ">
 <script src="/site/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="/site/vendor/php-email-form/validate.js"></script>
 <script src="/js/sweetalert2.all.min.js"></script>
-
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
-
 @if (session('message'))
     <script>
         Swal.fire({
@@ -100,5 +90,4 @@ background-repeat: no-repeat; ">
         })
     </script>
 @endif
-
 @yield('JS')

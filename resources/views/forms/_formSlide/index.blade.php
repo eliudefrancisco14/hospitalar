@@ -7,6 +7,25 @@
                 <hr>
                 <div class="row">
 
+                    @isset($data)
+                        <div class="col-12 col-lg-12">
+                            <div class="row align-items-center my-4">
+                                <div class="col">
+                                    <h2 class="page-title">Capa Principal</h2>
+                                </div>
+                            </div>
+                            <div class="card-deck mb-4">
+
+                                <div class="card border-0 bg-transparent">
+                                    <div class="card-img-top img-fluid rounded"
+                                        style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:200px; width:200px'>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    @endisset
+
                     <div class="mb-3 col-md-6">
                         <div class="form-group">
                             <label for="name" class="form-label">Titulo</label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use App\Models\Department;
 use Illuminate\Http\Request;
@@ -29,20 +30,33 @@ class DepartmentController extends Controller
         return view('admin.departament.create.index');
     }
 
-
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'boss' => 'required',
-            'description' => 'required',
-        ]);
-
-        $department = Department::create([
-            'name' => $request->name,
-            'boss' => $request->boss,
-            'description' => $request->description,
-        ]);
+        $data = $request->validate(
+            [
+                'name' => 'required',
+                'boss' => 'required',
+                'description' => 'required'
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'boss.required' => 'Informar o responsável',
+                'description.required' => 'Informar a descrição',
+            ]
+        );
+        $exists_name = Department::where('name', $request['name'])->exists();
+        if ($exists_name) {
+            return redirect()->back()->with('exists', '1');
+        }
+        $exists_boss = Department::where('boss', $request['boss'])->exists();
+        if ($exists_boss) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            $department = Department::create($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou uma departamento de nome ' . $department->name);
         return redirect()->route('admin.department.index')->with('create', '1');
     }
@@ -63,17 +77,31 @@ class DepartmentController extends Controller
 
     public function update(Request $request, $id)
     {
-       $request->validate([
-            'name' => 'required',
-            'boss' => 'required',
-            'description' => 'required',
-        ]);
-
-        Department::find($id)->update([
-            'name' => $request->name,
-            'boss' => $request->boss,
-            'description' => $request->description,
-        ]);
+        $data = $request->validate(
+            [
+                'name' => 'required',
+                'boss' => 'required',
+                'description' => 'required'
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'boss.required' => 'Informar o responsável',
+                'description.required' => 'Informar a descrição',
+            ]
+        );
+        $exists_name = Department::where('name', $request['name'])->exists();
+        if ($exists_name) {
+            return redirect()->back()->with('exists', '1');
+        }
+        $exists_boss = Department::where('boss', $request['boss'])->exists();
+        if ($exists_boss) {
+            return redirect()->back()->with('exists', '1');
+        }
+        try {
+            Department::find($id)->update($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um departamento com o identificador' . $id);
         return redirect()->route('admin.department.index')->with('edit', '1');
     }
@@ -83,17 +111,5 @@ class DepartmentController extends Controller
         $this->Logger->log('info', 'Eliminou um departamento com o identificador ' . $id);
         Department::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Department::count();
-        $data = Department::where('name', "Like", "%" . $searchText . "%")
-            ->orwhere('boss', "Like", "%" . $searchText . "%")
-            ->orwhere('description', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'asc')->paginate(5);
-        return view('admin.department.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em departamento');
     }
 }

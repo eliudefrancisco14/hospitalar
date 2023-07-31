@@ -13,7 +13,7 @@
                 <div class="container justify-content-center mt-4 mb-5">
                     @include('errors.form')
                     <div class="row align-items-center">
-                        <form action="{{ route('admin.digitalInclusion.store') }}" method="POST" enctype="multipart/form-data" class="row">
+                        <form action="{{ route('admin.digitalInclusion.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @include('forms._formDigitalInclusion.index')
                         </form>

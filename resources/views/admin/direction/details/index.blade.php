@@ -2,7 +2,6 @@
 @section('titulo', ' Detalhes da direcção')
 
 @section('content')
-
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!-- Layout container -->
@@ -10,12 +9,8 @@
                 @include('layouts._includes.dashboard.NavbarSimple')
 
                 <div class="container justify-content-center mt-4 mb-5">
-
-
                     <div class="row align-items-center mx-0">
-
                         <div class="col-lg-12 my-2 col-md-12 col-12">
-
                             <div class="card row align-items-center">
                                 <div class="card-body">
                                     <h3>Nome: "{{ $data->name }}"</h3>
@@ -71,24 +66,17 @@
 
                                                     <div class="card border-0 bg-transparent text-center">
                                                         <div class="card-img-top img-fluid rounded"
-                                                            style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:900px;width:auto;'>
+                                                            style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:400px;width:400px;'>
                                                         </div>
-
-                                                    </div> <!-- .card -->
-
-
-                                                </div> <!-- .card-deck -->
-
-
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div> <!-- .row -->
-                                    </div> <!-- .container-fluid -->
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>

@@ -29,14 +29,14 @@
                         <label for="name" class="form-label">Título</label>
                         <input type="text" name="title" id="title"
                             value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
-                            placeholder="Informar o título" required>
+                            placeholder="Informar o título">
                     </div>
 
                     <div class="form-group mb- col-md-4">
                         <label for="name" class="form-label">Selecionar logotipo</label>
                         <input class="form-control" id="infile"
-                            value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo" type="file"
-                            required></input>
+                            value="{{ isset($data->file) ? $data->logo : old('logo') }}" name="logo"
+                            type="file"></input>
                     </div>
 
                     <div class="form-group mb-3 col-md-12">
@@ -44,7 +44,7 @@
                             <label for="name" class="form-label">Link</label>
                             <input type="text" name="link" id="link"
                                 value="{{ isset($data->link) ? $data->link : old('link') }}" class="form-control"
-                                placeholder="Ex:www.infosi.gov.co.ao/infosi" required>
+                                placeholder="Ex:www.infosi.gov.co.ao/infosi">
                         </div>
                     </div>
 

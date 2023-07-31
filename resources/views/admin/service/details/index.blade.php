@@ -18,22 +18,33 @@
                                     <h3>Título: "{{ $data->title }}"</h3>
 
                                     <div class="col-md-12 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Descrição</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $data->description }}</p>
 
+                                        <div class="col-12 col-lg-12">
+                                            <div class="row align-items-center my-4">
+                                                <div class="col">
+                                                    <h2 class="page-title">Capa Actual</h2>
+                                                </div>
+                                            </div>
+                                            <div class="card-deck mb-4">
+                                                <div class="card border-0 bg-transparent">
+                                                    <div class="card-img-top img-fluid rounded"
+                                                        style='background-image:url("/storage/{{ $data->logo }}");background-position:center;background-size:cover;height:400px;width:500px;'>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-dark text-justify">{{ $data->description }}</p>
                                     </div>
 
 
                                     <div class="row align-items-center">
                                         <div class="col-md-7 mb-2">
                                             <hr>
-                                            <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                                            <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Data de criação:
+                                                    &nbsp;{{ date('d-m-Y H:m', strtotime($data->created_at)) }}</b></p>
+                                            <p><b>Última atualização:
+                                                    &nbsp;{{ date('d-m-Y', strtotime($data->updated_at)) }}</b>
                                             </p>
-                                            <p class="mb-1 text-dark"><b>Última Actualização:</b> {{ $data->updated_at }}
-                                            </p>
-
                                         </div>
                                     </div>
                                 </div>

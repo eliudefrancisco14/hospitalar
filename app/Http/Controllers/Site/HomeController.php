@@ -8,18 +8,15 @@ use App\Models\{AngolaOnline, Partner, Province, ProvinceDocument, Service, Slid
 class HomeController extends Controller
 {
 
-
     public function index()
     {
         $response['slideFirst'] = Slide::orderBy('id', 'desc')->first();
         if ($response['slideFirst']) {
             $response['slideshows'] = Slide::where('id', '!=', $response['slideFirst']->id)->orderBy('id', 'desc')->get();
         }
-
         $response['totalPoint'] = AngolaOnline::count();
         $response['totalGoodPoint'] = AngolaOnline::where('state','Activo')->count(); 
         $response['totalBadPoint'] = AngolaOnline::where('state','Inactivo')->count();
-
         $response['partners'] = Partner::OrderBy('id', 'desc')->get();
         $response['services'] = Service::OrderBy('id', 'desc')->limit(3)->get();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use App\Models\Regulation;
 use Illuminate\Http\Request;
@@ -34,13 +35,24 @@ class RegulationController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'path' => 'required|mimes:pdf',
+            'path' => 'required|mimes:pdf|max:5000',
+        ], [
+            'title' => 'Informar o título',
+            'path' => 'Informar a imagem',
         ]);
+        $exists = Regulation::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         $file = $request->file('path')->store('regulation_image');
-        $regulation = Regulation::create([
-            'path' => $file,
-            'title' => $request->title,
-        ]);
+        try {
+            $regulation = Regulation::create([
+                'path' => $file,
+                'title' => $request->title,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um regulamento com o titulo ' . $regulation->title);
         return redirect("admin/regulation/show/$regulation->id")->with('create', '1');
     }
@@ -64,18 +76,28 @@ class RegulationController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'path' => 'required|mimes:pdf',
-
+            'path' => 'required|mimes:pdf|max:5000',
+        ], [
+            'title' => 'Informar o título',
+            'path' => 'Informar a imagem',
         ]);
+        $exists = Regulation::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('path')) {
             $file = $file->store('regulation_image');
         } else {
             $file = Regulation::find($id)->path;
         }
-        Regulation::find($id)->update([
-            'path' => $file,
-            'title' => $request->title
-        ]);
+        try {
+            Regulation::find($id)->update([
+                'path' => $file,
+                'title' => $request->title
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou um regulamento com o identificador ' . $id);
         return redirect("admin/regulation/show/$id")->with('edit', '1');
     }
@@ -85,16 +107,5 @@ class RegulationController extends Controller
         $this->Logger->log('info', 'Eliminou um Regulamento com o identificador ' . $id);
         Regulation::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = Regulation::count();
-        $data = Regulation::where('title', "Like", "%" . $searchText . "%")
-            ->orwhere('title', "Like", "%" . $searchText . "%")
-            ->OrderBy('id', 'desc')->paginate(5);
-        return view('admin.regulation.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em regulamento');
     }
 }

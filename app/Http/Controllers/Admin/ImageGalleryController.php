@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,15 +25,24 @@ class ImageGalleryController extends Controller
 
     public function store(Request $request, $id)
     {
-       $request->validate([
-            'images' => 'required|min:1',
-        ]);
-        for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
-            $file = $request->allFiles()['images'][$i];
-            ImageGallery::create([
-                'path' => $file->store("gallery_cover_image/$id"),
-                'fk_idGallery' => $id
-            ]);
+        $request->validate(
+            [
+                'images' => 'required|min:1',
+            ],
+            [
+                'images' => 'Informar as imagens'
+            ]
+        );
+        try {
+            for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
+                $file = $request->allFiles()['images'][$i];
+                ImageGallery::create([
+                    'path' => $file->store("gallery_cover_image/$id"),
+                    'fk_idGallery' => $id
+                ]);
+            }
+        } catch (Exception $e) {
+            return $e;
         }
         $this->Logger->log('info', 'Cadastrou Imagens da Galeria com o Identificador ' . $id);
         return redirect("admin/gallery/show/$id")->with('create_image', '1');

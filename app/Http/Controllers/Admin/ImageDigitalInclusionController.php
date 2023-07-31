@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\{DigitalInclusion,ImageDigitalInclusion};
+use App\Models\{DigitalInclusion, ImageDigitalInclusion};
 
 class ImageDigitalInclusionController extends Controller
 {
@@ -24,15 +25,24 @@ class ImageDigitalInclusionController extends Controller
 
     public function store(Request $request, $id)
     {
-        $request->validate([
-            'images' => 'required|min:1',
-        ]);
-        for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
-            $file = $request->allFiles()['images'][$i];
-            $imageDigitalInclusion = ImageDigitalInclusion::create([
-                'path' => $file->store("digitalinclusion_image/$id"),
-                'fk_idDigital_inclusion' => $id
-            ]);
+        $request->validate(
+            [
+                'images' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'images' => 'Informar as imagens'
+            ]
+        );
+        try {
+            for ($i = 0; $i < count($request->allFiles()['images']); $i++) {
+                $file = $request->allFiles()['images'][$i];
+                ImageDigitalInclusion::create([
+                    'path' => $file->store("digitalinclusion_image/$id"),
+                    'fk_idDigital_inclusion' => $id
+                ]);
+            }
+        } catch (Exception $e) {
+            return $e;
         }
         $this->Logger->log('info', 'Cadastrou Imagens da Inclusão Digital com o Identificador ' . $id);
         return redirect("admin/digitalInclusion/show/$id")->with('create_image', '1');

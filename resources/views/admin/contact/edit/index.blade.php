@@ -17,7 +17,6 @@
                                 <a href="{{ route('admin.contact.show') }}">Ver Informações</a>
                                 > Editar Informações
                             </h5>
-
                         </div>
                     </div>
                     @include('errors.form')
@@ -28,11 +27,9 @@
                             @csrf
                             @method('PUT')
                             @include('forms._formContact.index')
-
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

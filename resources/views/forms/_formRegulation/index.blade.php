@@ -23,7 +23,7 @@
 
                         <div class="mb-3">
                             <label for="name" class="form-label">Selecionar documento .pdf</label>
-                            <input class="form-control" id="infile" name="path" type="file" required></input>
+                            <input class="form-control" id="infile" name="path" type="file"></input>
                         </div>
 
                         <div class="mb-3">

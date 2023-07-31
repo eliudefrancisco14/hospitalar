@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Models\Contact;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
@@ -30,14 +31,13 @@ class ContactsController extends Controller
         return view('admin.contact.edit.index', $response);
     }
 
-
     public function update(Request $request, $id)
     {
-        $request->validate(
+        $data = $request->validate(
             [
                 'address' => 'required|min:5|max:255',
                 'telephone' => 'required|min:9',
-                'email' => 'required|min:5|max:255',
+                'email' => ['required', 'string', 'email', 'max:255'],
             ],
             [
                 'address.required' => 'Informar o endereço',
@@ -45,14 +45,12 @@ class ContactsController extends Controller
                 'email.required' => 'Informar o e-mail',
             ]
         );
-        Contact::find($id)->update([
-            'address' => $request->address,
-            'telephone' => $request->telephone,
-            'email' => $request->email,
-        ]);
+        try {
+            Contact::find($id)->update($data);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Editou um contacto com o identificador ' . $id);
         return redirect()->route('admin.contact.show')->with('edit', '1');
     }
-
-
 }

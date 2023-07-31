@@ -17,16 +17,16 @@
                                     <div class="card-deck mb-4">
                                         <div class="card border-0 bg-transparent">
                                             <div class="card-img-top img-fluid rounded"
-                                                style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:200px;width:250px;'>
+                                                style='background-image:url("/storage/{{ $data->image }}");background-position:center;background-size:cover;height:200px;width:200px;'>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endisset
+
                             <div class="mb-3">
                                 <label for="name" class="form-label">Selecionar a imagem</label>
-                                <input class="form-control" id="infile" name="image" type="file"
-                                    required></input>
+                                <input class="form-control" id="infile" name="image" type="file"></input>
                             </div>
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nome</label>
@@ -46,5 +46,4 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>

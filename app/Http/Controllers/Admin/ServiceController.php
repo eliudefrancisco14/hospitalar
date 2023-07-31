@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
 use App\Models\{Log, Service};
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class ServiceController extends Controller
 {
@@ -35,16 +36,29 @@ class ServiceController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:255',
-                'logo' => 'mimes:jpg,png,jpeg',
-                'description' => 'required|min:5|max:5000',
+                'logo' => 'required|mimes:jpg,png,jpeg',
+                'description' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'title' => 'Informar o título',
+                'logo' => 'Informar a imagem',
+                'description' => 'Informar a descrição',
             ]
         );
+        $exists = Service::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         $file = $request->file('logo')->store('service_image');
-        $data = Service::create([
-            'logo' => $file,
-            'title' => $request->title,
-            'description' => $request->description,
-        ]);
+        try {
+            $data = Service::create([
+                'logo' => $file,
+                'title' => $request->title,
+                'description' => $request->description,
+            ]);
+        } catch (Exception $e) {
+            return $e;
+        }
         $this->Logger->log('info', 'Cadastrou um serviço com o titulo ' . $data->title);
         return redirect()->route('admin.service.index')->with('create', '1');
     }
@@ -77,22 +91,35 @@ class ServiceController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:255',
-                'logo' => 'mimes:jpg,png,jpeg',
-                'description' => 'required|min:5|max:5000',
+                'logo' => 'required|mimes:jpg,png,jpeg',
+                'description' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+            ],
+            [
+                'title' => 'Informar o título',
+                'logo' => 'Informar a imagem',
+                'description' => 'Informar a descrição',
             ]
         );
+        $exists = Service::where('title', $request['title'])->exists();
+        if ($exists) {
+            return redirect()->back()->with('exists', '1');
+        }
         if ($file = $request->file('logo')) {
             $file = $file->store('service_image');
         } else {
             $file = Service::find($id)->logo;
         }
-        Service::find($id)->update(
-            [
-                'logo' => $file,
-                'title' => $request->title,
-                'description' => $request->description,
-            ]
-        );
+        try {
+            Service::find($id)->update(
+                [
+                    'logo' => $file,
+                    'title' => $request->title,
+                    'description' => $request->description,
+                ]
+            );
+        } catch (Exception $e) {
+            return $e;
+        }
         $response['data'] = Service::get();
         $this->Logger->log('info', 'Editou o serviço com o identificador ' . $id);
         return redirect()->route('admin.service.index')->with('edit', '1');
