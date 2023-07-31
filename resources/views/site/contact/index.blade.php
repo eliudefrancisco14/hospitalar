@@ -49,7 +49,7 @@
                                     <div id="faq-content-{{ $loop->index + 1 }}" class="accordion-collapse collapse"
                                         data-bs-parent="#faqlist">
                                         <div class="accordion-body">
-                                            {{ $item->description }}
+                                            {!! html_entity_decode($item->description) !!}
                                         </div>
                                     </div>
                                 </div><!-- # Faq item-->

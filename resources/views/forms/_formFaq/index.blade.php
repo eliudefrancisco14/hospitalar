@@ -18,7 +18,7 @@
                     <div class="mb-1 col-md-12">
                         <div class="form-group">
                             <label for="name" class="form-label">Resposta</label>
-                            <textarea type="text" name="description" id="response" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
+                            <textarea type="text" id="editor1" name="description" id="response" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>
 
