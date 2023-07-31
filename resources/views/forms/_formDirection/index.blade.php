@@ -46,7 +46,7 @@
 
                             <div class="mb-3">
                                 <label for="name" class="form-label">Detalhe de informação de direcção</label>
-                                <textarea class="form-control" type="text" id="body" name="body">{{ isset($data->body) ? $data->body : old('body') }}</textarea>
+                                <textarea class="form-control" id="editor1" type="text" id="body" name="body">{{ isset($data->body) ? $data->body : old('body') }}</textarea>
                             </div>
 
                             <div class="mb-3 col-md-12">
