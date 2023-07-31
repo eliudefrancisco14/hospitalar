@@ -13,8 +13,7 @@
                 <div class="container justify-content-center mt-4 mb-5">
                     @include('errors.form')
                     <div class="row align-items-center">
-                        <form action='{{ url("admin/imageGallery/store/$data->id") }}' method="POST"
-                            enctype="multipart/form-data">
+                        <form action='{{ url("admin/imageGallery/store/$data->id") }}' enctype="multipart/form-data" method="POST" class="row">
                             @csrf
                             @include('forms._formimageGallery.index')
                         </form>

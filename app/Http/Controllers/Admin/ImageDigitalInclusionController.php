@@ -25,13 +25,9 @@ class ImageDigitalInclusionController extends Controller
 
     public function store(Request $request, $id)
     {
-        dd($request);
         $request->validate(
             [
-                'images' => 'required|image|mimes:jpg,png,jpeg',
-            ],
-            [
-                'images' => 'Informar as imagens'
+                'images' => 'required|min:1|max:5000',
             ]
         );
         try {
