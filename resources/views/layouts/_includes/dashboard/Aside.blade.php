@@ -273,7 +273,7 @@
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class='bx bx-image' ></i>
+                <i class='menu-icon tf-icons bx bx-image' ></i>
                 <div data-i18n="Authentications">Imagens</div>
             </a>
             <ul class="menu-sub">
@@ -291,7 +291,7 @@
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class='bx bxs-video' ></i>
+                <i class='menu-icon tf-icons bx bxs-video' ></i>
                 <div data-i18n="Authentications">Vídeos</div>
             </a>
             <ul class="menu-sub">

@@ -37,10 +37,14 @@
                         @foreach ($directions as $item)
                             <div class="col-xl-4 col-md-6 portfolio-item filter-product">
                                 <div class="portfolio-wrap">
-                                    <a href="{{ url("/storage/$item->path") }}" data-gallery="portfolio-gallery-app"
-                                        class="glightbox"><img src="{{ url("/storage/$item->path") }}" class="img-fluid" alt="" style="height:400px; width:100%;"></a>
+                                    <div style="height: 600px">
+                                        <a href="{{ url("/storage/$item->path") }}" data-gallery="portfolio-gallery-app"
+                                            class="glightbox"><img src="{{ url("/storage/$item->path") }}" class="img-fluid"
+                                                alt="" style="height:100%; width:100%;"></a>
+                                    </div>
                                     <div class="portfolio-info">
-                                        <h4><a href="{!! url('/estrutura-organica/' . urlencode($item->name)) !!}" title="More Details">{{ $item->name }}</a></h4>
+                                        <h4><a href="{!! url('/estrutura-organica/' . urlencode($item->name)) !!}" title="More Details">{{ $item->name }}</a>
+                                        </h4>
                                         <p>{{ $item->office }}</p>
                                     </div>
                                 </div>
@@ -72,12 +76,13 @@
                                 <div class="accordion-item">
                                     <h3 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#faq-content-1">
+                                            data-bs-target="#faq-content-{{ $loop->index + 1 }}">
                                             <span class="num">{{ $loop->index + 1 }}.</span>
                                             {{ $item->name }}
                                         </button>
                                     </h3>
-                                    <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                    <div id="faq-content-{{ $loop->index + 1 }}" class="accordion-collapse collapse"
+                                        data-bs-parent="#faqlist">
                                         <div class="accordion-body">
                                             <p><b>Chefe de Departamento:</b> {{ $item->boss }} </p>
                                             {{ $item->description }}

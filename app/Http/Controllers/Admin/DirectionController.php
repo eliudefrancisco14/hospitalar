@@ -91,8 +91,8 @@ class DirectionController extends Controller
                 'path.required' => 'Informar a imagem',
             ]
         );
-        if ($file = $request->file('image')) {
-            $file = $file->store('Directions');
+        if ($file = $request->file('path')) {
+            $file = $file->store('direction_image');
         } else {
             $file = Direction::find($id)->path;
         }

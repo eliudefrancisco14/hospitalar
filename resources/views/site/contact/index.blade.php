@@ -147,7 +147,7 @@
                             <div class=col-md>
                                 <p class="small text-muted mb-4">Preencha com dados Verdadeiros!</p>
                             </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+                            <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
                         </form>
                     </div><!-- End Contact Form -->
 
