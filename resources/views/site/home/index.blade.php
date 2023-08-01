@@ -4,15 +4,16 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
-        style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
+        style="background-color: #fff; background-position: center;">
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
 
                 @if ($slideFirst)
-                    <div class="carousel-item active">
+                    <div
+                        class="carousel-item @isset($slideFirst) active @endisset ">
                         <div class="slider-image center"
-                            style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
+                            style='background-position:center; background-size:initial; height:800px; width:100%;
                         background-size:cover;
                         background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
                             '>
@@ -29,7 +30,7 @@
                     @foreach ($slideshows as $item)
                         <div class="carousel-item">
                             <div class="slider-image center"
-                                style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
+                                style='background-position:center; background-size:initial; height:800px; width:100%;
                         background-size:cover;
                         background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
                             '>
@@ -96,7 +97,7 @@
                     </div>
                 </div>
             </div>
-
+        </div>
 
     </section>
     <!-- End Hero Section -->

@@ -2800,7 +2800,7 @@ section .particles {
 .carousel-fade .carousel-item-next.carousel-item-left,
 .carousel-fade .carousel-item-prev.carousel-item-right,
 .carousel-fade .carousel-item.active {
-  z-index: 1;
+  z-index: 0;
   opacity: 1
 }
 
