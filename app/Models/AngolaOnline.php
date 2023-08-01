@@ -12,4 +12,9 @@ class AngolaOnline extends Model
     protected $table = 'angola_onlines';
     protected $guarded = ['id'];
     protected $dates = ['deleted_at'];
+
+    public function provinces()
+    {
+        return $this->belongsTo(Province::class, 'fk_idProvince');
+    }
 }

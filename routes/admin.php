@@ -198,12 +198,12 @@ Route::middleware(['auth'])->group(function () {
     /* end ProvinceDocuments */
 
 
-    /* province Pint */
+    /* province Point */
     Route::get('admin/point/create/{id}', ['as' => 'admin.point.create', 'uses' => 'Admin\AngolaOnlineController@create']);
     Route::post('admin/point/store/{id}', ['as' => 'admin.point.store', 'uses' => 'Admin\AngolaOnlineController@store']);
     Route::get('admin/point/delete/{id}', ['as' => 'admin.point.delete', 'uses' => 'Admin\AngolaOnlineController@destroy']);
     Route::get('admin/point/update/{id}', ['as' => 'admin.point.update', 'uses' => 'Admin\AngolaOnlineController@update']);
-    /* end province Pint  */
+    /* end province Point  */
 
     /* homologation */
     Route::get('admin/homologation/index', ['as' => 'admin.homologation.index', 'uses' => 'Admin\HomologationController@index']);

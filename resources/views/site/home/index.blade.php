@@ -148,7 +148,6 @@
                                 ['ao-hl', {{ $Huila }}],
                                 ['ao-mx', {{ $Moxico }}]
                             ];
-
                             Highcharts.mapChart('container', {
                                 chart: {
                                     map: topology
@@ -157,22 +156,18 @@
                                 title: {
                                     text: ''
                                 },
-
                                 subtitle: {
                                     text: ''
                                 },
-
                                 mapNavigation: {
                                     enabled: true,
                                     buttonOptions: {
                                         verticalAlign: 'bottom'
                                     }
                                 },
-
                                 colorAxis: {
                                     min: 0
                                 },
-
                                 series: [{
                                     data: data,
                                     name: 'dados aleatórios',
@@ -183,12 +178,12 @@
                                     },
                                     dataLabels: {
                                         enabled: true,
-                                        format: '{point.name}'
+                                        format: '{point.name}',
                                     }
                                 }]
                             });
-
-                        })();
+                        })
+                        ();
                     </script>
                 @endsection
 
@@ -199,23 +194,25 @@
                         <span data-purecounter-start="0" data-purecounter-end="{{ $totalPoint }}"
                             data-purecounter-duration="1" class="purecounter"></span>
                         <p><strong>Total de Pontos de Acesso</strong> </p>
+
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
                         <span data-purecounter-start="0" data-purecounter-end="{{ $totalGoodPoint }}"
                             data-purecounter-duration="1" class="purecounter"></span>
-                        <p><strong>Total em optimo estado</strong></p>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#GoodStateModal_">
+                            <p><strong>Total em optimo estado</strong></p>
+                        </a>
                     </div><!-- End Stats Item -->
 
                     <div class="stats-item d-flex align-items-center">
                         <span data-purecounter-start="0" data-purecounter-end="{{ $totalBadPoint }}"
                             data-purecounter-duration="1" class="purecounter"></span>
-                        <p><strong>Total de Pontos Indisponível</strong></p>
+                        <a href="" data-bs-toggle="modal" data-bs-target="#BadStateModal_">
+                            <p><strong>Total de Pontos Indisponível</strong></p>
                     </div><!-- End Stats Item -->
-
                 </div>
             </div>
-
         </div>
 
     </section><!-- End Stats Counter Section -->
@@ -355,6 +352,62 @@
     </section><!-- End Stats Counter Section -->
 
 </main><!-- End #main -->
+
+<div class="modal fade" id="GoodStateModal_" tabindex="-1" aria-labelledby="GoodStatModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="GoodStatModalLabel">Pontos em optimo estado: ({{ $totalGoodPoint }})</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        @foreach ($totalGoodPoints as $item)
+                            <ul>
+                                <li>Província: {{ $item->provinces->name }} | Ponto:
+                                    {{ $item->name }}
+                                </li>
+                            </ul>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="BadStateModal_" tabindex="-1" aria-labelledby="BadStateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="BadStateModalLabel">Pontos indisponíveis: ({{ $totalBadPoint }})</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="modal-body">
+                        @foreach ($totalBadPoints as $item)
+                            <ul>
+                                <li>Província: {{ $item->provinces->name }} | Ponto:
+                                    {{ $item->name }}
+                                </li>
+                            </ul>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 
@@ -367,5 +420,3 @@
         direction: left
     })
 </script>
-
-@endsection
