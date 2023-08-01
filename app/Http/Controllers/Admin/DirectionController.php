@@ -38,7 +38,7 @@ class DirectionController extends Controller
                 'name' => 'required|string|max:255',
                 'office' => 'required|string|max:255',
                 'body' => 'required',
-                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'path' => 'required|mimes:jpg,png,jpeg|max:5000',
             ],
             [
                 'name.required' => 'Informar o nome',
@@ -82,7 +82,7 @@ class DirectionController extends Controller
                 'name' => 'required|string|max:255',
                 'office' => 'required|string|max:255',
                 'body' => 'required',
-                'path' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'path' => 'mimes:jpg,png,jpeg|max:5000',
             ],
             [
                 'name.required' => 'Informar o nome',

@@ -13,10 +13,9 @@
                 <div class="container justify-content-center mt-4 mb-5">
                     @include('errors.form')
                     <div class="row align-items-center">
-                        <form action='{{ url("admin/point/store/$data->id") }}' method="POST" class="row">
+                        <form action='{{ url("admin/point/store/$data->id") }}' method="POST">
                             @csrf
-                            @include('forms._formProvincePoint.index')
-                            
+                            @include('forms._formProvincePoint.index')                            
                         </form>
                     </div>
                 </div>

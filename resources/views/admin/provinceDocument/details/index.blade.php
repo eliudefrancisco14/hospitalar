@@ -8,11 +8,7 @@
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
                 <div class="container justify-content-center mt-4 mb-5">
-
-
-
                     <div class="row align-items-center mx-0">
-
 
                         <div class="card mb-2">
                             <div class="card-body">
@@ -34,12 +30,8 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
-
-
                         @isset($provinceDocument)
                             <div class="col-lg-12 mt-2 col-md-12 col-12">
                                 <div class="card row align-items-center">
@@ -50,34 +42,26 @@
                                                 <b>Corpo</b>
                                             </h5>
                                             <p class="text-dark text-justify">{!! html_entity_decode($provinceDocument->body) !!}</p>
-
                                         </div>
-
 
                                         <div class="row align-items-center">
                                             <div class="col-md-7 mb-2">
                                                 <hr>
-                                                <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $provinceDocument->created_at }}
+                                                <p class="mb-1 text-dark"><b>Data de Cadastro:</b>
+                                                    {{ $provinceDocument->created_at }}
                                                 </p>
-                                                <p class="mb-1 text-dark"><b>Última Actualização:</b> {{ $provinceDocument->updated_at }}
+                                                <p class="mb-1 text-dark"><b>Última Actualização:</b>
+                                                    {{ $provinceDocument->updated_at }}
                                                 </p>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endisset
-
-
-
-
                     </div>
-
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 @endsection
