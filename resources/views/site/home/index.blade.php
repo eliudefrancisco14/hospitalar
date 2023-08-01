@@ -358,10 +358,11 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="GoodStatModalLabel">Pontos em optimo estado: ({{ $totalGoodPoint }})</h1>
+                <h1 class="modal-title fs-5" id="GoodStatModalLabel">Pontos em optimo estado: ({{ $totalGoodPoint }})
+                </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="container">
+            {{-- <div class="container">
                 <div class="row">
                     <div class="modal-body">
                         @foreach ($totalGoodPoints as $item)
@@ -373,7 +374,33 @@
                         @endforeach
                     </div>
                 </div>
+            </div> --}}
+            <div class="tree ">
+                @foreach ($provs as $item)
+                    <ul>
+                        <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Web"
+                                    aria-expanded="true" aria-controls="Web"><i class="collapsed"><i
+                                            class="fas fa-folder"></i></i>
+                                    <i class="expanded"><i class="far fa-folder-open"></i></i> Província:
+                                    {{ $item->name }} {{ $item->id }}
+                                </a></span>
+                            <div id="Web" class="collapse show">
+                                @foreach ($totalGoodPoints as $itens)
+                                    <ul>
+                                        <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse"
+                                                    href="#page1" aria-expanded="false" aria-controls="page1"><i
+                                                        class="collapsed"><i class="fas fa-folder"></i></i>
+                                                    <i class="expanded"><i class="far fa-folder-open"></i></i>
+                                                    {{ $itens->name }}</a></span>
+                                        </li>
+                                    </ul>
+                                @endforeach
+                            </div>
+                        </li>
+                    </ul>
+                @endforeach
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
             </div>
@@ -385,7 +412,8 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="BadStateModalLabel">Pontos indisponíveis: ({{ $totalBadPoint }})</h1>
+                <h1 class="modal-title fs-5" id="BadStateModalLabel">Pontos indisponíveis: ({{ $totalBadPoint }})
+                </h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="container">
@@ -419,4 +447,11 @@
     $('#carouselExampleIndicators').on('slide.bs.carousel', function() {
         direction: left
     })
+</script>
+
+<script>
+    // Treeview Initialization
+    $(document).ready(function() {
+        $('.treeview').mdbTreeview();
+    });
 </script>
