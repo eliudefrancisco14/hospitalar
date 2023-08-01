@@ -32,10 +32,15 @@
                     @foreach ($imageDigitalInclusions as $item)
                         <div class="col-xl-4 col-md-6">
 
-                            <div class="text-white my">
-                                <img src="{{ url("/storage/$item->path") }}" class="card-img img-fluid rounded-4 mb-4"
-                                    alt="{{ $digitalInclusion->name }}">
-                            </div>
+
+                            <a href="{{ url("/storage/$item->path") }}" data-gallery="portfolio-gallery-app"
+                                class="glightbox">
+                                <div class="card-img-top img-fluid rounded-4 mb-4"
+                                    style='background-image:url("/storage/{{ $item->path }}");background-position:center;background-size:cover;height:400px;width:auto;'>
+                                </div>
+                            </a>
+
+                            
                         </div><!-- End post list item -->
                     @endforeach
 

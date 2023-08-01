@@ -1,30 +1,11 @@
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-lg-12 mt-2 col-md-12 col-12">
         <div class="card mb-4">
             <hr class="my-0" />
             <div class="card-body">
                 <h3>{{ isset($data) ? 'Atualizar SlideShow "' . $data->title . '"' : 'Cadastrar' }}</h3>
                 <hr>
                 <div class="row">
-
-                    @isset($data)
-                        <div class="col-12 col-lg-12">
-                            <div class="row align-items-center my-4">
-                                <div class="col">
-                                    <h2 class="page-title">Capa Principal</h2>
-                                </div>
-                            </div>
-                            <div class="card-deck mb-4">
-
-                                <div class="card border-0 bg-transparent">
-                                    <div class="card-img-top img-fluid rounded"
-                                        style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:200px; width:200px'>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    @endisset
 
                     <div class="mb-3 col-md-6">
                         <div class="form-group">
@@ -56,4 +37,30 @@
             </div>
         </div>
     </div>
+    @isset($data)
+        <div class="col-lg-12 mt-2 col-md-12 col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-10">
+                                <div class="row align-items-center my-4">
+                                    <div class="col">
+                                        <h2 class="page-title">Imagem de Capa</h2>
+                                    </div>
+                                </div>
+                                <div class="card-deck mb-4">
+                                    <div class="card border-0 bg-transparent text-center">
+                                        <div class="card-img-top img-fluid rounded"
+                                            style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:400px;width:auto;'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endisset
 </div>
