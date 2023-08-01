@@ -44,7 +44,7 @@
                                 </div>
                                 
 
-                                <p class="post-category">{!! html_entity_decode(mb_substr($item->body, 0, 80, 'UTF-8')) !!}</p>
+                                <p class="post-category">{!! html_entity_decode(mb_substr($item->body, 0, 85, 'UTF-8')) !!}...</p>
 
                                 <div class="d-flex align-items-center">
                                     <div class="post-meta">

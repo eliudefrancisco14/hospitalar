@@ -60,8 +60,8 @@
                                                 </div>
                                                 <div class="card-deck mb-4">
                                                     <div class="card border-0 bg-transparent text-center">
-                                                        <div class="card-img-top img-fluid rounded"
-                                                            style='background-image:url("/storage/{{ $data->path }}");background-position:center;background-size:cover;height:400px;width:400px;'>
+                                                        <div class="card-img-top rounded">
+                                                            <img src="/storage/{{ $data->path }}" alt="" class=" img-fluid">
                                                         </div>
                                                     </div>
                                                 </div>

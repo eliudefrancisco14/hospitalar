@@ -11,7 +11,7 @@
 
                 @if ($slideFirst)
                     <div class="carousel-item active">
-                        <div class="slider-image text-center"
+                        <div class="slider-image center"
                             style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
                         background-size:cover;
                         background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
@@ -28,7 +28,7 @@
                 @isset($slideshows)
                     @foreach ($slideshows as $item)
                         <div class="carousel-item">
-                            <div class="slider-image text-center"
+                            <div class="slider-image center"
                                 style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
                         background-size:cover;
                         background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
