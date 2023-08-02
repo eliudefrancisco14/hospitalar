@@ -76,9 +76,8 @@
                                                                         class="bx bx-trash me-1"></i>
                                                                     Excluir</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/point/update/{$item->id}") }}"><i
-                                                                        class="bx bx-edit-alt me-1"></i>
-                                                                    Estado - {{ $item->state }}</a>
+                                                                    href="{{ url("admin/point/edit/$id_/{$item->id}") }}"><i
+                                                                        class="bx bx-edit-alt me-1"></i>Editar</a>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -198,11 +198,12 @@ Route::middleware(['auth'])->group(function () {
     /* end ProvinceDocuments */
 
 
-    /* province Point */
+    /* Angola Online Point */
     Route::get('admin/point/create/{id}', ['as' => 'admin.point.create', 'uses' => 'Admin\AngolaOnlineController@create']);
     Route::post('admin/point/store/{id}', ['as' => 'admin.point.store', 'uses' => 'Admin\AngolaOnlineController@store']);
+    Route::get('admin/point/edit/{id_}/{id}', ['as' => 'admin.point.edit', 'uses' => 'Admin\AngolaOnlineController@edit']);
     Route::get('admin/point/delete/{id}', ['as' => 'admin.point.delete', 'uses' => 'Admin\AngolaOnlineController@destroy']);
-    Route::get('admin/point/update/{id}', ['as' => 'admin.point.update', 'uses' => 'Admin\AngolaOnlineController@update']);
+    Route::put('admin/point/update/{id}', ['as' => 'admin.point.update', 'uses' => 'Admin\AngolaOnlineController@update']);
     /* end province Point  */
 
     /* homologation */
@@ -214,6 +215,5 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/homologation/update/{id}', ['as' => 'admin.homologation.update', 'uses' => 'Admin\HomologationController@update']);
     Route::get('admin/homologation/delete/{id}', ['as' => 'admin.homologation.delete', 'uses' => 'Admin\HomologationController@destroy']);
     /* end homologation */
-
   });
 });
