@@ -17,17 +17,12 @@ class HomeController extends Controller
         $response['totalPoint'] = AngolaOnline::count();
         $response['totalGoodPoint'] = AngolaOnline::where('state', 'Activo')->count();
 
-        $response['provs'] = Province::get();
-
-        $id = Province::value("id");
-        $response['totalGoodPoints'] = AngolaOnline::where('state', 'Activo')->Where('fk_idProvince', $id)->get();
-        $response['totalBadPoints'] = AngolaOnline::where('state', 'Inactivo')->Where('fk_idProvince', $id)->get();
-
-        // foreach ($provs as $prov) {
-           
-        // }
-
-
+        $response['totalGoodPoints'] = AngolaOnline::where('state', 'Activo')->orderBy('fk_idProvince')->get()->groupBy(function ($data) {
+            return $data->fk_idProvince;
+        });
+        $response['totalBadPoints'] = AngolaOnline::where('state', 'Inactivo')->orderBy('fk_idProvince')->get()->groupBy(function ($data) {
+            return $data->fk_idProvince;
+        });
 
         $response['totalBadPoint'] = AngolaOnline::where('state', 'Inactivo')->count();
 

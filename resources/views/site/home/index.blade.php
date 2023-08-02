@@ -4,16 +4,15 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero"
-        style="background-color: #fff; background-position: center;">
+        style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
 
                 @if ($slideFirst)
-                    <div
-                        class="carousel-item @isset($slideFirst) active @endisset ">
+                    <div class="carousel-item active">
                         <div class="slider-image center"
-                            style='background-position:center; background-size:initial; height:800px; width:100%;
+                            style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
                         background-size:cover;
                         background-image: url("/storage/{{ $slideFirst->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
                             '>
@@ -30,7 +29,7 @@
                     @foreach ($slideshows as $item)
                         <div class="carousel-item">
                             <div class="slider-image center"
-                                style='background-position:center; background-size:initial; height:800px; width:100%;
+                                style='background-position:center; background-size:initial; height:800px; width:100%;no-repeat;
                         background-size:cover;
                         background-image: url("/storage/{{ $item->path }}"); box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
                             '>
@@ -97,7 +96,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+
 
     </section>
     <!-- End Hero Section -->
@@ -357,49 +356,77 @@
 <div class="modal fade" id="GoodStateModal_" tabindex="-1" aria-labelledby="GoodStatModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content modal-lg">
+            <div class="modal-header box-shadow-1" style="text-shadow: 1px 1px 2px #7DA0B1">
                 <h1 class="modal-title fs-5" id="GoodStatModalLabel">Pontos em optimo estado: ({{ $totalGoodPoint }})
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" style="background-color: #c9c9c9" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true"><strong>&times;</strong></span>
+                </button>
             </div>
-            {{-- <div class="container">
-                <div class="row">
-                    <div class="modal-body">
-                        @foreach ($totalGoodPoints as $item)
-                            <ul>
-                                <li>Província: {{ $item->provinces->name }} | Ponto:
-                                    {{ $item->name }}
-                                </li>
-                            </ul>
-                        @endforeach
+
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="col-md-6">
+                        <div class="tree">
+                            @foreach ($totalGoodPoints as $item => $pointList)
+                                <ul>
+                                    <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse"
+                                                href="#Web" aria-expanded="true" aria-controls="Web"><i
+                                                    class="collapsed"><i class="fas fa-folder"></i></i>
+                                                <i class="expanded"><i class="far fa-folder-open">
+                                                        @if ($item == 1)
+                                                            <p>{{ $item }} - Bengo</p>
+                                                        @elseif ($item == 2)
+                                                            <p>{{ $item }} - Benguela</p>
+                                                        @elseif ($item == 3)
+                                                            <p>{{ $item }} - Bié</p>
+                                                        @elseif ($item == 4)
+                                                            <p>{{ $item }} - Cabinda</p>
+                                                        @elseif ($item == 5)
+                                                            <p>{{ $item }} - Cuando-Cubango</p>
+                                                        @elseif ($item == 6)
+                                                            <p>{{ $item }} - Cunene</p>
+                                                        @elseif ($item == 7)
+                                                            <p>{{ $item }} - Huambo</p>
+                                                        @elseif ($item == 8)
+                                                            <p>{{ $item }} - Huíla</p>
+                                                        @elseif ($item == 9)
+                                                            <p>{{ $item }} - Kwanza Sul</p>
+                                                        @elseif ($item == 10)
+                                                            <p>{{ $item }} - Kwanza Norte</p>
+                                                        @elseif ($item == 11)
+                                                            <p>{{ $item }} - Luanda</p>
+                                                        @elseif ($item == 12)
+                                                            <p>{{ $item }} - Lunda Norte</p>
+                                                        @elseif ($item == 13)
+                                                            <p>{{ $item }} - Lunda Sul</p>
+                                                        @elseif ($item == 14)
+                                                            <p>{{ $item }} - Malanje</p>
+                                                        @elseif ($item == 15)
+                                                            <p>{{ $item }} - Moxico</p>
+                                                        @elseif ($item == 16)
+                                                            <p>{{ $item }} - Namibe</p>
+                                                        @elseif ($item == 17)
+                                                            <p>{{ $item }} - Uíge</p>
+                                                        @elseif ($item == 18)
+                                                            <p>{{ $item }} - Zaire</p>
+                                                        @endif
+                                                    </i></i></a></span>
+                                        <div id="Web" class="collapse show">
+                                            @foreach ($pointList as $point)
+                                                <ul>
+                                                    <li>{{ $point->name }}</li>
+                                                </ul>
+                                            @endforeach
+                                        </div>
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
-            </div> --}}
-            <div class="tree ">
-                @foreach ($provs as $item)
-                    <ul>
-                        <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse" href="#Web"
-                                    aria-expanded="true" aria-controls="Web"><i class="collapsed"><i
-                                            class="fas fa-folder"></i></i>
-                                    <i class="expanded"><i class="far fa-folder-open"></i></i> Província:
-                                    {{ $item->name }} {{ $item->id }}
-                                </a></span>
-                            <div id="Web" class="collapse show">
-                                @foreach ($totalGoodPoints as $itens)
-                                    <ul>
-                                        <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse"
-                                                    href="#page1" aria-expanded="false" aria-controls="page1"><i
-                                                        class="collapsed"><i class="fas fa-folder"></i></i>
-                                                    <i class="expanded"><i class="far fa-folder-open"></i></i>
-                                                    {{ $itens->name }}</a></span>
-                                        </li>
-                                    </ul>
-                                @endforeach
-                            </div>
-                        </li>
-                    </ul>
-                @endforeach
             </div>
 
             <div class="modal-footer">
@@ -409,27 +436,82 @@
     </div>
 </div>
 
-<div class="modal fade" id="BadStateModal_" tabindex="-1" aria-labelledby="BadStateModalLabel" aria-hidden="true">
+<div class="modal fade" id="BadStateModal_" tabindex="-1" aria-labelledby="BadStateModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content modal-lg">
+            <div class="modal-header box-shadow-1" style="text-shadow: 1px 1px 2px #7DA0B1">
                 <h1 class="modal-title fs-5" id="BadStateModalLabel">Pontos indisponíveis: ({{ $totalBadPoint }})
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" style="background-color: #c9c9c9" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true"><strong>&times;</strong></span>
+                </button>
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="modal-body">
-                        @foreach ($totalBadPoints as $item)
-                            <ul>
-                                <li>Província: {{ $item->provinces->name }} | Ponto:
-                                    {{ $item->name }}
-                                </li>
-                            </ul>
-                        @endforeach
+
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="col-md-6">
+                        <div class="tree">
+                            @foreach ($totalBadPoints as $item => $pointList)
+                                <ul>
+                                    <li><span><a style="color:#000; text-decoration:none;" data-toggle="collapse"
+                                                href="#Web" aria-expanded="true" aria-controls="Web"><i
+                                                    class="collapsed"><i class="fas fa-folder"></i></i>
+                                                <i class="expanded"><i class="far fa-folder-open">
+                                                        @if ($item == 1)
+                                                            <p>{{ $item }} - Bengo</p>
+                                                        @elseif ($item == 2)
+                                                            <p>{{ $item }} - Benguela</p>
+                                                        @elseif ($item == 3)
+                                                            <p>{{ $item }} - Bié</p>
+                                                        @elseif ($item == 4)
+                                                            <p>{{ $item }} - Cabinda</p>
+                                                        @elseif ($item == 5)
+                                                            <p>{{ $item }} - Cuando-Cubango</p>
+                                                        @elseif ($item == 6)
+                                                            <p>{{ $item }} - Cunene</p>
+                                                        @elseif ($item == 7)
+                                                            <p>{{ $item }} - Huambo</p>
+                                                        @elseif ($item == 8)
+                                                            <p>{{ $item }} - Huíla</p>
+                                                        @elseif ($item == 9)
+                                                            <p>{{ $item }} - Kwanza Sul</p>
+                                                        @elseif ($item == 10)
+                                                            <p>{{ $item }} - Kwanza Norte</p>
+                                                        @elseif ($item == 11)
+                                                            <p>{{ $item }} - Luanda</p>
+                                                        @elseif ($item == 12)
+                                                            <p>{{ $item }} - Lunda Norte</p>
+                                                        @elseif ($item == 13)
+                                                            <p>{{ $item }} - Lunda Sul</p>
+                                                        @elseif ($item == 14)
+                                                            <p>{{ $item }} - Malanje</p>
+                                                        @elseif ($item == 15)
+                                                            <p>{{ $item }} - Moxico</p>
+                                                        @elseif ($item == 16)
+                                                            <p>{{ $item }} - Namibe</p>
+                                                        @elseif ($item == 17)
+                                                            <p>{{ $item }} - Uíge</p>
+                                                        @elseif ($item == 18)
+                                                            <p>{{ $item }} - Zaire</p>
+                                                        @endif
+                                                    </i></i></a></span>
+                                        <div id="Web" class="collapse show">
+                                            @foreach ($pointList as $point)
+                                                <ul>
+                                                    <li>{{ $point->name }}</li>
+                                                </ul>
+                                            @endforeach
+                                        </div>
+                                    </li>
+                                </ul>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
             </div>
