@@ -53,8 +53,10 @@ class ProvinceController extends Controller
 
     public function show($id)
     {
-        $response['data'] = Province::find($id);
+        $response['data'] = Province::find($id);        
         $response['count']  = AngolaOnline::where("fk_idProvince", $id)->get()->count();
+        $response['id_'] =   AngolaOnline::where("fk_idProvince", $id)->value('fk_idProvince');
+
         $this->Logger->log('info', 'Visualizou província com o identificador' . $id);
         return view('admin.province.details.index', $response);
     }

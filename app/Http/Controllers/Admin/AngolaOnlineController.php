@@ -20,12 +20,13 @@ class AngolaOnlineController extends Controller
     public function create($id)
     {
         $response['data'] = Province::with(['provinces'])->find($id);
+        $response['id'] = AngolaOnline::where("fk_idProvince", $id)->value('fk_idProvince');
         return view('admin.provincePoint.create.index', $response);
     }
 
     public function store(Request $request, $id)
     {
-        $request->validate(
+        $data = $request->validate(
             [
                 'name' => 'required',
                 'description' => 'required',
@@ -38,12 +39,7 @@ class AngolaOnlineController extends Controller
             ]
         );
         try {
-            AngolaOnline::create([
-                'fk_idProvince' => $id,
-                'name' => $request->name,
-                'description' => $request->description,
-                'state' => $request->state,
-            ]);
+            AngolaOnline::create($data);
         } catch (Exception $e) {
             return $e;
         }
@@ -51,24 +47,38 @@ class AngolaOnlineController extends Controller
         return redirect("admin/province/show/$id")->with('create', '1');
     }
 
-    public function update($id)
+    public function edit($id, $id_)
+    {
+        $response['src'] = Province::find($id);
+        $response['data'] = AngolaOnline::find($id_);
+        $response['id'] = AngolaOnline::where("fk_idProvince", $id)->value('fk_idProvince');
+        $response['id_'] = AngolaOnline::where("id", $id_)->value('id');
+        $this->Logger->log('info', 'Entrou em editar província com o identificador' . $id_);
+        return view('admin.provincePoint.edit.index', $response);
+    }
+
+    public function update(Request $request, $id)
     {
         $data = AngolaOnline::find($id);
         $fk = AngolaOnline::where("fk_idProvince", $data->fk_idProvince)->value("fk_idProvince");
-        $state = $data->state;
-        if ($state == 'Activo') {
-            $st = "Inactivo";
-        } else {
-            $st = "Activo";
-        }
+        $data = $request->validate(
+            [
+                'name' => 'required',
+                'description' => 'required',
+                'state' => 'required',
+            ],
+            [
+                'name.required' => 'Informar o nome',
+                'description.required' => 'Informar a descrição',
+                'state.required' => 'Informar o estado',
+            ]
+        );
         try {
-            AngolaOnline::find($id)->update([
-                'state' => $st
-            ]);
+            AngolaOnline::find($id)->update($data);
         } catch (Exception $e) {
             return $e;
         }
-        $this->Logger->log('info', 'Cadastrou um ponto com o Identificador ' . $id);
+        $this->Logger->log('info', 'Atualizou um ponto com o Identificador ' . $id);
         return redirect("admin/province/show/$fk")->with('edit', '1');
     }
 
