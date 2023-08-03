@@ -73,7 +73,7 @@ class UserController extends Controller
         try {
             User::create($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         return redirect()->back()->with('create', '1');
         $this->Logger->log('info', 'Cadastrou utilizador: ' . $request['name']);
@@ -133,12 +133,16 @@ class UserController extends Controller
             if ($exists_email) {
                 return redirect()->back()->with('exist_email', '1');
             }
-           User::find($id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'level' => $request->level,
-                'password' => Hash::make($request->password),
-            ]);
+            try {
+                User::find($id)->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'level' => $request->level,
+                    'password' => Hash::make($request->password),
+                ]);
+            } catch (Exception $e) {
+                return redirect()->back()->with('catch', '1');
+            }
             $this->Logger->log('info', 'Editou um Utilizador com o identificador ' . $id);
             return redirect()->route('admin.user.index')->with('edit', '1');
         }
@@ -158,9 +162,13 @@ class UserController extends Controller
                     Rules\Password::defaults()
                 ],
             ]);
-            User::find($id)->update([
-                'password' => Hash::make($request->password),
-            ]);
+            try {
+                User::find($id)->update([
+                    'password' => Hash::make($request->password),
+                ]);
+            } catch (Exception $e) {
+                return redirect()->back()->with('catch', '1');
+            }
             $this->Logger->log('info', 'Editou senha um Utilizador com o identificador ' . $id);
             return redirect()->route('admin.user.index')->with('edit', '1');
         }
@@ -170,20 +178,15 @@ class UserController extends Controller
     {
         $count = User::count();
         if ($count > 1) {
+            try {
+                User::find($id)->delete();
+            } catch (Exception $e) {
+                return redirect()->back()->with('catch', '1');
+            }
             $this->Logger->log('info', 'Eliminou um Utilizador com o identificador ' . $id);
-            User::find($id)->delete();
             return redirect()->back()->with('destroy', '1');
         } else {
             return redirect()->back();
         }
-    }
-
-    public function search(Request $request)
-    {
-        $searchText = $request->get('searchText');
-        $count = User::count();
-        $data = User::where('name', "Like", "%" . $searchText . "%")->Orwhere('email', $searchText)->OrderBy('name', 'asc')->paginate(5);
-        return view('admin.user.list.index', compact('data', 'count'));
-        $this->Logger->log('info', 'Efectuou uma pesquisa em utilizador');
     }
 }

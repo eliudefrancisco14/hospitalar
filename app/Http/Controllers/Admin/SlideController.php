@@ -51,7 +51,7 @@ class SlideController extends Controller
                 'description' => $request->description,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um slide show ' . $data->email);
         return redirect()->route('admin.slide.index')->with('create', '1');
@@ -97,7 +97,7 @@ class SlideController extends Controller
                 'description' => $request->description,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou um slide show com o identificador ' . $id);
         return redirect()->route('admin.slide.index')->with('edit', '1');
@@ -105,8 +105,12 @@ class SlideController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Slide::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um slide show com o identificador ' . $id);
-        Slide::find($id)->delete();
         return redirect()->route('admin.slide.index')->with('destroy', '1');
     }
 }

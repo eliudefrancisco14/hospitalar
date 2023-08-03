@@ -53,7 +53,7 @@ class PartnerController extends Controller
                 'link' => $request->link,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um parceiro com o titulo ' . $data->title);
         return redirect()->route('admin.partner.index')->with('create', '1');
@@ -110,7 +110,7 @@ class PartnerController extends Controller
                 ]
             );
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $response['data'] = Partner::get();
         $this->Logger->log('info', 'Editou o parceiro com o identificador ' . $id);
@@ -119,8 +119,12 @@ class PartnerController extends Controller
 
     public function destroy($id)
     {
-        $this->Logger->log('info', 'Eliminou um parceiro com o identificador ' . $id);
+        try{
         Partner::find($id)->delete();
+    } catch (Exception $e) {
+        return redirect()->back()->with('catch', '1');
+    }
+        $this->Logger->log('info', 'Eliminou um parceiro com o identificador ' . $id);
         return redirect()->back()->with('destroy', '1');
     }
 }

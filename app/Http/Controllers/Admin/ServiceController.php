@@ -53,7 +53,7 @@ class ServiceController extends Controller
                 'description' => $request->description,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um serviço com o titulo ' . $data->title);
         return redirect()->route('admin.service.index')->with('create', '1');
@@ -110,7 +110,7 @@ class ServiceController extends Controller
                 ]
             );
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $response['data'] = Service::get();
         $this->Logger->log('info', 'Editou o serviço com o identificador ' . $id);
@@ -119,8 +119,12 @@ class ServiceController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Service::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um serviço com o identificador ' . $id);
-        Service::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

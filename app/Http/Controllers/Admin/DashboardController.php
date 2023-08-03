@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Classes\Logger;
 use App\Http\Controllers\Controller;
-use App\Models\{AngolaOnline, DigitalInclusion, Log, Service, User};
 use Illuminate\Support\Facades\Auth;
+use App\Models\{AngolaOnline, DigitalInclusion, Log, Service, User};
 
 class DashboardController extends Controller
 {
@@ -16,11 +16,7 @@ class DashboardController extends Controller
         $this->Logger = new Logger();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
 

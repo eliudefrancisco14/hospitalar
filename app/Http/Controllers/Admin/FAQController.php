@@ -45,7 +45,7 @@ class FAQController extends Controller
         try {
             $data = Faq::create($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma FAQ ' . $data->email);
         return redirect()->route('admin.faq.index')->with('create', '1');
@@ -81,7 +81,7 @@ class FAQController extends Controller
         try {
             Faq::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou uma FAQ com o identificador ' . $id);
         return redirect()->route('admin.faq.index')->with('edit', '1');
@@ -89,8 +89,12 @@ class FAQController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Faq::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma FAQ com o identificador ' . $id);
-        Faq::find($id)->delete();
         return redirect()->route('admin.faq.index')->with('destroy', '1');
     }
 }

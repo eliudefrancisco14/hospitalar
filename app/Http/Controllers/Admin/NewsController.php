@@ -61,7 +61,7 @@ class NewsController extends Controller
                 'state' => 'Autorizada'
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma noticia com o titulo ' . $news->title);
         return redirect("admin/news/show/$news->id")->with('create', '1');
@@ -115,7 +115,7 @@ class NewsController extends Controller
                 'state' => 'Autorizada'
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou uma noticia com o identificador ' . $id);
         return redirect("admin/news/show/$id")->with('edit', '1');
@@ -123,8 +123,12 @@ class NewsController extends Controller
 
     public function destroy($id)
     {
+        try {
+            News::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma noticia com o identificador ' . $id);
-        News::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

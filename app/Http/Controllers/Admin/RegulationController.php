@@ -47,7 +47,7 @@ class RegulationController extends Controller
                 'title' => $request->title,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um regulamento com o titulo ' . $regulation->title);
         return redirect("admin/regulation/show/$regulation->id")->with('create', '1');
@@ -88,7 +88,7 @@ class RegulationController extends Controller
                 'title' => $request->title
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou um regulamento com o identificador ' . $id);
         return redirect("admin/regulation/show/$id")->with('edit', '1');
@@ -96,8 +96,12 @@ class RegulationController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Regulation::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um Regulamento com o identificador ' . $id);
-        Regulation::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

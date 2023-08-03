@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Exception;
 use App\Classes\Logger;
-use App\Models\{AngolaOnline, Province};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\{AngolaOnline, Province};
 
 class ProvinceController extends Controller
 {
@@ -45,7 +45,7 @@ class ProvinceController extends Controller
         try {
             Province::create($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma província de nome ' . $data['name']);
         return redirect()->route('admin.province.index')->with('create', '1');
@@ -53,7 +53,7 @@ class ProvinceController extends Controller
 
     public function show($id)
     {
-        $response['data'] = Province::find($id);        
+        $response['data'] = Province::find($id);
         $response['count']  = AngolaOnline::where("fk_idProvince", $id)->get()->count();
         $response['id_'] =   AngolaOnline::where("fk_idProvince", $id)->value('fk_idProvince');
 
@@ -83,7 +83,7 @@ class ProvinceController extends Controller
         try {
             Province::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma província com o identificador' . $id);
         return redirect()->route('admin.province.index')->with('edit', '1');
@@ -91,8 +91,12 @@ class ProvinceController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Province::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma província com o identificador ' . $id);
-        Province::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

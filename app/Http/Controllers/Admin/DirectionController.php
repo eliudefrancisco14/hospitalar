@@ -56,7 +56,7 @@ class DirectionController extends Controller
                 'path' => $file,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou direcção com o nome ' . $direction->name);
         return redirect("admin/direction/show/$direction->id")->with('create', '1');
@@ -104,7 +104,7 @@ class DirectionController extends Controller
                 'path' => $file,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou em direcção com o identificador ' . $id);
         return redirect("admin/direction/show/$id")->with('edit', '1');
@@ -112,8 +112,12 @@ class DirectionController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Direction::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um director com o identificador ' . $id);
-        Direction::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

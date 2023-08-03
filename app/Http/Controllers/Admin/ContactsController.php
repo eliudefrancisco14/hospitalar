@@ -48,7 +48,7 @@ class ContactsController extends Controller
         try {
             Contact::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou um contacto com o identificador ' . $id);
         return redirect()->route('admin.contact.show')->with('edit', '1');
