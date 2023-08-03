@@ -6,7 +6,7 @@
     <section id="hero" class="hero"
         style="background-color: #fff; background-position: center;  background-size: cover; background-repeat: no-repeat;">
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
 
                 @if ($slideFirst)
