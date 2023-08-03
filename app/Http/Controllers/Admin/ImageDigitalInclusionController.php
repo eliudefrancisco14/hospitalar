@@ -39,7 +39,7 @@ class ImageDigitalInclusionController extends Controller
                 ]);
             }
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou Imagens da Galeria com o Identificador ' . $id);
         return redirect("admin/digitalInclusion/show/$id")->with('create_image', '1');
@@ -47,8 +47,12 @@ class ImageDigitalInclusionController extends Controller
 
     public function destroy($id)
     {
+        try {
+            ImageDigitalInclusion::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma Imagem da Inclusão Digital com o identificador ' . $id);
-        ImageDigitalInclusion::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

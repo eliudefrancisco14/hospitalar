@@ -51,7 +51,7 @@ class DepartmentController extends Controller
         try {
             $department = Department::create($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma departamento de nome ' . $department->name);
         return redirect()->route('admin.department.index')->with('create', '1');
@@ -88,7 +88,7 @@ class DepartmentController extends Controller
         try {
             Department::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um departamento com o identificador' . $id);
         return redirect()->route('admin.department.index')->with('edit', '1');
@@ -96,8 +96,12 @@ class DepartmentController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Department::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um departamento com o identificador ' . $id);
-        Department::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

@@ -67,9 +67,24 @@
             title: 'Registo Já Existe!',
             showConfirmButton: true
         })
+        @elseif(session('exists')) <
+            script >
+            Swal.fire({
+                icon: 'error',
+                title: 'Registo Já Existe!',
+                showConfirmButton: true
+            })
+    </script>
+@elseif(session('catch'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro:1364 - Suporte Técnico',
+            showConfirmButton: false,
+            timer: 2500
+        })
     </script>
 @endif
-
 
 <script src="{{ asset('dashboard/assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/libs/popper/popper.js') }}"></script>

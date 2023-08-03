@@ -39,7 +39,7 @@ class ImageGalleryController extends Controller
                 ]);
             }
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou Imagens da Galeria com o Identificador ' . $id);
         return redirect("admin/gallery/show/$id")->with('create_image', '1');
@@ -47,8 +47,12 @@ class ImageGalleryController extends Controller
 
     public function destroy($id)
     {
+        try {
+            ImageGallery::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma imagem da galeria com o identificador ' . $id);
-        ImageGallery::find($id)->delete();
         return redirect()->route('admin.gallery.index')->with('destroy', '1');
     }
 }

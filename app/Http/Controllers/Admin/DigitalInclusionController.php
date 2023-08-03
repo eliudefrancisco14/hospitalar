@@ -53,7 +53,7 @@ class DigitalInclusionController extends Controller
                 'description' => $request->description,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma inclusão digital de nome ' . $digitalInclusion->name);
         return redirect("admin/digitalInclusion/show/$digitalInclusion->id")->with('create', '1');
@@ -100,7 +100,7 @@ class DigitalInclusionController extends Controller
                 'description' => $request->description,
             ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma inclusão digital com o identificador' . $id);
         return redirect("admin/digitalInclusion/show/$id")->with('edit', '1');
@@ -108,8 +108,12 @@ class DigitalInclusionController extends Controller
 
     public function destroy($id)
     {
+        try {
+            DigitalInclusion::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma inclusão digital com o identificador ' . $id);
-        DigitalInclusion::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }

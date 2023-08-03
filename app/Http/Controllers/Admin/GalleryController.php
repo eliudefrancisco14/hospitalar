@@ -56,7 +56,7 @@ class GalleryController extends Controller
                 ]
             );
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'capa de galeria - utilizador: ' . $request['name']);
         return redirect()->route('admin.gallery.index')->with('create', '1');
@@ -115,7 +115,7 @@ class GalleryController extends Controller
                 ]
             );
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou uma imagem da galeria com o identificador ' . $id);
         return redirect()->route('admin.gallery.index')->with('edit', '1');
@@ -123,8 +123,12 @@ class GalleryController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Gallery::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma imagem da galeria com o identificador ' . $id);
-        Gallery::find($id)->delete();
         return redirect()->route('admin.gallery.index')->with('destroy', '1');
     }
 }

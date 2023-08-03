@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use App\Classes\Logger;
 use Illuminate\Http\Request;
+use InvalidArgumentException;
 use App\Http\Controllers\Controller;
 use App\Models\{Province, AngolaOnline};
 
@@ -26,7 +27,7 @@ class AngolaOnlineController extends Controller
 
     public function store(Request $request, $id)
     {
-        $data = $request->validate(
+       $request->validate(
             [
                 'name' => 'required',
                 'description' => 'required',
@@ -39,9 +40,14 @@ class AngolaOnlineController extends Controller
             ]
         );
         try {
-            AngolaOnline::create($data);
+            AngolaOnline::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'state' => $request->state,
+                'fk_idProvince' => $id,
+            ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um ponto com o Identificador ' . $id);
         return redirect("admin/province/show/$id")->with('create', '1');
@@ -74,9 +80,13 @@ class AngolaOnlineController extends Controller
             ]
         );
         try {
-            AngolaOnline::find($id)->update($data);
+            AngolaOnline::find($id)->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'state' => $request->state,
+            ]);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Atualizou um ponto com o Identificador ' . $id);
         return redirect("admin/province/show/$fk")->with('edit', '1');
@@ -84,8 +94,12 @@ class AngolaOnlineController extends Controller
 
     public function destroy($id)
     {
+        try {
+            AngolaOnline::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um ponto com o identificador ' . $id);
-        AngolaOnline::find($id)->delete();
         return redirect()->route('admin.province.index')->with('destroy', '1');
     }
 }
