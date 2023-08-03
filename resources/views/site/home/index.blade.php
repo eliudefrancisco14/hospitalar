@@ -112,7 +112,7 @@
                 </div>
                 <div class="row gy-4 align-items-center">
 
-                    <div class="col-lg-6">
+                    <div class="col-lg-8">
                         <div id="container"></div>
                     </div>
 
@@ -186,9 +186,7 @@
                         ();
                     </script>
                 @endsection
-
-                <div class="col-lg-1"></div>
-                <div class="col-lg-5 py-4">
+                <div class="col-lg-4 py-4">
 
                     <div class="stats-item d-flex align-items-center">
                         <span data-purecounter-start="0" data-purecounter-end="{{ $totalPoint }}"
@@ -436,8 +434,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="BadStateModal_" tabindex="-1" aria-labelledby="BadStateModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="BadStateModal_" tabindex="-1" aria-labelledby="BadStateModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-lg">
             <div class="modal-header box-shadow-1" style="text-shadow: 1px 1px 2px #7DA0B1">

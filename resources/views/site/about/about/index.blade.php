@@ -24,9 +24,11 @@
             <div class="container" data-aos="fade-up">
 
                 @foreach ($definitions as $item)
-                    <div class="row gy-4 mb-2">
-                        <h3>{{ $item->title }}</h3>
-                        
+                    <div class="row mt-2">
+                        <div class="definition">
+                            <h3>{{ $item->title }}</h3>
+                        </div>
+
                         <p style="text-align: justify">{!! html_entity_decode($item->description) !!}</p>
                     </div>
                 @endforeach

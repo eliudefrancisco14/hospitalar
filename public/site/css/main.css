@@ -2932,3 +2932,29 @@ section .particles {
   color: #fff;
   text-align: center
 }
+
+.definition {
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.definition h3 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.definition h3:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--color-primary);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
