@@ -30,7 +30,6 @@ class ProvinceDocumentController extends Controller
         return view('admin.provinceDocument.edit.index', $response);
     }
 
-
     public function update(Request $request, $id)
     {
         $data = $request->validate([
@@ -41,7 +40,7 @@ class ProvinceDocumentController extends Controller
         try {
             ProvinceDocument::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou Documento de Pontos de pontos Angola Online');
         return redirect()->route('admin.provinceDocument.show')->with('edit', '1');

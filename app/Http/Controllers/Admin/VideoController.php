@@ -49,7 +49,7 @@ class VideoController extends Controller
         try {
             $data = Video::create($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou um Video com o titulo ' . $data->title);
         return redirect("admin/video/show/$data->id")->with('create', '1');
@@ -90,7 +90,7 @@ class VideoController extends Controller
         try {
             Video::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou um Video com o identificador ' . $id);
         return redirect()->route('admin.video.index')->with('edit', '1');
@@ -98,8 +98,12 @@ class VideoController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Video::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou um Video com o identificador ' . $id);
-        Video::find($id)->delete();
         return redirect()->route('admin.video.index')->with('destroy', '1');
     }
 }

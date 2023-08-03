@@ -45,7 +45,7 @@ class DefinitionController extends Controller
         try {
             $definition = Definition::create($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Cadastrou uma definição de título ' . $definition->title);
         return redirect()->route('admin.definition.index')->with('create', '1');
@@ -81,7 +81,7 @@ class DefinitionController extends Controller
         try {
             Definition::find($id)->update($data);
         } catch (Exception $e) {
-            return $e;
+            return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Editou uma definição com o identificador' . $id);
         return redirect()->route('admin.definition.index')->with('edit', '1');
@@ -89,8 +89,12 @@ class DefinitionController extends Controller
 
     public function destroy($id)
     {
+        try {
+            Definition::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
         $this->Logger->log('info', 'Eliminou uma definição com o identificador ' . $id);
-        Definition::find($id)->delete();
         return redirect()->back()->with('destroy', '1');
     }
 }
