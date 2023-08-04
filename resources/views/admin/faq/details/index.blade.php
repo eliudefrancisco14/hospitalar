@@ -25,32 +25,22 @@
                                             <h5 class="mb-1">
                                                 <b>Descrição</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ $data->description }}</p>
-
+                                            <p class="text-dark text-justify">{!! html_entity_decode($data->description) !!}</p>
                                         </div>
-
-
                                         <div class="row align-items-center">
                                             <hr>
-                                            <div class="col-md-6 mb-2">
-                                                <p class="mb-1 text-dark"><b>Data de
-                                                        Cadastro:</b>{{ date('d-m-Y H:m', strtotime($data->created_at)) }}
-                                                </p>
-                                            </div>
-                                            <div class="col-md-6 mb-2">
-                                                <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                    {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
-                                                </p>
-
-                                            </div>
+                                            <p class="mb-1 text-dark"><b>Data de cadastro:</b>
+                                                {{ date('d-m-Y H:m', strtotime($data->created_at)) }}
+                                            </p>
+                                            <p class="mb-1 text-dark"><b>Data de atualização:</b>
+                                                {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
+                                            </p>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

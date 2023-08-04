@@ -19,14 +19,14 @@ class ContactsController extends Controller
 
     public function show()
     {
-        $response['contact'] = Contact::first();
+        $response['data'] = Contact::first();
         $this->Logger->log('info', 'Visualizou o contacto');
         return view('admin.contact.details.index', $response);
     }
 
     public function edit()
     {
-        $response['contact'] = Contact::first();
+        $response['data'] = Contact::first();
         $this->Logger->log('info', 'Entrou em editar o contacto');
         return view('admin.contact.edit.index', $response);
     }

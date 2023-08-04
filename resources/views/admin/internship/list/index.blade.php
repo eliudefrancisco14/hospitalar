@@ -33,8 +33,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="bg-white">
-
-                                            @foreach ($internships as $item)
+                                            @foreach ($data as $item)
                                                 <tr class="text-center text-dark">
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->name }} </td>
@@ -48,24 +47,19 @@
                                                             </button>
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/definition/show/{$item->id}") }}"><i
+                                                                    href="{{ url("admin/internship/show/{$item->id}") }}"><i
                                                                         class="bx bx-detail"></i> Detalhe</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/definition/delete/{$item->id}") }}"><i
+                                                                    href="{{ url("admin/internship/delete/{$item->id}") }}"><i
                                                                         class="bx bx-trash me-1"></i> Excluir</a>
                                                             </div>
                                                         </div>
-
                                                     </td>
                                                 </tr>
                                             @endforeach
-
                                         </tbody>
                                     </table>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>

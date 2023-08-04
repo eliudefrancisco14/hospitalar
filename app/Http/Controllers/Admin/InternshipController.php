@@ -17,14 +17,14 @@ class InternshipController extends Controller
     }
     public function index()
     {
-        $response['interships'] = Internship::OrderBy('id','desc')->get();
-        return view('admin.intership.list.index', $response);
+        $response['data'] = Internship::OrderBy('id', 'desc')->get();
+        return view('admin.internship.list.index', $response);
     }
 
     public function show($id)
     {
-        $response['intership'] = Internship::find($id);
-        return view('admin.intership.details.index', $response);
+        $response['data'] = Internship::find($id);
+        return view('admin.internship.details.index', $response);
     }
 
     public function destroy($id)
@@ -35,6 +35,6 @@ class InternshipController extends Controller
             return redirect()->back()->with('catch', '1');
         }
         $this->Logger->log('info', 'Eliminou uma Inscrição com o identificador ' . $id);
-        return redirect()->route('admin.intership.index')->with('destroy', '1');
+        return redirect()->back()->with('destroy', '1');
     }
 }

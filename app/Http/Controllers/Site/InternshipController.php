@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
 use App\Models\Internship;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class InternshipController extends Controller
 {
@@ -16,7 +16,7 @@ class InternshipController extends Controller
     public function store(Request $request)
     {
         
-        $validation = $request->validate([
+     $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
@@ -26,14 +26,13 @@ class InternshipController extends Controller
 
         $file = $request->file('doc')->store('intership_document'); 
 
-        $internship = Internship::create([
+        Internship::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'doc' => $file,
             'description' => $request->message,
         ]);
-
         return redirect()->route('site.internship')->with('create','1');
     }
 }

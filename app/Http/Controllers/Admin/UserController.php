@@ -43,8 +43,7 @@ class UserController extends Controller
                     'required',
                     'confirmed',
                     'min:8',
-                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-                    Rules\Password::defaults()
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'
                 ],
                 'level' => 'required',
             ],

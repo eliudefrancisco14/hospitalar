@@ -15,42 +15,42 @@
                         <div class="col-lg-12 mt-2 col-md-12 col-12">
                             <div class="card row align-items-center">
                                 <div class="card-body">
-                                    <h3>Nome: "{{ $internship->name }}"</h3>
+                                    <h3>Nome: "{{ $data->name }}"</h3>
 
                                     <div class="col-md-12 mb-2">
                                         <h5 class="mb-1">
-                                            <b>Email</b>
+                                            <b>E-mail</b>
                                         </h5>
-                                        <p class="text-dark text-justify">{{ $internship->email }}</p>
+                                        <p class="text-dark text-justify">{{ $data->email }}</p>
                                     </div>
                                     <div class="col-md-12 mb-2">
                                         <h5 class="mb-1">
-                                            <b>telefone</b>
+                                            <b>Telefone</b>
                                         </h5>
-                                        <p class="text-dark text-justify">{{ $internship->phone }}</p>
+                                        <p class="text-dark text-justify">{{ $data->phone }}</p>
                                     </div>
                                     <div class="col-md-12 mb-2">
                                         <h5 class="mb-1">
                                             <b>Curriculum</b>
                                         </h5>
-                                        <p class="text-dark text-justify"><a href="{{ url("/storage/$internship->doc") }}" target="_blank"> Curriculum Vitae </a></p>
+                                        <p class="text-dark text-justify"><a href="{{ url("/storage/$data->doc") }}" target="_blank"> Curriculum Vitae </a></p>
                                     </div>
                                     <div class="col-md-12 mb-2">
                                         <h5 class="mb-1">
                                             <b>Descrição</b>
                                         </h5>
-                                        <p class="text-dark text-justify">{{ $internship->description }}</p>
+                                        <p class="text-dark text-justify">{{ $data->description }}</p>
                                     </div>
-
 
                                     <div class="row align-items-center">
                                         <div class="col-md-7 mb-2">
                                             <hr>
-                                            <p class="mb-1 text-dark"><b>internship de Cadastro:</b> {{ $internship->created_at }}
+                                            <p class="mb-1 text-dark"><b>Data de cadastro:</b>
+                                                {{ date('d-m-Y H:m', strtotime($data->created_at)) }}
                                             </p>
-                                            <p class="mb-1 text-dark"><b>Última Actualização:</b> {{ $internship->updated_at }}
+                                            <p class="mb-1 text-dark"><b>Data de atualização:</b>
+                                                {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
                                             </p>
-
                                         </div>
                                     </div>
                                 </div>
