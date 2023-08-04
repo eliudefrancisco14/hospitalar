@@ -29,7 +29,11 @@
                         <article class="blog-details">
 
                             <div class="post-img">
-                                <img src="{{ url("/storage/$service->logo") }}" alt="" class="img-fluid">
+                                <div class="card border-0 bg-transparent">
+                                    <div class="card-img-top img-fluid rounded"
+                                        style='background-image:url("/storage/{{ $service->logo }}");background-position:center;background-size:cover;height:800px;width:auto;'>
+                                    </div>
+                                </div> <!-- .card -->
                             </div>
 
                             <h2 class="title">{{ $service->title }}

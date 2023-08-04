@@ -30,7 +30,10 @@ class Contact extends Mailable
      */
     public function build()
     {
-        return $this->subject('Correspondência do Portal')
-        ->view('mail.contact.index');
+        return $this
+        ->from( config('mail.from.address'))
+        ->subject('Contacto do Portal')
+        ->view('mail.contact.index')
+        ->with('data',$this->contact);
     }
 }
