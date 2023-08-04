@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
 use App\Models\{Gallery, News};
+use App\Http\Controllers\Controller;
 
 class NewsController extends Controller
 {

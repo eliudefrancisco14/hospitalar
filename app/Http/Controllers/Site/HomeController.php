@@ -31,8 +31,6 @@ class HomeController extends Controller
 
         $response['provinceDocument'] = ProvinceDocument::first();
 
-        // Pegar todos os pontos de cada provincia
-
         $province = Province::where('name', 'Bengo')->first();
         $ProvincePoint = AngolaOnline::where('fk_idProvince', $province->id)->count();
         $response['Bengo'] = json_encode($ProvincePoint);
@@ -104,9 +102,6 @@ class HomeController extends Controller
         $province = Province::where('name', 'Zaire')->first();
         $ProvincePoint = AngolaOnline::where('fk_idProvince', $province->id)->count();
         $response['Zaire'] = json_encode($ProvincePoint);
-
-
-
 
         return view('site.home.index', $response);
     }

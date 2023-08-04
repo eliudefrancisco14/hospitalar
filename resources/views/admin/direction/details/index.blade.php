@@ -32,12 +32,12 @@
                                         <div class="row align-items-center">
                                             <div class="col-md-7 mb-2">
                                                 <hr>
-                                                <p class="mb-1 text-dark"><b>Data de Cadastro:</b> {{ $data->created_at }}
+                                                <p class="mb-1 text-dark"><b>Data de cadastro:</b>
+                                                    {{ date('d-m-Y H:m', strtotime($data->created_at)) }}
                                                 </p>
-                                                <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                    {{ $data->updated_at }}
+                                                <p class="mb-1 text-dark"><b>Data de atualização:</b>
+                                                    {{ date('d-m-Y H:m', strtotime($data->updated_at)) }}
                                                 </p>
-        
                                             </div>
                                         </div>
                                     </div>
