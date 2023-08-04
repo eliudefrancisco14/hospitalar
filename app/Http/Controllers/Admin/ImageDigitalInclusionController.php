@@ -16,11 +16,12 @@ class ImageDigitalInclusionController extends Controller
     {
         $this->Logger = new Logger;
     }
+    
     public function create($id)
     {
         $response['data'] = DigitalInclusion::with(['images'])->find($id);
         $this->Logger->log('info', 'Entrou em Adicionar Imagens da Inclusão Digital com o Identificador ' . $id);
-        return view('admin.imageDigitalInclusion.create.index', $response);
+        return view('admin.imageDigitalinclusion.create.index', $response);
     }
 
     public function store(Request $request, $id)

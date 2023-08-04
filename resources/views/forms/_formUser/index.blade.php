@@ -55,8 +55,7 @@
                                         <div class="input-group input-group-merge">
                                             <input type="password" id="password" class="form-control" name="password"
                                                 placeholder="************" aria-describedby="password" />
-                                            <span class="input-group-text cursor-pointer"><i
-                                                    class="bx bx-hide"></i></span>
+                                            <span class="input-group-text cursor-pointer"></span>
                                         </div>
                                     </div>
 
@@ -67,8 +66,7 @@
                                             <input type="password" id="password_confirmation" class="form-control"
                                                 name="password_confirmation" placeholder="************"
                                                 aria-describedby="password_confirmation" />
-                                            <span class="input-group-text cursor-pointer"><i
-                                                    class="bx bx-hide"></i></span>
+                                            <span class="input-group-text cursor-pointer"></span>
                                         </div>
                                     </div>
                                 </div>
