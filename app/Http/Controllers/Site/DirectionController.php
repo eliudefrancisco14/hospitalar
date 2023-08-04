@@ -9,20 +9,25 @@ use Illuminate\Http\Request;
 
 class DirectionController extends Controller
 {
-    public function index(){
-        $response['directions'] = Direction::OrderBy('id','Desc')->limit(3)->get();
-        $response['departments'] = Department::OrderBy('id','Desc')->get();
+    public function index()
+    {
+        $response['directions'] = Direction::OrderBy('id', 'Desc')->limit(3)->get();
+        $response['departments'] = Department::OrderBy('id', 'Desc')->get();
         return view('site.about.organization.all.index', $response);
     }
 
-    public function show($name){
-        
+    public function show($name)
+    {
+
         try {
             $response['direction'] = Direction::where([['name', urldecode($name)]])->first();
-           
-            return view('site.about.organization.single.index', $response);
         } catch (\Throwable $th) {
-            return redirect()->route('site.organization.all');
+            return redirect()->route('site.organization');
+        }
+        if ($response['direction']) {
+            return view('site.about.organization.single.index', $response);
+        }else{
+            return view('errors.404');
         }
     }
 }

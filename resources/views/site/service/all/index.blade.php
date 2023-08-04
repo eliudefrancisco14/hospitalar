@@ -24,10 +24,6 @@
         <section id="blog" class="blog">
             <div class="container" data-aos="fade-up">
 
-                <div class="section-header">
-                    <p>Serviços </p>
-                </div>
-
                 <div class="row gy-4 posts-list">
 
                     @foreach ($services as $item)
@@ -40,10 +36,10 @@
                                 </div>
 
                                 <h2 class="title">
-                                    <a href="#">{{ $item->title }}</a>
+                                    <a href="{!! url('/servicos/' . urlencode($item->title)) !!}">{{ $item->title }}</a>
                                 </h2>
 
-                                <p class="post-category">{{ $item->description }}</p>
+                                <p class="post-category">{!! html_entity_decode(mb_substr($item->description, 0, 100, 'UTF-8')) !!}</p>
 
                             </article>
                         </div><!-- End post list item -->

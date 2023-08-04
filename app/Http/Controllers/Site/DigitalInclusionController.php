@@ -25,7 +25,7 @@ class DigitalInclusionController extends Controller
            
             return view('site.digitalIncludsion.single.index', $response);
         } catch (\Throwable $th) {
-            return redirect()->route('site.digitalIncludsion.all');
+            return redirect()->route('site.digitalInclusion');
         }
     }
 
