@@ -170,7 +170,7 @@
                                 },
                                 series: [{
                                     data: data,
-                                    name: 'Ponto(s) da província',
+                                    name: 'dados aleatórios',
                                     states: {
                                         hover: {
                                             color: '#BADA55'

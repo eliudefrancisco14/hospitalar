@@ -19,7 +19,7 @@ class HelpController extends Controller
             'msg' => 'required|string',
         ]);
 
-        Mail::to(['eliude.francisco@infosi.gov.ao'])->send(new MailContact($request->all()));
+        Mail::to(config('mail.from.address'))->send(new MailContact($request->all()));
         return redirect()->back()->with('helpCreate', '1');
     }
 }

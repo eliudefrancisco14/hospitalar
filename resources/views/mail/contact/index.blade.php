@@ -192,7 +192,7 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="https://www.43cce.sadc.ao/site/images/logo-vertical.png"
+                                                                            src="https://infosi.gov.ao/img/logo.svg"
                                                                             alt="Image" title="Image"
                                                                             width="200" />
 
@@ -290,8 +290,7 @@
                                                                     <strong>
                                                                         <span
                                                                             style="font-size: 30px; line-height: 42px;">
-                                                                            43ª Cimeira de Chefes de Estado e de Governo
-                                                                            da SADC
+                                                                            Portal Oficial do INFOSI
                                                                         </span>
                                                                     </strong>
                                                                 </p>
@@ -906,8 +905,7 @@
                                                                 style="color: #ecf7ff; line-height: 140%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;">
                                                                     <span>{{ date('Y') }} &copy;
-                                                                        Portal da 43ª Cimeira de Chefes de Estado e de
-                                                                        Governo da SADC
+                                                                        Portal Oficial do INFOSI
                                                                     </span>
                                                                     by <a href="https://infosi.gov.ao/"
                                                                         target="_blank" class="text-white">INFOSI</a>

@@ -82,15 +82,36 @@ background-repeat: no-repeat; ">
 <script src="/js/sweetalert2.all.min.js"></script>
 <!-- Template Main JS File -->
 <script src="/site/js/main.js"></script>
-@if (session('message'))
+
+@if (session('helpCreate'))
     <script>
         Swal.fire({
             icon: 'success',
-            title: 'Sua Inscrição foi feita com sucesso!',
+            title: 'Mensagem enviada com sucesso!',
+            text: 'Obrigado por nos contactar!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif (session('create'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Candidatura submetida com sucesso!',
+            text: 'Consulte a caixa de entrada do email que informou!',
+            showConfirmButton: true
+        })
+    </script>
+@elseif (session('error'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Atenção',
+            text: 'Tente novamente ou contacte a área de suporte',
             showConfirmButton: true
         })
     </script>
 @endif
+
 @yield('JS')
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

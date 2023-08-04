@@ -15,6 +15,7 @@ class InternshipController extends Controller
 
     public function store(Request $request)
     {
+        
         $validation = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -23,7 +24,7 @@ class InternshipController extends Controller
             'message' => 'required',
         ]);
 
-        $file = $request->file('doc')->store('intership_image'); 
+        $file = $request->file('doc')->store('intership_document'); 
 
         $internship = Internship::create([
             'name' => $request->name,
@@ -33,6 +34,6 @@ class InternshipController extends Controller
             'description' => $request->message,
         ]);
 
-        return view('site.intership.index')->with('create','1');
+        return redirect()->route('site.internship')->with('create','1');
     }
 }

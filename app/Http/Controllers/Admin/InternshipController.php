@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use Exception;
+use App\Classes\Logger;
 use App\Models\Internship;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class InternshipController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $Logger;
+
+    public function __construct()
+    {
+        $this->Logger = new Logger;
+    }
     public function index()
     {
         $response['interships'] = Internship::OrderBy('id','desc')->get();
@@ -25,4 +27,14 @@ class InternshipController extends Controller
         return view('admin.intership.details.index', $response);
     }
 
+    public function destroy($id)
+    {
+        try {
+            Internship::find($id)->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('catch', '1');
+        }
+        $this->Logger->log('info', 'Eliminou uma Inscrição com o identificador ' . $id);
+        return redirect()->route('admin.intership.index')->with('destroy', '1');
+    }
 }
