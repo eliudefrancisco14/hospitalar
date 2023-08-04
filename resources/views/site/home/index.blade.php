@@ -220,8 +220,8 @@
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
-                <h2>Nossos serviços</h2>
-                <p>Aqui apresentamos os nossos serviço mais destacados</p>
+                <h2><a href="{{ route('site.services') }}">Nossos serviços</a></h2>
+                <p>Aqui apresentamos os nossos serviços mais destacados</p>
             </div>
 
             <div class="row gy-4 posts-list " data-aos="fade-up" data-aos-delay="100">
@@ -235,7 +235,7 @@
                             </div>
 
                             <h2 class="title">
-                                <a href="{{ route('site.services') }}">{{ $item->title }}</a>
+                                <a href="{!! url('/servicos/' . urlencode($item->title)) !!}">{{ $item->title }}</a>
                             </h2>
 
                             <p class="post-category">{!! html_entity_decode(mb_substr($item->description, 0, 100, 'UTF-8')) !!}</p>

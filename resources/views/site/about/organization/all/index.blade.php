@@ -63,7 +63,7 @@
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
                     <h2>Departamentos</h2>
-                    <p>O INFOSI intrega os seguintes departamentos</p>
+                    <p>O INFOSI integra os seguintes departamentos</p>
                 </div>
                 <div class="row gy-4">
 

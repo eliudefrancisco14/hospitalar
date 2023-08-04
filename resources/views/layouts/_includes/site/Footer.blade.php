@@ -25,6 +25,7 @@ background-repeat: no-repeat; ">
                 <a href="{{ route('site.about') }}" class="text-white-50 ank">Definição</a><br>
                 <a href="{{ route('site.organization') }}" class="text-white-50 ank">Estrutura Orgânica</a><br>
                 <a href="{{ route('site.regulation') }}" class="text-white-50 ank">Regulamentos</a><br>
+                <a href="{{ route('site.services') }}" class="text-white-50 ank">Serviços</a><br>
                 <a href="{{ route('site.contact') }}" class="text-white-50 ank">contactos</a><br>
             </div>
 

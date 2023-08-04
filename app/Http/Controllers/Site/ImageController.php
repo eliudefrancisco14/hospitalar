@@ -24,7 +24,7 @@ class ImageController extends Controller
            
             return view('site.gallery.image.single.index', $response);
         } catch (\Throwable $th) {
-            return redirect()->route('site.gallery.image.all');
+            return redirect()->route('site.image');
         }
     }
 }
