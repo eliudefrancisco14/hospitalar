@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Http\Controllers\Controller;
 use App\Models\Video;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class VideoController extends Controller
 {

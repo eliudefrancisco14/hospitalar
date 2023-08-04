@@ -38,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/user/delete/{id}', ['as' => 'admin.user.delete', 'uses' => 'Admin\UserController@destroy'])->withoutMiddleware(['Administrador']);
     Route::get('admin/user/userSearch', ['as' => 'admin.user.userSearch', 'uses' => 'Admin\UserController@search']);
     Route::get('admin/signup/logs', ['as' => 'admin.signup.log', 'uses' => 'Admin\CredencialController@log']);
-    /* end user */
+    /* end */
 
     /* Gallery Page */
     Route::get('admin/gallery/index', ['as' => 'admin.gallery.index', 'uses' => 'Admin\GalleryController@index']);
@@ -49,13 +49,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/gallery/updates/{id}', ['as' => 'admin.gallery.update', 'uses' => 'Admin\GalleryController@update']);
     Route::get('admin/gallery/delete/{id}', ['as' => 'admin.gallery.delete', 'uses' => 'Admin\GalleryController@destroy']);
     Route::get('admin/gallery/gallerySearch', ['as' => 'admin.gallery.gallerySearch', 'uses' => 'Admin\GalleryController@search']);
-    /* end Gallery */
+    /* end */
 
     /* Image Gallery */
     Route::get('admin/imageGallery/create/{id}', ['as' => 'admin.imageGallery.create', 'uses' => 'Admin\ImageGalleryController@create']);
     Route::post('admin/imageGallery/store/{id}', ['as' => 'admin.imageGallery.store', 'uses' => 'Admin\ImageGalleryController@store']);
     Route::get('admin/imageGallery/delete/{id}', ['as' => 'admin.imageGallery.delete', 'uses' => 'Admin\ImageGalleryController@destroy']);
-    /* Gallery */
+    /* End */
 
     /* video */
     Route::get('admin/video/index', ['as' => 'admin.video.index', 'uses' => 'Admin\VideoController@index']);
@@ -66,13 +66,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/video/update/{id}', ['as' => 'admin.video.update', 'uses' => 'Admin\VideoController@update']);
     Route::get('admin/video/delete/{id}', ['as' => 'admin.video.delete', 'uses' => 'Admin\VideoController@destroy']);
     Route::get('admin/video/videoSearch', ['as' => 'admin.video.videoSearch', 'uses' => 'Admin\VideoController@search']);
-    /* end video */
+    /* end */
 
     /* Contact */
     Route::get('admin/contact/show/', ['as' => 'admin.contact.show', 'uses' => 'Admin\ContactsController@show']);
     Route::get('admin/contact/edit/{id}', ['as' => 'admin.contact.edit', 'uses' => 'Admin\ContactsController@edit']);
     Route::put('admin/contact/update/{id}', ['as' => 'admin.contact.update', 'uses' => 'Admin\ContactsController@update']);
-    /* end Contact */
+    /* end */
 
     /* Partner */
     Route::get('admin/partner/index', ['as' => 'admin.partner.index', 'uses' => 'Admin\PartnerController@index']);
@@ -83,7 +83,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('admin/partner/update/{id}', ['as' => 'admin.partner.update', 'uses' => 'Admin\PartnerController@update']);
     Route::get('admin/partner/delete/{id}', ['as' => 'admin.partner.delete', 'uses' => 'Admin\PartnerController@destroy']);
     Route::get('admin/partner/partnerSearch', ['as' => 'admin.partner.partnerSearch', 'uses' => 'Admin\PartnerController@search']);
-    /* end Partner */
+    /* end */
 
     /* Frequently Asked Question */
     Route::get('admin/faq/index', ['as' => 'admin.faq.index', 'uses' => 'Admin\FAQController@index']);
@@ -93,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/faq/edit/{id}', ['as' => 'admin.faq.edit', 'uses' => 'Admin\FAQController@edit']);
     Route::put('admin/faq/update/{id}', ['as' => 'admin.faq.update', 'uses' => 'Admin\FAQController@update']);
     Route::get('admin/faq/delete/{id}', ['as' => 'admin.faq.delete', 'uses' => 'Admin\FAQController@destroy']);
-    /* end Frequently Asked Question */
+    /* end */
 
     /* Service */
     Route::get('admin/service/index', ['as' => 'admin.service.index', 'uses' => 'Admin\ServiceController@index']);
@@ -103,7 +103,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/service/edit/{id}', ['as' => 'admin.service.edit', 'uses' => 'Admin\ServiceController@edit']);
     Route::put('admin/service/update/{id}', ['as' => 'admin.service.update', 'uses' => 'Admin\ServiceController@update']);
     Route::get('admin/service/delete/{id}', ['as' => 'admin.service.delete', 'uses' => 'Admin\ServiceController@destroy']);
-    /* end Service */
+    /* end */
 
     /* Slide Show */
     Route::get('admin/slide/index', ['as' => 'admin.slide.index', 'uses' => 'Admin\SlideController@index']);
@@ -113,7 +113,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/slide/edit/{id}', ['as' => 'admin.slide.edit', 'uses' => 'Admin\SlideController@edit']);
     Route::put('admin/slide/update/{id}', ['as' => 'admin.slide.update', 'uses' => 'Admin\SlideController@update']);
     Route::get('admin/slide/delete/{id}', ['as' => 'admin.slide.delete', 'uses' => 'Admin\SlideController@destroy']);
-    /* end Service */
+    /* end */
 
     /* Definition Show */
     Route::get('admin/definition/index', ['as' => 'admin.definition.index', 'uses' => 'Admin\DefinitionController@index']);
@@ -123,7 +123,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/definition/edit/{id}', ['as' => 'admin.definition.edit', 'uses' => 'Admin\DefinitionController@edit']);
     Route::put('admin/definition/update/{id}', ['as' => 'admin.definition.update', 'uses' => 'Admin\DefinitionController@update']);
     Route::get('admin/definition/delete/{id}', ['as' => 'admin.definition.delete', 'uses' => 'Admin\DefinitionController@destroy']);
-    /* end Service */
+    /* end */
 
     /* Direction Show */
     Route::get('admin/direction/index', ['as' => 'admin.direction.index', 'uses' => 'Admin\DirectionController@index']);
@@ -133,7 +133,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/direction/edit/{id}', ['as' => 'admin.direction.edit', 'uses' => 'Admin\DirectionController@edit']);
     Route::put('admin/direction/update/{id}', ['as' => 'admin.direction.update', 'uses' => 'Admin\DirectionController@update']);
     Route::get('admin/direction/delete/{id}', ['as' => 'admin.direction.delete', 'uses' => 'Admin\DirectionController@destroy']);
-    /* end Service */
+    /* end */
 
     /* Department */
     Route::get('admin/department/index', ['as' => 'admin.department.index', 'uses' => 'Admin\DepartmentController@index']);
@@ -143,7 +143,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/department/edit/{id}', ['as' => 'admin.department.edit', 'uses' => 'Admin\DepartmentController@edit']);
     Route::put('admin/department/update/{id}', ['as' => 'admin.department.update', 'uses' => 'Admin\DepartmentController@update']);
     Route::get('admin/department/delete/{id}', ['as' => 'admin.department.delete', 'uses' => 'Admin\DepartmentController@destroy']);
-    /* end Department */
+    /* end */
 
     /* Direction Regulation */
     Route::get('admin/regulation/index', ['as' => 'admin.regulation.index', 'uses' => 'Admin\RegulationController@index']);
@@ -153,7 +153,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/regulation/edit/{id}', ['as' => 'admin.regulation.edit', 'uses' => 'Admin\RegulationController@edit']);
     Route::put('admin/regulation/update/{id}', ['as' => 'admin.regulation.update', 'uses' => 'Admin\RegulationController@update']);
     Route::get('admin/regulation/delete/{id}', ['as' => 'admin.regulation.delete', 'uses' => 'Admin\RegulationController@destroy']);
-    /* end Regulation */
+    /* end */
 
     /* Direction Digital Inclusion */
     Route::get('admin/digitalInclusion/index', ['as' => 'admin.digitalInclusion.index', 'uses' => 'Admin\DigitalInclusionController@index']);
@@ -163,13 +163,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/digitalInclusion/edit/{id}', ['as' => 'admin.digitalInclusion.edit', 'uses' => 'Admin\DigitalInclusionController@edit']);
     Route::put('admin/digitalInclusion/update/{id}', ['as' => 'admin.digitalInclusion.update', 'uses' => 'Admin\DigitalInclusionController@update']);
     Route::get('admin/digitalInclusion/delete/{id}', ['as' => 'admin.digitalInclusion.delete', 'uses' => 'Admin\DigitalInclusionController@destroy']);
-    /* end Digital Inclusion */
+    /* end */
 
     /* Main Image Gallery */
     Route::get('admin/imagedigitalInclusion/create/{id}', ['as' => 'admin.imagedigitalInclusion.create', 'uses' => 'Admin\ImageDigitalInclusionController@create']);
     Route::post('admin/imagedigitalInclusion/store/{id}', ['as' => 'admin.imagedigitalInclusion.store', 'uses' => 'Admin\ImageDigitalInclusionController@store']);
     Route::get('admin/imagedigitalInclusion/delete/{id}', ['as' => 'admin.imagedigitalInclusion.delete', 'uses' => 'Admin\ImageDigitalInclusionController@destroy']);
-    /* end Gallery */
+    /* end */
 
     /* Direction News */
     Route::get('admin/news/index', ['as' => 'admin.news.index', 'uses' => 'Admin\NewsController@index']);
@@ -179,7 +179,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/news/edit/{id}', ['as' => 'admin.news.edit', 'uses' => 'Admin\NewsController@edit']);
     Route::put('admin/news/update/{id}', ['as' => 'admin.news.update', 'uses' => 'Admin\NewsController@update']);
     Route::get('admin/news/delete/{id}', ['as' => 'admin.news.delete', 'uses' => 'Admin\NewsController@destroy']);
-    /* end Digital News */
+    /* end */
 
     /* Province */
     Route::get('admin/province/index', ['as' => 'admin.province.index', 'uses' => 'Admin\ProvinceController@index']);
@@ -189,14 +189,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/province/edit/{id}', ['as' => 'admin.province.edit', 'uses' => 'Admin\ProvinceController@edit']);
     Route::put('admin/province/update/{id}', ['as' => 'admin.province.update', 'uses' => 'Admin\ProvinceController@update']);
     Route::get('admin/province/delete/{id}', ['as' => 'admin.province.delete', 'uses' => 'Admin\ProvinceController@destroy']);
-    /* end Province */
+    /* end */
 
     /* ProvinceDocuments */
     Route::get('admin/informacoes-province/show', ['as' => 'admin.provinceDocument.show', 'uses' => 'Admin\ProvinceDocumentController@show']);
     Route::get('admin/informacoes-province/edit/{id}', ['as' => 'admin.provinceDocument.edit', 'uses' => 'Admin\ProvinceDocumentController@edit']);
     Route::put('admin/informacoes-province/update/{id}', ['as' => 'admin.provinceDocument.update', 'uses' => 'Admin\ProvinceDocumentController@update']);
-    /* end ProvinceDocuments */
-
+    /* end */
 
     /* Angola Online Point */
     Route::get('admin/point/create/{id}', ['as' => 'admin.point.create', 'uses' => 'Admin\AngolaOnlineController@create']);
@@ -204,7 +203,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/point/edit/{id_}/{id}', ['as' => 'admin.point.edit', 'uses' => 'Admin\AngolaOnlineController@edit']);
     Route::get('admin/point/delete/{id}', ['as' => 'admin.point.delete', 'uses' => 'Admin\AngolaOnlineController@destroy']);
     Route::put('admin/point/update/{id}', ['as' => 'admin.point.update', 'uses' => 'Admin\AngolaOnlineController@update']);
-    /* end province Point  */
+    /* end  */
+
+        /* Angola InternShip Point */
+        Route::get('admin/internship/index', ['as' => 'admin.internship.create', 'uses' => 'Admin\InternshipController@index']);
+        Route::get('admin/internship/show/{id}', ['as' => 'admin.internship.show', 'uses' => 'Admin\InternshipController@show']);
+        Route::get('admin/internship/delete/{id}', ['as' => 'admin.internship.delete', 'uses' => 'Admin\InternshipController@destroy']);
+        /* end  */
 
     /* homologation */
     Route::get('admin/homologation/index', ['as' => 'admin.homologation.index', 'uses' => 'Admin\HomologationController@index']);
@@ -214,6 +219,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/homologation/edit/{id}', ['as' => 'admin.homologation.edit', 'uses' => 'Admin\HomologationController@edit']);
     Route::put('admin/homologation/update/{id}', ['as' => 'admin.homologation.update', 'uses' => 'Admin\HomologationController@update']);
     Route::get('admin/homologation/delete/{id}', ['as' => 'admin.homologation.delete', 'uses' => 'Admin\HomologationController@destroy']);
-    /* end homologation */
+    /* end */
   });
 });

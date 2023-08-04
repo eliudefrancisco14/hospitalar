@@ -44,26 +44,23 @@
                                         <div class="col-md-7 mb-2">
                                             <hr>
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-dark"><b>Data de Cadastro:</b>
-                                                        {{ date('d-m-Y H:m s', strtotime($data->created_at)) }}
-                                                    </p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-dark"><b>Última Actualização:</b>
-                                                        {{ date('d-m-Y H:m s', strtotime($data->updated_at)) }}
-                                                    </p>
-                                                </div>
+                                                <p class="mb-1 text-dark"><b>Data de cadastro:</b>
+                                                    {{ date('d-m-Y H:m s', strtotime($data->created_at)) }}
+                                                </p>
+                                                <p class="mb-1 text-dark"><b>Última actualização:</b>
+                                                    {{ date('d-m-Y H:m s', strtotime($data->updated_at)) }}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> <!-- /.col-12 -->
-                    </div> <!-- .row -->
-                </div> <!-- .container-fluid -->
-            </div>
+                        </div>
+                    </div> <!-- /.col-12 -->
+                </div> <!-- .row -->
+            </div> <!-- .container-fluid -->
         </div>
+    </div>
     </div>
 
 @endsection

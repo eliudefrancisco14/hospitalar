@@ -2,20 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Internship extends Model
 {
-    use HasFactory,SoftDeletes;
-
+    use HasFactory, SoftDeletes;
     protected $table = 'internships';
     protected $guarded = ['id'];
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
     protected $dates = ['deleted_at'];
 }

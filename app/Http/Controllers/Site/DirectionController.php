@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Models\Department;
-use App\Models\Direction;
-use Illuminate\Http\Request;
+use App\Models\{Department, Direction};
 
 class DirectionController extends Controller
 {
@@ -18,7 +16,6 @@ class DirectionController extends Controller
 
     public function show($name)
     {
-
         try {
             $response['direction'] = Direction::where([['name', urldecode($name)]])->first();
         } catch (\Throwable $th) {
@@ -26,7 +23,7 @@ class DirectionController extends Controller
         }
         if ($response['direction']) {
             return view('site.about.organization.single.index', $response);
-        }else{
+        } else {
             return view('errors.404');
         }
     }

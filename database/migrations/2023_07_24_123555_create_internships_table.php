@@ -15,6 +15,7 @@ class CreateInternshipsTable extends Migration
             $table->string('phone');
             $table->string('doc');
             $table->string('description', 255);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
