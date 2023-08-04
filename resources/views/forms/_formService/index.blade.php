@@ -30,7 +30,7 @@
                         <label for="name" class="form-label">Titulo</label>
                         <input type="text" name="title" id="title"
                             value="{{ isset($data->title) ? $data->title : old('title') }}" class="form-control"
-                            placeholder="Titulo" required>
+                            placeholder="Titulo">
                     </div>
 
                     <div class="form-group mb-3 col-md-4">
