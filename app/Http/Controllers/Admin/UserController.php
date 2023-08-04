@@ -43,7 +43,7 @@ class UserController extends Controller
                     'required',
                     'confirmed',
                     'min:8',
-                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#@%]).*$/'
                 ],
                 'level' => 'required',
             ],
@@ -124,7 +124,7 @@ class UserController extends Controller
                     'required',
                     'confirmed',
                     'min:8',
-                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#@%]).*$/',
                     Rules\Password::defaults()
                 ],
             ]);
@@ -157,7 +157,7 @@ class UserController extends Controller
                     'required',
                     'confirmed',
                     'min:8',
-                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                    'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#@%]).*$/',
                     Rules\Password::defaults()
                 ],
             ]);
