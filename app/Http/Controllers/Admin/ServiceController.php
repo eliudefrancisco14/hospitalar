@@ -36,13 +36,8 @@ class ServiceController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:255',
-                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'logo' => 'required|mimes:jpg,png,jpeg|max:5000',
                 'description' => 'required',
-            ],
-            [
-                'title' => 'Informar o título',
-                'logo' => 'Informar a imagem',
-                'description' => 'Informar a descrição',
             ]
         );
         $file = $request->file('logo')->store('service_image');
@@ -87,13 +82,8 @@ class ServiceController extends Controller
         $request->validate(
             [
                 'title' => 'required|min:5|max:255',
-                'logo' => 'required|image|mimes:jpg,png,jpeg|max:5000',
+                'logo' => 'mimes:jpg,png,jpeg|max:5000',
                 'description' => 'required',
-            ],
-            [
-                'title' => 'Informar o título',
-                'logo' => 'Informar a imagem',
-                'description' => 'Informar a descrição',
             ]
         );
         if ($file = $request->file('logo')) {
