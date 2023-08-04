@@ -333,7 +333,7 @@
 
         {{--  Inscrições  --}}
         <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Candu«idatura</span>
+            <span class="menu-header-text">Candidatura</span>
         </li>
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
