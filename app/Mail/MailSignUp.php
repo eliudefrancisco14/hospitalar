@@ -31,8 +31,11 @@ class MailSignUp extends Mailable
     public function build()
     {
       
-        return $this->subject('Correspondência do Portal da 43ª Cimeira de Chefes de Estado e de Governo da SADC')
-        ->view('mail.signup.index');
+        return $this
+        ->from(config('mail.from.address'))
+        ->subject('Candidatura ao Programa de Estágio')
+        ->view('mail.signup.index')
+        ->with('data',$this->signup);
 
     }
 }

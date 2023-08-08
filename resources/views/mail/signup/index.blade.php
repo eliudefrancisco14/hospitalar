@@ -190,7 +190,7 @@
                                                                         align="center">
 
                                                                         <img align="center" border="0"
-                                                                            src="http://demo.minttics.gov.ao/site/images/logo-vertical.png"
+                                                                            src="https://infosi.gov.ao/img/logo.svg"
                                                                             alt="Image" title="Image"
                                                                             width="200" />
 
@@ -289,13 +289,13 @@
                                                                     <strong>
                                                                         <span style="font-size: 25px; line-height: 38px;">
 
-                                                                            @if (isset($signup['msg']))
-                                                                                Sua inscrição foi Aprovada para Participar da 10ª Cimeira de Chefes de Estado e de Governo da OEACP.
+                                                                            @if (isset($signup['description']))
+                                                                                Sua inscrição foi Aprovada para Participar ao programa de Estágio do INFOSI.
                                                                       
                                                                             @else
                                                                                 Obrigado
                                                                                 por realizar a sua inscrição para Participar
-                                                                                da 43ª Cimeira de Chefes de Estado e de Governo da SADC
+                                                                                ao programa de Estágio do INFOSI
                                                                             @endif
                                                                             
 
@@ -305,10 +305,9 @@
                                                                 </p>
                                                                 <p class="text-center"
                                                                     style="font-size: 14px; line-height: 100%;">
-                                                                    De 07 à 17 de Agosto de 2023
 
                                                                     <br>
-                                                                    @if (!isset($signup['msg']))
+                                                                    @if (!isset($signup['description']))
                                                                       
                                                                         Solicitamos que aguarde pela Aprovação do seu
                                                                         pedido
@@ -518,8 +517,6 @@
                         </div>
                     </div>
 
-
-
                     <div class="u-row-container" style="padding: 0px;background-color: transparent">
                         <div class="u-row no-stack"
                             style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
@@ -546,8 +543,7 @@
                                                             <div class="v-text-align"
                                                                 style="color: #615e5e; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 14px; line-height: 19.6px;">Passaporte/Bilhete
-                                                                        de Identidade</span>
+                                                                        style="font-size: 14px; line-height: 19.6px;">Telefone</span>
                                                                 </p>
                                                             </div>
 
@@ -581,87 +577,7 @@
                                                             <div class="v-text-align"
                                                                 style="color: #615e5e; line-height: 140%; text-align: right; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 14px; line-height: 19.6px;">{{ $signup['idcard'] }}</span>
-                                                                </p>
-                                                            </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="u-row-container" style="padding: 0px;background-color: transparent">
-                        <div class="u-row no-stack"
-                            style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;">
-                            <div
-                                style="border-collapse: collapse;display: table;width: 100%;background-color: transparent;">
-                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: #ffffff;"><![endif]-->
-
-                                <!--[if (mso)|(IE)]><td align="center" width="300" style="width: 300px;padding: 0px 30px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                                <div class="u-col u-col-50"
-                                    style="max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;">
-                                    <div style="width: 100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="padding: 0px 30px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:'Open Sans',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;"
-                                                            align="left">
-
-                                                            <div class="v-text-align"
-                                                                style="color: #615e5e; line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                                <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 14px; line-height: 19.6px;">Organização</span>
-                                                                </p>
-                                                            </div>
-
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <!--[if (!mso)&(!IE)]><!-->
-                                        </div>
-                                        <!--<![endif]-->
-                                    </div>
-                                </div>
-                                <!--[if (mso)|(IE)]></td><![endif]-->
-                                <!--[if (mso)|(IE)]><td align="center" width="300" style="width: 300px;padding: 0px 30px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
-                                <div class="u-col u-col-50"
-                                    style="max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;">
-                                    <div style="width: 100% !important;">
-                                        <!--[if (!mso)&(!IE)]><!-->
-                                        <div
-                                            style="padding: 0px 30px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
-                                            <!--<![endif]-->
-
-                                            <table style="font-family:'Open Sans',sans-serif;" role="presentation"
-                                                cellpadding="0" cellspacing="0" width="100%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Open Sans',sans-serif;"
-                                                            align="left">
-
-                                                            <div class="v-text-align"
-                                                                style="color: #615e5e; line-height: 140%; text-align: right; word-wrap: break-word;">
-                                                                <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 14px; line-height: 19.6px;">{{ $signup['organization'] }}</span>
+                                                                        style="font-size: 14px; line-height: 19.6px;">{{ $signup['phone'] }}</span>
                                                                 </p>
                                                             </div>
 
@@ -847,7 +763,7 @@
                                                             <div class="v-text-align"
                                                                 style="color: #615e5e; line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 140%;"><span
-                                                                        style="font-size: 14px; line-height: 19.6px;">Código</span>
+                                                                        style="font-size: 14px; line-height: 19.6px;">Link para o registro</span>
                                                                 </p>
                                                             </div>
 
@@ -881,7 +797,7 @@
 
                                                             <div class="v-text-align"
                                                                 style="color: #615e5e; line-height: 140%; text-align: right; word-wrap: break-word;">
-                                                                <h3><b>{{ $signup['code'] }}</b></h3>
+                                                                <h3><b> <a href="{{ url('/admin/internship/show/'.$signup['id']) }}">Ver candidato</a> </b></h3>
 
                                                             </div>
 
