@@ -43,7 +43,7 @@
                     <div class="form-group mb-3 col-md-12">
                         <div class="form-group">
                             <label for="name" class="form-label">Detalhe da informação do serviço</label>
-                            <textarea type="text" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
+                            <textarea type="text" id="editor1" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
                         </div>
                     </div>
 

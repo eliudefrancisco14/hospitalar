@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-@section('title', 'Notícia')
+@section('title', 'Serviço de ' . $service->title)
 @section('content')
 
 
@@ -24,36 +24,19 @@
 
                 <div class="row g-5">
 
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
+
+
 
                         <article class="blog-details">
-
-                            <div class="post-img">
+                            <div class="card-deck post-img">
                                 <div class="card border-0 bg-transparent">
-                                    <div class="card-img-top img-fluid rounded"
-                                        style='background-image:url("/storage/{{ $service->logo }}");background-position:center;background-size:cover;height:800px;width:auto;'>
+
+                                    <div class="card-img-top img-fluid"
+                                        style='background-image:url("/storage/{{ $service->logo }}");background-position:center;background-size:cover;height:400px;width:auto;'>
                                     </div>
                                 </div> <!-- .card -->
                             </div>
-
-                            <h2 class="title">{{ $service->title }}
-                            </h2>
-
-                            {{--  <div class="meta-top">
-                                <ul>
-                                    <li class="d-flex align-items-center"><i
-                                            class="bi bi-person"></i>{{ $service->typewriter }}</li>
-                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i><time
-                                            datetime="2020-01-01">{{ date('d/m/Y', strtotime($service->date)) }}</time></li>
-
-                                </ul>
-                            </div><!-- End meta top -->  --}}
-
-                            <div class="content">
-                                {!! html_entity_decode($service->description) !!}
-
-                            </div><!-- End post content -->
-
                             <div class="meta-bottom">
                                 <i class="bi bi-folder"></i>
                                 <ul class="cats">
@@ -62,10 +45,23 @@
                             </div><!-- End meta bottom -->
 
                         </article><!-- End blog post -->
+                    </div>
 
+                    <div class="col-lg-8 pt-2">
 
+                        <h2 class="title"><a href="#">{{ $service->title }}</a></h2>
+                        <div class="content" style="text-align: justify">
+
+                            {!! html_entity_decode($service->description) !!}
+
+                        </div><!-- End post content -->
 
                     </div>
+
+
+
+
+
 
                 </div>
 

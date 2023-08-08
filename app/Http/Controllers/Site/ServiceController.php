@@ -17,9 +17,14 @@ class ServiceController extends Controller
         try {
             $response['service'] = Service::where([['title', urldecode($title)]])->first();
            
-            return view('site.service.single.index', $response);
         } catch (\Throwable $th) {
             return redirect()->route('site.services');
+        }
+
+        if ($response['service']) {
+            return view('site.service.single.index', $response);
+        } else {
+            return view('errors.404');
         }
     }
 }

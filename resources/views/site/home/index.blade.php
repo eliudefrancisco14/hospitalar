@@ -284,7 +284,7 @@
                         Publicas e Privadas, a luz do Decreto Presidencial nº 135/21 de 31 de Maio, no seu artigo 6º.
                     </p style="text-align: justify">
 
-                    <div class="text-center"><a href="https://www.infosi.gov.ao/painel" class="btn buy-btn">Aceder o
+                    <div class="text-center"><a href="https://www.infosi.gov.ao/painel" class="btn buy-btn" target="_blank">Aceder o
                             Portal de Homologação</a>
                     </div>
 
