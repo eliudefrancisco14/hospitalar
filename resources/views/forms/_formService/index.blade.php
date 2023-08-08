@@ -40,13 +40,14 @@
                             type="file"></input>
                     </div>
 
-                    <div class="form-group mb-3 col-md-12">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Detalhe da informação do serviço</label>
-                            <textarea type="text" id="editor1" name="description" id="description" class="form-control">{{ isset($data->description) ? $data->description : old('description') }}</textarea>
-                        </div>
+                    <div class="mb-4 col-md-12">
+                        <h5 class="card-title">Detalhe da informação do serviço</h5>
+                        <p>Digite a informação</p>
+                        <!-- Create the editor container -->
+                        <textarea name="description" id="editor1" style="min-height:300px; min-width:100%">
+                                    {{ isset($data->description) ? $data->description : old('description') }}
+                                </textarea>
                     </div>
-
                     <div class="mb-3 col-md-12">
                         <button type="submit"
                             class="btn btn-primary me-2">{{ isset($data) ? 'Atualizar' : 'Cadastrar' }}</button>

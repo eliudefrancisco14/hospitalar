@@ -57,6 +57,13 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <hr>
+                                        <div class="col-md-12 mb-2">
+                                            <h5 class="mb-1">
+                                                <b>Desrição</b>
+                                            </h5>
+                                            <p class="text-dark text-justify">{!! html_entity_decode($data->description) !!}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
