@@ -7,14 +7,14 @@
     <main id="main">
 
 
-        <section id="about" class="about">
+        <section class="about section-bg">
             <div class="container text-center" data-aos="fade-up">
-                <a href="{{ url('/') }}">
-                    <img src="{{ url('site/img/error404.jpg') }}" height="500px" alt="">
-                </a>
                 <div class="text-center">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ url('site/assets/img/404.png') }}" height="200" alt="">
+                    </a>
                     <h3>Não conseguimos encontrar esta página.</h3>
-                    <a href="{{ url('/') }}" class="btn buy-btn">Voltar a página Principal</a>
+                    <a href="{{ url('/') }}" class="appointment-btn scrollto">Voltar a página Principal</a>
                 </div>
             </div>
         </section><!-- End About Us Section -->

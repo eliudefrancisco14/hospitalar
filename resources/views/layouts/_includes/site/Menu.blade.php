@@ -1,53 +1,21 @@
-<section id="topbar" class="topbar d-flex align-items-center bg-light">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center text-dark">
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex">
+    <div class="container d-flex align-items-center">
 
-                <a href="mailto:geral@infosi.gov.ao" class="text-dark">geral@infosi.gov.ao</a></i>
-            <i class="bi bi-phone d-flex align-items-center ms-4 text-dark"><span class="text-dark">(+244) 222 692
-                    979</span></i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
+      <h1 class="logo me-auto"><a href="{{ url('/') }}"><img src="/site/assets/img/logo_branco_.svg" alt=""></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="{{ url('/') }}" class="logo me-auto"><img src="/site/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-            <a href="#" class="facebook text-dark"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="linkedin text-dark"><i class="bi bi-linkedin"></i></i></a>
-        </div>
-    </div>
-</section><!-- End Top Bar -->
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">Sobre Nós</a></li>
+          <li><a class="nav-link scrollto" href="#services">Serviços</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
 
-
-<header id="header" class="header d-flex align-items-center">
-
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="{{ route('site.home') }}" class="logo d-flex align-items-center">
-            <img src="/site/img/mono-logo.svg" alt="logo" class="" height="28">
-        </a>
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li><a href="{{ route('site.home') }}">Home</a></li>
-                <li class="dropdown"><a href="#"><span>INFOSI</span> <i
-                            class="bi bi-chevron-down dropdown-indicator"></i></a>
-                    <ul>
-                        <li><a href="{{ route('site.about') }}">Definição</a></li>
-                        <li><a href="{{ route('site.organization') }}">Estrutura Orgânica</a></li>
-                        <li><a href="{{ route('site.regulation') }}">Regulamentos</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ route('site.digitalInclusion') }}">Inclusão Digital</a></li>
-                <li><a href="{{ route('site.news') }}">Notícias</a></li>
-                <li class="dropdown"><a href="#"><span>Media</span> <i
-                            class="bi bi-chevron-down dropdown-indicator"></i></a>
-                    <ul>
-                        <li><a href="{{ route('site.image') }}">Galeria de Imagens</a></li>
-                        <li><a href="{{ route('site.video') }}">Galeria de Videos</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ route('site.contact') }}">Contactos</a></li>
-            </ul>
-        </nav><!-- .navbar -->
-
-        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <a href="login.html" class="appointment-btn scrollto">Entrar</a>
 
     </div>
-</header><!-- End Header -->
+  </header><!-- End Header -->

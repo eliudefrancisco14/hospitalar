@@ -37,7 +37,7 @@
     margin-right: 0.0625rem;
   }
   .layout-horizontal .bg-menu-theme .menu-inner > .menu-item .menu-sub {
-    box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);
+    box-shadow: 0 0.25rem 1rem #7fbf8e74;
   }
 }
 .layout-wrapper:not(.layout-horizontal) .bg-menu-theme .menu-inner > .menu-item.active:before {
@@ -72,7 +72,7 @@
 }
 
 .layout-menu-hover .layout-menu {
-  box-shadow: 0 0.625rem 1.25rem rgba(161, 172, 184, 0.5);
+  box-shadow: 0 0.625rem 1.25rem #829c9b7f;
   transition: all 0.3s ease-in-out;
 }
 
