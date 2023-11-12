@@ -24,10 +24,10 @@ class UserFactory extends Factory
     {
         return [
             'name' => "admin",
-            'email' => "infosigov@admin.com",
+            'email' => "hospital@admin.com",
             'level' => 'Administrador',
             'email_verified_at' => now(),
-            'password' => bcrypt("t;jfN=2z7DIh"), //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => bcrypt("hospital1234"), //'$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
         ];
     }
