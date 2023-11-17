@@ -175,10 +175,17 @@ class UserController extends Controller
 
     public function destroy($id)
     {
+        
         $count = User::count();
-        if ($count > 1) {
+        if ($count >= 1) {
             try {
-                User::find($id)->delete();
+                $user = User::find($id);
+                
+                if ($user->level == "Administrador") {
+                    return redirect()->back()->with('notDestroyAdmin', '1');
+                } else {
+                    $user->delete();
+                }                
             } catch (Exception $e) {
                 return redirect()->back()->with('catch', '1');
             }

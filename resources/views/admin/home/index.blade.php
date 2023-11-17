@@ -51,12 +51,12 @@
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                                    <a class="dropdown-item" href="{{ route('admin.gallery.index') }}">Ver mais</a>
+                                                    <a class="dropdown-item" href="{{ route('admin.pacient.index') }}">Ver mais</a>
                                                 </div>
                                             </div>
                                         </div>
                                         <span class="fw-semibold d-block mb-1">Pacientes</span>
-                                        <h3 class="card-title mb-2 text-success">{{ $count_inclusions }}</h3>
+                                        <h3 class="card-title mb-2 text-success">{{ $count_pacients }}</h3>
                                     </div>
                                 </div>
                             </div>

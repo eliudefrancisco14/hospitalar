@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Cadastrar serviço')
+@section('title', 'Editar Paciente')
 
 @section('content')
 
@@ -9,16 +9,18 @@
             <!-- Layout container -->
             <div class="layout-page">
                 @include('layouts._includes.dashboard.NavbarSimple')
-
                 <div class="container justify-content-center mt-4 mb-5">
                     @include('errors.form')
                     <div class="row align-items-center">
-                        <form action="{{ route('admin.service.store') }}" method="POST" enctype="multipart/form-data">
+                        <form class="col-lg-12 mt-2 col-md-12 col-12 mx-auto" method="POST"
+                            action="{{ route('admin.pacient.update', $data->id) }}" enctype="multipart/form-data">
                             @csrf
-                            @include('forms._formService.index')
+                            @method('PUT')
+                            @include('forms._formPacient.index')
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

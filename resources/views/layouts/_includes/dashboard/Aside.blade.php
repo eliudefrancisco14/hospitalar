@@ -2,7 +2,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{{ route('admin.home') }}" class="">
-            <img src="{{ asset('site/img/logo_branco_.svg') }}" alt="" class="img-fluid">
+            <img src="{{ asset('site/assets/img/logo_branco_.svg') }}" alt="" class="img-fluid">
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -64,12 +64,12 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('admin.slide.create') }}" class="menu-link">
+                    <a href="{{ route('admin.pacient.create') }}" class="menu-link">
                         <div data-i18n="Basic">Cadastrar</div>
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a href="{{ route('admin.slide.index') }}" class="menu-link">
+                    <a href="{{ route('admin.pacient.index') }}" class="menu-link">
                         <div data-i18n="Basic">Listar</div>
                     </a>
                 </li>

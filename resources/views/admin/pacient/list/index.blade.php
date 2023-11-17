@@ -1,6 +1,6 @@
 @extends('layouts.merge.dashboard')
 
-@section('title', 'Listar serviço')
+@section('title', 'Listar Paciente')
 
 @section('content')
 
@@ -20,12 +20,13 @@
                             <div class="table-responsive text-nowrap">
                                 <div class="card-body">
                                     <table class="table datatables table-hover table-bordered" id="dataTable-1">
-                                        <thead class="bg-primary ">
-                                            <tr class="text-center text-ligth">
-                                                <th>#</th>
-                                                <th style="width: 85%">TITULO</th>
-                                                <th style="width: 10%">DATA CRIAÇÃO</th>
-                                                <th>ACÇÕES</th>
+                                        <thead class="bg-primary text-light">
+                                            <tr class="text-center">
+                                                <th style="color:#fff">#</th>
+                                                <th style="width: 60%;color:#fff">Nome</th>
+                                                <th style="width: 15%;color:#fff">Data de Nascimento</th>
+                                                <th style="width: 10%;color:#fff">DATA CRIAÇÃO</th>
+                                                <th style="color:#fff">ACÇÕES</th>
                                             </tr>
                                         </thead>
                                         <tbody class="bg-white">
@@ -33,7 +34,8 @@
                                             @foreach ($data as $item)
                                                 <tr class="text-center text-dark">
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->title }} </td>
+                                                    <td>{{ $item->nomeCompleto }} </td>
+                                                    <td>{{ $item->dataNascimento }} </td>
                                                     <td>{{ $item->created_at }} </td>
                                                     <td>
                                                         <div class="dropdown">
@@ -44,13 +46,13 @@
 
                                                             <div class="dropdown-menu">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/service/show/{$item->id}") }}"><i
-                                                                        class="bx bx-detail"></i> Detalhe</a>
+                                                                    href="{{ url("admin/pacient/show/$item->id}") }}"><i
+                                                                        class="bx bx-detail"></i> Detalhes</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/service/edit/{$item->id}") }}"><i
+                                                                    href="{{ url("admin/pacient/edit/{$item->id}") }}"><i
                                                                         class="bx bx-edit-alt me-1"></i> Editar</a>
                                                                 <a class="dropdown-item"
-                                                                    href="{{ url("admin/service/delete/{$item->id}") }}"><i
+                                                                    href="{{ url("admin/pacient/delete/{$item->id}") }}"><i
                                                                         class="bx bx-trash me-1"></i> Excluir</a>
                                                             </div>
                                                         </div>

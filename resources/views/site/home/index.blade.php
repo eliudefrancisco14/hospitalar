@@ -1,5 +1,5 @@
 @extends('layouts.merge.site')
-@section('title', 'Portal Oficial do INFOSI')
+@section('title', 'Assistente hospitalar')
 @section('content')
 
 
@@ -8,7 +8,7 @@
     <div class="container">
       <h1>Bem-Vindo ao Assistente hospitalar</h1>
       <h2 class="text-light">Sistema de Triagens Rápidas.</h2>
-      <a href="{{ url('/pacient') }}" class="btn-get-started scrollto">Iniciar Consulta</a>
+      <a href="{{ route('site.pacient') }}" class="btn-get-started scrollto">Iniciar Consulta</a>
     </div>
   </section><!-- End Hero -->
   <section class="sobreposicao-escura "></section>

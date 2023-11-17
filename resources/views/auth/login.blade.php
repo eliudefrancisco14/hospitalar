@@ -1,141 +1,140 @@
 <!DOCTYPE html>
+<html lang="pt">
 
-<html
-  lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../assets/"
-  data-template="vertical-menu-template-free"
->
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Login</title>
+  <title>Login</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <meta name="description" content="" />
+  <!-- Favicons -->
+  <link href="/site/assets/img/favicon.png" rel="icon">
+  <link href="/site/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Vendor CSS Files -->
+  <link href="/site/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/site/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/site/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/site/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/site/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/site/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/site/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/site/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+  <!-- Template Main CSS File -->
+  <link href="/site/assets/css/style.css" rel="stylesheet">
 
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../assets/css/demo.css" />
+  <style>
+    .contact {
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    .login {
+      justify-content: center;
+      align-items: center;
+      width: 30rem;
+    }
+  </style>
 
-    <!-- Page CSS -->
-    <!-- Page -->
-    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css" />
-    <!-- Helpers -->
-    <script src="../assets/vendor/js/helpers.js"></script>
-    <script src="../assets/js/config.js"></script>
-  </head>
+</head>
 
-  <body>
-    <!-- Content -->
+<body>
 
-    <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                  <span class="login100-form-title p-b-37">
-                    <img src="/dashboard/img/logo.svg" alt="Logo" width="220" >
-                </span>
-                <x-auth-session-status class="mb-4 alert alert-info" :status="session('status')" />
-                </a>
+
+  <main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+
+      <div class="section-title">
+        <h2><a href="index.html">Logo</a></h2>
+      </div>
+
+      <div class="container login">
+        <div class="row mt-0">
+
+          <div class="col-lg-12 mt-5 mt-lg-0 rounded">
+
+            <form action="{{ route('login') }}" method="post" role="form" class="php-email-form p-5 rounded shadow">
+              @csrf
+              <div class="section-title">
+                <h2>Entrar</h2>
               </div>
-              <!-- /Logo -->
 
+              
+              <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
 
-              <form id="formAuthentication" class="mb-3" action="{{ route('login') }}" method="POST">
-                @csrf
-                <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input
-                    type="email"
+              <div class="row mb-4">
+                <div class="col-md-12 form-group mt-3 mt-md-0">
+                  <label for="nomeCompleto">E-mail:</label>
+                  <input type="email"
                     class="form-control"
                     id="email"
                     name="email"
                     placeholder="Inserir o email"
-                    autofocus
-                  />
+                    autofocus required>
                 </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
+                
+
+                <div class="col-md-12 form-group mt-2">
+                <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Palavra-Passe</label>
                     <a href="forgot-password">
                       <small>Esqueceu a Palavra-Passe?</small>
                     </a>
                   </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
+                  <input type="password"
                       id="password"
                       class="form-control"
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"></span>
-                  </div>
+                      aria-describedby="password" required>
                 </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Lembrar-me </label>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Entrar</button>
-                </div>
-              </form>
-            </div>
+              </div>
+
+
+              <div class="text-center"><button type="submit">Entrar</button></div>
+            </form>
+
           </div>
-          <!-- /Register -->
+
         </div>
+
       </div>
-    </div>
 
-    <!-- / Content -->
+    </section><!-- End Contact Section -->
 
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
 
-    <!-- Vendors JS -->
 
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
-    
-  </body>
+  </main><!-- End #main -->
+
+
+
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/site/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/site/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/site/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/site/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/site/assets/js/main.js"></script>
+
+</body>
+
 </html>

@@ -3,7 +3,7 @@
     data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <head>
-    <title>@yield('title', 'Portal do INFOSI')</title>
+    <title>@yield('title', 'Assistente Virtual')</title>
     @include('layouts._includes.dashboard.Header')
 </head>
 

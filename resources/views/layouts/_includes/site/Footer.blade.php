@@ -17,18 +17,16 @@
           <div class="col-lg-2 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about">Sobre Nós</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#services">Serviços</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/') }}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/#about') }}">Sobre Nós</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/#services') }}">Serviços</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Nossos Serviços</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Iniciar Consulta</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#gallery">Galeria</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#faq">Perguntas Frequentes</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/paciente') }}">Iniciar Consulta</a></li>
             </ul>
           </div>
 
@@ -55,7 +53,6 @@
   <script src="/site/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/site/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="/site/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="/site/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="/site/assets/js/main.js"></script>

@@ -41,15 +41,18 @@ Route::middleware(['auth'])->group(function () {
     /* end */
 
     
+    Route::middleware(['Editor'])->group(function () {
 
-    /* homologation */
-    Route::get('admin/homologation/index', ['as' => 'admin.homologation.index', 'uses' => 'Admin\HomologationController@index']);
-    Route::get('admin/homologation/show/{id}', ['as' => 'admin.homologation.show', 'uses' => 'Admin\HomologationController@show']);
-    Route::get('admin/homologation/create', ['as' => 'admin.homologation.create', 'uses' => 'Admin\HomologationController@create']);
-    Route::post('admin/homologation/store', ['as' => 'admin.homologation.store', 'uses' => 'Admin\HomologationController@store']);
-    Route::get('admin/homologation/edit/{id}', ['as' => 'admin.homologation.edit', 'uses' => 'Admin\HomologationController@edit']);
-    Route::put('admin/homologation/update/{id}', ['as' => 'admin.homologation.update', 'uses' => 'Admin\HomologationController@update']);
-    Route::get('admin/homologation/delete/{id}', ['as' => 'admin.homologation.delete', 'uses' => 'Admin\HomologationController@destroy']);
+    /* pacient */
+    Route::get('admin/pacient/index', ['as' => 'admin.pacient.index', 'uses' => 'Admin\PacientController@index']);
+    Route::get('admin/pacient/show/{id}', ['as' => 'admin.pacient.show', 'uses' => 'Admin\PacientController@show']);
+    Route::get('admin/pacient/create', ['as' => 'admin.pacient.create', 'uses' => 'Admin\PacientController@create']);
+    Route::post('admin/pacient/store', ['as' => 'admin.pacient.store', 'uses' => 'Admin\PacientController@store']);
+    
+    Route::get('admin/pacient/edit/{id}', ['as' => 'admin.pacient.edit', 'uses' => 'Admin\PacientController@edit']);
+    Route::put('admin/pacient/update/{id}', ['as' => 'admin.pacient.update', 'uses' => 'Admin\PacientController@update']);
+    Route::get('admin/pacient/delete/{id}', ['as' => 'admin.pacient.delete', 'uses' => 'Admin\PacientController@destroy']);
     /* end */
+  });
   });
 });

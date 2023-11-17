@@ -8,14 +8,21 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">Sobre Nós</a></li>
-          <li><a class="nav-link scrollto" href="#services">Serviços</a></li>
+          <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('/#about') }}">Sobre Nós</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('/#services') }}">Serviços</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="login.html" class="appointment-btn scrollto">Entrar</a>
+      @auth
+      <a href="{{ url('/admin/painel') }}" class="appointment-btn scrollto">Dashboard</a>
+
+      @else
+      <a href="{{ url('/login') }}" class="appointment-btn scrollto">Entrar</a>
+
+      @endauth
+
 
     </div>
   </header><!-- End Header -->

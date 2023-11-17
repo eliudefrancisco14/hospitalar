@@ -3,8 +3,7 @@
     <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
         <div class="container mt-4">
             <div class="copyright">
-                <strong>INFOSI</strong> - 2023 &copy; Todos Direitos Reservados | <a href="{{ route('site.terms') }}"
-                    target="_blank" class="text-dark-50 ank">Politícas de Privacidade & Termos de Uso</a>
+                <strong>Assistente Virtual</strong> - 2023 &copy;
             </div>
         </div>
     </div>
@@ -60,6 +59,15 @@
             timer: 2500
         })
     </script>
+@elseif(session('notDestroyAdmin'))
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Não pode deletar o Administrador!',
+            showConfirmButton: false,
+            timer: 2500
+        })
+    </script>
 @elseif(session('exists'))
     <script>
         Swal.fire({
@@ -86,6 +94,8 @@
     </script>
 @endif
 
+
+
 <script src="{{ asset('dashboard/assets/vendor/libs/jquery/jquery.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/libs/popper/popper.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/js/bootstrap.js') }}"></script>
@@ -96,16 +106,16 @@
 
 <!-- Vendors JS -->
 <script src="{{ asset('dashboard/assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-
-<!-- Main JS -->
-<script src="{{ asset('dashboard/assets/js/main.js') }}"></script>
-
-
 <!-- Page JS -->
 <script src="{{ asset('dashboard/assets/js/dashboards-analytics.js') }}"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script src="{{ asset('dashboard/js/buttons.js') }}"></script>
+
+<!-- Main JS -->
+<script src="{{ asset('dashboard/assets/js/main.js') }}"></script>
+
+
 
 <script>
     // Replace the <textarea id="editor1"> with a CKEditor 4
@@ -165,7 +175,10 @@
             }
         }).showToast();
     </script>
+
 @elseif (session('destroy'))
+
+
     <script>
         Toastify({
             info: 'Excluido com sucesso!',
