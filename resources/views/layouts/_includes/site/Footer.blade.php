@@ -74,7 +74,7 @@
     <script>
         Swal.fire({
             icon: 'success',
-            title: 'Candidatura submetida com sucesso!',
+            title: 'Consulta submetida com sucesso do BI!',
             text: 'Consulte a caixa de entrada do email que informou!',
             showConfirmButton: true
         })

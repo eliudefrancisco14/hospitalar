@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
 use App\Models\Pacient;
 
@@ -20,6 +21,7 @@ class PacientController extends Controller
             [
                 'nomeCompleto' => 'required', 
                 'dataNascimento' => 'required', 
+                'nBI' => 'required',                
                 'peso' => 'required', 
                 'altura' => 'required', 
                 'morada' => 'required', 
@@ -29,12 +31,12 @@ class PacientController extends Controller
                 'sintomas' => 'required', 
                 'historico' => 'required', 
                 'condicoesMedicas' => 'required', 
-                'estadoFisico' => 'required', 
                 'doencasCronicas' => 'required'
             ],
             [
                 'nomeCompleto' => 'Inserir o Nome Completo', 
                 'dataNascimento' => 'Inserir a Data de Nascimento', 
+                'nBI' => 'Inserir o nº de BI', 
                 'peso' => 'Inserir o Peso', 
                 'altura' => 'Inserir a Altura', 
                 'morada' => 'Inserir a Morada', 
@@ -44,13 +46,23 @@ class PacientController extends Controller
                 'sintomas' => 'Inserir os Sintomas', 
                 'historico' => 'Inserir o Histórico', 
                 'condicoesMedicas' => 'Inserir as Condições Médicas', 
-                'estadoFisico' => 'Inserir o Estado Físico', 
                 'doencasCronicas' => 'Inserir o Doenças Crónicas'
             ]
         );
-        
+
+        $data["sintomas"] = json_encode($request->input('sintomas'));
+        $data["historico"] = json_encode($request->input('historico'));
+        $data["condicoesMedicas"] = json_encode($request->input('condicoesMedicas'));
+
         Pacient::create($data);
             
-        return redirect()->back()->with('create', '1');
+        return redirect()->route('pdf.consult.index',$data["nBI"])->with('create', '1');
+    }
+
+    public function pdf($nBI){
+        $response['data'] = Pacient::Where('nBI',$nBI)->first();
+
+        $pdf = PDF::loadview('pdf.consult.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 }

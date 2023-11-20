@@ -19,4 +19,10 @@ use HasFactory, SoftDeletes;
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    protected $casts = [
+        'sintomas' => 'array',
+        'historico' => 'array',
+        'condicoesMedicas' => 'array',
+    ];
 }

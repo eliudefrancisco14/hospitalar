@@ -30,6 +30,12 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
+                                                <b>Nº do BI</b>
+                                            </h5>
+                                            <p class="text-dark text-justify">{{ $data->nBI }}</p>
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <h5 class="mb-1">
                                                 <b>Peso</b>
                                             </h5>
                                             <p class="text-dark text-justify">{{ $data->peso }}</p>
@@ -56,7 +62,7 @@
                                             <h5 class="mb-1">
                                                 <b>Sintomas</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ $data->sintomas }}</p>
+                                            <p class="text-dark text-justify">{{ implode(', ', json_decode($data->sintomas)) }}</p>
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
@@ -68,19 +74,13 @@
                                             <h5 class="mb-1">
                                                 <b>Histórico Médico</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ $data->historico }}</p>
+                                            <p class="text-dark text-justify">{{ implode(', ', json_decode($data->historico)) }}</p>
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
                                                 <b>Condições Médicas</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ $data->condicoesMedicas }}</p>
-                                        </div>
-                                        <div class="col-md-3 mb-2">
-                                            <h5 class="mb-1">
-                                                <b>Estado Físico</b>
-                                            </h5>
-                                            <p class="text-dark text-justify">{{ $data->estadoFisico }}</p>
+                                            <p class="text-dark text-justify">{{ implode(', ', json_decode($data->condicoesMedicas)) }}</p>
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">

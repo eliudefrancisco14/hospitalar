@@ -12,20 +12,6 @@
                                 <h2>Informações Pessoais</h2>
                             </div>
 
-<!-- nomeCompleto
-dataNascimento
-peso
-altura
-morada
-maisInformacoes
-medicacao
-gravidade
-sintomas
-historico
-condicoesMedicas
-estadoFisico
-doencasCronicas -->
-
                             <div class="row">
                                 <div class="col-md-4 form-group mt-3 mt-md-0">
                                 <label for="nomeCompleto">Nome Completo:</label>

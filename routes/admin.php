@@ -52,6 +52,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/pacient/edit/{id}', ['as' => 'admin.pacient.edit', 'uses' => 'Admin\PacientController@edit']);
     Route::put('admin/pacient/update/{id}', ['as' => 'admin.pacient.update', 'uses' => 'Admin\PacientController@update']);
     Route::get('admin/pacient/delete/{id}', ['as' => 'admin.pacient.delete', 'uses' => 'Admin\PacientController@destroy']);
+
+    /** Pdf */
+    Route::get('admin/pacient/pdf/list', ['as' => 'admin.pacient.pdf.list', 'uses' => 'Admin\PacientController@pdflist']);
+    Route::get('admin/pacient/pdf/show/{id}', ['as' => 'admin.pacient.pdf.show', 'uses' => 'Admin\PacientController@pdfshow']);
     /* end */
   });
   });

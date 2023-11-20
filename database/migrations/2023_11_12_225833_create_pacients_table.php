@@ -16,6 +16,7 @@ class CreatePacientsTable extends Migration
         Schema::create('pacients', function (Blueprint $table) {
             $table->id();
             $table->string('nomeCompleto');
+            $table->string('nBI');
             $table->date('dataNascimento');
             $table->string('peso');
             $table->string('altura');
@@ -28,8 +29,7 @@ class CreatePacientsTable extends Migration
             $table->json('sintomas');
             $table->json('historico');
             $table->json('condicoesMedicas');
-            $table->json('estadoFisico');
-            $table->json('doencasCronicas');
+            $table->string('doencasCronicas');
 
             $table->timestamps();
             $table->softDeletes();
