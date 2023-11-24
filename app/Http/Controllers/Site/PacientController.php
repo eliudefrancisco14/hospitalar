@@ -16,6 +16,7 @@ class PacientController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         $data = $this->validate(
             $request,
             [

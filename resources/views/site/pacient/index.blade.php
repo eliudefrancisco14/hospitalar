@@ -20,9 +20,7 @@
         <div class="col-lg-12 mt-5 mt-lg-0 rounded">
         @include('errors.form')
           <form action="{{ route('site.pacient.store') }}" method="post" role="form" class="php-email-form p-5 rounded shadow">
-
             @csrf
-
             <div class="section-title">
               <h2>Informações Pessoais</h2>
             </div>
@@ -166,6 +164,10 @@
                   <input type="checkbox" class="form-check-input" id="Doencasdiarreicas" name="historico[]" value="Doenças diarreicas">
                   <label class="form-check-label" for="Doencasdiarreicas">Doenças diarreicas</label>
                 </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="Outros" name="historico[]" value="Outros">
+                  <label class="form-check-label" for="Outros">Outros</label>
+                </div>
 
                 <!-- Adicione mais checkboxes conforme necessário -->
               </div>
@@ -204,6 +206,10 @@
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="Palpitacao" name="condicoesMedicas[]" value="Palpitação">
                   <label class="form-check-label" for="Palpitacao">Palpitação</label>
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="Outros" name="condicoesMedicas[]" value="Outros">
+                  <label class="form-check-label" for="Outros">Outros</label>
                 </div>
 
               </div>
