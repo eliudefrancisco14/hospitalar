@@ -16,7 +16,6 @@ class PacientController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $data = $this->validate(
             $request,
             [
@@ -51,13 +50,18 @@ class PacientController extends Controller
             ]
         );
 
+        
         $data["sintomas"] = json_encode($request->input('sintomas'));
         $data["historico"] = json_encode($request->input('historico'));
         $data["condicoesMedicas"] = json_encode($request->input('condicoesMedicas'));
-
+        
         Pacient::create($data);
-            
-        return redirect()->route('pdf.consult.index',$data["nBI"])->with('create', '1');
+        
+        $response['data'] = Pacient::Where('nBI',$data["nBI"])->first();
+
+        $pdf = PDF::loadview('pdf.consult.index', $response);
+        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+
     }
 
     public function pdf($nBI){
