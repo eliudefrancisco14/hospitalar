@@ -16,6 +16,8 @@ class PacientController extends Controller
 
     public function store(Request $request)
     {
+        set_time_limit(120);
+        
         $data = $this->validate(
             $request,
             [
@@ -59,8 +61,8 @@ class PacientController extends Controller
         
         $response['data'] = Pacient::Where('nBI',$data["nBI"])->first();
 
-        $pdf = PDF::loadview('pdf.consult.index', $response);
-        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+        $pdf = PDF::loadview('pdf.consult.index',['response'=> $response]);
+        return $pdf->setPaper('A4')->stream('index.pdf');
 
     }
 
