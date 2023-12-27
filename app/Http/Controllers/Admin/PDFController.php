@@ -1,5 +1,7 @@
-<?php
 
+
+<?php
+/*
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -96,3 +98,4 @@ class PDFController extends Controller
         return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
     }
 }
+*/

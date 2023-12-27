@@ -11,9 +11,8 @@
       <a href="{{ route('site.pacient') }}" class="btn-get-started scrollto">Iniciar Consulta</a>
     </div>
   </section><!-- End Hero -->
-  <section class="sobreposicao-escura "></section>
+  <section class="sobreposicao-escura"></section>
   
-
   <main id="main">
 
     <!-- ======= Why Us Section ======= -->

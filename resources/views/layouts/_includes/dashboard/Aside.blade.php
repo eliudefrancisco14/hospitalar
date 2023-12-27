@@ -2,7 +2,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
         <a href="{{ route('admin.home') }}" class="">
-            <img src="{{ asset('site/assets/img/logo_branco_.svg') }}" alt="" class="img-fluid">
+            <img src="{{ asset('site/assets/img/logo.png') }}" alt="" class="img-fluid">
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

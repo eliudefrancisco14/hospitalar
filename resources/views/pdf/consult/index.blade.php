@@ -41,9 +41,8 @@
 <body>
     <header class="header">
         <div class="img">
-            <img src="{{ asset('site/assets/img/logo_branco_.svg') }}" alt="">
+            <img src="{{ asset('site/assets/img/logo.png') }}" alt="">
         </div>
-        <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">ASSISTENTE VIRTUAL</div>
         <div class="text-center">Dados do Paciente {{ $response['data']->nomeCompleto }} </div>
     </header>
@@ -63,48 +62,44 @@
                                 <h3>Nome do Paciente: "{{ $response['data']->nomeCompleto }}"</h3>
                                 <hr>
                                 <div class="row mt-4">
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Data de Nascimento</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $response['data']->dataNascimento }}</p>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Peso</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $response['data']->peso }}</p>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Altura</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $response['data']->altura }}</p>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Morada</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $response['data']->morada }}</p>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Medicação</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $response['data']->medicacao }}</p>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Sintomas</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ implode(', ', json_decode($response['data']->sintomas)) }}</p>
-                                    </div>
-                                    <div class="col-md-3 mb-2">
-                                        <h5 class="mb-1">
-                                            <b>Gravidade dos Sintomas</b>
-                                        </h5>
-                                        <p class="text-dark text-justify">{{ $response['data']->gravidade }}</p>
-                                    </div>
+                                    <table>
+                                        <thead class="bg-primary text-dark">
+                                            <tr class="text-center">
+                                                <th style="width: 20%">Data de Nascimento</th>
+                                                <th style="width: 20%">Peso</th>
+                                                <th style="width: 20%">Altura</th>
+                                                <th style="width: 20%">Morada</th>
+                                                <th style="width: 20%">Medicação</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $response['data']->dataNascimento }}</td>
+                                                <td>{{ $response['data']->peso }}</td>
+                                                <td>{{ $response['data']->altura }}</td>
+                                                <td>{{ $response['data']->morada }}</td>
+                                                <td>{{ $response['data']->medicacao }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br />
+                                    <table>
+                                        <thead class="bg-primary text-dark">
+                                            <tr class="text-center">
+                                                <th style="width: 40%">Gravidade dos Sintomas</th>
+                                                <th style="width: 60%">Sintomas</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $response['data']->gravidade }}</td>
+                                                <td>{{ implode(', ', json_decode($response['data']->sintomas)) }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
                                     <div class="col-md-3 mb-2">
                                         <h5 class="mb-1">
                                             <b>Histórico Médico</b>
@@ -128,24 +123,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mb-2">
-                                        <h5 class="mb-1">
+                                        <h4 class="mb-1">
                                             <b>Informações Adicionais</b>
-                                        </h5>
+                                        </h4>
                                         <p class="text-dark text-justify">{{ $response['data']->maisInformacoes }}</p>
                                     </div>
 
-                                </div>
-
-                                <div class="row align-items-center">
-                                    <div class="col-md-7 mb-2">
-                                        <hr>
-                                        <p class="mb-1 text-dark"><b>Data de cadastro:</b>
-                                            {{ date('d-m-Y H:m', strtotime($response['data']->created_at)) }}
-                                        </p>
-                                        <p class="mb-1 text-dark"><b>Data de atualização:</b>
-                                            {{ date('d-m-Y H:m', strtotime($response['data']->updated_at)) }}
-                                        </p>
-                                    </div>
                                 </div>
                             </div>
                         </div>

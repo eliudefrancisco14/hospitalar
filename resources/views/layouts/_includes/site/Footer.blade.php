@@ -6,7 +6,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Logo</h3>
+            <h2><a href="{{ url('/') }}"><img width="200px" src="/site/assets/img/logo.png" alt=""></a></h2>
             <p>
               Localização <br><br>
               <strong>Phone:</strong> +244 999 999 999<br>
@@ -32,8 +32,8 @@
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Informação</h4>
-            <p class="text-md-right">Um sistema hospitalar é uma estrutura organizada que engloba uma variedade de serviços de saúde. 
-              Compreendendo desde a recepção e admissão de pacientes até departamentos clínicos especializados, 
+            <p class="text-md-right">Um sistema hospitalar é uma estrutura organizada que engloba uma variedade de serviços de saúde.
+              Compreendendo desde a recepção e admissão de pacientes até departamentos clínicos especializados,
               como cirurgia, cardiologia e emergência, o sistema hospitalar visa oferecer cuidados abrangentes.</p>
 
           </div>
@@ -45,8 +45,7 @@
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="/site/assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -57,38 +56,37 @@
   <!-- Template Main JS File -->
   <script src="/site/assets/js/main.js"></script>
 
-<script src="/js/sweetalert2.all.min.js"></script>
+  <script src="/js/sweetalert2.all.min.js"></script>
 
 
 
-@if (session('helpCreate'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Mensagem enviada com sucesso!',
-            text: 'Obrigado por nos contactar!',
-            showConfirmButton: true
-        })
-    </script>
-@elseif (session('create'))
-    <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Consulta submetida com sucesso do BI!',
-            text: 'Consulte a caixa de entrada do email que informou!',
-            showConfirmButton: true
-        })
-    </script>
-@elseif (session('error'))
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Atenção',
-            text: 'Tente novamente ou contacte a área de suporte',
-            showConfirmButton: true
-        })
-    </script>
-@endif
+  @if (session('helpCreate'))
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Mensagem enviada com sucesso!',
+      text: 'Obrigado por nos contactar!',
+      showConfirmButton: true
+    })
+  </script>
+  @elseif (session('create'))
+  <script>
+    Swal.fire({
+      icon: 'success',
+      title: 'Consulta submetida com sucesso do BI!',
+      text: 'Consulte a caixa de entrada do email que informou!',
+      showConfirmButton: true
+    })
+  </script>
+  @elseif (session('error'))
+  <script>
+    Swal.fire({
+      icon: 'error',
+      title: 'Atenção',
+      text: 'Tente novamente ou contacte a área de suporte',
+      showConfirmButton: true
+    })
+  </script>
+  @endif
 
-@yield('JS')
-
+  @yield('JS')

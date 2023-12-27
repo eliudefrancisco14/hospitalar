@@ -56,7 +56,7 @@
     <section id="contact" class="contact section-bg">
 
       <div class="section-title">
-        <h2><a href="index.html">Logo</a></h2>
+        <h2><a href="{{ url('/') }}"><img width="200px" src="/site/assets/img/logo.png" alt=""></a></h2>
       </div>
 
       <div class="container login">

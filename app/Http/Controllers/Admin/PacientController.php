@@ -136,15 +136,16 @@ class PacientController extends Controller
         return redirect()->back()->with('msg', 'Eliminado com sucesso');
     }
     public function pdflist(){
+        set_time_limit(120);
         $response['data'] = Pacient::OrderBy('id', 'desc')->get();
-
-        $pdf = PDF::loadview('pdf.pacient.list.index', $response);
-        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+        $pdf = PDF::loadview('pdf.pacient.list.index', ['response'=> $response]);
+        return $pdf->setPaper('A4')->stream('index.pdf');
     }
     public function pdfshow($id){
+        set_time_limit(120);
         $response['data'] = Pacient::Where('id',$id)->get();
 
-        $pdf = PDF::loadview('pdf.pacient.list.index', $response);
-        return $pdf->setPaper('a4', 'landscape')->stream('pdf', ['Attachment' => 0]);
+        $pdf = PDF::loadview('pdf.consult.index', ['response'=> $response]);
+        return $pdf->setPaper('A4')->stream('index.pdf');
     }
 }

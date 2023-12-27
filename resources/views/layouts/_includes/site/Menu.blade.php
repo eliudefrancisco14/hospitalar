@@ -2,7 +2,7 @@
   <header id="header" class="d-flex">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="{{ url('/') }}"><img src="/site/assets/img/logo_branco_.svg" alt=""></a></h1>
+      <h1 class="logo me-auto"><a href="{{ url('/') }}"><img src="/site/assets/img/logo.png" alt=""></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="{{ url('/') }}" class="logo me-auto"><img src="/site/assets/img/logo.png" alt="" class="img-fluid"></a>-->
 

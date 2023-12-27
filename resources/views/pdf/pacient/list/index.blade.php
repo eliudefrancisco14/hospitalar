@@ -41,9 +41,8 @@
 <body>
     <header class="header">
         <div class="img">
-            <img src="{{ asset('site/assets/img/logo_branco_.svg') }}" alt="">
+            <img src="{{ asset('site/assets/img/logo.png') }}" alt="">
         </div>
-        <div class="text-center">REPÚBLICA DE ANGOLA</div>
         <div class="text-center">ASSISTENTE VIRTUAL</div>
         <div class="text-center">LISTA DE PACIENTES</div>
     </header>
@@ -51,7 +50,7 @@
 
     <main>
         <div class="main">
-            @if ($data->count() <= 0)
+            @if ($response['data']->count() <= 0)
                 <hr>
                 <div class="text-center"> Não Existe nenhum Paciente registrado </div>
             @else
@@ -70,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)
+                        @foreach ($response['data'] as $item)
                         <tr class="text-center text-dark">
                             <th scope="row">{{ $loop->index + 1 }}</th>
                             <td>{{ $item->nomeCompleto }}</td>
