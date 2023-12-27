@@ -81,9 +81,7 @@
                 <div class="col-md-12 form-group mt-2">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Palavra-Passe</label>
-                    <a href="forgot-password">
-                      <small>Esqueceu a Palavra-Passe?</small>
-                    </a>
+                    
                   </div>
                   <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" required>
                 </div>

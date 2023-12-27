@@ -9,8 +9,8 @@
             <h2><a href="{{ url('/') }}"><img width="200px" src="/site/assets/img/logo.png" alt=""></a></h2>
             <p>
               Localização <br><br>
-              <strong>Phone:</strong> +244 999 999 999<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Phone:</strong> 928 703 269 / 929 124 669<br>
+              <strong>Email:</strong> assistentehospitalar123@gmail.com <br>
             </p>
           </div>
 
