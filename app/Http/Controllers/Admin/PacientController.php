@@ -83,7 +83,7 @@ class PacientController extends Controller
     {
         $response['data'] = Pacient::find($id);
         $this->Logger->log('info', 'Entrou em Editar paciente de id: '.$id);
-        return view('admin.pacient.create.index', $response);
+        return view('admin.pacient.edit.index', $response);
     }
     public function update(Request $request, $id)
     {
@@ -127,7 +127,7 @@ class PacientController extends Controller
 
         Pacient::find($id)->update($data);
             
-        return redirect()->route('pdf.consult.index',$data["nBI"])->with('create', '1');
+        return redirect()->back()->with('edit', '1');
     }
     public function destroy($id)
     {
@@ -140,12 +140,15 @@ class PacientController extends Controller
         $response['data'] = Pacient::OrderBy('id', 'desc')->get();
         $pdf = PDF::loadview('pdf.pacient.list.index', ['response'=> $response]);
         return $pdf->setPaper('A4')->stream('index.pdf');
+
+        
     }
     public function pdfshow($id){
         set_time_limit(120);
-        $response['data'] = Pacient::Where('id',$id)->get();
+        $response['data'] = Pacient::Where('id',$id)->first();
 
-        $pdf = PDF::loadview('pdf.consult.index', ['response'=> $response]);
+        $pdf = PDF::loadview('pdf.pacient.show.index', ['response'=> $response]);
         return $pdf->setPaper('A4')->stream('index.pdf');
+
     }
 }

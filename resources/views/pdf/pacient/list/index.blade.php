@@ -2,6 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Favicons -->
+    <link href="/site/assets/img/favicon.png" rel="icon">
+    <link href="/site/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <meta charset="UTF-8">
     <link href="/assets_dash/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -14,6 +18,7 @@
             background: #ffffff;
             color: #1d1d1d;
         }
+
         table {
             font-family: arial, sans-serif;
             border-collapse: collapse;
@@ -41,8 +46,9 @@
 <body>
     <header class="header">
         <div class="img">
-            <img src="{{ asset('site/assets/img/logo.png') }}" alt="">
+            <img style="max-height: 40px;" src="site/assets/img/logo.png" alt="logo">
         </div>
+        <br>
         <div class="text-center">ASSISTENTE VIRTUAL</div>
         <div class="text-center">LISTA DE PACIENTES</div>
     </header>
@@ -65,22 +71,22 @@
                             <th scope="col">Morada</th>
                             <th scope="col">Medicação</th>
                             <th scope="col">Gravidade</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($response['data'] as $item)
-                        <tr class="text-center text-dark">
-                            <th scope="row">{{ $loop->index + 1 }}</th>
-                            <td>{{ $item->nomeCompleto }}</td>
-                            <td>{{ $item->dataNascimento }}</td>
-                            <td>{{ $item->peso }}</td>
-                            <td>{{ $item->altura }}</td>
-                            <td>{{ $item->morada }}</td>
-                            <td>{{ $item->medicacao }}</td>
-                            <td>{{ $item->gravidade }}</td>
+                            <tr class="text-center text-dark">
+                                <th scope="row">{{ $loop->index + 1 }}</th>
+                                <td>{{ $item->nomeCompleto }}</td>
+                                <td>{{ $item->dataNascimento }}</td>
+                                <td>{{ $item->peso }}</td>
+                                <td>{{ $item->altura }}</td>
+                                <td>{{ $item->morada }}</td>
+                                <td>{{ $item->medicacao }}</td>
+                                <td>{{ $item->gravidade }}</td>
 
-                        </tr>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

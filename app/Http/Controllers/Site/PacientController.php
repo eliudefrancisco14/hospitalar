@@ -56,6 +56,8 @@ class PacientController extends Controller
         $data["sintomas"] = json_encode($request->input('sintomas'));
         $data["historico"] = json_encode($request->input('historico'));
         $data["condicoesMedicas"] = json_encode($request->input('condicoesMedicas'));
+
+        $data["consulted"] = false;
         
         Pacient::create($data);
         

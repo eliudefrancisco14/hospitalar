@@ -19,7 +19,18 @@
 
                             <div class="card row align-items-center">
                                 <div class="card-body">
-                                    <h3>Nome do Paciente: "{{ $data->nomeCompleto }}"</h3>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 text-start">
+                                            <h3>Nome do Paciente: "{{ $data->nomeCompleto }}"</h3>
+                                        </div>
+                                        <div class="col-md-6 text-end">
+                                            <a class="btn btn-primary btn-md mb-2 text-white" target="_blank"
+                                                href="{{ url("admin/pacient/pdf/show/$data->id") }}">
+                                                <i class="fa fa-print fa-pdf"></i> Imprimir
+                                            </a>
+
+                                        </div>
+                                    </div>
                                     <hr>
                                     <div class="row mt-4">
                                         <div class="col-md-3 mb-2">
@@ -62,7 +73,8 @@
                                             <h5 class="mb-1">
                                                 <b>Sintomas</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ implode(', ', json_decode($data->sintomas)) }}</p>
+                                            <p class="text-dark text-justify">
+                                                {{ implode(', ', json_decode($data->sintomas)) }}</p>
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
@@ -74,13 +86,15 @@
                                             <h5 class="mb-1">
                                                 <b>Histórico Médico</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ implode(', ', json_decode($data->historico)) }}</p>
+                                            <p class="text-dark text-justify">
+                                                {{ implode(', ', json_decode($data->historico)) }}</p>
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
                                                 <b>Condições Médicas</b>
                                             </h5>
-                                            <p class="text-dark text-justify">{{ implode(', ', json_decode($data->condicoesMedicas)) }}</p>
+                                            <p class="text-dark text-justify">
+                                                {{ implode(', ', json_decode($data->condicoesMedicas)) }}</p>
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
@@ -88,8 +102,8 @@
                                             </h5>
                                             <p class="text-dark text-justify">{{ $data->doencasCronicas }}</p>
                                         </div>
-                                        
-                                        
+
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 mb-2">

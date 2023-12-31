@@ -30,9 +30,11 @@
         </li>
 
 
+        @if (Auth::user()->level == "Administrador")
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Utilizadores</span>
         </li>
+
 
         <li class="menu-item py-1">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -52,7 +54,7 @@
                 </li>
             </ul>
         </li>
-
+        @endif
         {{--  Paciente  --}}
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Sistema</span>

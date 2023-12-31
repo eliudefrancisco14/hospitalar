@@ -27,15 +27,14 @@ Route::middleware(['auth'])->group(function () {
   Route::middleware(['Administrador'])->group(function () {
 
     /* User */
-    Route::get('admin/user/index', ['as' => 'admin.user.index', 'uses' => 'Admin\UserController@index'])->withoutMiddleware(['Administrador']);
-    Route::get('admin/user/create', ['as' => 'admin.user.create', 'uses' => 'Admin\UserController@create'])->withoutMiddleware(['Administrador']);
-    Route::post('admin/user/store', ['as' => 'admin.user.store', 'uses' => 'Admin\UserController@store'])->withoutMiddleware(['Administrador']);
-    Route::get('admin/user/show/{id}', ['as' => 'admin.user.show', 'uses' => 'Admin\UserController@show'])->withoutMiddleware(['Administrador']);
-    Route::get('admin/user/edit/{id}', ['as' => 'admin.user.edit', 'uses' => 'Admin\UserController@edit'])->withoutMiddleware(['Administrador']);
-    Route::put('admin/user/update/{id}', ['as' => 'admin.user.update', 'uses' => 'Admin\UserController@update'])->withoutMiddleware(['Administrador']);
-    Route::get('admin/user/edits/{id}', ['as' => 'admin.user.edits', 'uses' => 'Admin\UserController@edits'])->withoutMiddleware(['Administrador']);
-    Route::put('admin/user/updates/{id}', ['as' => 'admin.user.updates', 'uses' => 'Admin\UserController@updates'])->withoutMiddleware(['Administrador']);
-    Route::get('admin/user/delete/{id}', ['as' => 'admin.user.delete', 'uses' => 'Admin\UserController@destroy'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/user/index', ['as' => 'admin.user.index', 'uses' => 'Admin\UserController@index']);
+    Route::get('admin/user/create', ['as' => 'admin.user.create', 'uses' => 'Admin\UserController@create']);
+    Route::post('admin/user/store', ['as' => 'admin.user.store', 'uses' => 'Admin\UserController@store']);
+    
+    Route::put('admin/user/update/{id}', ['as' => 'admin.user.update', 'uses' => 'Admin\UserController@update']);
+    Route::get('admin/user/edits/{id}', ['as' => 'admin.user.edits', 'uses' => 'Admin\UserController@edits']);
+    Route::put('admin/user/updates/{id}', ['as' => 'admin.user.updates', 'uses' => 'Admin\UserController@updates']);
+    Route::get('admin/user/delete/{id}', ['as' => 'admin.user.delete', 'uses' => 'Admin\UserController@destroy']);
     Route::get('admin/user/userSearch', ['as' => 'admin.user.userSearch', 'uses' => 'Admin\UserController@search']);
     Route::get('admin/signup/logs', ['as' => 'admin.signup.log', 'uses' => 'Admin\CredencialController@log']);
     /* end */
@@ -43,19 +42,24 @@ Route::middleware(['auth'])->group(function () {
     
     Route::middleware(['Editor'])->group(function () {
 
+      /* User */
+
+      Route::get('admin/user/show/{id}', ['as' => 'admin.user.show', 'uses' => 'Admin\UserController@show'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/user/edit/{id}', ['as' => 'admin.user.edit', 'uses' => 'Admin\UserController@edit'])->withoutMiddleware(['Administrador']);
+
     /* pacient */
-    Route::get('admin/pacient/index', ['as' => 'admin.pacient.index', 'uses' => 'Admin\PacientController@index']);
-    Route::get('admin/pacient/show/{id}', ['as' => 'admin.pacient.show', 'uses' => 'Admin\PacientController@show']);
-    Route::get('admin/pacient/create', ['as' => 'admin.pacient.create', 'uses' => 'Admin\PacientController@create']);
-    Route::post('admin/pacient/store', ['as' => 'admin.pacient.store', 'uses' => 'Admin\PacientController@store']);
+    Route::get('admin/pacient/index', ['as' => 'admin.pacient.index', 'uses' => 'Admin\PacientController@index'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/pacient/show/{id}', ['as' => 'admin.pacient.show', 'uses' => 'Admin\PacientController@show'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/pacient/create', ['as' => 'admin.pacient.create', 'uses' => 'Admin\PacientController@create'])->withoutMiddleware(['Administrador']);
+    Route::post('admin/pacient/store', ['as' => 'admin.pacient.store', 'uses' => 'Admin\PacientController@store'])->withoutMiddleware(['Administrador']);
     
-    Route::get('admin/pacient/edit/{id}', ['as' => 'admin.pacient.edit', 'uses' => 'Admin\PacientController@edit']);
-    Route::put('admin/pacient/update/{id}', ['as' => 'admin.pacient.update', 'uses' => 'Admin\PacientController@update']);
-    Route::get('admin/pacient/delete/{id}', ['as' => 'admin.pacient.delete', 'uses' => 'Admin\PacientController@destroy']);
+    Route::get('admin/pacient/edit/{id}', ['as' => 'admin.pacient.edit', 'uses' => 'Admin\PacientController@edit'])->withoutMiddleware(['Administrador']);
+    Route::put('admin/pacient/update/{id}', ['as' => 'admin.pacient.update', 'uses' => 'Admin\PacientController@update'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/pacient/delete/{id}', ['as' => 'admin.pacient.delete', 'uses' => 'Admin\PacientController@destroy'])->withoutMiddleware(['Administrador']);
 
     /** Pdf */
-    Route::get('admin/pacient/pdf/list', ['as' => 'admin.pacient.pdf.list', 'uses' => 'Admin\PacientController@pdflist']);
-    Route::get('admin/pacient/pdf/show/{id}', ['as' => 'admin.pacient.pdf.show', 'uses' => 'Admin\PacientController@pdfshow']);
+    Route::get('admin/pacient/pdf/list', ['as' => 'admin.pacient.pdf.list', 'uses' => 'Admin\PacientController@pdflist'])->withoutMiddleware(['Administrador']);
+    Route::get('admin/pacient/pdf/show/{id}', ['as' => 'admin.pacient.pdf.show', 'uses' => 'Admin\PacientController@pdfshow'])->withoutMiddleware(['Administrador']);
     /* end */
   });
   });

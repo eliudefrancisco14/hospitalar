@@ -31,6 +31,8 @@ class CreatePacientsTable extends Migration
             $table->json('condicoesMedicas');
             $table->string('doencasCronicas');
 
+            $table->boolean('consulted');
+
             $table->timestamps();
             $table->softDeletes();
         });

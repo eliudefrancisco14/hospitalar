@@ -9,7 +9,7 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="{{ url('/') }}">Home</a></li>
-          <li><a class="nav-link scrollto" href="{{ url('/#about') }}">Sobre Nós</a></li>
+          <li><a class="nav-link scrollto" href="{{ url('/#about') }}">Sobre o STR</a></li>
           <li><a class="nav-link scrollto" href="{{ url('/#services') }}">Serviços</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
