@@ -29,8 +29,9 @@
                                             <tr class="text-center">
                                                 <th style="color:#fff">#</th>
                                                 <th style="width: 60%;color:#fff">Nome</th>
-                                                <th style="width: 15%;color:#fff">Data de Nascimento</th>
-                                                <th style="width: 15%;color:#fff">Nº do BI</th>
+                                                <th style="width: 10%;color:#fff">Idade</th>
+                                                <th style="width: 10%;color:#fff">Peso</th>
+                                                <th style="width: 10%;color:#fff">Altura</th>
                                                 <th style="width: 10%;color:#fff">DATA CRIAÇÃO</th>
                                                 <th style="color:#fff">ACÇÕES</th>
                                             </tr>
@@ -42,7 +43,8 @@
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->nomeCompleto }} </td>
                                                     <td>{{ $item->dataNascimento }} </td>
-                                                    <td>{{ $item->nBI }} </td>
+                                                    <td>{{ $item->peso }} </td>
+                                                    <td>{{ $item->altura }} </td>
                                                     <td>{{ $item->created_at }} </td>
                                                     <td>
                                                     

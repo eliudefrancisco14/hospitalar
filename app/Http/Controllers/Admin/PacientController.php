@@ -34,8 +34,7 @@ class PacientController extends Controller
             $request,
             [
                 'nomeCompleto' => 'required', 
-                'dataNascimento' => 'required', 
-                'nBI' => 'required',                
+                'dataNascimento' => 'required|numeric|min:0|max:200', 
                 'peso' => 'required', 
                 'altura' => 'required', 
                 'morada' => 'required', 
@@ -49,8 +48,7 @@ class PacientController extends Controller
             ],
             [
                 'nomeCompleto' => 'Inserir o Nome Completo', 
-                'dataNascimento' => 'Inserir a Data de Nascimento', 
-                'nBI' => 'Inserir o nº de BI', 
+                'dataNascimento' => 'Inserir a Idade', 
                 'peso' => 'Inserir o Peso', 
                 'altura' => 'Inserir a Altura', 
                 'morada' => 'Inserir a Morada', 
@@ -91,8 +89,7 @@ class PacientController extends Controller
             $request,
             [
                 'nomeCompleto' => 'required', 
-                'dataNascimento' => 'required', 
-                'nBI' => 'required',                
+                'dataNascimento' => 'required|numeric|min:0|max:200', 
                 'peso' => 'required', 
                 'altura' => 'required', 
                 'morada' => 'required', 
@@ -106,8 +103,7 @@ class PacientController extends Controller
             ],
             [
                 'nomeCompleto' => 'Inserir o Nome Completo', 
-                'dataNascimento' => 'Inserir a Data de Nascimento', 
-                'nBI' => 'Inserir o nº de BI', 
+                'dataNascimento' => 'Inserir a Idade', 
                 'peso' => 'Inserir o Peso', 
                 'altura' => 'Inserir a Altura', 
                 'morada' => 'Inserir a Morada', 

@@ -29,18 +29,14 @@
                             <x-auth-validation-errors class="mb-4 alert alert-danger" :errors="$errors" />
 
                             <div class="row">
-                                <div class="col-md-4 form-group mt-3 mt-md-0">
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="nomeCompleto">Nome Completo:</label>
                                     <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto"
                                         value="{{ old('nomeCompleto') }}" required>
                                 </div>
-                                <div class="col-md-4 form-group mt-3 mt-md-0">
-                                    <label for="nBI">Nº do BI:</label>
-                                    <input type="text" class="form-control" id="nBI" name="nBI"
-                                        value="{{ old('nBI') }}" required>
-                                </div>
+                                
 
-                                <div class="col-md-4 form-group">
+                                <div class="col-md-6 form-group">
                                     <label for="morada">Morada:</label>
                                     <input type="text" class="form-control" id="morada" name="morada"
                                         value="{{ old('morada') }}" required>
@@ -49,19 +45,19 @@
 
                             <div class="row">
                                 <div class="col-md-4 form-group">
-                                    <label for="dataNascimento">Data de Nascimento:</label>
-                                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                                    <label for="dataNascimento">Idade:</label>
+                                    <input type="number" class="form-control" id="dataNascimento" name="dataNascimento"
                                         value="{{ old('dataNascimento') }}" required>
                                 </div>
                                 <div class="col-md-4 form-group">
                                     <label for="peso">Peso:</label>
-                                    <input type="text" class="form-control" id="peso" value="{{ old('peso') }}"
+                                    <input type="number" step="0.01" class="form-control" id="peso" value="{{ old('peso') }}"
                                         name="peso">
                                 </div>
 
                                 <div class="col-md-4 form-group mt-3 mt-md-0">
                                     <label for="altura">Altura:</label>
-                                    <input type="text" class="form-control" id="altura" value="{{ old('altura') }}"
+                                    <input type="number" step="0.01" class="form-control" id="altura" value="{{ old('altura') }}"
                                         name="altura">
                                 </div>
 

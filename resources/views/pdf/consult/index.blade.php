@@ -77,7 +77,7 @@
                                     <table>
                                         <thead class="bg-primary text-dark">
                                             <tr class="text-center">
-                                                <th style="width: 20%">Data de Nascimento</th>
+                                                <th style="width: 20%">Idade</th>
                                                 <th style="width: 20%">Peso</th>
                                                 <th style="width: 20%">Altura</th>
                                                 <th style="width: 20%">Morada</th>

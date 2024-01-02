@@ -16,10 +16,9 @@ class CreatePacientsTable extends Migration
         Schema::create('pacients', function (Blueprint $table) {
             $table->id();
             $table->string('nomeCompleto');
-            $table->string('nBI');
-            $table->date('dataNascimento');
-            $table->string('peso');
-            $table->string('altura');
+            $table->integer('dataNascimento');
+            $table->float('peso', 8, 2);
+            $table->float('altura', 8, 2);
             $table->string('morada');
             $table->longText('maisInformacoes');
 

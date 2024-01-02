@@ -22,8 +22,7 @@ class PacientController extends Controller
             $request,
             [
                 'nomeCompleto' => 'required', 
-                'dataNascimento' => 'required', 
-                'nBI' => 'required',                
+                'dataNascimento' => 'required|numeric|min:0|max:200', 
                 'peso' => 'required', 
                 'altura' => 'required', 
                 'morada' => 'required', 
@@ -37,8 +36,7 @@ class PacientController extends Controller
             ],
             [
                 'nomeCompleto' => 'Inserir o Nome Completo', 
-                'dataNascimento' => 'Inserir a Data de Nascimento', 
-                'nBI' => 'Inserir o nº de BI', 
+                'dataNascimento' => 'Inserir a Idade', 
                 'peso' => 'Inserir o Peso', 
                 'altura' => 'Inserir a Altura', 
                 'morada' => 'Inserir a Morada', 
@@ -59,9 +57,9 @@ class PacientController extends Controller
 
         $data["consulted"] = false;
         
-        Pacient::create($data);
+        $paciente = Pacient::create($data);
         
-        $response['data'] = Pacient::Where('nBI',$data["nBI"])->first();
+        $response['data'] = Pacient::Where('id',$paciente->id)->first();
 
         $pdf = PDF::loadview('pdf.consult.index',['response'=> $response]);
         return $pdf->setPaper('A4')->stream('index.pdf');

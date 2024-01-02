@@ -65,7 +65,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th class="text-left" scope="col">Nome Completo</th>
-                            <th class="text-left" scope="col">Data de Nascimento</th>
+                            <th class="text-left" scope="col">Idade</th>
                             <th scope="col">Peso</th>
                             <th scope="col">Altura</th>
                             <th scope="col">Morada</th>

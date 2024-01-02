@@ -41,12 +41,6 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
-                                                <b>Nº do BI</b>
-                                            </h5>
-                                            <p class="text-dark text-justify">{{ $data->nBI }}</p>
-                                        </div>
-                                        <div class="col-md-3 mb-2">
-                                            <h5 class="mb-1">
                                                 <b>Peso</b>
                                             </h5>
                                             <p class="text-dark text-justify">{{ $data->peso }}</p>
