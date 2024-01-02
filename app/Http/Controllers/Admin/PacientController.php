@@ -93,7 +93,6 @@ class PacientController extends Controller
                 'peso' => 'required', 
                 'altura' => 'required', 
                 'morada' => 'required', 
-                'maisInformacoes' => 'required', 
                 'medicacao' => 'required', 
                 'gravidade' => 'required', 
                 'sintomas' => 'required', 
@@ -107,7 +106,6 @@ class PacientController extends Controller
                 'peso' => 'Inserir o Peso', 
                 'altura' => 'Inserir a Altura', 
                 'morada' => 'Inserir a Morada', 
-                'maisInformacoes' => 'Inserir Informações Adicionais', 
                 'medicacao' => 'Inserir a Medicação', 
                 'gravidade' => 'Inserir o Estado de Gravidade', 
                 'sintomas' => 'Inserir os Sintomas', 
@@ -120,6 +118,7 @@ class PacientController extends Controller
         $data["sintomas"] = json_encode($request->input('sintomas'));
         $data["historico"] = json_encode($request->input('historico'));
         $data["condicoesMedicas"] = json_encode($request->input('condicoesMedicas'));
+        $data["maisInformacoes"] = $request->input('maisInformacoes');
 
         Pacient::find($id)->update($data);
             

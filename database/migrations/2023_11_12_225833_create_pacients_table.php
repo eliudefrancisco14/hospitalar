@@ -20,7 +20,7 @@ class CreatePacientsTable extends Migration
             $table->float('peso', 8, 2);
             $table->float('altura', 8, 2);
             $table->string('morada');
-            $table->longText('maisInformacoes');
+            $table->longText('maisInformacoes')->nullable()->default('Sem informações');
 
             $table->enum('medicacao', ['Sim', 'Não']);
             $table->enum('gravidade', ['Leve', 'Médio', 'Grave']);
