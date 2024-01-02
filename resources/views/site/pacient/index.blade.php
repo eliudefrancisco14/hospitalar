@@ -30,14 +30,14 @@
 
                             <div class="row">
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                                    <label for="nomeCompleto">Nome Completo:</label>
+                                    <label for="nomeCompleto"> <b> Nome Completo:</b></label>
                                     <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto"
                                         value="{{ old('nomeCompleto') }}" required>
                                 </div>
                                 
 
                                 <div class="col-md-6 form-group">
-                                    <label for="morada">Morada:</label>
+                                    <label for="morada"> <b> Morada:</b></label>
                                     <input type="text" class="form-control" id="morada" name="morada"
                                         value="{{ old('morada') }}" required>
                                 </div>
@@ -45,18 +45,18 @@
 
                             <div class="row">
                                 <div class="col-md-4 form-group">
-                                    <label for="dataNascimento">Idade:</label>
+                                    <label for="dataNascimento"> <b> Idade:</b></label>
                                     <input type="number" class="form-control" id="dataNascimento" name="dataNascimento"
                                         value="{{ old('dataNascimento') }}" required>
                                 </div>
                                 <div class="col-md-4 form-group">
-                                    <label for="peso">Peso:</label>
+                                    <label for="peso"> <b> Peso:</b></label>
                                     <input type="number" step="0.01" class="form-control" id="peso" value="{{ old('peso') }}"
                                         name="peso">
                                 </div>
 
                                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                                    <label for="altura">Altura:</label>
+                                    <label for="altura"> <b> Altura:</b></label>
                                     <input type="number" step="0.01" class="form-control" id="altura" value="{{ old('altura') }}"
                                         name="altura">
                                 </div>
@@ -69,7 +69,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <label>Sintomas:</label>
+                                    <label> <b> Sintomas:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="tosse" name="sintomas[]"
                                             value="Tosse">
@@ -149,7 +149,7 @@
 
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label>Histórico:</label>
+                                    <label> <b> Histórico:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="malaria"
                                             name="historico[]" value="Malaria">
@@ -201,7 +201,7 @@
                                 <br>
                                 <!-- Checkbox: Condições Médicas -->
                                 <div class="col-md-6 form-group">
-                                    <label>Condições Médicas:</label>
+                                    <label> <b> Condições Médicas:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="fezesClaras"
                                             name="condicoesMedicas[]" value="Fezes Claras">
@@ -258,7 +258,7 @@
                             <div class="row mt-3">
                                 <!-- Select: Está sob alguma medicação? -->
                                 <div class="col-md-6 form-group">
-                                    <label for="medicacao">Está sob alguma medicação?</label>
+                                    <label for="medicacao"> <b> Está sob alguma medicação?</b></label>
                                     <select class="form-control" id="medicacao" name="medicacao">
                                         <option value="Sim">Sim</option>
                                         <option value="Não">Não</option>
@@ -267,7 +267,7 @@
 
                                 <!-- Select: Gravidade dos Sintomas -->
                                 <div class="col-md-6 form-group">
-                                    <label for="gravidade">Gravidade dos Sintomas:</label>
+                                    <label for="gravidade"> <b> Gravidade dos Sintomas:</b></label>
                                     <select class="form-control" id="gravidade" name="gravidade">
                                         <option value="Leve">Leve</option>
                                         <option value="Médio">Médio</option>
@@ -279,7 +279,7 @@
 
                             <!-- Select: Doenças Crônicas -->
                             <div class="form-group mt-3">
-                                <label for="doencasCronicas">Doenças Crônicas:</label>
+                                <label for="doencasCronicas"> <b> Doenças Crônicas:</b></label>
                                 <select class="form-control" id="doencasCronicas" name="doencasCronicas" multiple>
                                     <option value="Nenhuma" selected>Nenhuma</option>
                                     <option value="Diabetes Mellitus">Diabetes Mellitus</option>
@@ -301,7 +301,7 @@
 
                             <!-- Textarea: Mais Informações -->
                             <div class="form-group mt-3">
-                                <label for="maisInformacoes">Mais Informações:</label>
+                                <label for="maisInformacoes"> <b> Mais Informações:</b></label>
                                 <textarea class="form-control" id="maisInformacoes" name="maisInformacoes" rows="8">{{ old('maisInformacoes') }}</textarea>
                             </div>
 

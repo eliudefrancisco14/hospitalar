@@ -13,35 +13,30 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4 form-group mt-3 mt-md-0">
-                                    <label for="nomeCompleto">Nome Completo:</label>
+                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                                    <label for="nomeCompleto"> <b> Nome Completo:</b></label>
                                     <input type="text" class="form-control" id="nomeCompleto" name="nomeCompleto"
                                         required value="{{ isset($data->nomeCompleto) ? $data->nomeCompleto : old('nomeCompleto') }}">
                                 </div>
-                                <div class="col-md-4 form-group mt-3 mt-md-0">
-                                    <label for="nBI">Nº do BI:</label>
-                                    <input type="text" class="form-control" id="nBI" name="nBI"
-                                    value="{{ isset($data->nBI) ? $data->nBI : old('nBI') }}" required>
-                                </div>
-                                <div class="col-md-4 form-group">
-                                    <label for="dataNascimento">Data de Nascimento:</label>
+                                <div class="col-md-6 form-group">
+                                    <label for="dataNascimento"> <b> Data de Nascimento:</b></label>
                                     <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
                                         required
                                         value="{{ isset($data->dataNascimento) ? $data->dataNascimento : old('dataNascimento') }}">
                                 </div>
                                 <div class="col-md-4 form-group">
-                                    <label for="morada">Morada:</label>
+                                    <label for="morada"> <b> Morada:</b></label>
                                     <input type="text" class="form-control" id="morada" name="morada" required
                                         value="{{ isset($data->morada) ? $data->morada : old('morada') }}">
                                 </div>
                                 <div class="col-md-4 form-group">
-                                    <label for="peso">Peso:</label>
+                                    <label for="peso"> <b> Peso:</b></label>
                                     <input type="text" class="form-control" id="peso" name="peso"
                                         value="{{ isset($data->peso) ? $data->peso : old('peso') }}">
                                 </div>
 
                                 <div class="col-md-4 form-group mt-3 mt-md-0">
-                                    <label for="altura">Altura:</label>
+                                    <label for="altura"> <b> Altura:</b></label>
                                     <input type="text" class="form-control" id="altura" name="altura"
                                         value="{{ isset($data->altura) ? $data->altura : old('altura') }}">
                                 </div>
@@ -54,7 +49,7 @@
 
                             <div class="row">
                                 <div class="col-md-6 form-group">
-                                    <label>Sintomas:</label>
+                                    <label style="font-weight: bold"><b> Sintomas:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="tosse" name="sintomas[]"
                                             value="Tosse">
@@ -134,7 +129,7 @@
 
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label>Histórico:</label>
+                                    <label><b>Histórico:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="malaria"
                                             name="historico[]" value="Malaria">
@@ -189,7 +184,7 @@
 
                                 <!-- Checkbox: Condições Médicas -->
                                 <div class="col-md-6 form-group">
-                                    <label>Condições Médicas:</label>
+                                    <label><b>Condições Médicas:</b></label>
                                     <div class="form-check">
                                         <input type="checkbox" class="form-check-input" id="fezesClaras"
                                             name="condicoesMedicas[]" value="Fezes Claras">
@@ -247,7 +242,7 @@
                             <div class="row mt-3">
                                 <!-- Select: Está sob alguma medicação? -->
                                 <div class="col-md-6 form-group">
-                                    <label for="medicacao">Está sob alguma medicação?</label>
+                                    <label for="medicacao"><b>Está sob alguma medicação?</b></label>
                                     <select class="form-control" id="medicacao" name="medicacao">
                                         <option value="Sim" {{ isset($data->medicacao) && $data->medicacao == "Sim" ? 'selected' : '' }}>Sim</option>
                                         <option value="Não" {{ isset($data->medicacao) && $data->medicacao == "Não" ? 'selected' : '' }}>Não</option>
@@ -256,7 +251,7 @@
 
                                 <!-- Select: Gravidade dos Sintomas -->
                                 <div class="col-md-6 form-group">
-                                    <label for="gravidade">Gravidade dos Sintomas:</label>
+                                    <label for="gravidade"><b>Gravidade dos Sintomas:</b></label>
                                     <select class="form-control" id="gravidade" name="gravidade">
                                         <option value="Leve" {{ isset($data->gravidade) && $data->gravidade == "Leve" ? 'selected' : '' }}>Leve</option>
                                         <option value="Médio" {{ isset($data->gravidade) && $data->gravidade == "Médio" ? 'selected' : '' }}>Médio</option>
@@ -268,7 +263,7 @@
 
                             <!-- Select: Doenças Crônicas -->
                             <div class="form-group mt-3">
-                                <label for="doencasCronicas">Doenças Crônicas:</label>
+                                <label for="doencasCronicas"><b>Doenças Crônicas:</b></label>
                                 <select class="form-control" id="doencasCronicas" name="doencasCronicas" multiple>
                                     <option value="Nenhuma" selected>Nenhuma</option>
                                     <option value="Diabetes Mellitus">Diabetes Mellitus</option>
@@ -290,7 +285,7 @@
 
                             <!-- Textarea: Mais Informações -->
                             <div class="form-group mt-3">
-                                <label for="maisInformacoes">Mais Informações:</label>
+                                <label for="maisInformacoes"><b>Mais Informações:</b></label>
                                 <textarea class="form-control" id="maisInformacoes" name="maisInformacoes" rows="8">{{ isset($data->maisInformacoes) ? $data->maisInformacoes : old('maisInformacoes') }}</textarea>
                             </div>
 
