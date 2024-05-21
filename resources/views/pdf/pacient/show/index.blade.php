@@ -81,6 +81,7 @@
                                                 <th style="width: 20%">Peso</th>
                                                 <th style="width: 20%">Altura</th>
                                                 <th style="width: 20%">Temperatura</th>
+                                                <th style="width: 20%">Oxidação</th>
                                                 <th style="width: 20%">Batimentos Cardíacos</th>
                                                 <th style="width: 20%">Morada</th>
                                                 <th style="width: 20%">Medicação</th>
@@ -91,9 +92,18 @@
                                             <tr>
                                                 <td>{{ $response['data']->dataNascimento }}</td>
                                                 <td>{{ $response['data']->peso }}</td>
-                                                <td>{{ $response['data']->altura }}</td>
-                                                <td>{{ $response['data']->temperatura }}</td>
-                                                <td>{{ $response['data']->batimento }}</td>
+                                                @isset($response['leitura'])
+                                                <td>{{ $response['leitura']->altura }}</td>
+                                                <td>{{ $response['leitura']->temperatura }}</td>
+                                                <td>{{ $response['leitura']->oxidacao }}</td>
+                                                <td>{{ $response['leitura']->batimento }}</td>
+                                                 
+                                                @else
+                                                <td>0.0</td>
+                                                <td>0.0</td>
+                                                <td>0.0</td>
+                                                <td>0</td>
+                                                @endisset
                                                 <td>{{ $response['data']->morada }}</td>
                                                 <td>{{ $response['data']->medicacao }}</td>
                                             </tr>

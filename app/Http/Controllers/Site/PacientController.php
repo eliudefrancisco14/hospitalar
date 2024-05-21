@@ -24,9 +24,6 @@ class PacientController extends Controller
                 'nomeCompleto' => 'required', 
                 'dataNascimento' => 'required|numeric|min:0|max:200', 
                 'peso' => 'required', 
-                'altura' => 'required', 
-                'temperatura' => 'required',
-                'batimento' => 'required',
                 'morada' => 'required', 
                 'medicacao' => 'required', 
                 'gravidade' => 'required', 
@@ -39,9 +36,6 @@ class PacientController extends Controller
                 'nomeCompleto' => 'Inserir o Nome Completo', 
                 'dataNascimento' => 'Inserir a Idade', 
                 'peso' => 'Inserir o Peso', 
-                'altura' => 'Inserir a Altura', 
-                'temperatura' => 'Inserir a Temperatura',
-                'batimento' => 'Inserir o Batimento Cardíaco',
                 'morada' => 'Inserir a Morada', 
                 'medicacao' => 'Inserir a Medicação', 
                 'gravidade' => 'Inserir o Estado de Gravidade', 
@@ -57,11 +51,6 @@ class PacientController extends Controller
         $data["historico"] = json_encode($request->input('historico'));
         $data["condicoesMedicas"] = json_encode($request->input('condicoesMedicas'));
         $data["maisInformacoes"] = $request->input('maisInformacoes');
-        
-        $data["temperatura"] = 0;
-        $data["batimento"] = 0;
-        
-
 
         $data["consulted"] = false;
         

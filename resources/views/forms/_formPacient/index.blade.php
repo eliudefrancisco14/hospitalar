@@ -19,38 +19,20 @@
                                         required value="{{ isset($data->nomeCompleto) ? $data->nomeCompleto : old('nomeCompleto') }}">
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="dataNascimento"> <b> Data de Nascimento:</b></label>
-                                    <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
+                                    <label for="dataNascimento"> <b> Idade:</b></label>
+                                    <input type="number" class="form-control" id="dataNascimento" name="dataNascimento"
                                         required
                                         value="{{ isset($data->dataNascimento) ? $data->dataNascimento : old('dataNascimento') }}">
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for="temperatura"> <b> Temperatura:</b></label>
-                                    <input type="date" class="form-control" id="temperatura" name="temperatura"
-                                        required
-                                        value="{{ isset($data->temperatura) ? $data->temperatura : old('temperatura') }}">
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <label for="batimento"> <b> Batimento cardíacos:</b></label>
-                                    <input type="date" class="form-control" id="batimento" name="batimento"
-                                        required
-                                        value="{{ isset($data->batimento) ? $data->batimento : old('batimento') }}">
-                                </div>
-                                <div class="col-md-4 form-group">
                                     <label for="morada"> <b> Morada:</b></label>
                                     <input type="text" class="form-control" id="morada" name="morada" required
                                         value="{{ isset($data->morada) ? $data->morada : old('morada') }}">
                                 </div>
-                                <div class="col-md-4 form-group">
+                                <div class="col-md-6 form-group">
                                     <label for="peso"> <b> Peso:</b></label>
                                     <input type="text" class="form-control" id="peso" name="peso"
                                         value="{{ isset($data->peso) ? $data->peso : old('peso') }}">
-                                </div>
-
-                                <div class="col-md-4 form-group mt-3 mt-md-0">
-                                    <label for="altura"> <b> Altura:</b></label>
-                                    <input type="text" class="form-control" id="altura" name="altura"
-                                        value="{{ isset($data->altura) ? $data->altura : old('altura') }}">
                                 </div>
 
                             </div>

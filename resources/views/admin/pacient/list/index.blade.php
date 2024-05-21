@@ -31,7 +31,6 @@
                                                 <th style="width: 60%;color:#fff">Nome</th>
                                                 <th style="width: 10%;color:#fff">Idade</th>
                                                 <th style="width: 10%;color:#fff">Peso</th>
-                                                <th style="width: 10%;color:#fff">Altura</th>
                                                 <th style="width: 10%;color:#fff">DATA CRIAÇÃO</th>
                                                 <th style="color:#fff">ACÇÕES</th>
                                             </tr>
@@ -44,7 +43,6 @@
                                                     <td>{{ $item->nomeCompleto }} </td>
                                                     <td>{{ $item->dataNascimento }} </td>
                                                     <td>{{ $item->peso }} </td>
-                                                    <td>{{ $item->altura }} </td>
                                                     <td>{{ $item->created_at }} </td>
                                                     <td>
                                                     

@@ -45,35 +45,17 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4 form-group mb-2">
+                                <div class="col-md-6 form-group mb-2">
                                     <label for="dataNascimento"> <b> Idade: <span style="color: red">*</span></b></label>
                                     <input type="number" class="form-control" id="dataNascimento" name="dataNascimento"
                                         placeholder="Informe a sua Idade " value="{{ old('dataNascimento') }}" required>
                                 </div>
-                                <div class="col-md-4 form-group mb-2">
+                                <div class="col-md-6 form-group mb-2">
                                     <label for="peso"> <b> Peso: <span style="color: red">*</span></b></label>
                                     <input type="number" step="0.01" class="form-control" id="peso"
                                         value="{{ old('peso') }}" placeholder="Informe o seu Peso" name="peso">
                                 </div>
 
-                                <div class="col-md-4 form-group mb-2 mt-3 mt-md-0">
-                                    <label for="altura"> <b> Altura: <span style="color: red">*</span></b></label>
-                                    <input type="number" step="0.01" class="form-control" id="altura"
-                                        value="{{ old('altura') }}" placeholder="Informe a sua Altura" name="altura">
-                                </div>
-
-                                <div class="col-md-6 form-group mb-2 mt-3 mt-md-0">
-                                    <label for="temperatura"> <b> Temperatura: <span style="color: red">*</span></b></label>
-                                    <input type="number" step="0.01" class="form-control" id="temperatura"
-                                        value="{{ old('temperatura') }}" placeholder="Informe a sua Temperatura"
-                                        name="temperatura">
-                                </div>
-                                <div class="col-md-6 form-group mb-2 mt-3 mt-md-0">
-                                    <label for="batimento"> <b> Batimentos Cardíacos: <span
-                                                style="color: red">*</span></b></label>
-                                    <input type="number" class="form-control" id="batimento" value="{{ old('batimento') }}"
-                                        placeholder="Informe o seu Batimentos Cardíacos" name="batimento">
-                                </div>
                             </div>
 
                             <div class="section-title mt-5">
@@ -336,7 +318,7 @@
     </main><!-- End #main -->
 
     @section('JS')
-    <script>
+    {{-- <script>
         $('#temperatura').on('click', function() {
             $.ajax({
                 url: 'api/v1/get/temperatura/' /* + nProcess*/ ,
@@ -369,7 +351,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
     @endsection
 
 @endsection

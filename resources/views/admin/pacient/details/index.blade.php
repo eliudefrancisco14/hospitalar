@@ -47,12 +47,6 @@
                                         </div>
                                         <div class="col-md-3 mb-2">
                                             <h5 class="mb-1">
-                                                <b>Altura</b>
-                                            </h5>
-                                            <p class="text-dark text-justify">{{ $data->altura }}</p>
-                                        </div>
-                                        <div class="col-md-3 mb-2">
-                                            <h5 class="mb-1">
                                                 <b>Morada</b>
                                             </h5>
                                             <p class="text-dark text-justify">{{ $data->morada }}</p>
@@ -124,6 +118,77 @@
                             </div>
                         </div>
 
+                        <div class="col-lg-12 my-2 col-md-12 col-12">
+
+                            <div class="card row align-items-center">
+                                <div class="card-body">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12 text-start">
+                                            <h3>Dados físicos</h3>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    @isset($leitura)
+                                        <div class="row mt-4">
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Temperatura</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">{{ $leitura->temperatura }}</p>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Oxidação</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">{{ $leitura->oxidacao }}</p>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Batimentos Cardíacos</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">{{ $leitura->batimento }}</p>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Altura</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">{{ $leitura->altura }}</p>
+                                            </div>
+
+                                        </div>
+                                    @else
+                                        <div class="row mt-4">
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Temperatura</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">0.0</p>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Oxidação</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">0.0</p>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Batimentos Cardíacos</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">0</p>
+                                            </div>
+                                            <div class="col-md-3 mb-2">
+                                                <h5 class="mb-1">
+                                                    <b>Altura</b>
+                                                </h5>
+                                                <p class="text-dark text-justify">0.0</p>
+                                            </div>
+
+                                        </div>
+                                    @endisset
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
