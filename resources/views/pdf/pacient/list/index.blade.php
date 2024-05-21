@@ -68,6 +68,8 @@
                             <th class="text-left" scope="col">Idade</th>
                             <th scope="col">Peso</th>
                             <th scope="col">Altura</th>
+                            <th scope="col">Temperatura</th>
+                            <th scope="col">Batimentos Cardíacos</th>
                             <th scope="col">Morada</th>
                             <th scope="col">Medicação</th>
                             <th scope="col">Gravidade</th>
@@ -82,6 +84,8 @@
                                 <td>{{ $item->dataNascimento }}</td>
                                 <td>{{ $item->peso }}</td>
                                 <td>{{ $item->altura }}</td>
+                                <td>{{ $item->temperatura }}</td>
+                                <td>{{ $item->batimento }}</td>
                                 <td>{{ $item->morada }}</td>
                                 <td>{{ $item->medicacao }}</td>
                                 <td>{{ $item->gravidade }}</td>

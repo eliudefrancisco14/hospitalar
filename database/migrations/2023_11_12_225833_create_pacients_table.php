@@ -19,6 +19,8 @@ class CreatePacientsTable extends Migration
             $table->integer('dataNascimento');
             $table->float('peso', 8, 2);
             $table->float('altura', 8, 2);
+            $table->float('temperatura', 8, 2)->nullable();
+            $table->integer('batimento')->nullable();
             $table->string('morada');
             $table->longText('maisInformacoes')->nullable()->default('Sem informações');
 

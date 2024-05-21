@@ -24,6 +24,18 @@
                                         required
                                         value="{{ isset($data->dataNascimento) ? $data->dataNascimento : old('dataNascimento') }}">
                                 </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="temperatura"> <b> Temperatura:</b></label>
+                                    <input type="date" class="form-control" id="temperatura" name="temperatura"
+                                        required
+                                        value="{{ isset($data->temperatura) ? $data->temperatura : old('temperatura') }}">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="batimento"> <b> Batimento cardíacos:</b></label>
+                                    <input type="date" class="form-control" id="batimento" name="batimento"
+                                        required
+                                        value="{{ isset($data->batimento) ? $data->batimento : old('batimento') }}">
+                                </div>
                                 <div class="col-md-4 form-group">
                                     <label for="morada"> <b> Morada:</b></label>
                                     <input type="text" class="form-control" id="morada" name="morada" required

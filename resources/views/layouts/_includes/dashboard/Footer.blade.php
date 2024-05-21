@@ -10,6 +10,8 @@
 </footer>
 <!-- / Footer -->
 
+
+
 @if (session('create'))
 <script>
     Swal.fire({
@@ -101,6 +103,9 @@
 <script src="{{ asset('dashboard/assets/vendor/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('dashboard/assets/vendor/js/menu.js') }}"></script>
+
+<script src="/dashboard/assets/js/jquery-3.6.0.min.js"></script>
+<script src="/dashboard/assets/js/jquery-ui.min.js"></script>
 
 <script src="/js/sweetalert2.all.min.js"></script>
 

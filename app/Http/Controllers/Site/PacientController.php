@@ -25,6 +25,8 @@ class PacientController extends Controller
                 'dataNascimento' => 'required|numeric|min:0|max:200', 
                 'peso' => 'required', 
                 'altura' => 'required', 
+                'temperatura' => 'required',
+                'batimento' => 'required',
                 'morada' => 'required', 
                 'medicacao' => 'required', 
                 'gravidade' => 'required', 
@@ -38,6 +40,8 @@ class PacientController extends Controller
                 'dataNascimento' => 'Inserir a Idade', 
                 'peso' => 'Inserir o Peso', 
                 'altura' => 'Inserir a Altura', 
+                'temperatura' => 'Inserir a Temperatura',
+                'batimento' => 'Inserir o Batimento Cardíaco',
                 'morada' => 'Inserir a Morada', 
                 'medicacao' => 'Inserir a Medicação', 
                 'gravidade' => 'Inserir o Estado de Gravidade', 
@@ -54,10 +58,17 @@ class PacientController extends Controller
         $data["condicoesMedicas"] = json_encode($request->input('condicoesMedicas'));
         $data["maisInformacoes"] = $request->input('maisInformacoes');
         
+        $data["temperatura"] = 0;
+        $data["batimento"] = 0;
+        
+
+
         $data["consulted"] = false;
         
         $paciente = Pacient::create($data);
         $response['data'] = Pacient::Where('id',$paciente->id)->first();
+
+        /* Adicionar um redirecionamento _blank para que não abra o pdf na mesma aba */
 
         $pdf = PDF::loadview('pdf.consult.index',['response'=> $response]);
         return $pdf->setPaper('A4')->stream('index.pdf');

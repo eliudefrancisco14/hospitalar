@@ -77,11 +77,13 @@
                                     <table>
                                         <thead class="bg-primary text-dark">
                                             <tr class="text-center">
-                                                <th style="width: 20%">Idade</th>
-                                                <th style="width: 20%">Peso</th>
-                                                <th style="width: 20%">Altura</th>
+                                                <th style="width: 10%">Idade</th>
+                                                <th style="width: 10%">Peso</th>
+                                                <th style="width: 10%">Altura</th>
+                                                <th style="width: 20%">Temperatura</th>
+                                                <th style="width: 20%">Batimentos Cardíacos</th>
                                                 <th style="width: 20%">Morada</th>
-                                                <th style="width: 20%">Medicação</th>
+                                                <th style="width: 10%">Medicação</th>
 
                                             </tr>
                                         </thead>
@@ -90,6 +92,8 @@
                                                 <td>{{ $response['data']->dataNascimento }}</td>
                                                 <td>{{ $response['data']->peso }}</td>
                                                 <td>{{ $response['data']->altura }}</td>
+                                                <td>{{ $response['data']->temperatura }}</td>
+                                                <td>{{ $response['data']->batimento }}</td>
                                                 <td>{{ $response['data']->morada }}</td>
                                                 <td>{{ $response['data']->medicacao }}</td>
                                             </tr>

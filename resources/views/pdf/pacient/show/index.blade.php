@@ -80,6 +80,8 @@
                                                 <th style="width: 20%">Idade</th>
                                                 <th style="width: 20%">Peso</th>
                                                 <th style="width: 20%">Altura</th>
+                                                <th style="width: 20%">Temperatura</th>
+                                                <th style="width: 20%">Batimentos Cardíacos</th>
                                                 <th style="width: 20%">Morada</th>
                                                 <th style="width: 20%">Medicação</th>
 
@@ -90,6 +92,8 @@
                                                 <td>{{ $response['data']->dataNascimento }}</td>
                                                 <td>{{ $response['data']->peso }}</td>
                                                 <td>{{ $response['data']->altura }}</td>
+                                                <td>{{ $response['data']->temperatura }}</td>
+                                                <td>{{ $response['data']->batimento }}</td>
                                                 <td>{{ $response['data']->morada }}</td>
                                                 <td>{{ $response['data']->medicacao }}</td>
                                             </tr>
