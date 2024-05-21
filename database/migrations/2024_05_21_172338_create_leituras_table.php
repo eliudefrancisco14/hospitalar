@@ -19,7 +19,8 @@ class CreateLeiturasTable extends Migration
             $table->float('oxidacao', 8, 2)->nullable();
             $table->integer('batimento')->nullable();
             $table->float('altura', 8, 2)->nullable();
-            $table->foreignId('pacient_id')->constrained('pacients');
+            $table->integer('pacient_id')->default(1);
+
             $table->timestamps();
             $table->softDeletes();
         });
